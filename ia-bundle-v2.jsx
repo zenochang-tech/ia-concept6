@@ -870,7 +870,9 @@ function Nav({ getStartedTone = 'midnight' }) {
   const openMega = (i) => { clearTimeout(closeT.current); setOpen(i); };
   const scheduleClose = () => { clearTimeout(closeT.current); closeT.current = setTimeout(() => setOpen(null), 140); };
   const R = (k, fb) => (window.__resources && window.__resources[k]) || fb;
-  const gsClass = getStartedTone === 'adv' ? 'btn-advertiser' : 'btn-primary';  // Concept 3 leads with the ember CTA
+  // v3.5.2: one primary per viewport (the hero owns it) and zero Ember on Advertiser pages,
+  // so the nav CTA is always secondary. getStartedTone is kept for the call sites.
+  const gsClass = 'btn-secondary';
 
   return (
     <React.Fragment>
@@ -922,7 +924,7 @@ function Nav({ getStartedTone = 'midnight' }) {
             )}
           </div>
           <a href="https://app.involve.asia/v2/login" className="nav-login" style={{ font: '600 14px/1 var(--font-body)', color: 'var(--warm-900)', padding: '8px 4px' }}>Login</a>
-          <a href="#hero" className={`btn ${gsClass}`} style={{ padding: '11px 22px', fontSize: 14 }}>Get Started <span className="arw" style={{ transition: 'transform .2s' }}>→</span></a>
+          <a href="#hero" className={`btn ${gsClass}`} style={{ padding: '11px 22px', fontSize: 14 }}>Get Started <span className="arw">→</span></a>
         </div>
         <button className="nav-burger" aria-label="Open menu" aria-expanded={mobile} onClick={() => setMobile(v => !v)} style={{ display: 'none', background: 'none', border: 'none', cursor: 'pointer', padding: 8, color: 'var(--midnight)', marginLeft: 'auto', zIndex: 2 }}>
           <svg width="26" height="26" viewBox="0 0 24 24"><path d={mobile ? 'M5 5l14 14M19 5L5 19' : 'M4 7h16M4 12h16M4 17h16'} stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
@@ -962,14 +964,13 @@ function Nav({ getStartedTone = 'midnight' }) {
         .nav-desk a{color:var(--warm-600);}
         .nav-desk a:hover, .nav-desk a.is-open{color:var(--warm-900);}
         .nav-login:hover{color:var(--ember);}
+        .nav-on-dark .nav-login:hover{color:var(--ember-light);}
         .btn .arw{display:inline-block;margin-left:6px;}
-        .btn:hover .arw{transform:translateX(3px);}
         /* Mega items — Concept 3 look with real descriptions */
         .mega4-item b{display:block;font-family:var(--font-body);font-weight:700;font-size:15px;color:var(--warm-900);transition:color .2s cubic-bezier(.4,0,.2,1);}
         .mega4-item .d{display:block;font-size:13px;color:var(--warm-400);margin-top:6px;line-height:1.45;}
         .mega4-item:hover b{color:var(--ember);}
         .mega4-feat img{will-change:transform;}
-        .mega4-feat:hover img{transform:scale(1.05);}
         /* Nav over the dark Midnight surface: links + icons go light, in lockstep with the white logo. */
         .nav-on-dark .nav-desk a{color:rgba(255,255,255,.82) !important;}
         .nav-on-dark .nav-desk a:hover, .nav-on-dark .nav-desk a.is-open{color:#fff !important;}
@@ -1452,7 +1453,7 @@ function TrustStrip() {
   const rows = Array.from({ length: LOGO_ROWS }, (_, i) => LOGOS.slice(i * per, i * per + per));
   return (
     <section ref={secRef} id="trust" className="trust-handoff" style={{ background: 'var(--warm-50)', padding: 'clamp(32px,4vh,52px) 0 96px', marginTop: 0, position: 'relative', zIndex: 2, willChange: 'transform, opacity', transformOrigin: 'center top' }}>
-      <p data-reveal style={{ textAlign: 'center', font: '600 12px/1 var(--font-body)', letterSpacing: '.12em', textTransform: 'uppercase', color: 'var(--warm-400)', marginBottom: 36 }}>
+      <p data-reveal style={{ textAlign: 'center', font: '600 12px/1 var(--font-body)', color: 'var(--warm-400)', marginBottom: 36 }}>
         Trusted by brands you already know
       </p>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 30 }}>
@@ -3658,16 +3659,16 @@ function Footer() {
   return (
     <footer style={{ background: 'var(--midnight)', color: 'var(--warm-300)', paddingTop: 64 }}>
       <div className="wrap">
-        <div aria-hidden="true" style={{ height: 1, background: 'linear-gradient(to right, transparent, var(--midnight-mid) 18%, var(--midnight-mid) 82%, transparent)', marginBottom: 56 }}></div>
+        <div aria-hidden="true" style={{ height: 1, background: 'var(--midnight-mid)', marginBottom: 56 }}></div>
         <div className="foot-grid" style={{ display: 'grid', gridTemplateColumns: '1.4fr repeat(4, 1fr)', gap: 32, paddingBottom: 48 }}>
           <div style={{ maxWidth: 280 }}>
             <img src={(window.__resources && window.__resources.logoWhite) || "https://ia-design-system.vercel.app/assets/logo/wordmark-white.png"} alt="Involve Asia" width="140" height="30" style={{ height: 30, width: 'auto' }} />
-            <p style={{ marginTop: 16, fontSize: 14, color: '#9aa1a9', lineHeight: 1.6 }}>
+            <p style={{ marginTop: 16, fontSize: 14, color: 'var(--warm-300)', lineHeight: 1.6 }}>
               The affiliate marketing network connecting advertisers with creators and publishers across Asia.
             </p>
             <div style={{ display: 'flex', gap: 10, marginTop: 20 }}>
               {SOCIAL.map(([n, u]) => (
-                <a key={n} href={u} aria-label={`Involve Asia on ${n}`} style={{ width: 38, height: 38, borderRadius: 10, background: 'var(--midnight-mid)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--warm-300)', fontSize: 12, fontWeight: 600, transition: 'background .15s' }}
+                <a key={n} href={u} aria-label={`Involve Asia on ${n}`} style={{ width: 38, height: 38, borderRadius: 'var(--r-lg)', background: 'var(--midnight-mid)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--warm-300)', fontSize: 12, fontWeight: 600, transition: 'background .15s' }}
                    onMouseEnter={e => e.currentTarget.style.background = 'var(--midnight-soft)'}
                    onMouseLeave={e => e.currentTarget.style.background = 'var(--midnight-mid)'}>{n[0]}</a>
               ))}
@@ -3675,7 +3676,7 @@ function Footer() {
           </div>
           {FOOT.map(col => (
             <div key={col.h}>
-              <h4 style={{ fontSize: 13, color: '#fff', fontFamily: 'var(--font-body)', fontWeight: 700, letterSpacing: '.04em', textTransform: 'uppercase' }}>{col.h}</h4>
+              <h4 style={{ fontSize: 13, color: '#fff', fontFamily: 'var(--font-body)', fontWeight: 700 }}>{col.h}</h4>
               <ul style={{ marginTop: 16, display: 'flex', flexDirection: 'column', gap: 11 }}>
                 {col.links.map(([t, u]) => (
                   <li key={t}><a href={u} style={{ fontSize: 14, color: 'var(--warm-300)', transition: 'color .15s' }}
@@ -3686,9 +3687,9 @@ function Footer() {
           ))}
         </div>
         <div style={{ borderTop: '1px solid var(--midnight-mid)', padding: '24px 0 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
-          <p style={{ fontSize: 13, color: '#9aa1a9' }}>© 2014–{year} Involve Asia Technologies Sdn Bhd · 201201032669 (1017157-V)</p>
+          <p style={{ fontSize: 13, color: 'var(--warm-300)' }}>© 2014–{year} Involve Asia Technologies Sdn Bhd · 201201032669 (1017157-V)</p>
           <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-            <button aria-label="Change language — English" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'var(--midnight-mid)', border: 'none', borderRadius: 'var(--r-full)', padding: '8px 14px', color: 'var(--warm-300)', font: '500 13px/1 var(--font-body)', cursor: 'pointer' }}>🌐 English</button>
+            <button aria-label="Change language — English" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'var(--midnight-mid)', border: 'none', borderRadius: 'var(--r-md)', padding: '8px 14px', color: 'var(--warm-300)', font: '500 13px/1 var(--font-body)', cursor: 'pointer' }}>🌐 English</button>
           </div>
         </div>
       </div>

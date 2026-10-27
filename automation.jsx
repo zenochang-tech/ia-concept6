@@ -77,7 +77,7 @@ function PubHero() {
            pointy-top hex keeps its 437:492 shape (centred) inside the square, same footprint as the advertiser */
         .ph-visual{ position:relative; aspect-ratio:1/1; max-width:520px; width:100%; margin-left:auto; }
         .ph-hexglow{ position:absolute; inset:2% 2% 2% 2%; z-index:0; pointer-events:none;
-          background:radial-gradient(circle at 50% 46%, rgba(61,90,128,.20), rgba(61,90,128,0) 62%); filter:blur(6px); }
+          display:none;  /* colour glow retired in v3.5.2 */ }
         /* soft hex plate behind the photo — rounded pointy-top (r≈38.67), ember → midnight gradient */
         .ph-hexplate{ position:absolute; inset:0; z-index:0; background:var(--warm-100);
           -webkit-mask:url('media/figma/pub-hero-hexclip.svg') center/contain no-repeat; mask:url('media/figma/pub-hero-hexclip.svg') center/contain no-repeat; }
@@ -942,9 +942,9 @@ function PubVoices() {
         .tv-sub{ text-align:center; margin-top:14px; font-size:16px; color:var(--warm-700); }
         .tv-stage{ position:relative; margin-top:clamp(28px,4vh,44px); min-height:392px; }
         .tv-card{ position:absolute; left:50%; top:0; width:min(535px,86vw); height:322px; box-sizing:border-box; transform-origin:center top;
-          background:#fff; border:1.4px solid #f4f4f0; border-radius:var(--r-xl); box-shadow:0 6px 14px rgba(0,0,0,.08); padding:30px 32px; display:flex; flex-direction:column; gap:18px;
+          background:#fff; border:1px solid var(--warm-200); border-radius:var(--r-xl); box-shadow:none; padding:30px 32px; display:flex; flex-direction:column; gap:18px;
           transition:transform .62s cubic-bezier(.32,.72,0,1), opacity .62s cubic-bezier(.32,.72,0,1); will-change:transform,opacity; }
-        .tv-card.is-active{ box-shadow:0 16px 40px rgba(15,28,46,.14); }
+        .tv-card.is-active{ box-shadow:none; }
         .tv-quote{ font:700 16px/1.32 var(--font-body); color:var(--warm-700); }
         .tv-body{ font:400 16px/1.32 var(--font-body); color:var(--warm-700); }
         .tv-author{ display:flex; align-items:center; gap:16px; margin-top:auto; }   /* pin to bottom of the fixed-height card */
@@ -1007,8 +1007,8 @@ function PubFAQ() {
         .fq-sec{ background:var(--warm-50); padding:clamp(67px,9.66vh,132px) 0 clamp(77px,12.42vh,160px); }
         .fq-title{ text-align:center; font-size:clamp(22px,2.6vw,30px); line-height:1.12; letter-spacing:-.03em; color:var(--warm-900); }
         .fq-list{ margin-top:clamp(32px,5vh,60px); display:flex; flex-direction:column; gap:12px; max-width:1160px; margin-inline:auto; }
-        .fq-item{ background:#fff; border:1px solid #e5e7eb; border-radius:var(--r-lg); }
-        .fq-q{ width:100%; display:flex; align-items:center; justify-content:space-between; gap:20px; padding:24px; background:none; border:none; cursor:pointer; text-align:left; font:700 18px/1.35 var(--font-body); color:#111122; }
+        .fq-item{ background:#fff; border:1px solid var(--warm-200); border-radius:var(--r-lg); }
+        .fq-q{ width:100%; display:flex; align-items:center; justify-content:space-between; gap:20px; padding:24px; background:none; border:none; cursor:pointer; text-align:left; font:700 18px/1.35 var(--font-body); color:var(--warm-900); }
         .fq-ic{ position:relative; width:18px; height:18px; flex:0 0 auto; }
         .fq-ic i{ position:absolute; background:#111110; border-radius:var(--r-sm); }
         .fq-ic i:nth-child(1){ left:0; right:0; top:8px; height:2px; }
@@ -1017,7 +1017,7 @@ function PubFAQ() {
         .fq-a-wrap{ display:grid; grid-template-rows:0fr; transition:grid-template-rows .3s ease; }
         .fq-item.open .fq-a-wrap{ grid-template-rows:1fr; }
         .fq-a{ overflow:hidden; }
-        .fq-a p{ margin:0 24px; padding-bottom:24px; font:400 16px/1.5 var(--font-body); color:#3a3a4a; }
+        .fq-a p{ margin:0 24px; padding-bottom:24px; font:400 16px/1.5 var(--font-body); color:var(--warm-600); }
         .fq-a a{ color:var(--midnight-light); font-weight:600; text-decoration:underline; text-underline-offset:2px; }
         .fq-a a:hover{ opacity:.82; }
       `}</style>
@@ -1133,10 +1133,10 @@ function AppDownload() {
         .adl-card, .adl-bubble{ position:absolute; right:0; bottom:0; transition:opacity .3s ease, transform .34s cubic-bezier(.22,1,.36,1); }
         /* expanded card (sized down ~20%) */
         .adl-card{ transform-origin:bottom right; width:min(183px, calc(100vw - 32px));
-          background:linear-gradient(100.6deg, #3D5A80 0%, #243856 100%); border-radius:13px 13px 0 13px;
+          background:var(--midnight-light); border-radius:var(--r-lg) var(--r-lg) 0 var(--r-lg);
           box-shadow:0 15px 36px rgba(15,28,46,.24); padding:18px 18px 16px; display:flex; flex-direction:column; align-items:center; text-align:center; }
         .adl-title{ font-family:var(--font-display); font-weight:800; font-size:14.5px; line-height:1.15; color:#fff; }
-        .adl-sub{ margin-top:6px; font:400 11.5px/1.28 var(--font-body); color:rgba(255,255,255,.92); }
+        .adl-sub{ margin-top:6px; font:400 12px/1.28 var(--font-body); color:rgba(255,255,255,.92); }
         .adl-qr{ margin-top:13px; width:100%; aspect-ratio:1/1; background:#fff; border-radius:var(--r-lg); display:flex; align-items:center; justify-content:center; }
         .adl-qr img{ width:88%; height:88%; object-fit:contain; }
         .adl-dismiss{ margin-top:13px; background:none; border:none; cursor:pointer; font:400 12px/1 var(--font-body); color:#fff; text-decoration:underline; text-underline-offset:2px; }
@@ -1146,7 +1146,7 @@ function AppDownload() {
           background:linear-gradient(104.8deg, #3D5A80 0%, #243856 100%); border-radius:50% 50% 0 50%;
           box-shadow:0 10px 22px rgba(61,90,128,.34); display:flex; align-items:center; justify-content:center; }
         .adl-bubble img{ width:34px; height:34px; object-fit:contain; }
-        .adl-bubble:hover{ transform:translateY(-2px); box-shadow:0 14px 28px rgba(61,90,128,.42); }
+        .adl-bubble:hover{ box-shadow:var(--shadow-md); }
         /* toggle: show card when open, bubble when closed */
         .adl .adl-card{ opacity:0; transform:scale(.9) translateY(8px); pointer-events:none; }
         .adl .adl-bubble{ opacity:1; transform:scale(1); pointer-events:auto; }

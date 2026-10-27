@@ -114,10 +114,10 @@
   --ember:#F05826; --ember-dark:#C43E18; --ember-light:#FF7A45; --ember-tint:rgba(240,88,38,.10);
   /* Warm neutrals */
   --warm-50:#FAFAF8; --warm-100:#F4F4F0; --warm-200:#E8E8E2; --warm-300:#D2D2CC;
-  --warm-400:#706F6B; --warm-600:#4B4B46; --warm-800:#1F1F1A; --warm-900:#111110;
+  --warm-400:#706F6B; --warm-500:#6B6B65; --warm-600:#4B4B46; --warm-700:#363630; --warm-800:#1F1F1A; --warm-900:#111110;
   /* Status */
   --success:#10B981; --warning:#F59E0B; --error:#EF4444; --info:#3B82F6;
-  /* Gradients */
+  /* Gradients — retired in v3.5.2 (flat fills only); kept so old references don't break */
   --grad-ember:linear-gradient(135deg,#F05826,#C43E18);
   --grad-midnight:linear-gradient(135deg,#0F1C2E,#1A3251);
   --grad-midnight-light:linear-gradient(135deg,#3D5A80,#1A2E47);
@@ -128,8 +128,11 @@
   --shadow-md:0 4px 12px rgba(15,28,46,.08);
   --shadow-lg:0 10px 30px rgba(15,28,46,.10);
   --shadow-xl:0 24px 60px rgba(15,28,46,.16);
-  --shadow-ember:0 8px 24px rgba(240,88,38,.22);
-  --shadow-ml:0 8px 24px rgba(61,90,128,.22);
+  --shadow-ember:0 4px 12px rgba(15,28,46,.08);  /* retired alias of --shadow-md (no colour glow, v3.5.2) */
+  --shadow-ml:0 4px 12px rgba(15,28,46,.08);     /* retired alias of --shadow-md */
+  --shadow-card-hover:0 6px 6px -1px rgba(15,28,46,.04), 0 4px 4px -3px rgba(15,28,46,.08);  /* clickable cards only */
+  /* Focus — Ember on Publisher, Midnight-Light inside .is-adv, Ember-light on dark */
+  --focus-ring:var(--ember);
   /* Type */
   --font-display:'Plus Jakarta Sans','Jakarta Fallback',-apple-system,sans-serif;
   --font-body:'Inter','Inter Fallback',-apple-system,sans-serif;
@@ -158,11 +161,13 @@ p{margin:0;}
 a{color:inherit; text-decoration:none;}
 img{display:block; max-width:100%;}
 ul{margin:0; padding:0; list-style:none;}
-:focus-visible{outline:3px solid var(--ember); outline-offset:2px; border-radius:4px;}
+:focus-visible{outline:2px solid var(--focus-ring); outline-offset:2px;}
+.is-adv,.btn-advertiser{--focus-ring:var(--midnight-light);}
+.on-dark,.nav-on-dark{--focus-ring:var(--ember-light);}
 .wrap{max-width:var(--maxw); margin:0 auto; padding:0 32px;}
-.eyebrow{font:600 12px/1 var(--font-body); letter-spacing:.14em; text-transform:uppercase; color:var(--warm-400);}
+.eyebrow{font:600 12px/1 var(--font-body); color:var(--warm-400);}
 
-/* ---------- Buttons (pill always; hover scale 1.02) ---------- */
+/* ---------- Buttons (6px radius; hover darkens the fill, never moves) ---------- */
 .btn{
   display:inline-flex; align-items:center; justify-content:center; gap:8px;
   font:600 15px/1 var(--font-body); border-radius:var(--r-md); border:1.5px solid transparent;
@@ -173,8 +178,8 @@ ul{margin:0; padding:0; list-style:none;}
 .btn-primary:hover{background:var(--ember-dark);}  /* v3.5.1: flat fill, darken on hover */
 .btn-advertiser{background:var(--midnight-light); color:#fff;} .btn-advertiser:hover{background:var(--midnight-soft);} /* Advertiser */
 .btn-midnight{background:var(--midnight); color:var(--warm-50);} .btn-midnight:hover{background:var(--midnight-mid);} /* neutral corporate */
-.btn-secondary{background:#fff; color:var(--midnight); border-color:var(--warm-300);}
-.btn-secondary:hover{border-color:var(--midnight);}
+.btn-secondary{background:#fff; color:var(--warm-900); border-color:var(--warm-900);}
+.btn-secondary:hover{background:var(--warm-50);}
 .btn-ghost{background:transparent; color:var(--ember); padding-left:6px; padding-right:6px;}
 .btn-ghost.adv{color:var(--midnight-light);}
 .btn-lg{padding:17px 32px; font-size:16px;}
@@ -249,7 +254,7 @@ section{position:relative;}
 .offer-rail-tab{display:flex; align-items:center; gap:12px; text-align:left; width:100%;
   padding:14px 16px; border-radius:var(--r-md); cursor:pointer; font:600 16px/1.25 var(--font-body);
   border:none; background:transparent; color:var(--warm-600); transition:background .15s, color .15s;}
-.offer-rail-tab:hover{background:var(--warm-100); color:var(--midnight);}
+.offer-rail-tab:hover{background:var(--warm-100); color:var(--warm-900);}
 .offer-rail-tab[aria-selected="true"]{background:var(--midnight); color:var(--warm-50);}
 .offer-rail-tab .chev{margin-left:auto; flex:0 0 auto; display:flex; opacity:0; transform:translateX(-5px);
   transition:opacity .15s, transform .15s;}
@@ -265,7 +270,7 @@ section{position:relative;}
   .offer-rail::-webkit-scrollbar{display:none;}
   .offer-rail-tab{flex:0 0 auto; width:auto; padding:10px 18px; border-radius:var(--r-full);
     border:1.5px solid var(--warm-300); white-space:nowrap; font-size:14px;}
-  .offer-rail-tab:hover{background:#fff; border-color:var(--midnight);}
+  .offer-rail-tab:hover{background:#fff; border-color:var(--warm-900);}
   .offer-rail-tab[aria-selected="true"]{border-color:var(--midnight);}
   .offer-rail-tab .chev{display:none;}
   .offer-rail-count{display:none;}
@@ -279,21 +284,22 @@ section{position:relative;}
    bottom. Commission number is the Ember co-hero (large-text, accessible on white).
    No category tag inside the card. */
 .offer-card{position:relative; display:flex; flex-direction:column; background:#fff; border-radius:var(--r-lg);
-  border:1px solid var(--warm-200); box-shadow:var(--shadow-sm); padding:26px 26px 28px; cursor:pointer; overflow:hidden;
+  border:1px solid var(--warm-200); box-shadow:none; padding:26px 26px 28px; cursor:pointer; overflow:hidden;
   min-height:250px; text-decoration:none;
-  transition:transform .22s cubic-bezier(.22,1,.36,1), box-shadow .22s, border-color .22s;
+  transition:box-shadow .15s ease, border-color .15s ease;
   animation:offerIn .5s cubic-bezier(.22,1,.36,1) both;}
-.offer-card:hover{transform:translateY(-5px); box-shadow:var(--shadow-lg); border-color:var(--warm-300);}
+.offer-card:hover,.offer-card:focus-visible{box-shadow:var(--shadow-card-hover); border-color:var(--warm-300);}
+.offer-card:focus-visible{outline:2px solid var(--warm-600); outline-offset:2px;}
 .offer-card-head{display:flex; align-items:flex-start; justify-content:space-between; gap:12px;}
 .offer-logo{flex:0 0 auto; height:50px; display:flex; align-items:center; justify-content:flex-start;}
 .offer-logo img{height:100%; width:auto; max-width:130px; object-fit:contain; object-position:left center; display:block;}
-.offer-logo span{width:50px; height:50px; border-radius:14px; display:flex; align-items:center; justify-content:center;
-  background:var(--grad-midnight-light, var(--midnight)); color:#fff;
+.offer-logo span{width:50px; height:50px; border-radius:var(--r-lg); display:flex; align-items:center; justify-content:center;
+  background:var(--midnight); color:#fff;
   font-family:var(--font-display); font-weight:800; font-size:22px; letter-spacing:-.02em;}
 /* arrow, top-right — appears only on hover (Figma) */
-.offer-arrow{flex:0 0 auto; display:flex; color:var(--midnight); opacity:0; transform:translate(-3px,3px);
-  transition:opacity .2s ease, transform .2s ease;}
-.offer-card:hover .offer-arrow{opacity:1; transform:none;}
+.offer-arrow{flex:0 0 auto; display:flex; color:var(--warm-900); opacity:0;
+  transition:opacity .2s ease;}
+.offer-card:hover .offer-arrow,.offer-card:focus-visible .offer-arrow{opacity:1;}
 .offer-foot{margin-top:auto; padding-top:28px;}
 .offer-brand{font-family:var(--font-display); font-weight:800; font-size:20px; color:var(--warm-900); letter-spacing:-.01em;}
 .offer-comm{margin-top:12px;}
@@ -345,7 +351,7 @@ section{position:relative;}
 .hpin-track{display:flex; gap:28px; padding:0 max(32px,calc((100vw - var(--maxw))/2)); will-change:transform;}
 .hpin-card{flex:0 0 auto; width:min(440px,78vw);}
 .hpin-progress{height:4px; background:var(--warm-200); border-radius:9999px; overflow:hidden;}
-.hpin-progress>i{display:block; height:100%; background:var(--grad-ember); width:0;}
+.hpin-progress>i{display:block; height:100%; background:var(--ember); width:0;}
 @media (max-width: 860px){
   /* fall back to normal vertical stack — no scroll-jacking on mobile */
   .hpin{height:auto !important;}
@@ -359,7 +365,7 @@ section{position:relative;}
 .nm-wrap{position:relative; background:transparent;}  /* rides the surface, which has eased back to bright by the CTA */
 .nm-stage{height:100vh; overflow:hidden; perspective:1200px;}  /* pinned by ScrollTrigger, not CSS sticky */
 .nm-head{position:absolute; left:50%; top:24%; transform:translateX(-50%); width:min(900px,92vw); text-align:center; z-index:3; pointer-events:none;}
-.nm-head h2{font-size:clamp(40px,6.4vw,76px); line-height:1.04; letter-spacing:-.02em; color:var(--midnight);}  /* dark on the bright CTA surface */
+.nm-head h2{font-size:clamp(40px,6.4vw,76px); line-height:1.04; letter-spacing:-.02em; color:var(--warm-900);}  /* dark on the bright CTA surface */
 .nm-head p{margin-top:18px; font-size:18px; color:var(--warm-600); max-width:600px; margin-inline:auto;}
 .nm-label{position:absolute; left:50%; top:calc(58% - 48px); transform:translate(-50%,-50%) translateX(var(--x,0));
   z-index:3; font:600 15px/1 var(--font-body); letter-spacing:.04em; color:var(--warm-400); white-space:nowrap; pointer-events:none;}
@@ -375,22 +381,21 @@ section{position:relative;}
 /* keep the shadow geometry constant and animate only its alpha (transitioning box-shadow from `none` doesn't work) */
 .nm-door.nm-adv{box-shadow:0 8px 24px rgba(61,90,128,0);}
 .nm-door.nm-pub{box-shadow:0 8px 24px rgba(240,88,38,0);}
-.nm-door.nm-adv.is-live{box-shadow:0 8px 24px rgba(61,90,128,.22);}   /* --shadow-ml */
-.nm-door.nm-pub.is-live{box-shadow:0 8px 24px rgba(240,88,38,.22);}   /* --shadow-ember */
+.nm-door.nm-adv.is-live{box-shadow:0 8px 24px rgba(61,90,128,0);}   /* no colour glow (v3.5.2) */
+.nm-door.nm-pub.is-live{box-shadow:0 8px 24px rgba(240,88,38,0);}
 .nm-door.nm-pub.is-live:hover{box-shadow:0 8px 24px rgba(240,88,38,0);}  /* ember CTA drops its shadow on hover, like the hero */
 /* animated ember↔midnight-light gradient RIM (brand-motion motif). Sits full-bleed behind
    .nm-fill, so during the hexagon/outline stages it shows only through the ~5px rim → the
    hexagon border flows between the two brand tones. Once the doors fill (.nm-grad fades in on
    top) and morph to pills, this layer is fully covered, so the choreography is untouched. */
 .nm-door .nm-rim{position:absolute; inset:0; z-index:0; pointer-events:none; border-radius:inherit;
-  background:linear-gradient(120deg,#F05826 0%,#3D5A80 50%,#F05826 100%); background-size:220% 220%;
-  animation:nmRimFlow 7s ease-in-out infinite;}
+  background:var(--midnight);}  /* flat Midnight rim — no Ember/Midnight-Light gradient (v3.5.2) */
 @keyframes nmRimFlow{0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%}}
 @media (prefers-reduced-motion: reduce){ .nm-door .nm-rim{animation:none;} }
 /* hero-CTA gradient fill (clipped to the door's shape by the parent clip-path); fades in as the hexes fill */
 .nm-door .nm-grad{position:absolute; inset:0; z-index:0; pointer-events:none; border-radius:inherit;}  /* follow the door's rounding once the clip-path is dropped */
-.nm-door .nm-grad-adv{background:var(--grad-midnight-light);}  /* Brand — matches hero "List Your Brand" */
-.nm-door .nm-grad-pub{background:var(--grad-ember);}           /* Publisher — matches hero "Start Earning" */
+.nm-door .nm-grad-adv{background:var(--midnight-light);}  /* Brand — matches hero "List Your Brand" */
+.nm-door .nm-grad-pub{background:var(--ember);}           /* Publisher — matches hero "Start Earning" */
 /* image backdrop shown inside the hexagons during the split/spin, faded out before the pill. Set the picture via inline style backgroundImage (swap the url). */
 .nm-door .nm-img{position:absolute; inset:0; z-index:1; background-size:cover; background-position:center; pointer-events:none; border-radius:inherit;}
 /* outline interior: a page-coloured hexagon inset inside the door, leaving the door bg as a thin rim (logomark look). Faded out as the hexes fill. Sits above the gradient/image so the cross-fade reveals them. */
