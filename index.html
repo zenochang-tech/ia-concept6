@@ -424,7 +424,8 @@ section{position:relative;}
 <script src="https://unpkg.com/gsap@3.13.0/dist/gsap.min.js"></script>
 <script src="https://unpkg.com/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
 
-<!-- Single bundled babel script (avoids multi-file Babel load race) -->
+<!-- Shared chrome (Nav, BackToTop) first, then the homepage bundle -->
+<script type="text/babel" src="ia-shared.jsx"></script>
 <script type="text/babel" src="ia-bundle.jsx"></script>
 
 <!-- Direct-edit style overrides (kept last) -->

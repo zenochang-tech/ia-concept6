@@ -82,17 +82,6 @@ function Caret({ open }) {
   return <svg width="11" height="11" viewBox="0 0 12 12" style={{ marginLeft: 3, transition: 'transform .2s', transform: open ? 'rotate(180deg)' : 'none' }}><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>;
 }
 
-// Mega-menu item — Concept 3 styling (bold display label → ember on hover) with the
-// live build's real descriptions instead of Concept 3's placeholder "line" bars.
-function MegaItem({ it }) {
-  return (
-    <a href={it.href} role="menuitem" className="mega4-item">
-      <b>{it.t}{it.promote && <span className="tag tag-pub" style={{ marginLeft: 8, padding: '3px 8px', fontSize: 10.5, verticalAlign: 'middle' }}>Popular</span>}</b>
-      <span className="d">{it.d}</span>
-    </a>
-  );
-}
-
 // Column-menu link (new grouped dropdowns). A page that isn't live yet is marked
 // `soon` — rendered non-clickable with a grey "(coming soon)" tag.
 function MegaLink({ link }) {
@@ -102,7 +91,7 @@ function MegaLink({ link }) {
 }
 
 
-function Nav({ getStartedTone = 'midnight' }) {
+function Nav({ getStartedTone = 'midnight', homeHref = 'index.html' }) {
   const [open, setOpen] = React.useState(null);
   const [lang, setLang] = React.useState('EN');
   const [langOpen, setLangOpen] = React.useState(false);
@@ -159,7 +148,7 @@ function Nav({ getStartedTone = 'midnight' }) {
       transition: 'background .3s, border-color .3s, box-shadow .3s',
     }} onMouseLeave={scheduleClose}>
       <div className="wrap" style={{ display: 'flex', alignItems: 'center', height: dark ? 62 : 74, gap: 24, position: 'relative', transition: 'height .3s' }}>
-        <a href="index.html" aria-label="Involve Asia home" style={{ display: 'flex', alignItems: 'center', flex: '0 0 auto', zIndex: 2, position: 'relative' }}>
+        <a href={homeHref} aria-label="Involve Asia home" style={{ display: 'flex', alignItems: 'center', flex: '0 0 auto', zIndex: 2, position: 'relative' }}>
           <img src={R('logoMidnight', "https://ia-design-system.vercel.app/assets/logo/wordmark-midnight.png")} alt="Involve Asia" width="132" height="28" style={{ height: 28, width: 'auto', transition: 'opacity .35s ease', opacity: dark ? 0 : 1 }} />
           <img src={R('logoWhite', "https://ia-design-system.vercel.app/assets/logo/wordmark-white.png")} alt="" aria-hidden="true" width="132" height="28" style={{ height: 28, width: 'auto', position: 'absolute', left: 0, top: '50%', transform: 'translateY(-50%)', transition: 'opacity .35s ease', opacity: dark ? 1 : 0 }} />
         </a>

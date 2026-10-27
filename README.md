@@ -5,6 +5,9 @@ Static preview build for internal review.
 - **Homepage** — `index.html` → `ia-bundle.jsx`
 - **Publisher Overview** — `for-publishers.html` → `publishers.jsx`
 - **Shared UI** (Nav, Footer, Back-to-Top, smooth scroll, reveal) — `ia-shared.jsx`
+- **Shared page sections** (platform tab slider, final CTA, testimonials, FAQ, logo
+  marquee, "how it works" steps, icon columns, hero hexagons, app-download QR) —
+  `ia-sections.jsx`, loaded after `ia-shared.jsx`; pages pass their copy and items as props
 
 GSAP and Lenis load from a CDN (needs internet). All images/videos are bundled in
 `media/`. While editing, the `.jsx` files still compile in the browser
