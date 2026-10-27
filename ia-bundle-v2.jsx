@@ -870,9 +870,9 @@ function Nav({ getStartedTone = 'midnight' }) {
   const openMega = (i) => { clearTimeout(closeT.current); setOpen(i); };
   const scheduleClose = () => { clearTimeout(closeT.current); closeT.current = setTimeout(() => setOpen(null), 140); };
   const R = (k, fb) => (window.__resources && window.__resources[k]) || fb;
-  // v3.5.2: one primary per viewport (the hero owns it) and zero Ember on Advertiser pages,
-  // so the nav CTA is always secondary. getStartedTone is kept for the call sites.
-  const gsClass = 'btn-secondary';
+  // Nav CTA leads to Publisher sign-up, so it is always the Ember Publisher CTA (by request,
+  // overriding v3.5.2's one-primary / zero-Ember-on-Advertiser rules). getStartedTone is kept for the call sites.
+  const gsClass = 'btn-primary';
 
   return (
     <React.Fragment>
