@@ -651,15 +651,40 @@ function EarnFeatures({ title, brandsCopy = 'Promote Shopee, Lazada, Zalora, Nik
    Four faint hexagons behind the page hero. The hero renders <HeroHexDeco /> and
    puts ${HERO_HEXDECO_CSS} in its own stylesheet (later rules there can move them). */
 function HeroHexDeco() {
+  // Inline (not <img>) so the colours come from the --phd-* variables: warm-100 for the
+  // Current palette, the ember / blue tints under html.palette-prev.
+  const tints = {
+    1: { x1: 102.935, y1: 364.725, x2: 286.845, y2: 249.127 },
+    2: { x1: 1.21977, y1: 221.663, x2: 134.267, y2: 232.649 },
+  };
   return (
     <div className="ph-hexdeco" aria-hidden="true">
-    <img className="phd phd1" src="media/figma/pub-hero-deco1.svg?v=2" alt="" />
-    <img className="phd phd2" src="media/figma/pub-hero-deco2.svg?v=2" alt="" />
-    <img className="phd phd3" src="media/figma/pub-hero-deco3.svg?v=2" alt="" />
-    <img className="phd phd4" src="media/figma/pub-hero-deco4.svg?v=2" alt="" />
+      {[1, 2, 3, 4].map((n) => (
+        <svg key={n} className={`phd phd${n}`} width="441.863" height="498.254" viewBox="0 0 441.863 498.254" preserveAspectRatio="none" overflow="visible" fill="none">
+          <defs>
+            <linearGradient id={`phd-base-${n}`} x1="220.931" y1="-5.98259" x2="220.931" y2="349.455" gradientUnits="userSpaceOnUse">
+              <stop style={{ stopColor: 'var(--phd-base-top)' }} />
+              <stop offset="1" style={{ stopColor: 'var(--warm-100)' }} />
+            </linearGradient>
+            {tints[n] && (
+              <linearGradient id={`phd-tint-${n}`} {...tints[n]} gradientUnits="userSpaceOnUse">
+                <stop style={{ stopColor: 'var(--phd-blue)' }} />
+                <stop offset="1" style={{ stopColor: 'var(--phd-blue)', stopOpacity: 'var(--phd-blue-fade)' }} />
+              </linearGradient>
+            )}
+          </defs>
+          <g style={{ opacity: `var(--phd${n}-op)` }}>
+            <path d={PHD_PATH} fill={`url(#phd-base-${n})`} />
+            {tints[n]
+              ? <path d={PHD_PATH} fill={`url(#phd-tint-${n})`} style={{ fillOpacity: `var(--phd${n}-tint-op)` }} />
+              : <path d={PHD_PATH} style={{ fill: 'var(--phd-ember)', fillOpacity: 'var(--phd-ember-op)' }} />}
+          </g>
+        </svg>
+      ))}
     </div>
   );
 }
+const PHD_PATH = 'M201.595 5.18107C213.561 -1.72702 228.302 -1.72703 240.267 5.18107L422.527 110.409C434.492 117.317 441.863 130.083 441.863 143.9V354.354C441.863 368.171 434.492 380.937 422.527 387.845L240.267 493.073C228.302 499.981 213.561 499.981 201.595 493.073L19.336 387.845C7.37085 380.937 0 368.171 0 354.354V143.9C0 130.083 7.37085 117.317 19.336 110.409L201.595 5.18107Z';
 const HERO_HEXDECO_CSS = `
         /* decorative hexagons (Figma Polygon 64–67) — same size as the slider hexagon (492px), faint */
         .ph-hexdeco{ position:absolute; inset:0; z-index:0; pointer-events:none; overflow:hidden; }

@@ -28,9 +28,9 @@ function AboutHexField() {
   return (
     <svg className="ab-hexfield" viewBox={vb} preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <defs>
-        <linearGradient id={gid} gradientUnits="userSpaceOnUse" x1={W * 0.12} y1={H * 0.30} x2={W * 0.92} y2={H * 0.80}>
-          <stop offset="0" stopColor="#F4F4F0" />
-          <stop offset="1" stopColor="#F4F4F0" />
+        <linearGradient id="ab-hexgrad" gradientUnits="userSpaceOnUse" x1={W * 0.12} y1={H * 0.30} x2={W * 0.92} y2={H * 0.80}>
+          <stop offset="0" style={{ stopColor: 'var(--prev-ember)' }} />
+          <stop offset="1" style={{ stopColor: 'var(--prev-blue)' }} />
         </linearGradient>
       </defs>
       <g fill="var(--warm-100)">{paths.map((d, i) => <path key={i} className="hx" d={d} />)}</g>

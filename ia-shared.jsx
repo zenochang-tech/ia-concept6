@@ -9,6 +9,90 @@
 
 const prefersReduced = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+// Palette preview — Current (warm-100) vs Previous (colours before 5 Oct). Sets html.palette-prev;
+// the colours live as --prev-* variables in the shared stylesheet. Applied before React renders so
+// pages don't flash. ?palette=previous / ?palette=current in the URL also sets it. Remove this
+// block, PaletteToggle and its <PaletteToggle /> in Nav once a version is chosen.
+const PALETTE_KEY = 'ia-palette', PALETTE_COLOURS_KEY = 'ia-palette-colours';
+const PALETTE_VARS = [
+  ['--prev-ember', 'Ember (gradients, glows, deco)'],
+  ['--prev-blue', 'Blue (gradients, glows, deco)'],
+  ['--prev-midnight-light', 'Midnight-Light (Advertiser glow, stats)'],
+  ['--prev-honeycomb-pub', 'CTA honeycomb, Publisher'],
+  ['--prev-honeycomb-adv', 'Honeycomb, Advertiser'],
+  ['--prev-plate-1', 'Hero plate, top-left'],
+  ['--prev-plate-2', 'Hero plate, middle'],
+  ['--prev-plate-3', 'Hero plate, bottom-right'],
+  ['--prev-deco-base', 'Deco hexagon, top edge'],
+  ['--prev-slider-1', 'Slider hexagon, blue side'],
+  ['--prev-slider-2', 'Slider hexagon, peach side'],
+];
+const paletteStore = {
+  get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+  set(k, v) { try { if (v == null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch (e) {} },
+};
+(function initPalette() {
+  const q = new URLSearchParams(location.search).get('palette');
+  if (q === 'previous' || q === 'current') paletteStore.set(PALETTE_KEY, q);
+  document.documentElement.classList.toggle('palette-prev', paletteStore.get(PALETTE_KEY) === 'previous');
+  let saved = {}; try { saved = JSON.parse(paletteStore.get(PALETTE_COLOURS_KEY) || '{}'); } catch (e) {}
+  Object.entries(saved).forEach(([k, v]) => document.documentElement.style.setProperty(k, v));
+})();
+
+function PaletteToggle() {
+  const root = document.documentElement;
+  const [prev, setPrev] = React.useState(() => root.classList.contains('palette-prev'));
+  const [open, setOpen] = React.useState(false);
+  const read = () => Object.fromEntries(PALETTE_VARS.map(([k]) => [k, getComputedStyle(root).getPropertyValue(k).trim().toUpperCase()]));
+  const [colours, setColours] = React.useState(read);
+  const [copied, setCopied] = React.useState(false);
+  const choose = (p) => { setPrev(p); root.classList.toggle('palette-prev', p); paletteStore.set(PALETTE_KEY, p ? 'previous' : 'current'); if (!p) setOpen(false); };
+  const setColour = (k, v) => {
+    root.style.setProperty(k, v);
+    const next = { ...colours, [k]: v.toUpperCase() }; setColours(next);
+    let saved = {}; try { saved = JSON.parse(paletteStore.get(PALETTE_COLOURS_KEY) || '{}'); } catch (e) {}
+    saved[k] = v; paletteStore.set(PALETTE_COLOURS_KEY, JSON.stringify(saved));
+  };
+  const reset = () => { PALETTE_VARS.forEach(([k]) => root.style.removeProperty(k)); paletteStore.set(PALETTE_COLOURS_KEY, null); setColours(read()); };
+  const copy = () => {
+    const css = PALETTE_VARS.map(([k]) => `  ${k}:${colours[k]};`).join('\n');
+    const done = () => { setCopied(true); setTimeout(() => setCopied(false), 1600); };
+    if (navigator.clipboard) navigator.clipboard.writeText(css).then(done, () => window.prompt('Copy these values', css));
+    else window.prompt('Copy these values', css);
+  };
+  return (
+    <div className="pt" role="group" aria-label="Colour preview">
+      {open && (
+        <div className="pt-panel">
+          <h3>Previous colours</h3>
+          <p>Changes show straight away and stay in this browser. Copy the values to keep them in the code.</p>
+          {PALETTE_VARS.map(([k, label]) => (
+            <div className="pt-row" key={k}>
+              <label htmlFor={'pt' + k}>{label}</label>
+              <code>{colours[k]}</code>
+              <input id={'pt' + k} type="color" value={colours[k].toLowerCase()} onChange={(e) => setColour(k, e.target.value)} />
+            </div>
+          ))}
+          <div className="pt-actions">
+            <button type="button" onClick={copy}>{copied ? 'Copied' : 'Copy values'}</button>
+            <button type="button" onClick={reset}>Reset</button>
+          </div>
+        </div>
+      )}
+      <div className="pt-bar">
+        <span className="pt-label">Colours</span>
+        <button type="button" className="pt-seg" aria-pressed={!prev} onClick={() => choose(false)}>Current</button>
+        <button type="button" className="pt-seg" aria-pressed={prev} onClick={() => choose(true)}>Previous</button>
+        {prev && (
+          <button type="button" className="pt-edit" aria-label="Edit Previous colours" aria-expanded={open} onClick={() => setOpen((v) => !v)}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r="1.5"/><circle cx="17.5" cy="10.5" r="1.5"/><circle cx="8.5" cy="7.5" r="1.5"/><circle cx="6.5" cy="12.5" r="1.5"/><path d="M12 2a10 10 0 0 0 0 20c.9 0 1.6-.7 1.6-1.6 0-.4-.2-.8-.4-1.1-.3-.3-.4-.7-.4-1.1 0-.9.7-1.6 1.6-1.6H16a6 6 0 0 0 6-6c0-4.9-4.5-8.6-10-8.6z"/></svg>
+          </button>
+        )}
+      </div>
+    </div>
+  );
+}
+
 // Nav mega-menu — clean Stripe-style columns: each column has a non-clickable title (head)
 // with a thin #E8E8E2 divider under it, then its links. Column titles are suggestions —
 // rename freely. No feature image card.
@@ -331,6 +415,7 @@ function Nav({ getStartedTone = 'midnight', homeHref = 'index.html' }) {
         </div>
       ))}
     </div>
+    <PaletteToggle />
     </React.Fragment>
   );
 }
@@ -572,4 +657,4 @@ function useScrollReveal() {
   }, []);
 }
 
-Object.assign(window, { prefersReduced, Nav, Arrow, Footer, HexCursor, BackToTop, useSmoothScroll, useScrollReveal });
+Object.assign(window, { prefersReduced, PaletteToggle, Nav, Arrow, Footer, HexCursor, BackToTop, useSmoothScroll, useScrollReveal });

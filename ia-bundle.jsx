@@ -979,7 +979,14 @@ function HeroHexField() {
   }, [paths]);
   return (
     <svg ref={svgRef} className="hexfield" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-      <g fill="var(--warm-100)">
+      {/* Previous palette: html.palette-prev fills the hexes with this ember→blue gradient */}
+      <defs>
+        <linearGradient id="hexGrad" gradientUnits="userSpaceOnUse" x1={W * 0.12} y1={H * 0.32} x2={W * 0.92} y2={H * 0.78}>
+          <stop offset="0" style={{ stopColor: 'var(--prev-ember)' }} />
+          <stop offset="1" style={{ stopColor: 'var(--prev-blue)' }} />
+        </linearGradient>
+      </defs>
+      <g className="hexfield-g" fill="var(--warm-100)">
         {paths.map((d, i) => <path key={i} className="hx" d={d} />)}
       </g>
     </svg>
@@ -1014,7 +1021,8 @@ function Hero({ dark = false, hex = 3, emphasis = 'equal' }) {
 
   return (
     <section id="hero" className="hero2-sec" style={{ background: 'var(--warm-50)', color: 'var(--warm-900)', position: 'relative', overflow: 'hidden', paddingTop: 'clamp(48px,6vh,76px)', paddingBottom: 0 }}>
-      {/* interactive honeycomb */}
+      {/* corner colour glows (Previous palette only) + interactive honeycomb */}
+      <div className="hero2-glow" aria-hidden="true" />
       <HeroHexField />
       <div className="wrap hero2" style={{ position: 'relative', zIndex: 1 }}>
         <div className="hero2-grid">
@@ -1075,6 +1083,11 @@ function Hero({ dark = false, hex = 3, emphasis = 'equal' }) {
         /* interactive honeycomb field behind the figures (now the right column) — exact Figma hexes, cursor-repelled */
         .hexfield{ position:absolute; left:76%; top:46%; transform:translate(-50%,-50%); width:min(448px,40%); height:auto; z-index:0; pointer-events:none; }
         .hexfield .hx{ will-change:transform; }
+        /* soft ember (bottom-left) + blue (bottom-right) glows — shown only with html.palette-prev */
+        .hero2-glow{ display:none; position:absolute; inset:0; z-index:0; pointer-events:none;
+          background:
+            radial-gradient(44% 48% at 10% 94%, color-mix(in srgb, var(--prev-ember) 15%, transparent), transparent 70%),
+            radial-gradient(48% 52% at 92% 90%, color-mix(in srgb, var(--prev-blue) 20%, transparent), transparent 70%); }
         @media (max-width:980px){ .hexfield{ left:50%; width:min(540px,94%); top:auto; bottom:1%; transform:translateX(-50%); } }
         /* single payout notification — top-left of the figure */
         /* desktop: sits BEHIND the hero figure (img z-index:1) so it tucks behind the people; mobile brings it to the front */

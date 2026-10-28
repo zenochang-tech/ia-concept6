@@ -356,6 +356,75 @@ section{position:relative;}
 .nm-door .nm-dt{position:relative; z-index:3; display:inline-flex; align-items:center; gap:8px; pointer-events:none;}
 @media (max-width:860px){ .nm-stage{height:auto; overflow:visible; perspective:none;} }
 
+/* ---------- Palette preview: Current (warm-100) vs Previous (colours before 5 Oct) ----------
+   html.palette-prev switches the hexagon decorations and hero glows back to their earlier
+   colours; the toggle at the bottom right sets it (PaletteToggle in ia-shared.jsx).
+   Tune the Previous look by editing the --prev-* colours below (the toggle's colour pickers
+   change them live). To keep only one version later: delete this block and PaletteToggle,
+   or move the Previous values into the default rules. */
+:root{
+  --prev-ember:#F05826;           /* honeycomb gradient start, homepage left glow, Publisher hero glow, deco hexagons */
+  --prev-blue:#6A9CDF;            /* honeycomb gradient end, homepage right glow, deco hexagons */
+  --prev-midnight-light:#3D5A80;  /* Advertiser hero glow, real-sales stat hexagons */
+  --prev-honeycomb-pub:#FAC9B9;   /* closing-CTA honeycomb, Publisher pages */
+  --prev-honeycomb-adv:#C7DFFF;   /* closing-CTA + pricing header honeycomb, Advertiser pages */
+  --prev-plate-1:#FBE9DF;         /* hex plate behind the hero photo: top-left */
+  --prev-plate-2:#F5F2EE;         /*   middle */
+  --prev-plate-3:#E6EEF9;         /*   bottom-right */
+  --prev-deco-base:#E8E8E2;       /* top edge of the four faint hero deco hexagons */
+  --prev-slider-1:#BFCADD;        /* Advertiser hero slider hexagon: bottom-left (blue) */
+  --prev-slider-2:#D5B6B3;        /*   top-right (peach) */
+  /* what the decorations read — Current values here, Previous values under html.palette-prev */
+  --phd-base-top:var(--warm-100); --phd-blue:var(--warm-100); --phd-blue-fade:1; --phd-ember:var(--warm-100); --phd-ember-op:1;
+  --phd1-op:1; --phd2-op:1; --phd3-op:1; --phd4-op:1; --phd1-tint-op:1; --phd2-tint-op:1;
+  --prev-glow:var(--prev-ember);
+}
+html[data-audience="advertiser"]{--prev-glow:var(--prev-midnight-light);}
+html.palette-prev{
+  --phd-base-top:var(--prev-deco-base); --phd-blue:var(--prev-blue); --phd-blue-fade:.16; --phd-ember:var(--prev-ember); --phd-ember-op:.16;
+  --phd1-op:.56; --phd2-op:.48; --phd3-op:.24; --phd4-op:.06; --phd1-tint-op:.12; --phd2-tint-op:.2;
+}
+/* homepage hero: gradient honeycomb + corner glows */
+html.palette-prev .hexfield-g{fill:url(#hexGrad); opacity:.269;}
+html.palette-prev .hexfield .hx{fill-opacity:.32;}
+html.palette-prev .hero2-glow{display:block;}
+/* partner + Advertiser page heroes */
+html.palette-prev .ph-hexplate{background:linear-gradient(158deg,var(--prev-plate-1) 0%,var(--prev-plate-2) 48%,var(--prev-plate-3) 100%);}
+html.palette-prev .ph-hexglow{display:block; background:radial-gradient(circle at 50% 46%, color-mix(in srgb, var(--prev-glow) 20%, transparent), transparent 62%); filter:blur(6px);}
+html.palette-prev .ph-hexbg{background:linear-gradient(45deg, color-mix(in srgb, var(--prev-slider-1) 36%, transparent), color-mix(in srgb, var(--prev-slider-2) 36%, transparent)); filter:drop-shadow(0 34px 60px rgba(15,28,46,.12));}
+html.palette-prev .as-heximg{opacity:.3;}
+html.palette-prev .as-heximg path{fill:var(--prev-midnight-light); fill-opacity:.12;}
+/* honeycombs: closing CTA, pricing header, About / Glossary / Terms heroes */
+html.palette-prev .pc-hexfield{opacity:.385;}
+html.palette-prev .pc-hexfield g{fill:var(--prev-honeycomb-pub);}
+html.palette-prev[data-audience="advertiser"] .pc-hexfield g, html.palette-prev .prh-hexfield g{fill:var(--prev-honeycomb-adv);}
+html.palette-prev .ab-hexfield g{fill:url(#ab-hexgrad);}
+html.palette-prev .gh-hexfield g{fill:url(#gh-hexgrad);}
+html.palette-prev .ab-hexfield{opacity:.13;}
+html.palette-prev .gh-hexfield{opacity:.128;}
+@media (max-width:600px){ html.palette-prev .ab-hexfield, html.palette-prev .gh-hexfield{opacity:.06;} }
+
+/* the toggle itself */
+.pt{position:fixed; right:calc(clamp(16px,2.5vw,28px) + 80px); bottom:clamp(16px,2.5vw,28px); z-index:96; font-family:var(--font-body);}
+.pt-bar{display:flex; align-items:center; gap:4px; padding:4px; background:#fff; border:1px solid var(--warm-200); border-radius:var(--r-lg); box-shadow:var(--shadow-md);}
+.pt-label{font:600 12px/1 var(--font-body); color:var(--warm-400); padding:0 6px 0 8px;}
+.pt-seg{font:600 12px/1 var(--font-body); color:var(--warm-600); background:none; border:none; border-radius:var(--r-md); padding:8px 10px; cursor:pointer;}
+.pt-seg:hover{background:var(--warm-100);}
+.pt-seg[aria-pressed="true"]{background:var(--warm-100); color:var(--warm-900);}
+.pt-edit{display:flex; align-items:center; justify-content:center; width:30px; height:28px; background:none; border:none; border-radius:var(--r-md); color:var(--warm-600); cursor:pointer;}
+.pt-edit:hover,.pt-edit[aria-expanded="true"]{background:var(--warm-100); color:var(--warm-900);}
+.pt-panel{position:absolute; right:0; bottom:calc(100% + 8px); width:280px; max-height:min(70vh,520px); overflow:auto; background:#fff; border:1px solid var(--warm-200); border-radius:var(--r-lg); box-shadow:var(--shadow-lg); padding:14px;}
+.pt-panel h3{font:700 14px/1.3 var(--font-body); color:var(--warm-900); letter-spacing:0;}
+.pt-panel p{margin-top:4px; font:400 12px/1.45 var(--font-body); color:var(--warm-400);}
+.pt-row{display:flex; align-items:center; gap:10px; margin-top:10px;}
+.pt-row label{flex:1; font:400 13px/1.3 var(--font-body); color:var(--warm-900);}
+.pt-row input[type=color]{width:34px; height:26px; padding:0; border:1px solid var(--warm-200); border-radius:var(--r-sm); background:#fff; cursor:pointer;}
+.pt-row code{font:400 12px/1 ui-monospace,SFMono-Regular,Menlo,monospace; color:var(--warm-600); width:62px;}
+.pt-actions{display:flex; gap:8px; margin-top:14px;}
+.pt-actions button{flex:1; font:600 12px/1 var(--font-body); padding:9px 10px; border-radius:var(--r-md); cursor:pointer; background:#fff; color:var(--warm-900); border:1.5px solid var(--warm-900);}
+.pt-actions button:hover{background:var(--warm-50);}
+@media (max-width:600px){ .pt{right:auto; left:16px;} .pt-panel{left:0; right:auto; width:min(280px,calc(100vw - 32px));} }
+
 /* App root hidden until React mounts to avoid flash */
 #root:empty::after{content:""; display:block; height:100vh;}
 </style>

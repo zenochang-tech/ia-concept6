@@ -483,7 +483,7 @@ function AdvStats() {
       <div className="as-stage" data-reveal>
         {ADV_STAT_HEX.map((h, i) => (
           <span className="as-hexcell" key={i} style={{ left: h.x + '%', top: h.y + '%' }}>
-            <img className="as-heximg" src="media/figma/adv-stat-hex-tint.svg" alt="" aria-hidden="true" />
+            <svg className="as-heximg" viewBox="0 0 347.854 395.886" preserveAspectRatio="none" aria-hidden="true"><path d="M164.586 2.50294C170.366 -0.834312 177.488 -0.834312 183.268 2.50294L338.513 92.1335C344.293 95.4707 347.854 101.638 347.854 108.313V287.574C347.854 294.248 344.293 300.416 338.513 303.753L183.268 393.384C177.488 396.721 170.366 396.721 164.586 393.384L9.34109 303.753C3.5608 300.416 0 294.248 0 287.574V108.313C0 101.638 3.5608 95.4707 9.34109 92.1335L164.586 2.50294Z" fill="var(--warm-100)" /></svg>
           </span>
         ))}
         <h2 className="as-heading">This is what real sales<br />add up to.</h2>
