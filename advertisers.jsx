@@ -369,12 +369,19 @@ function initTrafficViz(canvas, chip, userConfig) {
     canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     gx = W * C.gateXFrac; chipX = W - C.chipRight - C.chipW; chipY = H / 2;
     s = C.seed >>> 0;
-    // ordered lanes: straight run from the gate, then a curve into the chip's left edge
+    // ordered lanes: a short straight run from the gate, then a long, gentle S-bend (cubic with level
+    // tangents at both ends) that merges into the chip's left edge. Each lane is pre-sampled into a
+    // polyline with cumulative lengths so dots move along it at an even speed.
     lanes = [];
-    const laneEnd = gx + (chipX - gx) * 0.62;
+    const bendX = gx + (chipX - gx) * 0.3, span = chipX - bendX;
     for (let j = 0; j < C.lanes; j++) {
-      const y = H * (0.22 + 0.56 * (j + 0.5) / C.lanes);
-      lanes.push({ y, x1: laneEnd, P: [laneEnd, y, laneEnd + (chipX - laneEnd) * 0.7, y, chipX, chipY + (y - chipY) * 0.18] });
+      const y = H * (0.22 + 0.56 * (j + 0.5) / C.lanes), ey = chipY + (y - chipY) * 0.12;
+      const B = [bendX, y, bendX + span * 0.5, y, chipX - span * 0.5, ey, chipX, ey];
+      const pts = [[gx, y]];
+      for (let i = 0; i <= 40; i++) { const t = i / 40, u = 1 - t; pts.push([u * u * u * B[0] + 3 * u * u * t * B[2] + 3 * u * t * t * B[4] + t * t * t * B[6], u * u * u * B[1] + 3 * u * u * t * B[3] + 3 * u * t * t * B[5] + t * t * t * B[7]]); }
+      const cum = [0];
+      for (let i = 1; i < pts.length; i++) cum.push(cum[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]));
+      lanes.push({ y, pts, cum, len: cum[cum.length - 1] });
     }
     // loose source curves: scattered starts on the left edge, each ending exactly on a lane's entry point
     // (sorted top→bottom and shared out in order, so every entry continues into its lane and curves cross less)
@@ -395,12 +402,12 @@ function initTrafficViz(canvas, chip, userConfig) {
     if (d.ok) { d.ph = 1; d.t = 0; d.L = d.S.L; d.dur = C.rightSecs[0] + Math.random() * (C.rightSecs[1] - C.rightSecs[0]); }
     else { d.ph = 2; d.t = 0; d.x = gx; d.y = d.S.P[5]; d.vy = 0; d.vx = -8 - Math.random() * 6; }
   }
-  // position along a valid dot's right-hand route: hop to its lane, run straight, curve into the chip
+  // position along a valid dot's lane at fraction k of its length (even speed from gate to chip)
   function rightPos(d, k) {
-    const L = d.L, y0 = d.S.P[5], hop = 0.12, run = 0.62;
-    if (k < hop) { const e = ease(k / hop); return [gx + (L.x1 - gx) * 0.12 * (k / hop), y0 + (L.y - y0) * e]; }
-    if (k < run) { const q = (k - hop) / (run - hop); return [gx + (L.x1 - gx) * (0.12 + 0.88 * q), L.y]; }
-    return qpt(L.P, (k - run) / (1 - run));
+    const L = d.L, target = k * L.len; let i = 1;
+    while (i < L.cum.length - 1 && L.cum[i] < target) i++;
+    const seg = L.cum[i] - L.cum[i - 1] || 1, f = (target - L.cum[i - 1]) / seg, a = L.pts[i - 1], b = L.pts[i];
+    return [a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f];
   }
   function update(dt) {
     if (intro < 1) intro = Math.min(1, intro + dt / C.introSecs);
@@ -429,7 +436,7 @@ function initTrafficViz(canvas, chip, userConfig) {
     ctx.lineCap = 'round'; ctx.lineWidth = 1;
     for (const S of src) { ctx.strokeStyle = rgba(MID, S.op); strokePath(() => { ctx.beginPath(); ctx.moveTo(S.P[0], S.P[1]); ctx.quadraticCurveTo(S.P[2], S.P[3], S.P[4], S.P[5]); ctx.stroke(); }, pL); }
     ctx.lineWidth = 1.25;
-    for (const L of lanes) { ctx.strokeStyle = rgba(MID, 0.2); strokePath(() => { ctx.beginPath(); ctx.moveTo(gx, L.y); ctx.lineTo(L.x1, L.y); ctx.quadraticCurveTo(L.P[2], L.P[3], L.P[4], L.P[5]); ctx.stroke(); }, pR); }
+    for (const L of lanes) { ctx.strokeStyle = rgba(MID, 0.2); strokePath(() => { ctx.beginPath(); ctx.moveTo(L.pts[0][0], L.pts[0][1]); for (const p of L.pts) ctx.lineTo(p[0], p[1]); ctx.stroke(); }, pR); }
     // checkpoint: a Midnight-Light bar that grows from its centre
     if (pG > 0) {
       const top = H * 0.14, bot = H * 0.86, mid = (top + bot) / 2, half = (bot - top) / 2 * pG;
