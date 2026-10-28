@@ -171,9 +171,9 @@ function PubLogos() {
 
 /* ---------- Section 3 — "If you have an audience, you can earn." ----------- */
 const PUB_AUDIENCE = [
-  ['Creator Partners', 'Social, influencers, video. Share what you love, and earn every time a follower buys.', 'creator-partner-type-image.png', 'content-creators.html'],
-  ['Affiliate Partners', "Blogs, review, cashback, coupon and comparison sites. Turn your site's traffic into affiliate income, at any scale.", 'aff-partner-type-image.png', 'affiliates.html'],
-  ['Technology Partners', 'Apps, web platforms, and software. Plug Involve into your own product through our API, and earn from your users.', 'tech-partner-type-image.png', 'technology-partners.html'],
+  ['Creator Partners', 'Social, influencers, video. Share what you love, and earn every time a follower buys.', 'creator-partner-type-image.png'],
+  ['Affiliate Partners', "Blogs, review, cashback, coupon and comparison sites. Turn your site's traffic into affiliate income, at any scale.", 'aff-partner-type-image.png'],
+  ['Technology Partners', 'Apps, web platforms, and software. Plug Involve into your own product through our API, and earn from your users.', 'tech-partner-type-image.png'],
 ];
 function PubAudience() {
   return (
@@ -184,14 +184,14 @@ function PubAudience() {
           <p className="au-sub">Whatever you run, there's a fit for it, across campaigns, promo codes, product deals and more.</p>
         </div>
         <div className="au-grid" data-reveal data-reveal-delay="1">
-          {PUB_AUDIENCE.map(([t, d, img, href]) => (
-            <a className="au-card" key={t} href={href}>
+          {PUB_AUDIENCE.map(([t, d, img]) => (
+            <div className="au-card" key={t}>
               <img className="au-card-img" src={`media/figma/${img}`} alt="" draggable="false" loading="lazy" />
               <div className="au-card-body">
                 <h3 className="au-card-t">{t}</h3>
                 <p className="au-card-d">{d}</p>
               </div>
-            </a>
+            </div>
           ))}
         </div>
       </div>
@@ -201,17 +201,13 @@ function PubAudience() {
         .au-sub{ margin-top:14px; max-width:620px; font-size:16px; line-height:1.4; color:var(--warm-600); }
         .au-grid{ margin-top:clamp(28px,4vh,44px); display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(18px,2vw,24px); }
         .au-card{ position:relative; display:block; min-width:0; height:495px; border-radius:var(--r-xl); overflow:hidden;
-          background:#ffffff; box-shadow:0 12px 30px rgba(15,28,46,.06);
-          transition:transform .34s cubic-bezier(.22,1,.36,1), box-shadow .34s; }
+          background:#ffffff; box-shadow:0 12px 30px rgba(15,28,46,.06); }
         /* image anchored to the BOTTOM of the card, faded into the surface at its top so it never sits under the text */
-        .au-card-img{ position:absolute; left:0; right:0; bottom:0; width:100%; height:80%; object-fit:cover; object-position:center 24%; opacity:.32; transition:opacity .34s ease; -webkit-user-drag:none; pointer-events:none;
+        .au-card-img{ position:absolute; left:0; right:0; bottom:0; width:100%; height:80%; object-fit:cover; object-position:center 24%; -webkit-user-drag:none; pointer-events:none;
           -webkit-mask:linear-gradient(180deg, transparent 0%, #000 30%); mask:linear-gradient(180deg, transparent 0%, #000 30%); }
-        .au-card-body{ position:relative; z-index:1; padding:26px 28px; opacity:.7; transition:opacity .34s ease; }
+        .au-card-body{ position:relative; z-index:1; padding:26px 28px; }
         .au-card-t{ font-family:var(--font-display); font-weight:800; font-size:21px; line-height:1.25; letter-spacing:-.02em; color:var(--warm-900); }
         .au-card-d{ margin-top:10px; font:400 16px/1.31 var(--font-body); color:var(--warm-600); max-width:277px; }
-        .au-card:hover{ box-shadow:0 24px 50px rgba(15,28,46,.16); }
-        .au-card:hover .au-card-img{ opacity:.9; }
-        .au-card:hover .au-card-body{ opacity:.96; }
         @media (max-width:820px){ .au-grid{ grid-template-columns:1fr; max-width:420px; margin-inline:auto; } }
       `}</style>
     </section>
