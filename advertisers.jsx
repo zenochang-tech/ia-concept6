@@ -327,80 +327,166 @@ function AdvPlatform() {
   );
 }
 /* ---------- "Traffic Validation" animated graphic (canvas) -----------------
-   Self-contained looping animation: scattered/raw traffic on the left resolves
-   through a central checkpoint into clean/validated traffic on the right.
-   Full standalone version + video-export notes live in traffic-validation.html.
-   All motion is driven by one normalized t∈[0,1) that wraps → seamless loop. */
+   Story, left → right: raw clicks travel along loose curves into a checkpoint.
+   Each one is judged there — valid traffic turns success-green, snaps into an
+   ordered lane and runs into the "Validated sales" counter; invalid traffic
+   turns grey and drops away. Flat strokes only (no glows), Midnight + Warm +
+   success (no Ember on Advertiser pages). Layout is seeded, so it composes the
+   same on every load. First time it scrolls into view the paths draw in; it
+   pauses off-screen; reduced-motion gets one still, finished frame. */
 const TRAFFIC_CONFIG = {
-  leftLineCount: 35, rightLineCount: 12, particleCount: 120,
-  cycleSeconds: 8, dashCyclesPerLoop: 6, pulsesPerLoop: 1,
-  lineColor: '#3A5980', lineOpacity: 0.42, particleColor: '#4A6A94',
-  centerLineColor: '#2E4A6B', lineThickness: 1, leftDisorderAmount: 1, centerXFrac: 0.48,
+  seed: 7, sources: 18, lanes: 6, gateXFrac: 0.40, chipW: 176, chipRight: 28,
+  spawnPerSec: 7, validShare: 0.7, leftSecs: [1.7, 2.4], rightSecs: [1.6, 2.0],
+  startCount: 1284, introSecs: 1.5,
 };
-function initTrafficViz(canvas, userConfig) {
+function initTrafficViz(canvas, chip, userConfig) {
   const C = Object.assign({}, TRAFFIC_CONFIG, userConfig || {});
   const ctx = canvas.getContext('2d');
   const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const rgb = (h) => { const n = parseInt(h.slice(1), 16); return [n >> 16 & 255, n >> 8 & 255, n & 255]; };
-  const LINE = rgb(C.lineColor), CEN = rgb(C.centerLineColor), PART = rgb(C.particleColor);
+  const css = getComputedStyle(document.documentElement);
+  const tok = (n, f) => (css.getPropertyValue(n).trim() || f);
+  const rgb = (h) => { const n = parseInt(h.replace('#', ''), 16); return [n >> 16 & 255, n >> 8 & 255, n & 255]; };
+  const MID = rgb(tok('--midnight-light', '#3D5A80')), GATE = rgb(tok('--midnight', '#0F1C2E'));
+  const OK = rgb(tok('--success', '#10B981')), NO = rgb(tok('--warm-300', '#D2D2CC'));
   const rgba = (c, a) => `rgba(${c[0]},${c[1]},${c[2]},${a})`;
-  const rnd = (a, b) => a + Math.random() * (b - a);
-  let W = 0, H = 0, dpr = 1, cx = 0, my = 0, uh = 0, leftLines = [], rightLines = [], parts = [];
-  const DASH = 18;
+  const mix = (a, b, k) => [0, 1, 2].map((i) => Math.round(a[i] + (b[i] - a[i]) * k));
+  // seeded RNG (mulberry32) → same composition every load
+  let s = C.seed >>> 0;
+  const rand = () => { s = (s + 0x6D2B79F5) >>> 0; let t = s; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+  const rnd = (a, b) => a + rand() * (b - a);
+  const ease = (x) => 1 - Math.pow(1 - Math.min(1, Math.max(0, x)), 3);
+  const qpt = (P, t) => { const u = 1 - t; return [u * u * P[0] + 2 * u * t * P[2] + t * t * P[4], u * u * P[1] + 2 * u * t * P[3] + t * t * P[5]]; };
+  const numEl = chip && chip.querySelector('[data-tv-num]');
+  let W = 0, H = 0, dpr = 1, gx = 0, chipX = 0, chipY = 0, src = [], lanes = [], dots = [], rings = [];
+  let count = C.startCount, intro = reduce ? 1 : 0, spawnAcc = 0, warmed = false;
+  const setCount = () => { if (numEl) numEl.textContent = count.toLocaleString('en-US'); };
   function layout() {
     dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const r = canvas.getBoundingClientRect(); W = Math.max(1, r.width); H = Math.max(1, r.height);
+    const r = canvas.getBoundingClientRect();
+    if (Math.round(r.width) === Math.round(W) && Math.round(r.height) === Math.round(H) && src.length) return false;   // unchanged → keep traffic flowing
+    W = Math.max(1, r.width); H = Math.max(1, r.height);
     canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    cx = W * C.centerXFrac; my = H * 0.06; uh = H - my * 2;
-    leftLines = [];
-    for (let i = 0; i < C.leftLineCount; i++) {
-      const y0 = my + rnd(-0.05, 1.05) * uh, y1 = my + (0.5 + rnd(-0.34, 0.34)) * uh;
-      const cy = (y0 + y1) / 2 + rnd(-0.18, 0.18) * uh * C.leftDisorderAmount;
-      leftLines.push({ x0: rnd(-0.04, 0.02) * W, y0, cx1: rnd(0.32, 0.66) * cx, cy1: cy, x1: cx, y1, op: C.lineOpacity * rnd(0.5, 1), ph: Math.random() });
+    gx = W * C.gateXFrac; chipX = W - C.chipRight - C.chipW; chipY = H / 2;
+    s = C.seed >>> 0;
+    // loose source curves: scattered starts on the left edge → gate entry points in the middle band
+    src = [];
+    for (let i = 0; i < C.sources; i++) {
+      const y0 = H * rnd(0.04, 0.96), y1 = H * (0.2 + 0.6 * (i + rnd(0.2, 0.8)) / C.sources);
+      src.push({ P: [W * rnd(-0.02, 0.06), y0, gx * rnd(0.35, 0.7), (y0 + y1) / 2 + H * rnd(-0.2, 0.2), gx, y1], op: rnd(0.09, 0.16) });
     }
-    rightLines = [];
-    for (let j = 0; j < C.rightLineCount; j++) rightLines.push({ y: my + uh * ((j + 0.5) / C.rightLineCount), op: C.lineOpacity * rnd(0.7, 1) });
-    parts = [];
-    for (let k = 0; k < C.particleCount; k++) {
-      const left = Math.random() < 0.72;
-      const y = left ? my + Math.random() * uh : my + uh * ((Math.floor(Math.random() * C.rightLineCount) + 0.5) / C.rightLineCount) + rnd(-2.5, 2.5);
-      parts.push({ p0: Math.random(), y, r: rnd(0.6, 1.7), sp: rnd(0.6, 1.3), tw: Math.random(), left });
+    // ordered lanes: straight run after the gate, then a curve into the chip's left edge
+    lanes = [];
+    const laneEnd = gx + (chipX - gx) * 0.62;
+    for (let j = 0; j < C.lanes; j++) {
+      const y = H * (0.22 + 0.56 * (j + 0.5) / C.lanes);
+      lanes.push({ y, x1: laneEnd, P: [laneEnd, y, laneEnd + (chipX - laneEnd) * 0.7, y, chipX, chipY + (y - chipY) * 0.18] });
     }
+    dots = []; rings = []; warmed = false;
+    return true;
   }
-  function draw(t) {
+  const nearestLane = (y) => lanes.reduce((b, L) => (Math.abs(L.y - y) < Math.abs(b.y - y) ? L : b), lanes[0]);
+  function spawn() {
+    const S = src[Math.floor(Math.random() * src.length)];
+    dots.push({ S, ok: Math.random() < C.validShare, ph: 0, t: 0, dur: C.leftSecs[0] + Math.random() * (C.leftSecs[1] - C.leftSecs[0]), r: 2.2 + Math.random() * 1, vy: 0, x: 0, y: 0, a: 1 });
+  }
+  function judge(d) {
+    rings.push({ x: gx, y: d.S.P[5], t: 0, ok: d.ok });
+    if (d.ok) { d.ph = 1; d.t = 0; d.L = nearestLane(d.S.P[5]); d.dur = C.rightSecs[0] + Math.random() * (C.rightSecs[1] - C.rightSecs[0]); }
+    else { d.ph = 2; d.t = 0; d.x = gx; d.y = d.S.P[5]; d.vy = 0; d.vx = -18 - Math.random() * 14; }
+  }
+  // position along a valid dot's right-hand route: hop to its lane, run straight, curve into the chip
+  function rightPos(d, k) {
+    const L = d.L, y0 = d.S.P[5], hop = 0.12, run = 0.62;
+    if (k < hop) { const e = ease(k / hop); return [gx + (L.x1 - gx) * 0.12 * (k / hop), y0 + (L.y - y0) * e]; }
+    if (k < run) { const q = (k - hop) / (run - hop); return [gx + (L.x1 - gx) * (0.12 + 0.88 * q), L.y]; }
+    return qpt(L.P, (k - run) / (1 - run));
+  }
+  function update(dt) {
+    if (intro < 1) intro = Math.min(1, intro + dt / C.introSecs);
+    // fast-forward a few seconds unseen so traffic is already flowing end to end; it fades in as the paths finish drawing
+    if (!warmed) { for (let i = 0; i < 80; i++) step(0.05); rings = []; count = C.startCount; setCount(); warmed = true; }
+    step(dt);
+  }
+  function step(dt) {
+    { spawnAcc += dt * C.spawnPerSec; while (spawnAcc >= 1) { spawn(); spawnAcc -= 1; } }
+    for (const d of dots) {
+      d.t += dt;
+      if (d.ph === 0 && d.t >= d.dur) judge(d);
+      else if (d.ph === 1 && d.t >= d.dur) { d.done = true; count += 1; if (warmed) setCount(); if (chip && warmed) { chip.classList.remove('tv-tick'); void chip.offsetWidth; chip.classList.add('tv-tick'); } }
+      else if (d.ph === 2) { d.vy += 140 * dt; d.x += d.vx * dt; d.y += d.vy * dt; d.a -= dt * 1.6; if (d.a <= 0) d.done = true; }
+    }
+    dots = dots.filter((d) => !d.done);
+    for (const R of rings) R.t += dt;
+    rings = rings.filter((R) => R.t < 0.6);
+  }
+  function strokePath(draw, p) {   // draws a path revealed to fraction p (intro)
+    if (p <= 0) return; if (p < 1) ctx.setLineDash([2000 * p, 4000]); draw(); ctx.setLineDash([]);
+  }
+  function render() {
     ctx.clearRect(0, 0, W, H);
-    const flow = ((t * C.dashCyclesPerLoop) % 1) * DASH;
-    ctx.lineWidth = C.lineThickness; ctx.lineCap = 'round'; ctx.setLineDash([2, DASH - 2]);
-    for (const L of leftLines) { ctx.strokeStyle = rgba(LINE, L.op); ctx.lineDashOffset = -flow - L.ph * DASH; ctx.beginPath(); ctx.moveTo(L.x0, L.y0); ctx.quadraticCurveTo(L.cx1, L.cy1, L.x1, L.y1); ctx.stroke(); }
-    for (const R of rightLines) { ctx.strokeStyle = rgba(LINE, R.op); ctx.lineDashOffset = -flow; ctx.beginPath(); ctx.moveTo(cx, R.y); ctx.lineTo(W * 1.02, R.y); ctx.stroke(); }
-    ctx.setLineDash([]);
-    ctx.strokeStyle = rgba(CEN, 0.5); ctx.lineWidth = 1.4; ctx.beginPath(); ctx.moveTo(cx, my * 0.6); ctx.lineTo(cx, H - my * 0.6); ctx.stroke();
-    const py = my + (0.5 - 0.5 * Math.cos(2 * Math.PI * t * C.pulsesPerLoop)) * uh;
-    const g = ctx.createRadialGradient(cx, py, 0, cx, py, 24); g.addColorStop(0, rgba(CEN, 0.13)); g.addColorStop(1, rgba(CEN, 0));
-    ctx.fillStyle = g; ctx.fillRect(cx - 24, py - 24, 48, 48);
-    for (const P of parts) {
-      const b0 = P.left ? 0 : C.centerXFrac, b1 = P.left ? C.centerXFrac : 1;
-      const prog = (P.p0 + t * P.sp) % 1, x = (b0 + prog * (b1 - b0)) * W;
-      const edge = Math.min(1, (x - b0 * W) / 34, (b1 * W - x) / 34), tw = 0.55 + 0.45 * Math.sin(2 * Math.PI * (t * 2 + P.tw));
-      ctx.fillStyle = rgba(PART, Math.max(0, 0.5 * edge) * tw); ctx.beginPath(); ctx.arc(x, P.y, P.r, 0, Math.PI * 2); ctx.fill();
+    const pL = ease(intro / 0.55), pG = ease((intro - 0.3) / 0.35), pR = ease((intro - 0.5) / 0.5);
+    ctx.lineCap = 'round'; ctx.lineWidth = 1;
+    for (const S of src) { ctx.strokeStyle = rgba(MID, S.op); strokePath(() => { ctx.beginPath(); ctx.moveTo(S.P[0], S.P[1]); ctx.quadraticCurveTo(S.P[2], S.P[3], S.P[4], S.P[5]); ctx.stroke(); }, pL); }
+    ctx.lineWidth = 1.25;
+    for (const L of lanes) { ctx.strokeStyle = rgba(MID, 0.2); strokePath(() => { ctx.beginPath(); ctx.moveTo(gx, L.y); ctx.lineTo(L.x1, L.y); ctx.quadraticCurveTo(L.P[2], L.P[3], L.P[4], L.P[5]); ctx.stroke(); }, pR); }
+    // checkpoint: a Midnight bar that grows from its centre, with short tick marks where traffic enters
+    if (pG > 0) {
+      const top = H * 0.14, bot = H * 0.86, mid = (top + bot) / 2, half = (bot - top) / 2 * pG;
+      ctx.strokeStyle = rgba(GATE, 0.7); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(gx, mid - half); ctx.lineTo(gx, mid + half); ctx.stroke();
+      ctx.strokeStyle = rgba(GATE, 0.28 * pG); ctx.lineWidth = 1;
+      for (const S of src) { ctx.beginPath(); ctx.moveTo(gx - 5, S.P[5]); ctx.lineTo(gx + 5, S.P[5]); ctx.stroke(); }
     }
+    // judgement rings — flat stroke that expands and fades
+    for (const R of rings) {
+      const k = R.t / 0.6; ctx.strokeStyle = rgba(R.ok ? OK : NO, 0.9 * (1 - k)); ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.arc(R.x, R.y, 3 + 9 * ease(k), 0, Math.PI * 2); ctx.stroke();
+    }
+    ctx.globalAlpha = ease((intro - 0.6) / 0.4);
+    for (const d of dots) {
+      let x, y, c, a = 1;
+      if (d.ph === 0) { const k = d.t / d.dur; [x, y] = qpt(d.S.P, k); c = MID; a = Math.min(1, k * 6) * 0.85; }
+      else if (d.ph === 1) { [x, y] = rightPos(d, Math.min(1, d.t / d.dur)); c = mix(MID, OK, Math.min(1, d.t / 0.25)); }
+      else { x = d.x; y = d.y; c = NO; a = Math.max(0, d.a); }
+      ctx.fillStyle = rgba(c, a); ctx.beginPath(); ctx.arc(x, y, d.r, 0, Math.PI * 2); ctx.fill();
+    }
+    ctx.globalAlpha = 1;
   }
-  canvas.__tvRenderFrame = (t) => draw(((t % 1) + 1) % 1);   // deterministic frame (verification / export parity)
-  let raf = 0, start = null, visible = true;
-  function frame(now) { if (start == null) start = now; draw((((now - start) / 1000) / C.cycleSeconds) % 1); if (visible && !reduce) raf = requestAnimationFrame(frame); }
-  function play() { if (!raf && !reduce) { start = null; raf = requestAnimationFrame(frame); } }
+  // still frame for reduced motion / export: dots placed along every stage of the journey
+  function stillFrame() {
+    dots = []; rings = [];
+    src.forEach((S, i) => { if (i % 2 === 0) dots.push({ S, ph: 0, t: 0.35 + 0.5 * ((i * 37) % 10) / 10, dur: 1, r: 2.2 }); });
+    lanes.forEach((L, j) => [0.3, 0.55, 0.85].forEach((k, n) => dots.push({ S: src[(j * 3 + n) % src.length], L, ph: 1, t: k + 0.3, dur: 1.3, r: 2.4 })));
+    rings.push({ x: gx, y: src[4].P[5], t: 0.2, ok: true }, { x: gx, y: src[11].P[5], t: 0.25, ok: false });
+    render();
+  }
+  canvas.__tvRenderFrame = () => stillFrame();
+  let raf = 0, last = 0, visible = false, started = false;
+  function frame(now) { const dt = Math.min(0.05, (now - last) / 1000 || 0); last = now; update(dt); render(); raf = visible ? requestAnimationFrame(frame) : 0; }
+  function play() { if (!raf && !reduce) { last = performance.now(); raf = requestAnimationFrame(frame); } }
   function stop() { if (raf) { cancelAnimationFrame(raf); raf = 0; } }
-  layout(); reduce ? draw(0) : play();
-  const onResize = () => { layout(); if (reduce) draw(0); };
+  layout(); setCount();
+  if (reduce) { stillFrame(); if (chip) chip.classList.add('tv-in'); }
+  const onResize = () => { if (layout() && (reduce || !started)) stillFrame(); };
   window.addEventListener('resize', onResize);
   let io = null;
-  if ('IntersectionObserver' in window) { io = new IntersectionObserver((es) => { visible = es[0].isIntersecting; visible ? play() : stop(); }, { threshold: 0 }); io.observe(canvas); }
+  const enter = () => { visible = true; if (!started) { started = true; if (chip) setTimeout(() => chip.classList.add('tv-in'), C.introSecs * 650); } play(); };
+  if (reduce) { /* static */ }
+  else if ('IntersectionObserver' in window) { io = new IntersectionObserver((es) => { if (es[0].isIntersecting) enter(); else { visible = false; stop(); } }, { threshold: 0.3 }); io.observe(canvas); }
+  else enter();
   return function destroy() { stop(); window.removeEventListener('resize', onResize); if (io) io.disconnect(); };
 }
 function TrafficViz() {
-  const ref = React.useRef(null);
-  React.useEffect(() => { if (!ref.current) return; return initTrafficViz(ref.current); }, []);
-  return <canvas ref={ref} className="rl-canvas" aria-hidden="true" />;
+  const ref = React.useRef(null), chipRef = React.useRef(null);
+  React.useEffect(() => { if (!ref.current) return; return initTrafficViz(ref.current, chipRef.current); }, []);
+  return (
+    <>
+      <canvas ref={ref} className="rl-canvas" aria-hidden="true" />
+      <div ref={chipRef} className="tv-chip" aria-hidden="true">
+        <span className="tv-chip-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg></span>
+        <span className="tv-chip-txt"><span className="tv-chip-l">Validated sales</span><b data-tv-num>1,284</b></span>
+      </div>
+    </>
+  );
 }
 /* ---------- Advertiser Section 5 — "You only pay for sales that are real" ---- */
 const ADV_REAL_POINTS = [
@@ -433,10 +519,21 @@ function AdvReal() {
           box-shadow:0 18px 44px rgba(15,28,46,.04); min-height:446px; display:flex; align-items:center;
           padding:clamp(32px,5vw,74px); }
         /* animated traffic-validation canvas fills the right; masked so its left edge melts into the card white */
-        .rl-viz{ position:absolute; right:0; top:0; bottom:0; width:min(66%, 780px); z-index:0;
-          -webkit-mask-image:linear-gradient(90deg, transparent 0%, #000 26%); mask-image:linear-gradient(90deg, transparent 0%, #000 26%); }
+        .rl-viz{ position:absolute; right:0; top:0; bottom:0; width:min(60%, 760px); z-index:0;
+          -webkit-mask-image:linear-gradient(90deg, transparent 0%, #000 16%); mask-image:linear-gradient(90deg, transparent 0%, #000 16%); }
         .rl-canvas{ width:100%; height:100%; display:block; }
-        .rl-body{ position:relative; z-index:2; max-width:640px; }
+        /* "Validated sales" counter the clean lanes run into (canvas reserves 176px + 28px on the right for it) */
+        .tv-chip{ position:absolute; right:28px; top:50%; width:176px; transform:translateY(-50%); display:flex; align-items:center; gap:10px;
+          padding:12px 14px; background:#fff; border:1px solid var(--warm-200); border-radius:var(--r-lg); opacity:0; transition:opacity .5s ease; }
+        .tv-chip.tv-in{ opacity:1; }
+        .tv-chip-ic{ flex:0 0 auto; width:28px; height:28px; border-radius:var(--r-md); display:flex; align-items:center; justify-content:center;
+          background:color-mix(in srgb, var(--success) 12%, #fff); color:var(--success); }
+        .tv-chip-ic svg{ width:16px; height:16px; }
+        .tv-chip.tv-tick .tv-chip-ic{ animation:tvTick .45s ease-out; }
+        @keyframes tvTick{ from{ background:var(--success); color:#fff; } }
+        .tv-chip-l{ display:block; font:500 12px/1.2 var(--font-body); color:var(--warm-600); }
+        .tv-chip b{ display:block; margin-top:2px; font:700 20px/1.2 var(--font-body); color:var(--warm-900); font-variant-numeric:tabular-nums; }
+        .rl-body{ position:relative; z-index:2; max-width:min(640px, 44%); }
         .rl-title{ font-size:clamp(24px,3vw,34px); line-height:1.14; letter-spacing:-.02em; color:var(--warm-900); }
         .rl-desc{ margin-top:20px; max-width:620px; font:400 16px/1.35 var(--font-body); color:var(--warm-600); }
         .rl-list{ margin-top:28px; display:flex; flex-direction:column; gap:16px; }
@@ -444,7 +541,7 @@ function AdvReal() {
         .rl-check{ flex:0 0 auto; width:20px; height:20px; color:var(--success); display:inline-flex; align-items:center; justify-content:center; }
         .rl-check svg{ width:20px; height:20px; }
         /* mobile/narrow: the viz would sit on top of the copy — hide it entirely */
-        @media (max-width:820px){ .rl-viz{ display:none; } }
+        @media (max-width:820px){ .rl-viz{ display:none; } .rl-body{ max-width:640px; } }
       `}</style>
     </section>
   );
