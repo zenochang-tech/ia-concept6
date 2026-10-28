@@ -330,13 +330,14 @@ function AdvPlatform() {
    Story, left → right: raw clicks travel along loose curves into a checkpoint.
    Each one is judged there — valid traffic turns success-green, snaps into an
    ordered lane and runs into the "Validated sales" counter; invalid traffic
-   turns grey and drops away. Flat strokes only (no glows), Midnight + Warm +
-   success (no Ember on Advertiser pages). Layout is seeded, so it composes the
-   same on every load. First time it scrolls into view the paths draw in; it
-   pauses off-screen; reduced-motion gets one still, finished frame. */
+   turns grey and drops away. Unhurried pace to match the rest of the page.
+   Flat strokes only (no glows), Midnight + Warm + success (no Ember on
+   Advertiser pages). Layout is seeded, so it composes the same on every load.
+   First time it scrolls into view the paths draw in; it pauses off-screen;
+   reduced-motion gets one still, finished frame. */
 const TRAFFIC_CONFIG = {
   seed: 7, sources: 18, lanes: 6, gateXFrac: 0.40, chipW: 176, chipRight: 28,
-  spawnPerSec: 7, validShare: 0.7, leftSecs: [1.7, 2.4], rightSecs: [1.6, 2.0],
+  spawnPerSec: 2.6, validShare: 0.7, leftSecs: [3.6, 4.6], rightSecs: [3.4, 4.0],
   startCount: 1284, introSecs: 1.5,
 };
 function initTrafficViz(canvas, chip, userConfig) {
@@ -346,7 +347,7 @@ function initTrafficViz(canvas, chip, userConfig) {
   const css = getComputedStyle(document.documentElement);
   const tok = (n, f) => (css.getPropertyValue(n).trim() || f);
   const rgb = (h) => { const n = parseInt(h.replace('#', ''), 16); return [n >> 16 & 255, n >> 8 & 255, n & 255]; };
-  const MID = rgb(tok('--midnight-light', '#3D5A80')), GATE = rgb(tok('--midnight', '#0F1C2E'));
+  const MID = rgb(tok('--midnight-light', '#3D5A80')), GATE = rgb(tok('--midnight-light', '#3D5A80'));
   const OK = rgb(tok('--success', '#10B981')), NO = rgb(tok('--warm-300', '#D2D2CC'));
   const rgba = (c, a) => `rgba(${c[0]},${c[1]},${c[2]},${a})`;
   const mix = (a, b, k) => [0, 1, 2].map((i) => Math.round(a[i] + (b[i] - a[i]) * k));
@@ -368,31 +369,31 @@ function initTrafficViz(canvas, chip, userConfig) {
     canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     gx = W * C.gateXFrac; chipX = W - C.chipRight - C.chipW; chipY = H / 2;
     s = C.seed >>> 0;
-    // loose source curves: scattered starts on the left edge → gate entry points in the middle band
-    src = [];
-    for (let i = 0; i < C.sources; i++) {
-      const y0 = H * rnd(0.04, 0.96), y1 = H * (0.2 + 0.6 * (i + rnd(0.2, 0.8)) / C.sources);
-      src.push({ P: [W * rnd(-0.02, 0.06), y0, gx * rnd(0.35, 0.7), (y0 + y1) / 2 + H * rnd(-0.2, 0.2), gx, y1], op: rnd(0.09, 0.16) });
-    }
-    // ordered lanes: straight run after the gate, then a curve into the chip's left edge
+    // ordered lanes: straight run from the gate, then a curve into the chip's left edge
     lanes = [];
     const laneEnd = gx + (chipX - gx) * 0.62;
     for (let j = 0; j < C.lanes; j++) {
       const y = H * (0.22 + 0.56 * (j + 0.5) / C.lanes);
       lanes.push({ y, x1: laneEnd, P: [laneEnd, y, laneEnd + (chipX - laneEnd) * 0.7, y, chipX, chipY + (y - chipY) * 0.18] });
     }
+    // loose source curves: scattered starts on the left edge, each ending exactly on a lane's entry point
+    // (sorted top→bottom and shared out in order, so every entry continues into its lane and curves cross less)
+    const starts = Array.from({ length: C.sources }, () => H * rnd(0.04, 0.96)).sort((a, b) => a - b);
+    src = starts.map((y0, i) => {
+      const L = lanes[Math.min(C.lanes - 1, Math.floor(i * C.lanes / C.sources))], y1 = L.y;
+      return { L, P: [W * rnd(-0.02, 0.06), y0, gx * rnd(0.35, 0.7), (y0 + y1) / 2 + H * rnd(-0.16, 0.16), gx, y1], op: rnd(0.09, 0.16) };
+    });
     dots = []; rings = []; warmed = false;
     return true;
   }
-  const nearestLane = (y) => lanes.reduce((b, L) => (Math.abs(L.y - y) < Math.abs(b.y - y) ? L : b), lanes[0]);
   function spawn() {
     const S = src[Math.floor(Math.random() * src.length)];
     dots.push({ S, ok: Math.random() < C.validShare, ph: 0, t: 0, dur: C.leftSecs[0] + Math.random() * (C.leftSecs[1] - C.leftSecs[0]), r: 2.2 + Math.random() * 1, vy: 0, x: 0, y: 0, a: 1 });
   }
   function judge(d) {
     rings.push({ x: gx, y: d.S.P[5], t: 0, ok: d.ok });
-    if (d.ok) { d.ph = 1; d.t = 0; d.L = nearestLane(d.S.P[5]); d.dur = C.rightSecs[0] + Math.random() * (C.rightSecs[1] - C.rightSecs[0]); }
-    else { d.ph = 2; d.t = 0; d.x = gx; d.y = d.S.P[5]; d.vy = 0; d.vx = -18 - Math.random() * 14; }
+    if (d.ok) { d.ph = 1; d.t = 0; d.L = d.S.L; d.dur = C.rightSecs[0] + Math.random() * (C.rightSecs[1] - C.rightSecs[0]); }
+    else { d.ph = 2; d.t = 0; d.x = gx; d.y = d.S.P[5]; d.vy = 0; d.vx = -8 - Math.random() * 6; }
   }
   // position along a valid dot's right-hand route: hop to its lane, run straight, curve into the chip
   function rightPos(d, k) {
@@ -404,7 +405,7 @@ function initTrafficViz(canvas, chip, userConfig) {
   function update(dt) {
     if (intro < 1) intro = Math.min(1, intro + dt / C.introSecs);
     // fast-forward a few seconds unseen so traffic is already flowing end to end; it fades in as the paths finish drawing
-    if (!warmed) { for (let i = 0; i < 80; i++) step(0.05); rings = []; count = C.startCount; setCount(); warmed = true; }
+    if (!warmed) { for (let i = 0; i < 200; i++) step(0.05); rings = []; count = C.startCount; setCount(); warmed = true; }
     step(dt);
   }
   function step(dt) {
@@ -412,12 +413,12 @@ function initTrafficViz(canvas, chip, userConfig) {
     for (const d of dots) {
       d.t += dt;
       if (d.ph === 0 && d.t >= d.dur) judge(d);
-      else if (d.ph === 1 && d.t >= d.dur) { d.done = true; count += 1; if (warmed) setCount(); if (chip && warmed) { chip.classList.remove('tv-tick'); void chip.offsetWidth; chip.classList.add('tv-tick'); } }
-      else if (d.ph === 2) { d.vy += 140 * dt; d.x += d.vx * dt; d.y += d.vy * dt; d.a -= dt * 1.6; if (d.a <= 0) d.done = true; }
+      else if (d.ph === 1 && d.t >= d.dur) { d.done = true; count += 1; if (warmed) setCount(); }
+      else if (d.ph === 2) { d.vy += 60 * dt; d.x += d.vx * dt; d.y += d.vy * dt; d.a -= dt * 0.9; if (d.a <= 0) d.done = true; }
     }
     dots = dots.filter((d) => !d.done);
     for (const R of rings) R.t += dt;
-    rings = rings.filter((R) => R.t < 0.6);
+    rings = rings.filter((R) => R.t < 1);
   }
   function strokePath(draw, p) {   // draws a path revealed to fraction p (intro)
     if (p <= 0) return; if (p < 1) ctx.setLineDash([2000 * p, 4000]); draw(); ctx.setLineDash([]);
@@ -429,23 +430,21 @@ function initTrafficViz(canvas, chip, userConfig) {
     for (const S of src) { ctx.strokeStyle = rgba(MID, S.op); strokePath(() => { ctx.beginPath(); ctx.moveTo(S.P[0], S.P[1]); ctx.quadraticCurveTo(S.P[2], S.P[3], S.P[4], S.P[5]); ctx.stroke(); }, pL); }
     ctx.lineWidth = 1.25;
     for (const L of lanes) { ctx.strokeStyle = rgba(MID, 0.2); strokePath(() => { ctx.beginPath(); ctx.moveTo(gx, L.y); ctx.lineTo(L.x1, L.y); ctx.quadraticCurveTo(L.P[2], L.P[3], L.P[4], L.P[5]); ctx.stroke(); }, pR); }
-    // checkpoint: a Midnight bar that grows from its centre, with short tick marks where traffic enters
+    // checkpoint: a Midnight-Light bar that grows from its centre
     if (pG > 0) {
       const top = H * 0.14, bot = H * 0.86, mid = (top + bot) / 2, half = (bot - top) / 2 * pG;
-      ctx.strokeStyle = rgba(GATE, 0.7); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(gx, mid - half); ctx.lineTo(gx, mid + half); ctx.stroke();
-      ctx.strokeStyle = rgba(GATE, 0.28 * pG); ctx.lineWidth = 1;
-      for (const S of src) { ctx.beginPath(); ctx.moveTo(gx - 5, S.P[5]); ctx.lineTo(gx + 5, S.P[5]); ctx.stroke(); }
+      ctx.strokeStyle = rgba(GATE, 1); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(gx, mid - half); ctx.lineTo(gx, mid + half); ctx.stroke();
     }
     // judgement rings — flat stroke that expands and fades
     for (const R of rings) {
-      const k = R.t / 0.6; ctx.strokeStyle = rgba(R.ok ? OK : NO, 0.9 * (1 - k)); ctx.lineWidth = 1.5;
+      const k = R.t / 1; ctx.strokeStyle = rgba(R.ok ? OK : NO, 0.9 * (1 - k)); ctx.lineWidth = 1.5;
       ctx.beginPath(); ctx.arc(R.x, R.y, 3 + 9 * ease(k), 0, Math.PI * 2); ctx.stroke();
     }
     ctx.globalAlpha = ease((intro - 0.6) / 0.4);
     for (const d of dots) {
       let x, y, c, a = 1;
       if (d.ph === 0) { const k = d.t / d.dur; [x, y] = qpt(d.S.P, k); c = MID; a = Math.min(1, k * 6) * 0.85; }
-      else if (d.ph === 1) { [x, y] = rightPos(d, Math.min(1, d.t / d.dur)); c = mix(MID, OK, Math.min(1, d.t / 0.25)); }
+      else if (d.ph === 1) { [x, y] = rightPos(d, Math.min(1, d.t / d.dur)); c = mix(MID, OK, Math.min(1, d.t / 0.5)); }
       else { x = d.x; y = d.y; c = NO; a = Math.max(0, d.a); }
       ctx.fillStyle = rgba(c, a); ctx.beginPath(); ctx.arc(x, y, d.r, 0, Math.PI * 2); ctx.fill();
     }
@@ -455,7 +454,7 @@ function initTrafficViz(canvas, chip, userConfig) {
   function stillFrame() {
     dots = []; rings = [];
     src.forEach((S, i) => { if (i % 2 === 0) dots.push({ S, ph: 0, t: 0.35 + 0.5 * ((i * 37) % 10) / 10, dur: 1, r: 2.2 }); });
-    lanes.forEach((L, j) => [0.3, 0.55, 0.85].forEach((k, n) => dots.push({ S: src[(j * 3 + n) % src.length], L, ph: 1, t: k + 0.3, dur: 1.3, r: 2.4 })));
+    lanes.forEach((L, j) => [0.3, 0.55, 0.85].forEach((k, n) => dots.push({ S: src.find((x) => x.L === L), L, ph: 1, t: k + 0.3, dur: 1.3, r: 2.4 })));
     rings.push({ x: gx, y: src[4].P[5], t: 0.2, ok: true }, { x: gx, y: src[11].P[5], t: 0.25, ok: false });
     render();
   }
@@ -529,8 +528,6 @@ function AdvReal() {
         .tv-chip-ic{ flex:0 0 auto; width:28px; height:28px; border-radius:var(--r-md); display:flex; align-items:center; justify-content:center;
           background:color-mix(in srgb, var(--success) 12%, #fff); color:var(--success); }
         .tv-chip-ic svg{ width:16px; height:16px; }
-        .tv-chip.tv-tick .tv-chip-ic{ animation:tvTick .45s ease-out; }
-        @keyframes tvTick{ from{ background:var(--success); color:#fff; } }
         .tv-chip-l{ display:block; font:500 12px/1.2 var(--font-body); color:var(--warm-600); }
         .tv-chip b{ display:block; margin-top:2px; font:700 20px/1.2 var(--font-body); color:var(--warm-900); font-variant-numeric:tabular-nums; }
         .rl-body{ position:relative; z-index:2; max-width:min(640px, 44%); }
