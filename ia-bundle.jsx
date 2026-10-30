@@ -2310,17 +2310,17 @@ function SuccessSlider() {
 /* ---------------- From the Involve blog — placeholder cards (auto-featured from WordPress) ----------------
    Header + "Read the blog" link + Publisher/Advertiser tabs, then the 3 MOST-RECENT posts for the active
    audience. Cards are PLACEHOLDERS: at dev time the homepage auto-surfaces the newest posts from the CMS
-   (per audience, most recent first). Each card = category tag + title + read time + "Read more".
+   (per audience, most recent first). Each card = background image + category tag + title + "Read more".
    Mobile mirrors the "Real results" section: tabs above the scroller, "Read the blog" CTA below it. */
 const BLOG_PUB = [
-  { tone: 'pub', tag: 'For Publishers', title: 'How to promote affiliate links on TikTok', read: '5 min read', href: '/blog/' },
-  { tone: 'pub', tag: 'For Publishers', title: 'Express Withdrawal, explained', read: '4 min read', href: '/blog/' },
-  { tone: 'pub', tag: 'For Publishers', title: 'What is EPC in affiliate marketing?', read: '5 min read', href: '/blog/' },
+  { tone: 'pub', tag: 'For Publishers', title: 'How to promote affiliate links on TikTok', img: 'home-blog-pub-1.jpg', href: '/blog/' },
+  { tone: 'pub', tag: 'For Publishers', title: 'Express Withdrawal, explained', img: 'home-blog-pub-2.jpg', href: '/blog/' },
+  { tone: 'pub', tag: 'For Publishers', title: 'What is EPC in affiliate marketing?', img: 'home-blog-pub-3.jpg', href: '/blog/' },
 ];
 const BLOG_ADV = [
-  { tone: 'adv', tag: 'For Advertisers', title: 'How to launch your first affiliate program', read: '6 min read', href: '/blog/' },
-  { tone: 'adv', tag: 'For Advertisers', title: 'Choosing the right commission structure', read: '6 min read', href: '/blog/' },
-  { tone: 'adv', tag: 'For Advertisers', title: 'Measuring ROI across your publisher network', read: '7 min read', href: '/blog/' },
+  { tone: 'adv', tag: 'For Advertisers', title: 'How to launch your first affiliate program', img: 'home-blog-adv-1.jpg', href: '/blog/' },
+  { tone: 'adv', tag: 'For Advertisers', title: 'Choosing the right commission structure', img: 'home-blog-adv-2.jpg', href: '/blog/' },
+  { tone: 'adv', tag: 'For Advertisers', title: 'Measuring ROI across your publisher network', img: 'home-blog-adv-3.jpg', href: '/blog/' },
 ];
 function BlogSection() {
   const [btab, setBtab] = React.useState(0); // 0 = Publisher, 1 = Advertiser
@@ -2344,12 +2344,11 @@ function BlogSection() {
         <div className="bg-grid" key={btab}>
           {posts.map((p, i) => (
             <a key={i} href={p.href} className="bg-card">
+              <img className="bg-card-img" src={'media/figma/' + p.img} alt="" loading="lazy" />
+              <span className="bg-card-scrim" aria-hidden="true" />
               <span className={'bg-card-tag ' + p.tone}>{p.tag}</span>
               <h3 className="bg-card-title">{p.title}</h3>
-              <span className="bg-card-meta">
-                <span className="bg-card-time">{p.read}</span>
-                <span className="bg-card-more">Read more <Arrow s={15} /></span>
-              </span>
+              <span className="bg-card-more">Read more <Arrow s={15} /></span>
             </a>
           ))}
         </div>
@@ -2371,18 +2370,19 @@ function BlogSection() {
         .bg-readall-m svg{ transition:transform .2s ease; }
         .bg-readall-m:hover svg{ transform:translateX(3px); }
         .bg-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin-top:clamp(28px,3.6vh,44px); }
-        .bg-card{ position:relative; min-width:0; aspect-ratio:304/202; border:1px solid #d2d2cc; border-radius:var(--r-lg); background:#fff; overflow:hidden;
+        .bg-card{ position:relative; min-width:0; aspect-ratio:304/202; border:none; border-radius:var(--r-lg); background:var(--midnight); overflow:hidden;
           display:flex; flex-direction:column; gap:12px; padding:clamp(16px,1.4vw,22px); text-decoration:none;
           transition:transform .22s cubic-bezier(.22,1,.36,1), box-shadow .22s ease, border-color .22s ease; }
-        .bg-card:hover{ box-shadow:var(--shadow-lg); border-color:#c4c4bd; }
+        .bg-card:hover{ box-shadow:var(--shadow-lg); }
+        .bg-card-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+        .bg-card-scrim{ position:absolute; inset:0; background:rgba(0,0,0,.14); }
+        .bg-card > :not(.bg-card-img):not(.bg-card-scrim){ position:relative; }
         .bg-card-tag{ align-self:flex-start; display:inline-flex; padding:5px 11px; border-radius:var(--r-full); font:700 11px/1 var(--font-body); letter-spacing:.01em; }
-        .bg-card-tag.pub{ background:rgba(240,88,38,.10); color:var(--ember); }
-        .bg-card-tag.adv{ background:rgba(61,90,128,.13); color:var(--midnight-light); }
-        .bg-card-title{ font-family:var(--font-display); font-weight:800; font-size:clamp(16px,1.25vw,19px); line-height:1.3; letter-spacing:-.01em; color:var(--warm-900);
+        .bg-card-tag.pub{ background:#fff; color:var(--ember); }
+        .bg-card-tag.adv{ background:#fff; color:var(--midnight-light); }
+        .bg-card-title{ font-family:var(--font-display); font-weight:800; font-size:clamp(16px,1.25vw,19px); line-height:1.3; letter-spacing:-.01em; color:#fff;
           display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
-        .bg-card-meta{ margin-top:auto; display:flex; align-items:center; justify-content:space-between; gap:10px; }
-        .bg-card-time{ font:400 13px/1 var(--font-body); color:var(--warm-400); }
-        .bg-card-more{ display:inline-flex; align-items:center; gap:6px; font:600 13px/1 var(--font-body); color:var(--warm-900); white-space:nowrap; }
+        .bg-card-more{ margin-top:auto; align-self:flex-start; display:inline-flex; align-items:center; gap:6px; font:600 13px/1 var(--font-body); color:#fff; white-space:nowrap; }
         .bg-card-more svg{ transition:transform .2s ease; }
         .bg-card:hover .bg-card-more svg{ transform:translateX(3px); }
         @media (max-width:1000px){ .bg-grid{ grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; } }
@@ -2401,7 +2401,6 @@ function BlogSection() {
           .bg-grid::-webkit-scrollbar{ display:none; }
           .bg-card{ scroll-snap-align:start; aspect-ratio:auto; min-height:170px; gap:9px; }
           .bg-card-title{ -webkit-line-clamp:3; font-size:15px; }
-          .bg-card-meta{ flex-direction:column; align-items:flex-start; gap:6px; }
         }
       `}</style>
     </section>
