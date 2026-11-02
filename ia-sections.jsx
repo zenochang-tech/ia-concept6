@@ -651,34 +651,11 @@ function EarnFeatures({ title, brandsCopy = 'Promote Shopee, Lazada, Zalora, Nik
    Four faint hexagons behind the page hero. The hero renders <HeroHexDeco /> and
    puts ${HERO_HEXDECO_CSS} in its own stylesheet (later rules there can move them). */
 function HeroHexDeco() {
-  // Inline (not <img>) so the colours come from the --phd-* variables: warm-100 for the
-  // Current palette, the ember / blue tints under html.palette-prev.
-  const tints = {
-    1: { x1: 102.935, y1: 364.725, x2: 286.845, y2: 249.127 },
-    2: { x1: 1.21977, y1: 221.663, x2: 134.267, y2: 232.649 },
-  };
   return (
     <div className="ph-hexdeco" aria-hidden="true">
       {[1, 2, 3, 4].map((n) => (
-        <svg key={n} className={`phd phd${n}`} width="441.863" height="498.254" viewBox="0 0 441.863 498.254" preserveAspectRatio="none" overflow="visible" fill="none">
-          <defs>
-            <linearGradient id={`phd-base-${n}`} x1="220.931" y1="-5.98259" x2="220.931" y2="349.455" gradientUnits="userSpaceOnUse">
-              <stop style={{ stopColor: 'var(--phd-base-top)' }} />
-              <stop offset="1" style={{ stopColor: 'var(--warm-100)' }} />
-            </linearGradient>
-            {tints[n] && (
-              <linearGradient id={`phd-tint-${n}`} {...tints[n]} gradientUnits="userSpaceOnUse">
-                <stop style={{ stopColor: 'var(--phd-blue)' }} />
-                <stop offset="1" style={{ stopColor: 'var(--phd-blue)', stopOpacity: 'var(--phd-blue-fade)' }} />
-              </linearGradient>
-            )}
-          </defs>
-          <g style={{ opacity: `var(--phd${n}-op)` }}>
-            <path d={PHD_PATH} fill={`url(#phd-base-${n})`} />
-            {tints[n]
-              ? <path d={PHD_PATH} fill={`url(#phd-tint-${n})`} style={{ fillOpacity: `var(--phd${n}-tint-op)` }} />
-              : <path d={PHD_PATH} style={{ fill: 'var(--phd-ember)', fillOpacity: 'var(--phd-ember-op)' }} />}
-          </g>
+        <svg key={n} className={`phd phd${n}`} width="441.863" height="498.254" viewBox="0 0 441.863 498.254" preserveAspectRatio="none" overflow="visible">
+          <path d={PHD_PATH} fill="var(--warm-100)" />
         </svg>
       ))}
     </div>
@@ -692,7 +669,7 @@ const HERO_HEXDECO_CSS = `
         .phd1{ top:-68%; right:-7%; }
         .phd2{ top:6%; right:-26%; }
         .phd3{ left:31%; bottom:-59%; }
-        .phd4{ left:-14%; bottom:-54%; }
+        .phd4{ left:-14%; bottom:-54%; display:none; }  /* hidden on all hero pages */
         @media (max-width:900px){ .ph-hexdeco{ display:none; } }`;
 
 
