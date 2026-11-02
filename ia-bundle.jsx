@@ -1990,7 +1990,6 @@ function SupportBanner() {
           </div>
         </div>
         <div className="sup-figure" data-reveal data-reveal-delay="1">
-          <span className="sup-glow" aria-hidden="true" />
           <div className="sup-photo"><img src="media/figma/s6-support-2026.png" alt="An Involve Asia support specialist" loading="lazy" /></div>
           <div className="sup-hello" aria-hidden="true">Hello.</div>
           <div className="sup-pill" aria-hidden="true">
@@ -2011,10 +2010,9 @@ function SupportBanner() {
         .sup-verified{ margin-top:6px; color:var(--ember); font-weight:700; font-size:14px; }
         /* hexagon portrait + chat bubbles */
         .sup-figure{ position:relative; width:100%; max-width:438px; margin-left:auto; aspect-ratio:379/427; }
-        .sup-glow{ position:absolute; inset:-12% -10%; z-index:0; background:radial-gradient(52% 46% at 44% 66%, rgba(240,88,38,.16), rgba(240,88,38,0) 70%); }
-        /* hexagon fill (behind the cut-out portrait) + the same hexagon mask so bg & photo clip together */
+        /* flat hexagon fill (behind the cut-out portrait) + the same hexagon mask so bg & photo clip together */
         .sup-photo{ position:absolute; inset:0; z-index:1; overflow:hidden;
-          background:radial-gradient(60% 44% at 42% 78%, rgba(240,88,38,.18), rgba(240,88,38,0) 62%), linear-gradient(180deg,#ECECE6 0%,#F4F4F0 100%);
+          background:var(--warm-100);
           -webkit-mask:url(media/figma/s6-hex-mask.svg) center/100% 100% no-repeat; mask:url(media/figma/s6-hex-mask.svg) center/100% 100% no-repeat; }
         .sup-photo img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center bottom; display:block; }
         .sup-hello, .sup-pill{ position:absolute; z-index:3; background:#fff; border-radius:var(--r-full); box-shadow:0 12px 30px rgba(15,28,46,.18); font-family:var(--font-body); color:var(--warm-900); }
@@ -2310,17 +2308,17 @@ function SuccessSlider() {
 /* ---------------- From the Involve blog — placeholder cards (auto-featured from WordPress) ----------------
    Header + "Read the blog" link + Publisher/Advertiser tabs, then the 3 MOST-RECENT posts for the active
    audience. Cards are PLACEHOLDERS: at dev time the homepage auto-surfaces the newest posts from the CMS
-   (per audience, most recent first). Each card = background image + category tag + title + "Read more".
+   (per audience, most recent first). Each card = background image + title + "Read more".
    Mobile mirrors the "Real results" section: tabs above the scroller, "Read the blog" CTA below it. */
 const BLOG_PUB = [
-  { tone: 'pub', tag: 'For Publishers', title: 'How to promote affiliate links on TikTok', img: 'home-blog-pub-1.jpg', href: '/blog/' },
-  { tone: 'pub', tag: 'For Publishers', title: 'Express Withdrawal, explained', img: 'home-blog-pub-2.jpg', href: '/blog/' },
-  { tone: 'pub', tag: 'For Publishers', title: 'What is EPC in affiliate marketing?', img: 'home-blog-pub-3.jpg', href: '/blog/' },
+  { title: 'How to promote affiliate links on TikTok', img: 'home-blog-pub-1.jpg', href: '/blog/' },
+  { title: 'Express Withdrawal, explained', img: 'home-blog-pub-2.jpg', href: '/blog/' },
+  { title: 'What is EPC in affiliate marketing?', img: 'home-blog-pub-3.jpg', href: '/blog/' },
 ];
 const BLOG_ADV = [
-  { tone: 'adv', tag: 'For Advertisers', title: 'How to launch your first affiliate program', img: 'home-blog-adv-1.jpg', href: '/blog/' },
-  { tone: 'adv', tag: 'For Advertisers', title: 'Choosing the right commission structure', img: 'home-blog-adv-2.jpg', href: '/blog/' },
-  { tone: 'adv', tag: 'For Advertisers', title: 'Measuring ROI across your publisher network', img: 'home-blog-adv-3.jpg', href: '/blog/' },
+  { title: 'How to launch your first affiliate program', img: 'home-blog-adv-1.jpg', href: '/blog/' },
+  { title: 'Choosing the right commission structure', img: 'home-blog-adv-2.jpg', href: '/blog/' },
+  { title: 'Measuring ROI across your publisher network', img: 'home-blog-adv-3.jpg', href: '/blog/' },
 ];
 function BlogSection() {
   const [btab, setBtab] = React.useState(0); // 0 = Publisher, 1 = Advertiser
@@ -2346,7 +2344,6 @@ function BlogSection() {
             <a key={i} href={p.href} className="bg-card">
               <img className="bg-card-img" src={'media/figma/' + p.img} alt="" loading="lazy" />
               <span className="bg-card-scrim" aria-hidden="true" />
-              <span className={'bg-card-tag ' + p.tone}>{p.tag}</span>
               <h3 className="bg-card-title">{p.title}</h3>
               <span className="bg-card-more">Read more <Arrow s={15} /></span>
             </a>
@@ -2363,9 +2360,11 @@ function BlogSection() {
         .bg-readall{ display:inline-flex; align-items:center; gap:8px; font:600 15px/1 var(--font-body); color:var(--warm-900); text-decoration:none; cursor:pointer; }
         .bg-readall svg{ transition:transform .2s ease; }
         .bg-readall:hover svg{ transform:translateX(3px); }
-        .bg-tabs{ display:inline-flex; gap:4px; background:#fff; border:1px solid var(--warm-200); border-radius:var(--r-full); padding:4px; }
-        .bg-tab{ border:none; background:none; cursor:pointer; padding:8px 18px; border-radius:var(--r-full); font:600 13px/1 var(--font-body); color:var(--warm-900); white-space:nowrap; transition:background .18s ease, color .18s ease; }
-        .bg-tab.on{ background:var(--midnight); color:#fff; }
+        /* DS segmented control (.segmented): warm-100 track, white active segment + shadow-sm */
+        .bg-tabs{ display:inline-flex; gap:3px; background:var(--warm-100); border-radius:var(--r-sm); padding:3px; }
+        .bg-tab{ border:none; background:none; cursor:pointer; padding:7px 16px; border-radius:var(--r-md); font:600 13px/1 var(--font-body); color:var(--warm-600); white-space:nowrap; transition:background .15s ease, color .15s ease, box-shadow .15s ease; }
+        .bg-tab:hover:not(.on){ color:var(--warm-900); }
+        .bg-tab.on{ background:#fff; color:var(--warm-900); box-shadow:var(--shadow-sm); }
         .bg-readall-m{ display:none; align-items:center; gap:8px; font:600 14px/1 var(--font-body); color:var(--warm-900); text-decoration:none; }
         .bg-readall-m svg{ transition:transform .2s ease; }
         .bg-readall-m:hover svg{ transform:translateX(3px); }
@@ -2377,10 +2376,7 @@ function BlogSection() {
         .bg-card-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
         .bg-card-scrim{ position:absolute; inset:0; background:rgba(0,0,0,.14); }
         .bg-card > :not(.bg-card-img):not(.bg-card-scrim){ position:relative; }
-        .bg-card-tag{ align-self:flex-start; display:inline-flex; padding:5px 11px; border-radius:var(--r-full); font:700 11px/1 var(--font-body); letter-spacing:.01em; }
-        .bg-card-tag.pub{ background:#fff; color:var(--ember); }
-        .bg-card-tag.adv{ background:#fff; color:var(--midnight-light); }
-        .bg-card-title{ font-family:var(--font-display); font-weight:800; font-size:clamp(16px,1.25vw,19px); line-height:1.3; letter-spacing:-.01em; color:#fff;
+        .bg-card-title{ font-family:var(--font-body); font-weight:700; font-size:clamp(16px,1.25vw,19px); line-height:1.3; letter-spacing:-.01em; color:#fff;
           display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
         .bg-card-more{ margin-top:auto; align-self:flex-start; display:inline-flex; align-items:center; gap:6px; font:600 13px/1 var(--font-body); color:#fff; white-space:nowrap; }
         .bg-card-more svg{ transition:transform .2s ease; }
@@ -2391,7 +2387,7 @@ function BlogSection() {
           /* mobile (like "Real results"): tabs go above the scroller, "Read the blog" goes below it */
           .bg-controls{ flex-direction:row; align-items:center; justify-content:flex-start; width:100%; padding-top:0; margin-top:4px; }
           .bg-controls .bg-readall{ display:none; }
-          .bg-tab{ padding:10px 18px; font-size:14px; }
+          .bg-tab{ padding:10px 16px; }
           .bg-readall-m{ display:inline-flex; margin-top:clamp(18px,3vh,26px); }
           /* single-row horizontal scroller: 2 full + partial peek, full-bleed to the screen edges */
           .bg-grid{ display:grid; grid-auto-flow:column; grid-template-columns:none; grid-template-rows:auto;
