@@ -28,7 +28,7 @@ TOKENS_CSS = """
   --midnight:#0F1C2E; --midnight-mid:#1A2E47; --midnight-soft:#243856;
   --midnight-light:#3D5A80; --midnight-light-tint:rgba(61,90,128,.12);
   --ember:#F05826; --ember-dark:#C43E18; --ember-light:#FF7A45; --ember-tint:rgba(240,88,38,.10);
-  --warm-50:#FAFAF8; --warm-100:#F4F4F0; --warm-200:#E8E8E2; --warm-300:#D2D2CC;
+  --warm-50:#FAFAF8; --warm-100:#F4F4F0; --warm-150:#EEEEE9; --warm-200:#E8E8E2; --warm-300:#D2D2CC;
   --warm-400:#706F6B; --warm-600:#4B4B46; --warm-800:#1F1F1A; --warm-900:#111110;
   --success:#10B981; --warning:#F59E0B; --error:#EF4444; --info:#3B82F6;
   --grad-ember:linear-gradient(135deg,#F05826,#C43E18);

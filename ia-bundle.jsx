@@ -598,15 +598,15 @@ function HexHeroField({ intensity = 3 }) {
       {/* large fluted hexagon, centered */}
       <div className="hex-clip flute hero-hex-breathe" style={{
         position: 'absolute', left: '50%', top: '50%', width: 'min(660px,86vw)', height: 'min(720px,92vw)',
-        background: 'var(--warm-100)', opacity: 0.28 + op * 0.34,
+        background: 'var(--warm-150)', opacity: 0.28 + op * 0.34,
       }} />
       {/* concentric outline hexagon — flowing ember↔midnight-light gradient ring (kept subtle) */}
       <div className="hero-hex-spin" style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%,-50%)' }}>
         <Hexagon size={560} strokeOnly grad gradDur={11} sw={1.6} strokeOpacity={0.4} style={{ transform: 'translate(-50%,-50%)', position: 'absolute' }} />
       </div>
       {/* small accent hexagons — gradient borders, de-synced durations so they shimmer organically */}
-      <Hexagon size={58} fill="var(--warm-100)" grad gradDur={7} sw={2} className="hero-hex-a" style={{ position: 'absolute', top: '18%', left: '13%' }} />
-      <Hexagon size={40} fill="var(--warm-100)" grad gradDur={8.5} sw={2} className="hero-hex-b" style={{ position: 'absolute', bottom: '16%', right: '15%' }} />
+      <Hexagon size={58} fill="var(--warm-150)" grad gradDur={7} sw={2} className="hero-hex-a" style={{ position: 'absolute', top: '18%', left: '13%' }} />
+      <Hexagon size={40} fill="var(--warm-150)" grad gradDur={8.5} sw={2} className="hero-hex-b" style={{ position: 'absolute', bottom: '16%', right: '15%' }} />
       <Hexagon size={26} fill="none" grad gradDur={6} sw={2} className="hero-hex-a" style={{ position: 'absolute', top: '24%', right: '24%' }} />
       <style>{`
         .hero-hex-breathe{transform:translate(-50%,-50%);animation:hexBreathe 11s ease-in-out infinite;}
@@ -979,7 +979,7 @@ function HeroHexField() {
   }, [paths]);
   return (
     <svg ref={svgRef} className="hexfield" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-      <g fill="var(--warm-100)">
+      <g fill="var(--warm-150)">
         {paths.map((d, i) => <path key={i} className="hx" d={d} />)}
       </g>
     </svg>
@@ -1350,7 +1350,7 @@ function KeepsMoving() {
         .km-ring.r3{ width:65.3%; }
         .km-ring.r4{ width:65.3%; mix-blend-mode:soft-light; }
         /* cards */
-        .km-card{ position:absolute; transform:translate(-50%,-50%); display:inline-flex; align-items:center; gap:.55em; background:#fff; border:1px solid var(--warm-100);
+        .km-card{ position:absolute; transform:translate(-50%,-50%); display:inline-flex; align-items:center; gap:.55em; background:#fff; border:1px solid var(--warm-200);
           border-radius:1.43em; box-shadow:0 .36em .5em rgba(15,28,46,.08); padding:.75em 1.05em; white-space:nowrap;
           font-family:var(--font-body); font-weight:700; color:var(--warm-900); font-size:1em; }
         .km-card img{ display:block; }
@@ -1999,7 +1999,7 @@ function SupportBanner() {
         .sup-figure{ position:relative; width:100%; max-width:438px; margin-left:auto; aspect-ratio:379/427; }
         /* flat hexagon fill (behind the cut-out portrait) + the same hexagon mask so bg & photo clip together */
         .sup-photo{ position:absolute; inset:0; z-index:1; overflow:hidden;
-          background:var(--warm-100);
+          background:var(--warm-150);
           -webkit-mask:url(media/figma/s6-hex-mask.svg) center/100% 100% no-repeat; mask:url(media/figma/s6-hex-mask.svg) center/100% 100% no-repeat; }
         .sup-photo img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center bottom; display:block; }
         .sup-hello, .sup-pill{ position:absolute; z-index:3; background:#fff; border-radius:var(--r-full); box-shadow:0 12px 30px rgba(15,28,46,.18); font-family:var(--font-body); color:var(--warm-900); }
@@ -2347,8 +2347,8 @@ function BlogSection() {
         .bg-readall{ display:inline-flex; align-items:center; gap:8px; font:600 15px/1 var(--font-body); color:var(--warm-900); text-decoration:none; cursor:pointer; }
         .bg-readall svg{ transition:transform .2s ease; }
         .bg-readall:hover svg{ transform:translateX(3px); }
-        /* DS segmented control (.segmented): warm-100 track, white active segment + shadow-sm */
-        .bg-tabs{ display:inline-flex; gap:3px; background:var(--warm-100); border-radius:var(--r-sm); padding:3px; }
+        /* DS segmented control (.segmented): warm-150 track, white active segment + shadow-sm */
+        .bg-tabs{ display:inline-flex; gap:3px; background:var(--warm-150); border-radius:var(--r-sm); padding:3px; }
         .bg-tab{ border:none; background:none; cursor:pointer; padding:7px 16px; border-radius:var(--r-md); font:600 13px/1 var(--font-body); color:var(--warm-600); white-space:nowrap; transition:background .15s ease, color .15s ease, box-shadow .15s ease; }
         .bg-tab:hover:not(.on){ color:var(--warm-900); }
         .bg-tab.on{ background:#fff; color:var(--warm-900); box-shadow:var(--shadow-sm); }
@@ -2738,7 +2738,7 @@ function HexFinaleStatic({ emphasis = 'equal', hex = 3 }) {
 /* ---------------- How it works — Concept 3 design: alternating step rows ----------------
    Ported from Concept 3's "#how" section: centred head, four alternating text|video rows —
    oversized warm-300 step numeral, display title, short copy, and the step's looping clip
-   in a rounded, warm-100 bordered box. Uses Concept 3's real step videos (media/video/). */
+   in a rounded, warm-150 box with a warm-200 border. Uses Concept 3's real step videos (media/video/). */
 const STEPS = [
   { n: '01', t: 'Create',   d: 'List your brand or sign up as a publisher in minutes. Live the same day.',   video: 'media/video/create%20step%20video.mov' },
   { n: '02', t: 'Automate', d: 'We match the right partners to the right campaigns. No manual outreach.',    video: 'media/video/automate%20step%20video.mov' },
@@ -2809,7 +2809,7 @@ function HowItWorks({ hex = 3 }) {
         .how-step h3{font-family:var(--font-display); font-weight:800; line-height:1.06; letter-spacing:-.02em;
           font-size:clamp(30px,3.9vw,46px); margin:32px 0 56px; color:var(--warm-900);}
         .how-step p{color:var(--warm-400); max-width:38ch; font-size:15px; margin:0;}
-        .how-media{border-radius:var(--r-xl); background:var(--warm-100); border:1px solid var(--warm-200); overflow:hidden; position:relative;}
+        .how-media{border-radius:var(--r-xl); background:var(--warm-150); border:1px solid var(--warm-200); overflow:hidden; position:relative;}
         .how-media video{display:block; width:100%; height:auto;}
         @media (max-width:860px){
           .how-step{grid-template-columns:1fr; gap:20px;}

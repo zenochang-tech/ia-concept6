@@ -255,7 +255,7 @@ const PUB_VOICES = [
 const TV_CSS = `
         .tv-sec{ background:var(--warm-50); padding:clamp(28px,4.14vh,55px) 0 clamp(67px,9.66vh,132px); }
         .tv-panel{ position:relative; max-width:1273px; margin:0 auto; padding:clamp(48px,7vh,90px) clamp(20px,4vw,56px) clamp(40px,6vh,72px); border-radius:clamp(28px,4vw,64px); overflow:hidden;
-          background:var(--warm-100); }
+          background:var(--warm-150); }
         .tv-title{ text-align:center; font-size:clamp(24px,3vw,34px); line-height:1.1; letter-spacing:-.03em; color:var(--warm-900); }
         .tv-sub{ text-align:center; margin-top:14px; font-size:16px; color:var(--warm-700); }
         .tv-stage{ position:relative; margin-top:clamp(28px,4vh,44px); min-height:392px; }
@@ -518,7 +518,7 @@ const BE_CSS = `
         .be-sec{ background:var(--warm-50); padding:clamp(55px,8.28vh,110px) 0 clamp(77px,12.42vh,160px); }
         .be-title{ text-align:center; font-size:clamp(24px,3vw,34px); line-height:1.1; letter-spacing:-.03em; color:var(--warm-900); }
         .be-grid{ margin-top:clamp(32px,5vh,64px); display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(20px,2.2vw,32px); }
-        .be-card{ position:relative; height:178px; border-radius:var(--r-xl); background:var(--warm-100); overflow:hidden; display:flex; align-items:center; justify-content:center; }
+        .be-card{ position:relative; height:178px; border-radius:var(--r-xl); background:var(--warm-150); overflow:hidden; display:flex; align-items:center; justify-content:center; }
         .be-card-clip{ justify-content:flex-end; }
         .be-col-t{ margin-top:22px; font-family:var(--font-display); font-weight:800; font-size:21px; line-height:1.38; letter-spacing:-.02em; color:var(--warm-900); }
         .be-col-d{ margin-top:14px; font:400 16px/1.31 var(--font-body); color:var(--warm-600); }
@@ -655,7 +655,7 @@ function HeroHexDeco() {
     <div className="ph-hexdeco" aria-hidden="true">
       {[1, 2, 3, 4].map((n) => (
         <svg key={n} className={`phd phd${n}`} width="441.863" height="498.254" viewBox="0 0 441.863 498.254" preserveAspectRatio="none" overflow="visible">
-          <path d={PHD_PATH} fill="var(--warm-100)" />
+          <path d={PHD_PATH} fill="var(--warm-150)" />
         </svg>
       ))}
     </div>

@@ -37,7 +37,7 @@ const glossaryIsLocal = (t) => ((typeof window !== 'undefined' && window.__GLOSS
 const glossaryHref = (t) => glossaryIsLocal(t) ? `glossary-term/${glossarySlug(t)}/` : `https://involve.asia/glossary-term/${glossarySlug(t)}/`;
 
 /* Decorative honeycomb backdrop — same hex field as the pricing hero (pub-cta-hexfield.svg),
-   filled flat with warm-100 (#F4F4F0) to match the About page hero honeycomb. */
+   filled flat with warm-150 (#EEEEE9) to match the About page hero honeycomb. */
 let __glGradN = 0;
 function GlossaryHexField() {
   const [paths, setPaths] = React.useState([]);
@@ -60,7 +60,7 @@ function GlossaryHexField() {
   }, []);
   return (
     <svg className="gh-hexfield" viewBox={vb} preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <g fill="var(--warm-100)">{paths.map((d, i) => <path key={i} className="hx" d={d} />)}</g>
+      <g fill="var(--warm-150)">{paths.map((d, i) => <path key={i} className="hx" d={d} />)}</g>
     </svg>
   );
 }

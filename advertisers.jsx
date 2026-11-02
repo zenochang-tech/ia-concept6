@@ -100,7 +100,7 @@ function PubHero() {
         .ph-hexglow{ position:absolute; inset:2% 2% 2% 2%; z-index:0; pointer-events:none;
           display:none;  /* glow retired in v3.5.2 */ }
         /* soft hex plate behind the photo — rounded pointy-top (r≈38.67), ember → midnight gradient */
-        .ph-hexplate{ position:absolute; inset:0; z-index:0; background:var(--warm-100);
+        .ph-hexplate{ position:absolute; inset:0; z-index:0; background:var(--warm-150);
           -webkit-mask:url('media/figma/pub-hero-hexclip.svg') center/100% 100% no-repeat; mask:url('media/figma/pub-hero-hexclip.svg') center/100% 100% no-repeat;
           filter:drop-shadow(0 26px 54px rgba(15,28,46,.10)); }
         /* ---- fade slider: each slide (photo + its UI) cross-fades in/out ---- */
@@ -130,12 +130,12 @@ function PubHero() {
         .ph-link{ display:inline-flex; align-items:center; gap:9px; background:#fff; border-radius:var(--r-full); padding:9px 16px 9px 9px;
           box-shadow:0 2px 6px rgba(15,28,46,.08); font:600 14px/1 var(--font-body); color:var(--warm-900); white-space:nowrap; }
         .ph-link-ic{ display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:var(--r-full);
-          background:var(--warm-100); color:var(--warm-700); flex:0 0 auto; }
+          background:var(--warm-150); color:var(--warm-700); flex:0 0 auto; }
         .ph-prod-lbl{ display:block; font:500 11px/1.3 var(--font-body); color:#fff; text-shadow:0 3px 8px rgba(0,0,0,.35); margin:1px 2px 7px; }
         .ph-prod-img{ width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:var(--r-lg); display:block; }
         .ph-stat{ background:#fff; border-radius:var(--r-xl); box-shadow:0 2px 6px rgba(15,28,46,.08); padding:12px 15px; display:flex; flex-direction:column; gap:4px; }
         .ph-stat-lbl{ display:inline-flex; align-items:center; gap:6px; font:600 12px/1.2 var(--font-body); color:var(--warm-900); }
-        .ph-stat-cur{ display:inline-flex; align-items:center; justify-content:center; width:16px; height:16px; border-radius:var(--r-sm); background:var(--warm-100); font:700 10px/1 var(--font-body); color:var(--warm-800); }
+        .ph-stat-cur{ display:inline-flex; align-items:center; justify-content:center; width:16px; height:16px; border-radius:var(--r-sm); background:var(--warm-150); font:700 10px/1 var(--font-body); color:var(--warm-800); }
         .ph-stat-row{ display:flex; align-items:baseline; gap:8px; }
         .ph-stat-row b{ font-family:var(--font-display); font-weight:800; font-size:22px; letter-spacing:-.02em; color:var(--warm-900); }
         .ph-stat-row b small{ font-size:.6em; font-weight:800; }
@@ -150,7 +150,7 @@ function PubHero() {
           background:#fff; border-radius:var(--r-xl); box-shadow:0 18px 40px rgba(15,28,46,.14); padding:15px 15px 8px; display:flex; flex-direction:column; }
         .ph-uc-head{ font:600 12px/1.3 var(--font-body); color:var(--warm-600); padding:0 3px 10px; }
         .ph-plist{ display:flex; flex-direction:column; }
-        .ph-plist li{ display:flex; align-items:center; gap:10px; padding:8px 3px; border-top:1px solid var(--warm-100); }
+        .ph-plist li{ display:flex; align-items:center; gap:10px; padding:8px 3px; border-top:1px solid var(--warm-200); }
         .ph-plist li:first-child{ border-top:none; }
         .ph-pl-av{ width:34px; height:34px; border-radius:var(--r-lg); flex:0 0 auto; display:flex; align-items:center; justify-content:center;
           background:linear-gradient(150deg,#dbe4f2,#eef2f8); color:var(--midnight-light); font-family:var(--font-display); font-weight:800; font-size:14px; }
@@ -300,7 +300,7 @@ const ADV_PLATFORM_CSS = `
         .pf-step-d a{ color:var(--midnight-light); font-weight:600; text-decoration:underline; text-underline-offset:2px; }
         /* light ember→cool gradient container; the dashboard sits inset top-left and bleeds off the right */
         .pf-visual{ position:relative; align-self:center; width:100%; aspect-ratio:5/3; overflow:hidden; border-radius:var(--r-xl);
-          background:var(--warm-100); }
+          background:var(--warm-150); }
         .pf-img{ position:absolute; inset:0; width:100%; height:100%;
           object-fit:contain; object-position:center;
           opacity:0; transition:opacity .5s ease; }
@@ -588,7 +588,7 @@ function AdvStats() {
       <div className="as-stage" data-reveal>
         {ADV_STAT_HEX.map((h, i) => (
           <span className="as-hexcell" key={i} style={{ left: h.x + '%', top: h.y + '%' }}>
-            <svg className="as-heximg" viewBox="0 0 347.854 395.886" preserveAspectRatio="none" aria-hidden="true"><path d="M164.586 2.50294C170.366 -0.834312 177.488 -0.834312 183.268 2.50294L338.513 92.1335C344.293 95.4707 347.854 101.638 347.854 108.313V287.574C347.854 294.248 344.293 300.416 338.513 303.753L183.268 393.384C177.488 396.721 170.366 396.721 164.586 393.384L9.34109 303.753C3.5608 300.416 0 294.248 0 287.574V108.313C0 101.638 3.5608 95.4707 9.34109 92.1335L164.586 2.50294Z" fill="var(--warm-100)" /></svg>
+            <svg className="as-heximg" viewBox="0 0 347.854 395.886" preserveAspectRatio="none" aria-hidden="true"><path d="M164.586 2.50294C170.366 -0.834312 177.488 -0.834312 183.268 2.50294L338.513 92.1335C344.293 95.4707 347.854 101.638 347.854 108.313V287.574C347.854 294.248 344.293 300.416 338.513 303.753L183.268 393.384C177.488 396.721 170.366 396.721 164.586 393.384L9.34109 303.753C3.5608 300.416 0 294.248 0 287.574V108.313C0 101.638 3.5608 95.4707 9.34109 92.1335L164.586 2.50294Z" fill="var(--warm-150)" /></svg>
           </span>
         ))}
         <h2 className="as-heading">This is what real sales <br />add up to.</h2>

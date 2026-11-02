@@ -27,7 +27,7 @@ function AboutHexField() {
   }, []);
   return (
     <svg className="ab-hexfield" viewBox={vb} preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <g fill="var(--warm-100)">{paths.map((d, i) => <path key={i} className="hx" d={d} />)}</g>
+      <g fill="var(--warm-150)">{paths.map((d, i) => <path key={i} className="hx" d={d} />)}</g>
     </svg>
   );
 }
@@ -262,8 +262,8 @@ function AboutMission() {
         .am-title{ margin-top:16px; font-family:var(--font-display); font-weight:800; font-size:clamp(24px,3vw,34px); line-height:1.12; letter-spacing:-.03em; color:var(--warm-900); }
         .am-mv{ margin-top:clamp(28px,4vh,44px); display:grid; grid-template-columns:1fr 1fr; gap:clamp(20px,2.5vw,28px); }
         .am-card{ border-radius:var(--r-xl); padding:clamp(26px,3vw,38px); }
-        .am-mission{ background:var(--warm-100); }
-        .am-vision{ background:var(--warm-100); }
+        .am-mission{ background:var(--warm-150); }
+        .am-vision{ background:var(--warm-150); }
         .am-kick{ display:inline-block; font:700 12px/1 var(--font-body); letter-spacing:.12em; text-transform:uppercase; color:var(--warm-800); }
         .am-card p{ margin-top:14px; font:500 clamp(17px,1.6vw,21px)/1.5 var(--font-body); letter-spacing:-.01em; color:var(--warm-900); }
         .am-values{ margin-top:clamp(24px,3.5vh,40px); display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(20px,3vw,40px); }
@@ -370,7 +370,7 @@ function AboutRegions() {
         .ar-sub{ margin-top:12px; max-width:600px; font:400 clamp(16px,1.3vw,18px)/1.5 var(--font-body); color:var(--warm-600); }
         .ar-grid{ margin-top:clamp(30px,5vh,52px); display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(18px,2vw,24px); }
         .ar-card{ border:1px solid var(--warm-200); border-radius:var(--r-lg); background:#fff; padding:clamp(22px,2.4vw,30px); min-width:0; }
-        .ar-hq{ border-color:var(--warm-200); background:var(--warm-100); grid-column:span 1; }
+        .ar-hq{ border-color:var(--warm-200); background:var(--warm-150); grid-column:span 1; }
         .ar-cardhead{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
         .ar-cardhead h3{ font-family:var(--font-display); font-weight:800; font-size:19px; letter-spacing:-.01em; color:var(--warm-900); }
         .ar-tag{ font:700 10px/1 var(--font-body); letter-spacing:.08em; text-transform:uppercase; color:var(--ember); background:rgba(240,88,38,.12); border-radius:var(--r-full); padding:5px 9px; }
@@ -406,7 +406,7 @@ function AboutCulture() {
         .cul-title{ margin-top:16px; font-family:var(--font-display); font-weight:800; font-size:clamp(24px,3vw,34px); line-height:1.12; letter-spacing:-.03em; color:var(--warm-900); }
         .cul-sub{ margin-top:12px; max-width:600px; font:400 clamp(16px,1.3vw,18px)/1.5 var(--font-body); color:var(--warm-600); }
         .cul-grid{ margin-top:clamp(30px,5vh,52px); display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:clamp(130px,15.5vw,182px); gap:clamp(10px,1.2vw,16px); }
-        .cul-item{ border-radius:var(--r-xl); overflow:hidden; background:var(--warm-100); }
+        .cul-item{ border-radius:var(--r-xl); overflow:hidden; background:var(--warm-150); }
         .cul-item img{ width:100%; height:100%; object-fit:cover; display:block; }
         .cul-big{ grid-column:span 2; grid-row:span 2; }
         @media (max-width:820px){ .cul-grid{ grid-template-columns:repeat(2,1fr); } .cul-big{ grid-column:span 2; grid-row:span 1; } }
@@ -449,7 +449,7 @@ function AboutCareers() {
         .ac-link:hover svg{ transform:translateX(3px); }
         /* right-side image (placeholder until supplied) */
         .ac-photo{ aspect-ratio:4/3; border-radius:var(--r-xl); overflow:hidden;
-          background:var(--warm-100); box-shadow:0 12px 30px rgba(15,28,46,.06); }
+          background:var(--warm-150); box-shadow:0 12px 30px rgba(15,28,46,.06); }
         .ac-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
         @media (max-width:820px){ .ac-grid{ grid-template-columns:minmax(0,1fr); gap:32px; } }
       `}</style>

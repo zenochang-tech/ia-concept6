@@ -176,7 +176,7 @@ function Nav({ getStartedTone = 'midnight', homeHref = 'index.html' }) {
               <div role="menu" className="lang-menu" style={{ position: 'absolute', top: '100%', right: 0, marginTop: 4, minWidth: 200, background: '#fff', border: '1px solid var(--warm-200)', borderRadius: 'var(--r-md)', boxShadow: 'var(--shadow-xl)', padding: 6 }}>
                 {LANGS.map(l => (
                   <button key={l.code} role="menuitem" onClick={() => { setLang(l.code); setLangOpen(false); }} className="nav-item" style={{
-                    width: '100%', textAlign: 'left', background: l.code === lang ? 'var(--warm-100)' : 'none', border: 'none', cursor: 'pointer',
+                    width: '100%', textAlign: 'left', background: l.code === lang ? 'var(--warm-150)' : 'none', border: 'none', cursor: 'pointer',
                     display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10, padding: '10px 12px', borderRadius: 10, font: '500 14px/1.2 var(--font-body)', color: 'var(--warm-900)' }}>
                     <span>{l.label}</span>
                     <span style={{ fontSize: 12, fontWeight: 600, color: l.code === lang ? 'var(--ember)' : 'var(--warm-400)' }}>{l.code}</span>
@@ -219,7 +219,7 @@ function Nav({ getStartedTone = 'midnight', homeHref = 'index.html' }) {
               <summary style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '15px 4px', fontWeight: 600, fontSize: 16, cursor: 'pointer', listStyle: 'none' }}>Language: {lang}<Caret /></summary>
               <div style={{ padding: '0 4px 12px' }}>
                 {LANGS.map(l => (
-                  <button key={l.code} onClick={(e) => { setLang(l.code); const d = e.currentTarget.closest('details'); if (d) d.open = false; }} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', textAlign: 'left', background: l.code === lang ? 'var(--warm-100)' : 'none', border: 'none', padding: '11px 12px', color: l.code === lang ? 'var(--warm-900)' : 'var(--warm-600)', font: '600 15px/1 var(--font-body)', cursor: 'pointer', borderRadius: 8 }}>
+                  <button key={l.code} onClick={(e) => { setLang(l.code); const d = e.currentTarget.closest('details'); if (d) d.open = false; }} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', textAlign: 'left', background: l.code === lang ? 'var(--warm-150)' : 'none', border: 'none', padding: '11px 12px', color: l.code === lang ? 'var(--warm-900)' : 'var(--warm-600)', font: '600 15px/1 var(--font-body)', cursor: 'pointer', borderRadius: 8 }}>
                     <span>{l.label}</span>
                     <span style={{ fontSize: 13, color: 'var(--warm-400)' }}>{l.code}</span>
                   </button>
@@ -242,7 +242,7 @@ function Nav({ getStartedTone = 'midnight', homeHref = 'index.html' }) {
         main > section:first-child{ overflow:visible !important; overflow-x:clip !important; clip-path:inset(-100vh 0 0 0); }
         main > section:first-child .ph-hexdeco{ overflow:visible; }
         @keyframes navPanel{from{opacity:0;transform:translateY(-8px) scale(.985)}to{opacity:1;transform:none}}
-        .nav-item:hover{background:var(--warm-100);}
+        .nav-item:hover{background:var(--warm-150);}
         .nav-desk a{color:var(--warm-600);}
         .nav-desk a:hover, .nav-desk a.is-open{color:var(--warm-900);}
         .nav-login:hover{color:var(--ember);}
@@ -496,7 +496,7 @@ function BackToTop() {
           display:flex; align-items:center; justify-content:center; cursor:pointer;
           opacity:0; transform:translateY(14px) scale(.92); pointer-events:none; visibility:hidden;
           transition:opacity .38s ease, transform .42s cubic-bezier(.22,1,.36,1), visibility 0s linear .42s; }
-        .b2t::before{ content:""; position:absolute; width:46px; height:46px; background:#fff; border:1px solid var(--warm-100); border-radius:50%; box-shadow:0 6px 18px rgba(15,28,46,.10); }
+        .b2t::before{ content:""; position:absolute; width:46px; height:46px; background:#fff; border:1px solid var(--warm-200); border-radius:50%; box-shadow:0 6px 18px rgba(15,28,46,.10); }
         .b2t svg{ position:relative; z-index:1; width:17px; height:17px; color:#a7a7a1; transition:color .2s ease; }
         .b2t:hover svg{ color:var(--warm-600); }
         .b2t:hover::before{ box-shadow:0 8px 22px rgba(15,28,46,.16); }

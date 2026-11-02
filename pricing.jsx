@@ -210,7 +210,7 @@ function PricingCompare() {
           background:#fff; border:1px solid var(--warm-200); border-radius:var(--r-xl); overflow:hidden; }
         .cmp-row{ display:grid; grid-template-columns:minmax(220px,1.6fr) repeat(3,minmax(140px,1fr)); }
         .cmp-c{ padding:15px 18px; display:flex; align-items:center; justify-content:center; text-align:center;
-          font:400 15px/1.45 var(--font-body); color:var(--warm-800); border-top:1px solid var(--warm-100); }
+          font:400 15px/1.45 var(--font-body); color:var(--warm-800); border-top:1px solid var(--warm-200); }
         .cmp-label{ justify-content:flex-start; text-align:left; color:var(--warm-900); }
         /* recommended (Growth) column tint + top accent */
         .cmp-rec{ background:rgba(61,90,128,.05); }
@@ -247,7 +247,7 @@ function PricingCompare() {
           .cmp-recbadge{ font-size:10.5px; padding:4px 8px; margin-bottom:1px; }
           .cmp-c{ padding:9px 8px; font-size:12px; line-height:1.35; }
           .cmp-row:not(.cmp-hrow) .cmp-c{ border-top:none; }
-          .cmp-row:not(.cmp-hrow){ border-top:1px solid var(--warm-100); }
+          .cmp-row:not(.cmp-hrow){ border-top:1px solid var(--warm-200); }
         }
       `}</style>
     </section>
