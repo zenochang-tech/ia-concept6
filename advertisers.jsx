@@ -93,7 +93,7 @@ function PubHero() {
         .ph-visual{ position:relative; aspect-ratio:1/1; max-width:520px; width:100%; margin-left:auto; }
         /* shared hexagon backdrop behind every slide */
         .ph-hexbg{ position:absolute; inset:0; z-index:0; background:var(--warm-150);
-          -webkit-mask:url('media/figma/advertiser-slider-background.png') center/contain no-repeat; mask:url('media/figma/advertiser-slider-background.png') center/contain no-repeat;
+          -webkit-mask:url('media/figma/advertiser-slider-hexmask.png') center/contain no-repeat; mask:url('media/figma/advertiser-slider-hexmask.png') center/contain no-repeat;
           filter:drop-shadow(0 34px 60px rgba(15,28,46,.10)); }
         /* pre-exported hexagon slide graphic (transparent corners), shown at natural proportions */
         .ph-hexart{ position:absolute; inset:0; width:100%; height:100%; object-fit:contain; z-index:1; display:block; }
