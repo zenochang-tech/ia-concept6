@@ -54,9 +54,9 @@ function PubHero() {
             </div>
           </div>
 
-          {/* Slide 2 — 11.11 campaign */}
+          {/* Slide 2 — my campaigns (11.11) */}
           <div className={on(2)} aria-hidden={slide !== 2}>
-            <img className="ph-hexart" src="media/figma/adv-slide03-double11.png" alt="11.11 Campaign" loading="eager" />
+            <img className="ph-hexart" src="media/figma/slider-adv-new3.png" alt="My Campaigns: 11.11 and 2026 Black Friday campaigns with coupon codes" loading="eager" />
             <div className="ph-slide-ui">
               <div className="ph-glass ph-ga-live"><div className="ph-live">11.11 Campaign is live!</div></div>
               <div className="ph-glass ph-ga-appl"><div className="ph-cat"><small>Applicants</small>428 publishers</div></div>
@@ -92,7 +92,7 @@ function PubHero() {
         /* aspect matches the Figma hexagon (437×492) so the pointy-top hex reads regular, not stretched-wide */
         .ph-visual{ position:relative; aspect-ratio:1/1; max-width:520px; width:100%; margin-left:auto; }
         /* shared hexagon backdrop behind every slide */
-        .ph-hexbg{ position:absolute; inset:0; z-index:0; background:var(--warm-200);
+        .ph-hexbg{ position:absolute; inset:0; z-index:0; background:var(--warm-150);
           -webkit-mask:url('media/figma/advertiser-slider-background.png') center/contain no-repeat; mask:url('media/figma/advertiser-slider-background.png') center/contain no-repeat;
           filter:drop-shadow(0 34px 60px rgba(15,28,46,.10)); }
         /* pre-exported hexagon slide graphic (transparent corners), shown at natural proportions */
