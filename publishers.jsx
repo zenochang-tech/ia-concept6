@@ -7,7 +7,7 @@
 
 // Shared UI comes from ia-shared.jsx (pulled off window so this works regardless
 // of how Babel-standalone scopes each script tag).
-const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, PlatformTabs, FinalCta, Testimonials, Faq, AppDownload, EarnFeatures, HeroHexDeco, HERO_HEXDECO_CSS, LogoMarquee } = window;
+const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, PlatformTabs, FinalCta, Testimonials, Faq, AppDownload, EarnFeatures, HeroHexGrid, HERO_HEXGRID_CSS, LogoMarquee } = window;
 
 const LinkIcon = () => (
   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.1" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -30,9 +30,9 @@ function PubHero() {
   const on = (i) => 'ph-slide' + (slide === i ? ' is-active' : '');
   return (
     <section id="pub-hero" className="ph-sec">
-      <HeroHexDeco />
       <span className="ph-basefade" aria-hidden="true" />
       <div className="wrap ph-wrap">
+        <HeroHexGrid />
         <div className="ph-copy">
           <span className="ph-eyebrow" data-reveal>Affiliate Marketing for Publishers</span>
           <h1 className="ph-title" data-reveal data-reveal-delay="1">Turn your audience into income.</h1>
@@ -80,12 +80,12 @@ function PubHero() {
       </div>
 
       <style>{`
-        .ph-sec{ position:relative; overflow:hidden; background:var(--warm-50); padding:clamp(40px,6vh,84px) 0 clamp(56px,9vh,116px); }
-        ${HERO_HEXDECO_CSS}
+        .ph-sec{ position:relative; isolation:isolate; overflow:hidden; background:var(--warm-50); padding:clamp(40px,6vh,84px) 0 clamp(56px,9vh,116px); }
+        ${HERO_HEXGRID_CSS}
         /* gradient blend from the hero into the logo strip below */
         .ph-basefade{ position:absolute; left:0; right:0; bottom:0; height:clamp(120px,24%,240px); z-index:0; pointer-events:none;
           background:linear-gradient(180deg, rgba(250,250,248,0) 0%, rgba(250,250,248,.65) 55%, var(--warm-50) 100%); }
-        .ph-wrap{ position:relative; z-index:1; display:grid; grid-template-columns:1.02fr .98fr; gap:clamp(24px,4vw,60px); align-items:center; }
+        .ph-wrap{ position:relative; display:grid; grid-template-columns:1.02fr .98fr; gap:clamp(24px,4vw,60px); align-items:center; }
         /* copy */
         .ph-copy{ min-width:0; }
         .ph-eyebrow{ display:inline-block; font:600 13px/1 var(--font-body); letter-spacing:.02em; color:var(--ember);

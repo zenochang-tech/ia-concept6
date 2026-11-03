@@ -672,6 +672,37 @@ const HERO_HEXDECO_CSS = `
         .phd4{ left:-14%; bottom:-54%; display:none; }  /* hidden on all hero pages */
         @media (max-width:900px){ .ph-hexdeco{ display:none; } }`;
 
+/* ---------- Hero hexagon lattice (ph-hexgrid) -------------------------------
+   Faint hexagons on one honeycomb with the portrait hexagon. The layer shares the
+   portrait's grid cell and box, so every hexagon is placed from the portrait centre
+   by lattice coordinates (i = column, j = row; odd rows shift half a step) and
+   scales with it. The hero puts ${HERO_HEXGRID_CSS} in its stylesheet, gives
+   .ph-sec isolation:isolate and leaves .ph-wrap without a z-index so the layer can
+   sit behind the copy and the base fade.                                        */
+function HeroHexGrid({ cells = [[1, -1], [1, 0], [-1, 1]] }) {
+  return (
+    <div className="ph-hexgrid" aria-hidden="true">
+      {cells.map(([i, j]) => (
+        <svg key={i + ',' + j} className="phg" style={{ '--i': i, '--j': j }} viewBox="0 0 441.863 498.254" preserveAspectRatio="none">
+          <path d={PHD_PATH} fill="var(--warm-150)" />
+        </svg>
+      ))}
+    </div>
+  );
+}
+const HERO_HEXGRID_CSS = `
+        /* lattice, in % of the portrait box (square, side S): hexagon width = the portrait's
+           (436.577/492.151 of S), gap ≈ 80px at S = 520, row step = D·√3/2. Centres are pulled
+           5% closer (--hx-pull) for a tighter gap. Pages whose centre hexagon is smaller
+           override --hx-w / --hx-h */
+        .ph-hexgrid{ --hx-w:88.71%; --hx-h:100%; --hx-g:15.4%; --hx-pull:0.95; --hx-D:calc((var(--hx-w) + var(--hx-g)) * var(--hx-pull));
+          position:relative; z-index:-1; pointer-events:none; aspect-ratio:1/1; max-width:520px; width:100%; margin-left:auto; }
+        .phg{ position:absolute; width:var(--hx-w); height:var(--hx-h);
+          left:calc(50% + (var(--i) + var(--j) / 2) * var(--hx-D) - var(--hx-w) / 2);
+          top:calc((100% - var(--hx-h)) / 2 + var(--j) * var(--hx-D) * 0.866025); }
+        @media (min-width:901px){ .ph-copy{ grid-area:1 / 1; } .ph-visual, .ph-hexgrid{ grid-area:1 / 2; } }
+        @media (max-width:900px){ .ph-hexgrid{ display:none; } }`;
+
 
 /* ---------- "How it works" numbered steps (hiw-*) ---------------------------
    steps: [[number, title, description], ...] in a `cols`-column grid
@@ -850,6 +881,6 @@ function LogoMarquee({ caption, fill = true }) {
 Object.assign(window, {
   PlatformTabs, CtaHexField, FinalCta, PUB_VOICES,
   Testimonials, Faq, AppDownload, EarnFeatures,
-  HeroHexDeco, HERO_HEXDECO_CSS, NumberedSteps, IconColumns,
+  HeroHexDeco, HERO_HEXDECO_CSS, HeroHexGrid, HERO_HEXGRID_CSS, NumberedSteps, IconColumns,
   LogoMarquee,
 });
