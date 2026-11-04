@@ -151,7 +151,7 @@ function Nav({ getStartedTone = 'midnight', homeHref = 'index.html' }) {
       borderBottom: `1px solid ${dark ? 'rgba(255,255,255,.10)' : 'transparent'}`,
       transition: 'background .3s, border-color .3s, box-shadow .3s',
     }} onMouseLeave={scheduleClose}>
-      <div className="wrap" style={{ display: 'flex', alignItems: 'center', height: dark ? 62 : 74, gap: 24, position: 'relative', transition: 'height .3s' }}>
+      <div className="wrap" style={{ display: 'flex', alignItems: 'center', height: scrolled ? 62 : 74, gap: 24, position: 'relative', transition: 'height .3s' }}>
         <a href={homeHref} aria-label="Involve Asia home" style={{ display: 'flex', alignItems: 'center', flex: '0 0 auto', zIndex: 2, position: 'relative' }}>
           <img src={R('logoMidnight', "https://ia-design-system.vercel.app/assets/logo/wordmark-midnight.png")} alt="Involve Asia" width="132" height="28" style={{ height: 28, width: 'auto', transition: 'opacity .35s ease', opacity: dark ? 0 : 1 }} />
           <img src={R('logoWhite', "https://ia-design-system.vercel.app/assets/logo/wordmark-white.png")} alt="" aria-hidden="true" width="132" height="28" style={{ height: 28, width: 'auto', position: 'absolute', left: 0, top: '50%', transform: 'translateY(-50%)', transition: 'opacity .35s ease', opacity: dark ? 1 : 0 }} />
@@ -197,9 +197,10 @@ function Nav({ getStartedTone = 'midnight', homeHref = 'index.html' }) {
         </button>
       </div>
 
-      {/* Mobile panel */}
+      {/* Mobile panel: absolutely positioned under the sticky header so it overlays the page
+          instead of growing the header and pushing the content down */}
       {mobile && (
-        <div className="nav-mobile" style={{ borderTop: '1px solid var(--warm-200)', background: 'var(--warm-50)', padding: '12px 0 24px', maxHeight: 'calc(100vh - 74px)', overflowY: 'auto' }}>
+        <div className="nav-mobile" style={{ position: 'absolute', top: '100%', left: 0, right: 0, borderTop: '1px solid var(--warm-200)', background: 'var(--warm-50)', padding: '12px 0 24px', maxHeight: 'calc(100dvh - 75px)', overflowY: 'auto', overscrollBehavior: 'contain', boxShadow: '0 24px 40px rgba(15,28,46,.10)' }}>
           <div className="wrap">
             {NAV.map((n) => (
               <details key={n.label} style={{ borderBottom: '1px solid var(--warm-200)' }}>
@@ -209,7 +210,7 @@ function Nav({ getStartedTone = 'midnight', homeHref = 'index.html' }) {
                     ? n.columns.map((col, ci) => (
                         <div key={ci} style={{ marginTop: ci ? 22 : 6 }}>
                           {col.top && <a href={col.top[1]} style={{ display: 'block', padding: '10px 12px', color: 'var(--warm-600)', fontSize: 15 }}>{col.top[0]}</a>}
-                          {col.head && <div style={{ margin: '0 12px 10px', padding: '2px 0 9px', borderBottom: '1px solid var(--warm-200)', font: '700 12px/1 var(--font-body)', color: 'var(--warm-400)' }}>{col.head}</div>}
+                          {col.head && <div style={{ margin: '0 0 10px', padding: '2px 0 9px', borderBottom: '1px solid var(--warm-200)', font: '700 12px/1 var(--font-body)', color: 'var(--warm-400)' }}>{col.head}</div>}
                           {col.links.map(([t, href, soon]) => soon
                             ? <span key={t} style={{ display: 'block', padding: '10px 12px', color: 'var(--warm-400)', fontSize: 15 }}>{t} <em style={{ fontStyle: 'normal', fontSize: 13 }}>(coming soon)</em></span>
                             : <a key={t} href={href} style={{ display: 'block', padding: '10px 12px', color: 'var(--warm-600)', fontSize: 15 }}>{t}</a>)}
