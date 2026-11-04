@@ -154,7 +154,10 @@ function PubHero() {
           .ph-g-link, .ph-g-sales, .ph-g-conv{ right:0; }
           .ph-g-prod, .ph-g-pay-a, .ph-g-pay-b{ left:0; }
           /* per-slide UI repositioning for mobile */
-          .ph-g-link{ top:47%; }                 /* slide 1: top-right pill moved down 25% */
+          .ph-g-link{ top:4.5%; padding:5px; }  /* slide 1: pill at the top right of the hexagon, clear of the face */
+          .ph-link{ gap:7px; padding:6px 12px 6px 6px; font-size:12px; }   /* slide 1: smaller pill on mobile */
+          .ph-link-ic{ width:24px; height:24px; }
+          .ph-link-ic svg{ width:13px; height:13px; }
           .ph-g-conv{ top:auto; bottom:9%; }     /* slide 3: moved to the bottom-right of the hexagon */
           .ph-g-pay-a{ top:54%; }                /* slide 4: large payout pill moved 40% lower */
           .ph-g-pay-b{ display:none; }           /* slide 4: hide the smaller payout pill */
