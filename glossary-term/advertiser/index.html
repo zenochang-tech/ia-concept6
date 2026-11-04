@@ -82,14 +82,27 @@ p{margin:0;} a{color:inherit; text-decoration:none;} img{display:block; max-widt
 
 /* "Pick your side and grow with us." finale (static port of homepage HexFinaleStatic) */
 .hf{ background:var(--warm-50); position:relative; overflow:hidden; }
-.hf-cta{ position:relative; padding:clamp(32px,4vh,56px) 0 clamp(48px,7vh,88px); text-align:center; }
+/* top padding grows as .hf-scene shrinks (its height is clamp(420px,44vw,520px)) so the top
+   honeycomb row, which sits a fixed distance above the scene centre, is never cut by the section edge */
+.hf-cta{ position:relative; padding:calc(clamp(32px,4vh,56px) + (520px - clamp(420px,44vw,520px)) / 2 + 16px) 0 clamp(48px,7vh,88px); text-align:center; }
 .hf-head{ position:relative; z-index:5; top:clamp(56px,8.5vh,82px); font-size:clamp(24px,3vw,34px); line-height:1.05; letter-spacing:-.01em; margin:clamp(20px,3vh,40px) auto clamp(12px,1.6vh,22px); max-width:none; white-space:nowrap; }
-.hf-scene{ position:relative; width:min(1320px,100%); height:clamp(420px,44vw,520px); margin:0 auto; }
+.hf-scene{ position:relative; width:min(1320px,100%); height:clamp(420px,44vw,520px); margin:0 auto;
+  /* one pointy-top honeycomb (see ia-bundle.jsx HexFinaleStatic): --c = column incl. the half-column
+     shift of odd rows, --r = row; publisher photo = col 0 row 0 */
+  --hx-w:247px; --hx-g:21px; --hx-D:calc(var(--hx-w) + var(--hx-g)); --hx-x0:calc(var(--hx-D) / -2); }
 .hf-honey{ position:absolute; inset:0; z-index:0; pointer-events:none; }
-.hf-combhex{ position:absolute; width:247px; height:auto; transform:translate(-50%,-50%); opacity:.5; }
-.hf-photohex{ position:absolute; left:50%; top:50%; width:247px; height:auto; z-index:2; filter:drop-shadow(0 18px 40px rgba(15,28,46,.16)); }
-.hf-ph-pub{ transform:translate(calc(-50% - 134px), -50%) scaleX(-1); }
-.hf-ph-adv{ transform:translate(calc(-50% + 134px), -50%); }
+/* decorative tiles: flat warm-100, shaped by the rounded-hex PNG used as a mask */
+.hf-combhex{ position:absolute; width:var(--hx-w); aspect-ratio:640/720; transform:translate(-50%,-50%); background:var(--warm-100);
+  -webkit-mask:url('media/figma/s9-hex-g1.png') center/100% 100% no-repeat; mask:url('media/figma/s9-hex-g1.png') center/100% 100% no-repeat;
+  left:calc(50% + var(--hx-x0) + var(--c) * var(--hx-D)); top:calc(50% + var(--r) * var(--hx-D) * 0.8660254); }
+/* reveal: ia-shared.jsx adds .hx-anim (JS only) and toggles .is-in as the scene enters/leaves
+   the viewport; hexes fade in one by one (--i), and out in reverse order */
+.hf-scene.hx-anim .hf-photohex, .hf-scene.hx-anim .hf-combhex{ opacity:0; transition:opacity .5s ease; transition-delay:calc((7 - var(--i)) * 60ms); }
+.hf-scene.hx-anim.is-in .hf-photohex, .hf-scene.hx-anim.is-in .hf-combhex{ opacity:1; transition-delay:calc(var(--i) * 110ms); }
+@media (prefers-reduced-motion: reduce){ .hf-scene.hx-anim .hf-photohex, .hf-scene.hx-anim .hf-combhex{ transition:none; } }
+.hf-photohex{ position:absolute; left:50%; top:50%; width:var(--hx-w); height:auto; z-index:2; filter:drop-shadow(0 18px 40px rgba(15,28,46,.16)); }
+.hf-ph-pub{ transform:translate(calc(-50% + var(--hx-x0)), -50%) scaleX(-1); }
+.hf-ph-adv{ transform:translate(calc(-50% + var(--hx-x0) + var(--hx-D)), -50%); }
 .hf-card{ position:absolute; top:50%; transform:translateY(-50%); width:min(280px,23vw); display:flex; flex-direction:column; gap:12px; z-index:4; }
 .hf-card-pub{ left:5%; align-items:flex-start; text-align:left; }
 .hf-card-adv{ right:5%; align-items:flex-end; text-align:right; }
@@ -156,17 +169,17 @@ p{margin:0;} a{color:inherit; text-decoration:none;} img{display:block; max-widt
     <h2 class="hf-head">Pick your side and grow with us.</h2>
     <div class="hf-scene">
       <div class="hf-honey" aria-hidden="true">
-        <img class="hf-combhex" src="media/figma/s9-hex-g1.png" alt="" style="left:calc(50% + 0px); top:calc(50% - 225px)" />
-        <img class="hf-combhex" src="media/figma/s9-hex-g3.png" alt="" style="left:calc(50% + 268px); top:calc(50% - 225px)" />
-        <img class="hf-combhex" src="media/figma/s9-hex-g1.png" alt="" style="left:calc(50% + 536px); top:calc(50% + 0px)" />
-        <img class="hf-combhex" src="media/figma/s9-hex-g3.png" alt="" style="left:calc(50% + 0px); top:calc(50% + 225px)" />
-        <img class="hf-combhex" src="media/figma/s9-hex-g2.png" alt="" style="left:calc(50% - 268px); top:calc(50% + 225px)" />
-        <img class="hf-combhex" src="media/figma/s9-hex-g2.png" alt="" style="left:calc(50% - 536px); top:calc(50% + 225px)" />
+        <span class="hf-combhex" style="--c:0.5; --r:-1; --i:2"></span>
+        <span class="hf-combhex" style="--c:1.5; --r:-1; --i:3"></span>
+        <span class="hf-combhex" style="--c:-1.5; --r:1; --i:4"></span>
+        <span class="hf-combhex" style="--c:-0.5; --r:1; --i:5"></span>
+        <span class="hf-combhex" style="--c:0.5; --r:1; --i:6"></span>
+        <span class="hf-combhex" style="--c:2.5; --r:1; --i:7"></span>
       </div>
       <span class="hf-kick hf-kick-m" aria-hidden="true">Influencers. Websites. App owner.</span>
       <span class="hf-kick adv hf-kick-m" aria-hidden="true">Brands. Retailers. Enterprises.</span>
-      <img class="hf-photohex hf-ph-pub" src="media/figma/s9-hex-pub.webp" alt="A publisher creating content" />
-      <img class="hf-photohex hf-ph-adv" src="media/figma/s9-hex-adv.webp" alt="An advertiser growing their brand" />
+      <img class="hf-photohex hf-ph-pub" src="media/figma/s9-hex-pub.webp" alt="A publisher creating content" style="--i:0" />
+      <img class="hf-photohex hf-ph-adv" src="media/figma/s9-hex-adv.webp" alt="An advertiser growing their brand" style="--i:1" />
       <div class="hf-card hf-card-pub">
         <span class="hf-kick">Creators. Content sites. Affiliate sites.</span>
         <h3 class="hf-ct">I'm a <br />Publisher</h3>
