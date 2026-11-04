@@ -3685,7 +3685,7 @@ function Footer() {
         <div aria-hidden="true" style={{ height: 1, background: 'var(--midnight-mid)', marginBottom: 56 }}></div>
         <div className="foot-grid" style={{ display: 'grid', gridTemplateColumns: '1.4fr repeat(3, 1fr)', gap: 32, paddingBottom: 48 }}>
           <div style={{ maxWidth: 280 }}>
-            <img src={(window.__resources && window.__resources.logoWhite) || "https://ia-design-system.vercel.app/assets/logo/wordmark-white.png"} alt="Involve Asia" width="140" height="30" style={{ height: 30, width: 'auto' }} />
+            <img src={(window.__resources && window.__resources.logoWhite) || "media/brand/wordmark-white.png"} alt="Involve Asia" width="140" height="30" style={{ height: 30, width: 'auto' }} />
             <p style={{ marginTop: 16, fontSize: 14, color: 'var(--warm-300)', lineHeight: 1.6 }}>
               The affiliate marketing platform connecting advertisers with creators and publishers across Asia.
             </p>
