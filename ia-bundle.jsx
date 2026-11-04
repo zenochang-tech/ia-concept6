@@ -2699,11 +2699,11 @@ function HexFinaleStatic({ emphasis = 'equal', hex = 3 }) {
         .hf-combhex{ position:absolute; width:var(--hx-w); aspect-ratio:640/720; transform:translate(-50%,-50%); background:var(--warm-100);
           -webkit-mask:url('media/figma/s9-hex-g1.png') center/100% 100% no-repeat; mask:url('media/figma/s9-hex-g1.png') center/100% 100% no-repeat;
           left:calc(50% + var(--hx-x0) + var(--c) * var(--hx-D)); top:calc(50% + var(--r) * var(--hx-D) * 0.8660254); }
-        /* reveal: ia-shared.jsx adds .hx-anim (JS only) and toggles .is-in as the scene enters/leaves
+        /* reveal: ia-shared.jsx sets html.hx-js (JS only) and toggles .is-in as the scene enters/leaves
            the viewport; hexes fade in one by one (--i), and out in reverse order */
-        .hf-scene.hx-anim .hf-photohex, .hf-scene.hx-anim .hf-combhex{ opacity:0; transition:opacity .5s ease; transition-delay:calc((7 - var(--i)) * 60ms); }
-        .hf-scene.hx-anim.is-in .hf-photohex, .hf-scene.hx-anim.is-in .hf-combhex{ opacity:1; transition-delay:calc(var(--i) * 110ms); }
-        @media (prefers-reduced-motion: reduce){ .hf-scene.hx-anim .hf-photohex, .hf-scene.hx-anim .hf-combhex{ transition:none; } }
+        .hx-js .hf-scene .hf-photohex, .hx-js .hf-scene .hf-combhex{ opacity:0; transition:opacity .5s ease; transition-delay:calc((7 - var(--i)) * 60ms); }
+        .hx-js .hf-scene.is-in .hf-photohex, .hx-js .hf-scene.is-in .hf-combhex{ opacity:1; transition-delay:calc(var(--i) * 110ms); }
+        @media (prefers-reduced-motion: reduce){ .hx-js .hf-scene .hf-photohex, .hx-js .hf-scene .hf-combhex{ transition:none; } }
         .hf-photohex{ position:absolute; left:50%; top:50%; width:var(--hx-w); height:auto; z-index:2; filter:drop-shadow(0 18px 40px rgba(15,28,46,.16)); }
         .hf-ph-pub{ transform:translate(calc(-50% + var(--hx-x0)), -50%) scaleX(-1); }
         .hf-ph-adv{ transform:translate(calc(-50% + var(--hx-x0) + var(--hx-D)), -50%); }
