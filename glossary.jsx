@@ -37,7 +37,7 @@ const glossaryIsLocal = (t) => ((typeof window !== 'undefined' && window.__GLOSS
 const glossaryHref = (t) => glossaryIsLocal(t) ? `glossary-term/${glossarySlug(t)}/` : `https://involve.asia/glossary-term/${glossarySlug(t)}/`;
 
 /* Decorative honeycomb backdrop — same hex field as the pricing hero (pub-cta-hexfield.svg),
-   filled flat with warm-150 (#EEEEE9) to match the About page hero honeycomb. */
+   filled flat with warm-100 (#F4F4F0) to match the About page hero honeycomb. */
 let __glGradN = 0;
 function GlossaryHexField() {
   const [paths, setPaths] = React.useState([]);
@@ -47,7 +47,7 @@ function GlossaryHexField() {
   const vb = `${-W * pad} ${-H * pad} ${W * (1 + 2 * pad)} ${H * (1 + 2 * pad)}`;
   React.useEffect(() => {
     let alive = true;
-    fetch('media/figma/pub-cta-hexfield.svg').then((r) => r.text()).then((txt) => {
+    window.fetchText('media/figma/pub-cta-hexfield.svg').then((txt) => {
       if (!alive) return;
       const out = []; const re = /<path\b([^>]*)>/g; let m;
       while ((m = re.exec(txt))) {
@@ -60,7 +60,7 @@ function GlossaryHexField() {
   }, []);
   return (
     <svg className="gh-hexfield" viewBox={vb} preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <g fill="var(--warm-150)">{paths.map((d, i) => <path key={i} className="hx" d={d} />)}</g>
+      <g fill="var(--warm-100)">{paths.map((d, i) => <path key={i} className="hx" d={d} />)}</g>
     </svg>
   );
 }
@@ -75,11 +75,11 @@ function GlossaryHero() {
       </div>
       <style>{`
         .gh-sec{ position:relative; overflow:hidden; background:var(--warm-50); padding:clamp(44px,8vh,92px) 0 clamp(16px,2.4vh,30px); text-align:center; }
-        .gh-honey{ position:absolute; left:0; top:0; width:100%; height:100%; z-index:0; pointer-events:none; }
+        /* start the field under the transparent nav (74px + 1px border) so its top row isn't cut at the nav line */
+        .gh-honey{ position:absolute; left:0; top:-75px; width:100%; height:calc(100% + 75px); z-index:0; pointer-events:none; }
         .gh-hexfield{ position:absolute; inset:0; width:100%; height:100%; opacity:1;
           -webkit-mask-image:radial-gradient(120% 100% at 50% 34%, #000 0%, #000 42%, transparent 78%);
           mask-image:radial-gradient(120% 100% at 50% 34%, #000 0%, #000 42%, transparent 78%); }
-        .gh-hexfield .hx{ fill-opacity:.9; }
         .gh-wrap{ position:relative; z-index:1; }
         .gh-eyebrow{ display:inline-block; font:700 14px/1 var(--font-body); letter-spacing:.02em; color:var(--warm-900); }
         .gh-title{ margin:16px auto 0; max-width:840px; font-size:clamp(30px,4.8vw,56px); line-height:1.06; letter-spacing:-.03em; color:var(--warm-900); }

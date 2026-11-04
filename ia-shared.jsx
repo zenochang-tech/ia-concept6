@@ -8,6 +8,10 @@
    ============================================================================ */
 
 const prefersReduced = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+// Fetch a text asset, retrying a dropped connection or non-OK response (decorative SVGs
+// like the hero honeycomb are fetched at runtime, and one failed request left them blank).
+const fetchText = (url, tries = 3) => fetch(url).then((r) => { if (!r.ok) throw new Error(r.status); return r.text(); })
+  .catch((e) => { if (tries <= 1) throw e; return new Promise((res) => setTimeout(res, 400)).then(() => fetchText(url, tries - 1)); });
 
 // Nav mega-menu — clean Stripe-style columns: each column has a non-clickable title (head)
 // with a thin #E8E8E2 divider under it, then its links. Column titles are suggestions —
@@ -575,4 +579,4 @@ function useScrollReveal() {
   }, []);
 }
 
-Object.assign(window, { prefersReduced, Nav, Arrow, Footer, HexCursor, BackToTop, useSmoothScroll, useScrollReveal });
+Object.assign(window, { prefersReduced, fetchText, Nav, Arrow, Footer, HexCursor, BackToTop, useSmoothScroll, useScrollReveal });
