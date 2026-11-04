@@ -19,7 +19,7 @@ function PricingHexField() {
   const vb = `${-W * pad} ${-H * pad} ${W * (1 + 2 * pad)} ${H * (1 + 2 * pad)}`;
   React.useEffect(() => {
     let alive = true;
-    fetch('media/figma/pub-cta-hexfield.svg').then((r) => r.text()).then((txt) => {
+    window.fetchText('media/figma/pub-cta-hexfield.svg').then((txt) => {
       if (!alive) return;
       const out = []; const re = /<path\b([^>]*)>/g; let m;
       while ((m = re.exec(txt))) {

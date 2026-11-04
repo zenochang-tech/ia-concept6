@@ -123,7 +123,7 @@ function CtaHexField() {
   const W = 1204.11, H = 1189.86;
   React.useEffect(() => {
     let alive = true;
-    fetch('media/figma/pub-cta-hexfield.svg').then((r) => r.text()).then((txt) => {
+    window.fetchText('media/figma/pub-cta-hexfield.svg').then((txt) => {
       if (!alive) return;
       const out = []; const re = /<path\b([^>]*)>/g; let m;
       while ((m = re.exec(txt))) {

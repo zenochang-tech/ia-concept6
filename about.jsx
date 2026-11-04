@@ -14,7 +14,7 @@ function AboutHexField() {
   const vb = `${-W * pad} ${-H * pad} ${W * (1 + 2 * pad)} ${H * (1 + 2 * pad)}`;
   React.useEffect(() => {
     let alive = true;
-    fetch('media/figma/pub-cta-hexfield.svg').then((r) => r.text()).then((txt) => {
+    window.fetchText('media/figma/pub-cta-hexfield.svg').then((txt) => {
       if (!alive) return;
       const out = []; const re = /<path\b([^>]*)>/g; let m;
       while ((m = re.exec(txt))) {
@@ -27,7 +27,7 @@ function AboutHexField() {
   }, []);
   return (
     <svg className="ab-hexfield" viewBox={vb} preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <g fill="var(--warm-150)">{paths.map((d, i) => <path key={i} className="hx" d={d} />)}</g>
+      <g fill="var(--warm-100)">{paths.map((d, i) => <path key={i} className="hx" d={d} />)}</g>
     </svg>
   );
 }
@@ -48,7 +48,8 @@ function AboutHero() {
       </div>
       <style>{`
         .ah-sec{ position:relative; overflow:hidden; background:var(--warm-50); padding:clamp(48px,9vh,104px) 0 clamp(30px,5vh,56px); text-align:center; }
-        .ah-honey{ position:absolute; left:0; top:0; width:100%; height:100%; z-index:0; pointer-events:none; }
+        /* start the field under the transparent nav (74px + 1px border) so its top row isn't cut at the nav line */
+        .ah-honey{ position:absolute; left:0; top:-75px; width:100%; height:calc(100% + 75px); z-index:0; pointer-events:none; }
         .ab-hexfield{ position:absolute; inset:0; width:100%; height:100%; opacity:1;
           -webkit-mask-image:radial-gradient(120% 100% at 50% 30%, #000 0%, #000 40%, transparent 76%);
           mask-image:radial-gradient(120% 100% at 50% 30%, #000 0%, #000 40%, transparent 76%); }
@@ -183,6 +184,23 @@ function AboutStory() {
   );
 }
 
+/* ---------- Section 3b — Office sign (container-width photo before "Our expertise") ---------- */
+function AboutSign() {
+  return (
+    <section id="about-sign" className="asn-sec" aria-label="Involve Asia office">
+      <div className="wrap">
+        <img className="asn-img" src="media/figma/IA_company-sign.png" alt="The Involve Asia logo sign on a black wall in our office" loading="lazy" data-reveal />
+      </div>
+      <style>{`
+        .asn-sec{ background:var(--warm-50); }
+        /* photo radius matches the other About photos (culture, careers); on phones a taller crop keeps the logo readable */
+        .asn-img{ display:block; width:100%; aspect-ratio:1264/561; object-fit:cover; object-position:35% 50%; border-radius:var(--r-xl); }
+        @media (max-width:560px){ .asn-img{ aspect-ratio:16/10; } }
+      `}</style>
+    </section>
+  );
+}
+
 /* ---------- Section 4 — What we do (3 numbered steps, .hiw-*) ---------------- */
 const ABOUT_EXPERTISE = [
   ['01', 'Performance partnership', 'We connect brands with publishers, and you pay only for real results, with full tracking and transparency.'],
@@ -261,9 +279,7 @@ function AboutMission() {
         .am-eyebrow{ display:inline-block; font:700 13px/1 var(--font-body); letter-spacing:.14em; text-transform:uppercase; color:var(--ember); }
         .am-title{ margin-top:16px; font-family:var(--font-display); font-weight:800; font-size:clamp(24px,3vw,34px); line-height:1.12; letter-spacing:-.03em; color:var(--warm-900); }
         .am-mv{ margin-top:clamp(28px,4vh,44px); display:grid; grid-template-columns:1fr 1fr; gap:clamp(20px,2.5vw,28px); }
-        .am-card{ border-radius:var(--r-xl); padding:clamp(26px,3vw,38px); }
-        .am-mission{ background:var(--warm-150); }
-        .am-vision{ background:var(--warm-150); }
+        .am-card{ border-radius:var(--r-xl); padding:clamp(26px,3vw,38px); background:#fff; }
         .am-kick{ display:inline-block; font:700 12px/1 var(--font-body); letter-spacing:.12em; text-transform:uppercase; color:var(--warm-800); }
         .am-card p{ margin-top:14px; font:500 clamp(17px,1.6vw,21px)/1.5 var(--font-body); letter-spacing:-.01em; color:var(--warm-900); }
         .am-values{ margin-top:clamp(24px,3.5vh,40px); display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(20px,3vw,40px); }
@@ -335,15 +351,12 @@ function AboutAwards() {
   );
 }
 
-/* ---------- Section 7 — Regional presence ----------------------------------- */
-const ABOUT_REGIONS = [
-  ['Malaysia', 'Headquarters', 'Kuala Lumpur, where it all began. Our HQ is home to the core marketing, partnerships, and tech teams driving growth across the region.'],
-  ['Indonesia', '', 'Local partnerships and creator networks across the archipelago.'],
-  ['Singapore', '', 'Regional brand and enterprise relationships.'],
-  ['Philippines', '', 'A fast-growing creator and cashback community.'],
-  ['Thailand', '', 'Local-language support and market-specific insights.'],
-  ['Vietnam', '', 'Emerging affiliate marketing partnerships.'],
-];
+/* ---------- Section 7 — Regional presence -----------------------------------
+   HQ (Malaysia) as the large item on the left; the other five markets sit on the
+   right in a 3-column grid with flag + name only (their descriptions aren't validated). */
+const ABOUT_HQ = { cc: 'my', name: 'Malaysia', tag: 'Headquarters', desc: 'Kuala Lumpur, where it all began. Our HQ is home to the core marketing, partnerships, and tech teams driving growth across the region.' };
+// [country code (flag file), name]
+const ABOUT_REGIONS = [['id', 'Indonesia'], ['sg', 'Singapore'], ['ph', 'Philippines'], ['th', 'Thailand'], ['vn', 'Vietnam']];
 function AboutRegions() {
   return (
     <section id="about-regions" className="ar-sec">
@@ -352,15 +365,22 @@ function AboutRegions() {
         <h2 className="ar-title" data-reveal>Where you can find us.</h2>
         <p className="ar-sub" data-reveal>We operate across six Southeast Asian markets, connecting local brands, creators, and communities through affiliate marketing.</p>
         <div className="ar-grid">
-          {ABOUT_REGIONS.map(([name, tag, desc], i) => (
-            <div className={'ar-card' + (i === 0 ? ' ar-hq' : '')} key={name} data-reveal data-reveal-delay={(i % 3) + 1}>
-              <div className="ar-cardhead">
-                <h3>{name}</h3>
-                {tag && <span className="ar-tag">{tag}</span>}
-              </div>
-              <p>{desc}</p>
+          <div className="ar-hq" data-reveal data-reveal-delay="1">
+            <img className="ar-flag" src={`media/figma/${ABOUT_HQ.cc}-flag-icon.svg`} alt="" width="56" height="56" />
+            <div className="ar-cardhead">
+              <h3>{ABOUT_HQ.name}</h3>
+              <span className="ar-tag">{ABOUT_HQ.tag}</span>
             </div>
-          ))}
+            <p>{ABOUT_HQ.desc}</p>
+          </div>
+          <div className="ar-others">
+            {ABOUT_REGIONS.map(([cc, name], i) => (
+              <div className="ar-card" key={name} data-reveal data-reveal-delay={(i % 3) + 1}>
+                <img className="ar-flag" src={`media/figma/${cc}-flag-icon.svg`} alt="" width="40" height="40" />
+                <h3>{name}</h3>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
       <style>{`
@@ -368,15 +388,24 @@ function AboutRegions() {
         .ar-eyebrow{ display:inline-block; font:700 13px/1 var(--font-body); letter-spacing:.14em; text-transform:uppercase; color:var(--ember); }
         .ar-title{ margin-top:16px; font-family:var(--font-display); font-weight:800; font-size:clamp(24px,3vw,34px); line-height:1.12; letter-spacing:-.03em; color:var(--warm-900); }
         .ar-sub{ margin-top:12px; max-width:600px; font:400 clamp(16px,1.3vw,18px)/1.5 var(--font-body); color:var(--warm-600); }
-        .ar-grid{ margin-top:clamp(30px,5vh,52px); display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(18px,2vw,24px); }
-        .ar-card{ border:1px solid var(--warm-200); border-radius:var(--r-lg); background:#fff; padding:clamp(22px,2.4vw,30px); min-width:0; }
-        .ar-hq{ border-color:var(--warm-200); background:var(--warm-150); grid-column:span 1; }
+        .ar-grid{ margin-top:clamp(30px,5vh,52px); display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.6fr); gap:clamp(32px,5vw,72px); align-items:start; }
+        /* open layout: no card boxes; a hairline separates HQ from the other markets */
+        .ar-hq{ min-width:0; }
+        .ar-hq .ar-flag{ width:56px; height:56px; margin-bottom:20px; }
         .ar-cardhead{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
-        .ar-cardhead h3{ font-family:var(--font-display); font-weight:800; font-size:19px; letter-spacing:-.01em; color:var(--warm-900); }
+        .ar-hq h3{ font-family:var(--font-display); font-weight:800; font-size:clamp(22px,2.2vw,26px); letter-spacing:-.02em; color:var(--warm-900); }
         .ar-tag{ font:700 10px/1 var(--font-body); letter-spacing:.08em; text-transform:uppercase; color:var(--ember); background:rgba(240,88,38,.12); border-radius:var(--r-full); padding:5px 9px; }
-        .ar-card p{ margin-top:12px; font:400 15px/1.55 var(--font-body); color:var(--warm-600); }
-        @media (max-width:820px){ .ar-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
-        @media (max-width:560px){ .ar-grid{ grid-template-columns:1fr; } }
+        .ar-hq p{ margin-top:12px; max-width:420px; font:400 15px/1.55 var(--font-body); color:var(--warm-600); }
+        .ar-others{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(32px,5vh,48px) clamp(18px,2vw,24px);
+          border-left:1px solid var(--warm-200); padding-left:clamp(32px,5vw,72px); }
+        .ar-card{ min-width:0; }
+        .ar-flag{ display:block; width:40px; height:40px; margin-bottom:16px; }
+        .ar-card h3{ font-family:var(--font-display); font-weight:800; font-size:19px; letter-spacing:-.01em; color:var(--warm-900); }
+        @media (max-width:820px){
+          .ar-grid{ grid-template-columns:1fr; }
+          .ar-others{ border-left:0; padding-left:0; border-top:1px solid var(--warm-200); padding-top:clamp(28px,5vh,40px); }
+        }
+        @media (max-width:420px){ .ar-card h3{ font-size:16px; } }
       `}</style>
     </section>
   );
@@ -548,6 +577,7 @@ function AboutApp() {
         <AboutHero />
         <AboutStats />
         <AboutStory />
+        <AboutSign />
         <AboutExpertise />
         <AboutMission />
         <AboutAwards />
