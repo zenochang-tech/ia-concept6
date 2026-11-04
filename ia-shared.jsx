@@ -582,22 +582,27 @@ function useScrollReveal() {
 // "Pick your side" honeycomb (.hf-scene, on React pages and the static glossary-term pages):
 // fade the hexes in one by one when the scene enters the viewport, and back out (reverse
 // order) once it has fully left. Timing/order live in the section CSS (--i); this only
-// toggles classes. .hx-anim is set here so the hexes stay visible if JS never runs.
+// toggles classes. The hidden start state is keyed to html.hx-js (set here) rather than to
+// the section, so the build's pre-rendered markup (only #root is baked) stays visible without JS.
 (function hexSceneReveal() {
   if (typeof document === 'undefined' || !('IntersectionObserver' in window)) return;
+  document.documentElement.classList.add('hx-js');
   const io = new IntersectionObserver((es) => es.forEach((e) => {
     if (e.isIntersecting && e.intersectionRatio >= 0.2) e.target.classList.add('is-in');
     else if (!e.isIntersecting) e.target.classList.remove('is-in');
   }), { threshold: [0, 0.2] });
-  // React pages render the section after this script runs, so watch the DOM until it appears
-  let queued = false;
-  const mo = new MutationObserver(() => { if (queued) return; queued = true; requestAnimationFrame(() => { queued = false; scan(); }); });
+  // React pages render the section after this script runs, and on the built site React replaces
+  // the pre-rendered markup, so keep watching (at most one lookup per frame) and re-attach to
+  // whichever .hf-scene is current.
+  let current = null, queued = false;
   const scan = () => {
     const el = document.querySelector('.hf-scene');
-    if (!el) return;
-    mo.disconnect(); el.classList.add('hx-anim'); io.observe(el);
+    if (!el || el === current) return;
+    if (current) io.unobserve(current);
+    current = el; io.observe(el);
   };
-  mo.observe(document.documentElement, { childList: true, subtree: true });
+  new MutationObserver(() => { if (queued) return; queued = true; requestAnimationFrame(() => { queued = false; scan(); }); })
+    .observe(document.documentElement, { childList: true, subtree: true });
   scan();
 })();
 
