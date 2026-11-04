@@ -257,10 +257,10 @@ const PUB_PLATFORM_CSS = `
           .pf-step.on .pf-step-fig{ grid-template-rows:1fr; }
           .pf-step-fig-in{ overflow:hidden; min-height:0; }
           /* the source PNGs are bleed compositions (content offset right/down on a wide canvas),
-             so crop to the readable top-left over a warm gradient instead of squashing the whole canvas */
+             so crop to the readable top-left over the warm-150 panel (as on desktop) instead of squashing the whole canvas */
           .pf-step-fig-img{ display:block; width:100%; aspect-ratio:5/3; object-fit:contain; object-position:center;
             margin:18px 0 4px; border-radius:var(--r-xl);
-            background:linear-gradient(150deg,#fbe9df 0%,#f6f1ec 55%,#fde4d8 100%);
+            background:var(--warm-150);
             box-shadow:0 12px 28px rgba(15,28,46,.12); }
         }`;
 function PubPlatform() {
