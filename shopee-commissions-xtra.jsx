@@ -17,7 +17,7 @@ function PubHero() {
       <div className="wrap ph-wrap">
         <HeroHexGrid />
         <div className="ph-copy">
-          <span className="ph-eyebrow" data-reveal>For Shopee affiliates</span>
+          <span className="ph-eyebrow" data-reveal>For Shopee Affiliates</span>
           <h1 className="ph-title" data-reveal data-reveal-delay="1">Shopee Commissions XTRA: earn extra on top of your base commission</h1>
           <p className="ph-sub" data-reveal data-reveal-delay="2">With Shopee Commissions XTRA, earn extra commission on top of your base commission from brand stores and top-selling products on Shopee.</p>
           <div className="ph-actions" data-reveal data-reveal-delay="3">

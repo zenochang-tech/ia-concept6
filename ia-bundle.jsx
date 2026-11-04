@@ -2319,7 +2319,7 @@ function BlogSection() {
             <p className="bg-sub">Fresh tips, playbooks, and insights, whichever side you're on.</p>
           </div>
           <div className="bg-controls">
-            <a href="/blog/" className="bg-readall">Read the blog <Arrow /></a>
+            <a href="/blog/" className="bg-readall">Read the Blog <Arrow /></a>
             <div className="bg-tabs" role="tablist" aria-label="Blog audience">
               <button type="button" role="tab" aria-selected={btab === 0} className={'bg-tab' + (btab === 0 ? ' on' : '')} onClick={() => setBtab(0)}>Publisher</button>
               <button type="button" role="tab" aria-selected={btab === 1} className={'bg-tab' + (btab === 1 ? ' on' : '')} onClick={() => setBtab(1)}>Advertiser</button>
@@ -2336,7 +2336,7 @@ function BlogSection() {
             </a>
           ))}
         </div>
-        <a href="/blog/" className="bg-readall-m">Read the blog <Arrow /></a>
+        <a href="/blog/" className="bg-readall-m">Read the Blog <Arrow /></a>
       </div>
       <style>{`
         .bg-sec{ background:var(--warm-50); }
@@ -2393,10 +2393,10 @@ function BlogSection() {
 /* ---------------- Stat band (concept-8) — standalone section ----------------
    Centered caption + a 4-up row of headline stats that count up when scrolled into view. */
 const STAT_BAND = [
-  { to: 1000000, fmt: (v) => Math.round(v).toLocaleString() + '+', label: 'publishers' },
-  { to: 270, fmt: (v) => '$' + Math.round(v) + 'M+', label: 'commissions paid' }, // confirmed: $270M+
-  { to: 3.2, fmt: (v) => '$' + v.toFixed(1) + 'B+', label: 'sales generated' },
-  { to: 500, fmt: (v) => Math.round(v) + '+', label: 'brands' },
+  { to: 1000000, fmt: (v) => Math.round(v).toLocaleString() + '+', label: 'Publishers' },
+  { to: 270, fmt: (v) => '$' + Math.round(v) + 'M+', label: 'Commissions Paid' }, // confirmed: $270M+
+  { to: 3.2, fmt: (v) => '$' + v.toFixed(1) + 'B+', label: 'Sales Generated' },
+  { to: 500, fmt: (v) => Math.round(v) + '+', label: 'Brands' },
 ];
 function StatCount({ to, fmt }) {
   const ref = React.useRef(null);
@@ -2557,7 +2557,7 @@ function HexFinaleAnimated({ emphasis = 'equal', hex = 3 }) {
         </div>
         <h2 ref={headRef} className="hfa-head">Pick your side and grow with us.</h2>
         <div ref={cLRef} className="hfa-card hfa-card-l">
-          <span className="hfa-kick">Creators. Affiliates. Technology partners.</span>
+          <span className="hfa-kick">Creators. Affiliates. Technology Partners.</span>
           <h3 className="hfa-ct">I'm a<br />Publisher</h3>
           <p className="hfa-cd">Promote brands you love. Turn your audience or traffic into income.</p>
           <a href="/partners/" className="btn btn-primary">Start Earning <Arrow /></a>
@@ -2651,12 +2651,12 @@ function HexFinaleStatic({ emphasis = 'equal', hex = 3 }) {
             ))}
           </div>
           {/* mobile-only kickers, placed ABOVE the photos (the desktop kickers stay inside the cards) */}
-          <span className="hf-kick hf-kick-m" aria-hidden="true">Creators. Affiliates. Technology partners.</span>
+          <span className="hf-kick hf-kick-m" aria-hidden="true">Creators. Affiliates. Technology Partners.</span>
           <span className="hf-kick adv hf-kick-m" aria-hidden="true">Brands. Retailers. Enterprises.</span>
           <img className="hf-photohex hf-ph-pub" src="media/figma/s9-hex-pub.webp" alt="A publisher creating content" style={{ '--i': 0 }} />
           <img className="hf-photohex hf-ph-adv" src="media/figma/s9-hex-adv.webp" alt="An advertiser growing their brand" style={{ '--i': 1 }} />
           <div className="hf-card hf-card-pub">
-            <span className="hf-kick">Creators. Affiliates. Technology partners.</span>
+            <span className="hf-kick">Creators. Affiliates. Technology Partners.</span>
             <h3 className="hf-ct">I'm a <br />Publisher</h3>
             <p className="hf-cd">Promote brands you love. <span className="hf-cd-more">Turn your audience or traffic into income.</span></p>
             <a href="/partners/" className="btn btn-primary">Start Earning <Arrow /></a>

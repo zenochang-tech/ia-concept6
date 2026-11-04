@@ -18,15 +18,15 @@ const fetchText = (url, tries = 3) => fetch(url).then((r) => { if (!r.ok) throw 
 // rename freely. No feature image card.
 const NAV = [
   { label: 'For Publishers', href: 'for-publishers.html', tone: 'pub',
-    feat: { head: '500+ brands, ready to promote', desc: 'Find the ones your audience already loves, and start earning.', cta: 'Browse brands', href: 'https://app.involve.asia/directory', img: 'media/webp/sub-card-publisher.webp', scrim: 'linear-gradient(26.17deg, rgba(196, 62, 24, 0.32) 19.76%, rgba(196, 62, 24, 0.1024) 55.25%)' },
+    feat: { head: '500+ brands, ready to promote', desc: 'Find the ones your audience already loves, and start earning.', cta: 'Browse Brands', href: 'https://app.involve.asia/directory', img: 'media/webp/sub-card-publisher.webp', scrim: 'linear-gradient(26.17deg, rgba(196, 62, 24, 0.32) 19.76%, rgba(196, 62, 24, 0.1024) 55.25%)' },
     columns: [
       { head: 'Explore', links: [
-        ['Publisher overview', 'for-publishers.html'],
+        ['Publisher Overview', 'for-publishers.html'],
         ['Brand Directory', 'https://app.involve.asia/directory'],
         ['Success Stories', 'https://involve.asia/blog/category/partners/success-stories-partners/'],
       ]},
-      { head: "Who it's for", links: [
-        ['Creator partners', 'content-creators.html'],
+      { head: "Who It's For", links: [
+        ['Creator Partners', 'content-creators.html'],
         ['Affiliate Partners', 'affiliates.html'],
         ['Technology Partners', 'technology-partners.html'],
       ]},
@@ -37,10 +37,10 @@ const NAV = [
       ]},
     ]},
   { label: 'For Advertisers', href: 'for-advertisers.html', tone: 'adv',
-    feat: { head: 'Simple, scalable pricing', desc: 'Volume-based plans that grow with your program.', cta: 'See pricing', href: 'pricing.html', img: 'media/webp/sub-card-advertiser.webp', scrim: 'linear-gradient(26.17deg, rgba(61, 90, 128, 0.32) 19.76%, rgba(61, 90, 128, 0.1024) 55.25%)' },
+    feat: { head: 'Simple, scalable pricing', desc: 'Volume-based plans that grow with your program.', cta: 'See Pricing', href: 'pricing.html', img: 'media/webp/sub-card-advertiser.webp', scrim: 'linear-gradient(26.17deg, rgba(61, 90, 128, 0.32) 19.76%, rgba(61, 90, 128, 0.1024) 55.25%)' },
     columns: [
       { head: 'Explore', links: [
-        ['Advertiser overview', 'for-advertisers.html'],
+        ['Advertiser Overview', 'for-advertisers.html'],
         ['Pricing', 'pricing.html'],
         ['Case Study', 'https://involve.asia/blog/category/advertisers/success-stories/'],
       ]},
@@ -51,7 +51,7 @@ const NAV = [
       ]},
     ]},
   { label: 'Resources', href: 'https://involve.asia/blog/',
-    feat: { head: 'The Involve blog', desc: 'Guides, trends, and affiliate marketing insights.', cta: 'Read the blog', href: 'https://involve.asia/blog/', img: 'media/webp/sub-card-resources.webp', scrim: 'linear-gradient(26.17deg, rgba(3, 3, 3, 0.32) 19.76%, rgba(2, 2, 2, 0.1024) 55.25%)' },
+    feat: { head: 'The Involve blog', desc: 'Guides, trends, and affiliate marketing insights.', cta: 'Read the Blog', href: 'https://involve.asia/blog/', img: 'media/webp/sub-card-resources.webp', scrim: 'linear-gradient(26.17deg, rgba(3, 3, 3, 0.32) 19.76%, rgba(2, 2, 2, 0.1024) 55.25%)' },
     columns: [
       { head: 'Learn', links: [
         ['Blog', 'https://involve.asia/blog/'],
@@ -64,7 +64,7 @@ const NAV = [
       ]},
     ]},
   { label: 'Company', href: 'about.html',
-    feat: { head: 'About Involve Asia', desc: '12 years connecting brands and partners across Asia.', cta: 'Our story', href: 'about.html', img: 'media/webp/sub-card-company.webp', scrim: 'linear-gradient(26.17deg, rgba(3, 3, 3, 0.32) 19.76%, rgba(2, 2, 2, 0.1024) 55.25%)' },
+    feat: { head: 'About Involve Asia', desc: '12 years connecting brands and partners across Asia.', cta: 'Our Story', href: 'about.html', img: 'media/webp/sub-card-company.webp', scrim: 'linear-gradient(26.17deg, rgba(3, 3, 3, 0.32) 19.76%, rgba(2, 2, 2, 0.1024) 55.25%)' },
     columns: [
       { head: 'Company', links: [
         ['About Us', 'about.html'],

@@ -22,7 +22,7 @@ function PubHero() {
           <p className="ph-sub" data-reveal data-reveal-delay="1">Pull promotions, generate tracking links, and get your reports, all without logging into the dashboard. Bring affiliate earning into your own app or workflow.</p>
           <div className="ph-actions" data-reveal data-reveal-delay="2">
             <a href="/partners/" className="btn btn-primary btn-lg">Apply for an API Key <Arrow /></a>
-            <a href="https://api.involve.asia/docs/" className="btn btn-secondary btn-lg">Read the API docs <Arrow /></a>
+            <a href="https://api.involve.asia/docs/" className="btn btn-secondary btn-lg">Read the API Docs <Arrow /></a>
           </div>
         </div>
 
@@ -281,7 +281,7 @@ function GetStarted() {
               <span className="gs-ic" aria-hidden="true">{s.ic}</span>
               <h3 className="gs-st">{s.t}</h3>
               <p className="gs-sd">{s.d}</p>
-              {s.cta && <a href="/partners/" className="btn btn-primary gs-cta">Apply here <Arrow /></a>}
+              {s.cta && <a href="/partners/" className="btn btn-primary gs-cta">Apply Here <Arrow /></a>}
             </div>
           ))}
         </div>

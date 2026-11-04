@@ -66,14 +66,14 @@ function PubHero() {
 /* ---------- Section 1b — Plan cards (Startup / Growth / Enterprise) -------- */
 const PRICING_PLANS = [
   { key: 'startup', name: 'Startup', desc: 'For brands launching their first affiliate program.',
-    price: '$99', unit: '/mo', cta: 'Get started', href: '/advertisers/',
+    price: '$99', unit: '/mo', cta: 'Get Started', href: '/advertisers/',
     feats: ['Track up to 100,000 clicks a month', '1 offer setup', 'Single-tier commission', 'Access to the publisher marketplace', 'Dashboard access', 'Helpdesk support'] },
   { key: 'growth', name: 'Growth', desc: 'For brands ready to make affiliates a core growth channel.',
-    price: '$499', unit: '/mo', cta: 'Get started', href: '/advertisers/', recommended: true,
+    price: '$499', unit: '/mo', cta: 'Get Started', href: '/advertisers/', recommended: true,
     plus: 'Everything in Startup, plus:',
     feats: ['Track up to 1,000,000 clicks a month', 'Up to 3 offer setups', 'Multi-tier commission', 'Up to 3 recruitment campaigns a month', 'Publisher introductions', 'A dedicated account manager', 'Quarterly performance review'] },
   { key: 'enterprise', name: 'Enterprise', desc: 'For large brands with high volumes or custom requirements.',
-    price: 'Custom', priceNote: 'Volume-based pricing.', cta: 'Talk to us', href: '/advertisers/',
+    price: 'Custom', priceNote: 'Volume-based pricing.', cta: 'Talk to Us', href: '/advertisers/',
     plus: 'Everything in Growth, plus:',
     feats: ['A dedicated account manager and priority support', 'Custom volumes, offers, and reporting built around your goals.'] },
 ];
@@ -174,18 +174,18 @@ function PricingCompare() {
               <div className="cmp-c cmp-plan">
                 <span className="cmp-plan-name">Startup</span>
                 <span className="cmp-plan-price">$99<small>/mo</small></span>
-                <a href="/advertisers/" className="btn btn-secondary cmp-cta">Get started</a>
+                <a href="/advertisers/" className="btn btn-secondary cmp-cta">Get Started</a>
               </div>
               <div className="cmp-c cmp-plan cmp-rec">
                 <span className="cmp-recbadge">Recommended</span>
                 <span className="cmp-plan-name">Growth</span>
                 <span className="cmp-plan-price">$499<small>/mo</small></span>
-                <a href="/advertisers/" className="btn btn-advertiser cmp-cta">Get started</a>
+                <a href="/advertisers/" className="btn btn-advertiser cmp-cta">Get Started</a>
               </div>
               <div className="cmp-c cmp-plan">
                 <span className="cmp-plan-name">Enterprise</span>
                 <span className="cmp-plan-price cmp-custom">Custom</span>
-                <a href="/advertisers/" className="btn btn-secondary cmp-cta">Talk to sales</a>
+                <a href="/advertisers/" className="btn btn-secondary cmp-cta">Talk to Sales</a>
               </div>
             </div>
             {CMP_ROWS.map((r, i) => (
@@ -388,7 +388,7 @@ const PUB_CTA_CSS = `
         @media (max-width:700px){ .pc-sec{ padding:clamp(60px,9vh,84px) 0 clamp(68px,10vh,96px); } }
       `;
 function PubCTA() {
-  return <FinalCta title="Not sure where to start? We'll help." sub="Book a quick call and our team will map out the fastest way to grow your brand with Involve." href="/advertisers/" tone="advertiser" label="Talk to us" css={PUB_CTA_CSS} />;
+  return <FinalCta title="Not sure where to start? We'll help." sub="Book a quick call and our team will map out the fastest way to grow your brand with Involve." href="/advertisers/" tone="advertiser" label="Talk to Us" css={PUB_CTA_CSS} />;
 }
 
 function PricingApp() {

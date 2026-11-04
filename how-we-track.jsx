@@ -20,7 +20,7 @@ function PubHero() {
           <h1 className="ph-title" data-reveal data-reveal-delay="1">See exactly what every partner drives.</h1>
           <p className="ph-sub" data-reveal data-reveal-delay="1">Track every click and conversion in one dashboard, attribute each sale to the publisher who drove it, and pay only for the sales that are real.</p>
           <div className="ph-actions" data-reveal data-reveal-delay="2">
-            <a href="/advertisers/" className="btn btn-advertiser btn-lg">See plans and pricing <Arrow /></a>
+            <a href="/advertisers/" className="btn btn-advertiser btn-lg">See Plans and Pricing <Arrow /></a>
           </div>
         </div>
 
@@ -132,7 +132,7 @@ function PubHero() {
 
 /* ---------- Final CTA (shared FinalCta, ia-sections.jsx) ----------------- */
 function PubCTA() {
-  return <FinalCta title="Know what every partner is really driving and grow your brand today." href="/advertisers/" tone="advertiser" label="Grow my brand" />;
+  return <FinalCta title="Know what every partner is really driving and grow your brand today." href="/advertisers/" tone="advertiser" label="Grow My Brand" />;
 }
 
 /* ---------- How-We-Track §2 — "One consolidated, verified view" ---------- */

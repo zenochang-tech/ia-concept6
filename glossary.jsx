@@ -134,7 +134,7 @@ function GlossaryList() {
                 {terms.length > GLOSSARY_MAX && (
                   <button type="button" className={'gl-more' + (isOpen ? ' is-open' : '')} aria-expanded={isOpen}
                     onClick={() => setOpen((o) => ({ ...o, [L]: !o[L] }))}>
-                    {isOpen ? 'Show less' : 'Show all'} <Arrow s={14} />
+                    {isOpen ? 'Show Less' : 'Show All'} <Arrow s={14} />
                   </button>
                 )}
               </div>
@@ -215,12 +215,12 @@ function HexFinaleStatic() {
               <span key={i} className="hf-combhex" style={{ '--c': c + (r % 2 ? 0.5 : 0), '--r': r, '--i': i + 2 }} />
             ))}
           </div>
-          <span className="hf-kick hf-kick-m" aria-hidden="true">Creators. Affiliates. Technology partners.</span>
+          <span className="hf-kick hf-kick-m" aria-hidden="true">Creators. Affiliates. Technology Partners.</span>
           <span className="hf-kick adv hf-kick-m" aria-hidden="true">Brands. Retailers. Enterprises.</span>
           <img className="hf-photohex hf-ph-pub" src="media/figma/s9-hex-pub.webp" alt="A publisher creating content" style={{ '--i': 0 }} />
           <img className="hf-photohex hf-ph-adv" src="media/figma/s9-hex-adv.webp" alt="An advertiser growing their brand" style={{ '--i': 1 }} />
           <div className="hf-card hf-card-pub">
-            <span className="hf-kick">Creators. Affiliates. Technology partners.</span>
+            <span className="hf-kick">Creators. Affiliates. Technology Partners.</span>
             <h3 className="hf-ct">I'm a <br />Publisher</h3>
             <p className="hf-cd">Promote brands you love. <span className="hf-cd-more">Turn your audience or traffic into income.</span></p>
             <a href="/partners/" className="btn btn-primary">Start Earning <Arrow /></a>
