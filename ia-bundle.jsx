@@ -1913,7 +1913,7 @@ function StartToday() {
         .st-h{ font-size:clamp(19px,1.5vw,23px); line-height:1.2; letter-spacing:-.01em; margin-top:18px; }
         .st-desc{ margin-top:9px; color:var(--warm-600); font-size:16px; line-height:1.5; }
         @media (max-width:900px){ .st-grid{ grid-template-columns:repeat(2,1fr); gap:26px; } }
-        @media (max-width:520px){ .st-grid{ grid-template-columns:1fr; } .st-figure{ max-width:380px; } }
+        @media (max-width:520px){ .st-grid{ grid-template-columns:1fr; gap:48px; } .st-figure{ max-width:380px; } }
       `}</style>
     </section>
   );

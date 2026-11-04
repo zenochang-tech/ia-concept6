@@ -592,7 +592,7 @@ const BE_CSS = `
         .be-stat-clicks{ left:16px; top:16px; }
         .be-stat-conv{ right:12px; bottom:24px; }
         @media (max-width:900px){ .be-grid{ grid-template-columns:repeat(2,1fr); gap:28px 24px; } .be-card-clip{ justify-content:center; } .be-tier{ margin-right:0; } }
-        @media (max-width:540px){ .be-grid{ grid-template-columns:1fr; max-width:420px; margin-inline:auto; } }
+        @media (max-width:540px){ .be-grid{ grid-template-columns:1fr; gap:48px; max-width:420px; margin-inline:auto; } }
       `;
 function EarnFeatures({ title, brandsCopy = 'Promote Shopee, Lazada, Zalora, Nike and more across retail, travel, beauty and finance. One account, 500+ brands, so you earn more in one place instead of chasing programs one by one.', tileAlts = BE_TILE_BRANDS, css = '' }) {
   return (
@@ -716,7 +716,7 @@ const HIW_CSS = (cols) => `
         .hiw-ct{ margin-top:clamp(20px,3vh,28px); font-family:var(--font-display); font-weight:800; font-size:20px; letter-spacing:-.01em; color:var(--warm-900); }
         .hiw-cd{ margin-top:10px; font:400 16px/1.5 var(--font-body); color:var(--warm-600); max-width:340px; }
         @media (max-width:900px){ .hiw-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(26px,4vw,40px); } }
-        @media (max-width:520px){ .hiw-grid{ grid-template-columns:1fr; gap:clamp(24px,4vh,34px); max-width:440px; } }
+        @media (max-width:520px){ .hiw-grid{ grid-template-columns:1fr; gap:48px; max-width:440px; } }
       `;
 function NumberedSteps({ id, title, steps, cols = 4 }) {
   return (
@@ -753,7 +753,7 @@ const WY_CSS = `
         .wy-cd{ margin-top:8px; font:400 16px/1.5 var(--font-body); color:var(--warm-600); max-width:340px; }
         .wy-proof{ margin-top:clamp(28px,4vh,44px); text-align:center; font:400 15px/1.5 var(--font-body); color:var(--warm-400); }`;
 const WY_CSS_MOBILE = `
-        @media (max-width:760px){ .wy-grid{ grid-template-columns:1fr; max-width:440px; margin-inline:auto; gap:clamp(24px,4vh,34px); } }
+        @media (max-width:760px){ .wy-grid{ grid-template-columns:1fr; max-width:440px; margin-inline:auto; gap:48px; } }
       `;
 function IconColumns({ id, title, items, proof, css = '' }) {
   return (

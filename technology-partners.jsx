@@ -430,7 +430,7 @@ function WhyEarn() {
         .we-icon svg{ width:24px; height:24px; display:block; }
         .we-ct{ margin-top:clamp(20px,3vh,26px); font-family:var(--font-display); font-weight:800; font-size:20px; letter-spacing:-.01em; color:var(--warm-900); }
         .we-cd{ margin-top:8px; font:400 16px/1.45 var(--font-body); color:var(--warm-600); max-width:340px; }
-        @media (max-width:760px){ .we-grid{ grid-template-columns:1fr; gap:clamp(24px,4vh,34px); max-width:440px; margin-inline:auto; } }
+        @media (max-width:760px){ .we-grid{ grid-template-columns:1fr; gap:48px; max-width:440px; margin-inline:auto; } }
       `}</style>
     </section>
   );
@@ -569,7 +569,7 @@ function HowItWorks() {
         .hiw-ct{ margin-top:22px; font-family:var(--font-display); font-weight:800; font-size:21px; line-height:1.38; letter-spacing:-.02em; color:var(--warm-900); }
         .hiw-cd{ margin-top:14px; font:400 16px/1.31 var(--font-body); color:var(--warm-600); }
         @media (max-width:900px){ .hiw-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(24px,3vw,32px); } }
-        @media (max-width:520px){ .hiw-grid{ grid-template-columns:1fr; gap:clamp(24px,4vh,34px); max-width:440px; } }
+        @media (max-width:520px){ .hiw-grid{ grid-template-columns:1fr; gap:48px; max-width:440px; } }
       `}</style>
     </section>
   );

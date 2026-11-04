@@ -229,7 +229,7 @@ function AppEarn() {
         .eu-visual img{ width:100%; height:100%; object-fit:cover; display:block; }
         .eu-ct{ margin-top:24px; font-family:var(--font-display); font-weight:800; font-size:21px; letter-spacing:-.01em; color:var(--warm-900); }
         .eu-cd{ margin-top:12px; font:400 16px/1.4 var(--font-body); color:var(--warm-600); }
-        @media (max-width:820px){ .eu-grid{ grid-template-columns:1fr; gap:36px; max-width:440px; margin-left:auto; margin-right:auto; } }
+        @media (max-width:820px){ .eu-grid{ grid-template-columns:1fr; gap:48px; max-width:440px; margin-left:auto; margin-right:auto; } }
       `}</style>
     </section>
   );
@@ -341,7 +341,7 @@ function WhyBuild() {
         .wb-ic svg{ width:24px; height:24px; display:block; }
         .wb-ct{ margin-top:20px; font-family:var(--font-display); font-weight:800; font-size:20px; letter-spacing:-.01em; color:var(--warm-900); }
         .wb-cd{ margin-top:8px; font:400 16px/1.5 var(--font-body); color:var(--warm-600); max-width:340px; }
-        @media (max-width:760px){ .wb-grid{ grid-template-columns:1fr; max-width:440px; margin-inline:auto; gap:clamp(24px,4vh,34px); } }
+        @media (max-width:760px){ .wb-grid{ grid-template-columns:1fr; max-width:440px; margin-inline:auto; gap:48px; } }
       `}</style>
     </section>
   );
