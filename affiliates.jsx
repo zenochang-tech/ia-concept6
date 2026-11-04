@@ -462,7 +462,12 @@ const AFF_TOOLS_CSS = `
           .pf-step-fig{ display:grid; grid-template-rows:0fr; transition:grid-template-rows .45s ease; }
           .pf-step.on .pf-step-fig{ grid-template-rows:1fr; }
           .pf-step-fig-in{ overflow:hidden; min-height:0; }
-          .cct-img-m{ display:block; width:100%; height:auto; margin:16px 0 4px; border-radius:var(--r-xl); box-shadow:0 12px 28px rgba(15,28,46,.12); }
+          /* slide PNGs are transparent: give them the desktop panel's warm-150, and room
+             for the shadow inside the clipped fig (sides via padding, bottom via the img margin) */
+          .cct-img-m{ display:block; width:100%; height:auto; margin:16px 0 30px; border-radius:var(--r-xl); background:var(--warm-150); box-shadow:0 12px 28px rgba(15,28,46,.12); }
+          .pf-step-fig-in{ margin:0 -28px; padding:0 28px; }
+          .pf-step{ transition:padding-bottom .45s ease; }
+          .pf-step.on{ padding-bottom:0; }
         }`;
 function AffTools() {
   return (
