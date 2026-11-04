@@ -319,7 +319,13 @@ const ADV_PLATFORM_CSS = `
           .pf-step-fig{ display:grid; grid-template-rows:0fr; transition:grid-template-rows .45s ease; }
           .pf-step.on .pf-step-fig{ grid-template-rows:1fr; }
           .pf-step-fig-in{ overflow:hidden; min-height:0; }
-          .pf-step-fig-img{ display:block; width:100%; aspect-ratio:5/3; object-fit:contain; object-position:center; margin:18px 0 4px; border-radius:var(--r-xl); background:linear-gradient(150deg,#e6ecf6 0%,#f2f4f9 46%,#d7e1f0 100%); box-shadow:0 12px 28px rgba(15,28,46,.12); }
+          /* the source PNGs are bleed compositions (content offset right/down on a wide canvas),
+             so crop to the readable top-left over the warm-150 panel (as on desktop) instead of squashing the whole canvas.
+             The open card drops its bottom padding so the panel sits flush on the card's bottom edge (clipped by its radius). */
+          .pf-step{ overflow:hidden; transition:padding-bottom .45s ease; }
+          .pf-step.on{ padding-bottom:0; }
+          .pf-step-fig-img{ display:block; width:100%; aspect-ratio:5/3; object-fit:contain; object-position:center;
+            margin:18px 0 0; border-radius:var(--r-xl) var(--r-xl) 0 0; background:var(--warm-150); }
         }`;
 function AdvPlatform() {
   return (
