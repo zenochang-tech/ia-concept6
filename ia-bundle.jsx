@@ -3664,7 +3664,8 @@ const FOOT = [
   { h: 'For Advertisers', links: [['Overview','/advertisers/'],['How We Track','/advertisers/how-we-track/'],['Partner Discovery','/advertisers/partner-discovery/'],['Automation','/advertisers/automation/'],['Case Studies','/advertisers/case-studies/']] },
   { h: 'Involve', links: [['About Us','/about/'],['Careers','https://career.involve.asia/'],['Blog','https://involve.asia/blog/'],['Support','https://helpcentre.involve.asia/'],['Terms & Conditions','terms-conditions.html'],['Privacy Policy','https://app.involve.asia/publisher/privacypolicy']] },
 ];
-const SOCIAL = [['Facebook','https://www.facebook.com/involveasia'],['Twitter','https://twitter.com/InvolveAsia'],['Instagram','https://www.instagram.com/involveasia/'],['LinkedIn','https://www.linkedin.com/company/involve-asia/']];
+// [name, url, icon] — icons are the white 48×48 "[name]-Social Icon.svg" exports
+const SOCIAL = [['Facebook','https://www.facebook.com/involveasia','facebook'],['Twitter','https://twitter.com/InvolveAsia','twitter'],['Instagram','https://www.instagram.com/involveasia/','instagram'],['LinkedIn','https://www.linkedin.com/company/involve-asia/','linkedin']];
 function Footer() {
   const year = new Date().getFullYear();
   return (
@@ -3678,10 +3679,12 @@ function Footer() {
               The affiliate marketing platform connecting advertisers with creators and publishers across Asia.
             </p>
             <div style={{ display: 'flex', gap: 10, marginTop: 20 }}>
-              {SOCIAL.map(([n, u]) => (
-                <a key={n} href={u} aria-label={`Involve Asia on ${n}`} style={{ width: 38, height: 38, borderRadius: 'var(--r-lg)', background: 'var(--midnight-mid)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--warm-300)', fontSize: 12, fontWeight: 600, transition: 'background .15s' }}
+              {SOCIAL.map(([n, u, ic]) => (
+                <a key={n} href={u} target="_blank" rel="noopener noreferrer" aria-label={`Involve Asia on ${n} (opens in a new tab)`} style={{ width: 38, height: 38, borderRadius: 'var(--r-lg)', background: 'var(--midnight-mid)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--warm-300)', fontSize: 12, fontWeight: 600, transition: 'background .15s' }}
                    onMouseEnter={e => e.currentTarget.style.background = 'var(--midnight-soft)'}
-                   onMouseLeave={e => e.currentTarget.style.background = 'var(--midnight-mid)'}>{n[0]}</a>
+                   onMouseLeave={e => e.currentTarget.style.background = 'var(--midnight-mid)'}>
+                  <img src={`media/figma/${ic}-Social%20Icon.svg`} alt="" width="18" height="18" style={{ display: 'block', width: 18, height: 18 }} />
+                </a>
               ))}
             </div>
           </div>

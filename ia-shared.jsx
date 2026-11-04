@@ -365,7 +365,7 @@ function Footer() {
             </p>
             <div style={{ display: 'flex', gap: 10, marginTop: 20 }}>
               {SOCIAL.map(([n, u, ic]) => (
-                <a key={n} href={u} aria-label={`Involve Asia on ${n}`} style={{ width: 38, height: 38, borderRadius: 'var(--r-lg)', background: 'var(--midnight-mid)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--warm-300)', fontSize: 12, fontWeight: 600, transition: 'background .15s' }}
+                <a key={n} href={u} target="_blank" rel="noopener noreferrer" aria-label={`Involve Asia on ${n} (opens in a new tab)`} style={{ width: 38, height: 38, borderRadius: 'var(--r-lg)', background: 'var(--midnight-mid)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--warm-300)', fontSize: 12, fontWeight: 600, transition: 'background .15s' }}
                    onMouseEnter={e => e.currentTarget.style.background = 'var(--midnight-soft)'}
                    onMouseLeave={e => e.currentTarget.style.background = 'var(--midnight-mid)'}>
                   <img src={`media/figma/${ic}-Social%20Icon.svg`} alt="" width="18" height="18" style={{ display: 'block', width: 18, height: 18 }} />
