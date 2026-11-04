@@ -331,7 +331,7 @@ function PubFAQ() {
 
 /* ---------- Final CTA (shared FinalCta, ia-sections.jsx) ----------------- */
 function PubCTA() {
-  return <FinalCta title="Start earning with your audience today." label="Create your free account" />;
+  return <FinalCta title="Start earning with your audience today." label="Create Your Free Account" />;
 }
 
 function PublisherApp() {

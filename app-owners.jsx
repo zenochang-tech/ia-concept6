@@ -245,7 +245,7 @@ function AppApi() {
             <h2 className="aa-title">Automated through <br />our API.</h2>
             <p className="aa-body">Connect once, and our API keeps your app stocked with the latest offers, generates your links, and tracks every conversion, so earning runs in the background while you focus on your product.</p>
             <a className="aa-link" href="#">
-              API overview
+              API Overview
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5.5l6.5 6.5L9 18.5" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </a>
           </div>

@@ -98,10 +98,10 @@ function CountStat({ prefix = '', value, decimals = 0, suffix = '', comma = fals
 // Figures reconciled with the homepage STAT_BAND (ia-bundle.jsx): $3.2B+ sales,
 // 1,000,000+ partners, 500+ brands, $270M+ commissions paid.
 const ABOUT_STATS = [
-  { el: <CountStat prefix="$" value={3.2} decimals={1} suffix="B+" />, label: 'Sales generated' },
+  { el: <CountStat prefix="$" value={3.2} decimals={1} suffix="B+" />, label: 'Sales Generated' },
   { el: <CountStat value={1000000} comma suffix="+" />, label: 'Partners' },
   { el: <CountStat value={500} suffix="+" />, label: 'Brands' },
-  { el: <CountStat prefix="$" value={270} suffix="M+" />, label: 'Commissions paid' },
+  { el: <CountStat prefix="$" value={270} suffix="M+" />, label: 'Commissions Paid' },
 ];
 function AboutStats() {
   return (
@@ -456,7 +456,7 @@ function AboutCareers() {
               <h2 className="ac-title">Build the future of affiliate marketing with us.</h2>
               <p className="ac-body">Join a team of creators, marketers, and data experts solving real problems across Southeast Asia. Let's grow brands, and your career, together.</p>
               <a className="ac-link" href="/careers/">
-                View open roles
+                View Open Roles
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5.5l6.5 6.5L9 18.5" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </a>
             </div>
@@ -500,12 +500,12 @@ function HexFinaleStatic() {
               <span key={i} className="hf-combhex" style={{ '--c': c + (r % 2 ? 0.5 : 0), '--r': r, '--i': i + 2 }} />
             ))}
           </div>
-          <span className="hf-kick hf-kick-m" aria-hidden="true">Creators. Affiliates. Technology partners.</span>
+          <span className="hf-kick hf-kick-m" aria-hidden="true">Creators. Affiliates. Technology Partners.</span>
           <span className="hf-kick adv hf-kick-m" aria-hidden="true">Brands. Retailers. Enterprises.</span>
           <img className="hf-photohex hf-ph-pub" src="media/figma/s9-hex-pub.webp" alt="A publisher creating content" style={{ '--i': 0 }} />
           <img className="hf-photohex hf-ph-adv" src="media/figma/s9-hex-adv.webp" alt="An advertiser growing their brand" style={{ '--i': 1 }} />
           <div className="hf-card hf-card-pub">
-            <span className="hf-kick">Creators. Affiliates. Technology partners.</span>
+            <span className="hf-kick">Creators. Affiliates. Technology Partners.</span>
             <h3 className="hf-ct">I'm a <br />Publisher</h3>
             <p className="hf-cd">Promote brands you love. <span className="hf-cd-more">Turn your audience or traffic into income.</span></p>
             <a href="/partners/" className="btn btn-primary">Start Earning <Arrow /></a>

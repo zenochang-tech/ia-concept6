@@ -22,7 +22,7 @@ function PubHero() {
           <p className="ph-sub" data-reveal data-reveal-delay="2">You don't need an audience of your own. Manage campaigns for multiple clients in one place, with the brands, tracking, and reporting to run them all.</p>
           <div className="ph-actions" data-reveal data-reveal-delay="3">
             <span className="ph-act">
-              <a href="https://app.involve.asia/v2/create-account" className="btn btn-primary btn-lg">Sign up free <Arrow /></a>
+              <a href="https://app.involve.asia/v2/create-account" className="btn btn-primary btn-lg">Sign Up Free <Arrow /></a>
               <span className="ph-act-note">Free to join. Get API access in ~48 hours.</span>
             </span>
           </div>
@@ -163,7 +163,7 @@ function PubFAQ() {
 
 /* ---------- Final CTA (shared FinalCta, ia-sections.jsx) ----------------- */
 function PubCTA() {
-  return <FinalCta title="Run affiliate for every client, from one platform." label="Sign up free" />;
+  return <FinalCta title="Run affiliate for every client, from one platform." label="Sign Up Free" />;
 }
 
 /* ---------- Affiliates §3 — "Why affiliate sites choose Involve." (4 icon columns) ---------- */
@@ -190,7 +190,7 @@ function ScaleApi() {
             <h2 className="sa-title">The API for integration.</h2>
             <p className="sa-body">Pull offers, generate trackable deeplinks, and sync conversion data into your own systems and client dashboards. See the API page for endpoints and docs.</p>
             <a className="sa-link" href="api-overview.html">
-              API overview
+              API Overview
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5.5l6.5 6.5L9 18.5" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </a>
           </div>

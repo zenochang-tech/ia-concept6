@@ -31,7 +31,7 @@ function PubHero() {
           <h1 className="ph-title" data-reveal data-reveal-delay="1">Grow your sales with the right publishers.</h1>
           <p className="ph-sub" data-reveal data-reveal-delay="2">Reach 1,000,000+ publishers, pay only for verified sales, and see results sooner. Launch in days, not months, whatever you sell.</p>
           <div className="ph-actions" data-reveal data-reveal-delay="3">
-            <a href="/advertisers/" className="btn btn-advertiser btn-lg">See plans and pricing <Arrow /></a>
+            <a href="/advertisers/" className="btn btn-advertiser btn-lg">See Plans and Pricing <Arrow /></a>
           </div>
           <span className="ph-free" data-reveal data-reveal-delay="3">Our team helps you launch, and you only pay when a sale is real.</span>
         </div>
@@ -221,7 +221,7 @@ function PubLogos() {
 
 /* ---------- Final CTA (shared FinalCta, ia-sections.jsx) ----------------- */
 function PubCTA() {
-  return <FinalCta title="Start growing your business with the right plan today." href="/advertisers/" tone="advertiser" label="See plans and pricing" />;
+  return <FinalCta title="Start growing your business with the right plan today." href="/advertisers/" tone="advertiser" label="See Plans and Pricing" />;
 }
 
 /* ---------- Advertiser Section 3 — "Whatever your goal, grow it here." ------ */
@@ -609,9 +609,9 @@ function AdvStats() {
           </span>
         ))}
         <h2 className="as-heading">This is what real sales <br />add up to.</h2>
-        <div className="as-stat as-s500"><CountStat value={500} suffix="+" /><span>brands</span></div>
-        <div className="as-stat as-s11m"><CountStat value={1000000} comma suffix="+" /><span>publishers</span></div>
-        <div className="as-stat as-s32b"><CountStat prefix="$" value={3.2} decimals={1} suffix="B+" /><span>sales driven for brands</span></div>
+        <div className="as-stat as-s500"><CountStat value={500} suffix="+" /><span>Brands</span></div>
+        <div className="as-stat as-s11m"><CountStat value={1000000} comma suffix="+" /><span>Publishers</span></div>
+        <div className="as-stat as-s32b"><CountStat prefix="$" value={3.2} decimals={1} suffix="B+" /><span>Sales Driven for Brands</span></div>
       </div>
       <style>{`
         /* pulled up/down into the neighbouring sections so the hexagons overlap them (neighbours are z-above → their card/heading stay on top) */

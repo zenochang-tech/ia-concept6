@@ -37,7 +37,7 @@ function EarningsHero() {
           <p className="ee-sub" data-reveal data-reveal-delay="1">Have a social following, a blog, or a site with traffic? <br />Drop your link and we'll estimate what you could earn, in about a minute.</p>
           <form className="ee-form" data-reveal data-reveal-delay="2" onSubmit={(e) => e.preventDefault()}>
             <input className="ee-input" type="text" inputMode="url" placeholder="Paste your social following, blog, website url here…" aria-label="Your social following, blog, or website URL" />
-            <button type="submit" className="btn btn-primary ee-cta">Estimate my earnings <Arrow /></button>
+            <button type="submit" className="btn btn-primary ee-cta">Estimate My Earnings <Arrow /></button>
           </form>
           <p className="ee-micro" data-reveal data-reveal-delay="2">No sign up needed. We only read what's already public, no password.</p>
         </div>

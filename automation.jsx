@@ -20,7 +20,7 @@ function PubHero() {
           <h1 className="ph-title" data-reveal data-reveal-delay="1">Automate the busywork, scale the program.</h1>
           <p className="ph-sub" data-reveal data-reveal-delay="1">Run the repetitive parts of your program automatically, so you spend your time on growth, not admin.</p>
           <div className="ph-actions" data-reveal data-reveal-delay="2">
-            <a href="/advertisers/" className="btn btn-advertiser btn-lg">See plans and pricing <Arrow /></a>
+            <a href="/advertisers/" className="btn btn-advertiser btn-lg">See Plans and Pricing <Arrow /></a>
           </div>
         </div>
 
@@ -143,7 +143,7 @@ function PubHero() {
 
 /* ---------- Final CTA (shared FinalCta, ia-sections.jsx) ----------------- */
 function PubCTA() {
-  return <FinalCta title="Scale your program without scaling the work." href="/advertisers/" tone="advertiser" label="Grow my brand" />;
+  return <FinalCta title="Scale your program without scaling the work." href="/advertisers/" tone="advertiser" label="Grow My Brand" />;
 }
 
 /* ---------- Automation §2 — "Set it up once, let it run." (3 image columns) ---------- */

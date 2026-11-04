@@ -57,9 +57,9 @@ function PubHero() {
           <h1 className="gs-title" data-reveal data-reveal-delay="1">{heading}</h1>
           <p className="gs-sub" data-reveal data-reveal-delay="2">Tell us about your business and our team will help you set up your affiliate program.</p>
           <div className="gs-stats" data-reveal data-reveal-delay="2">
-            <div className="gs-stat"><b>1,000,000+</b><span>Global publishers</span></div>
-            <div className="gs-stat"><b>$270M+</b><span>Paid to publishers</span></div>
-            <div className="gs-stat"><b>$3.2B+</b><span>Sales generated</span></div>
+            <div className="gs-stat"><b>1,000,000+</b><span>Global Publishers</span></div>
+            <div className="gs-stat"><b>$270M+</b><span>Paid to Publishers</span></div>
+            <div className="gs-stat"><b>$3.2B+</b><span>Sales Generated</span></div>
           </div>
         </div>
         <form className="gs-form" data-reveal data-reveal-delay="1" onSubmit={(e) => e.preventDefault()}>
