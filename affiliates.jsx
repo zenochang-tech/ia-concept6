@@ -108,7 +108,14 @@ function PubHero() {
           .ph-wrap{ grid-template-columns:1fr; gap:36px; }
           .ph-copy{ text-align:center; display:flex; flex-direction:column; align-items:center; }
           .ph-sub{ margin-left:auto; margin-right:auto; }
-          .ph-visual{ order:-1; max-width:420px; margin:0 auto; justify-self:center; }
+          .ph-sec{ padding-top:12px; }
+          /* hexagon 15% smaller than the full column (and the old 420px cap), centred */
+          .ph-visual{ order:-1; width:85%; max-width:357px; margin:0 auto; justify-self:center; }
+          /* floating UI cards: 15% smaller, and pushed back out to where they sat around the full-width
+             hexagon (8.8% of the 85% box = the 7.5% it lost each side; only the anchored side's margin moves
+             an absolutely positioned card). Scale from the anchored edge so that edge stays put. */
+          .ph-glass{ scale:.85; margin-inline:-8.8%; transform-origin:left center; }
+          .ph-g-link, .ph-g-sales, .ph-g-conv, .ph-ga-appl{ transform-origin:right center; }
           /* keep the floating UI within the hexagon so the composition stays centred */
           .ph-g-link, .ph-g-sales, .ph-g-conv{ right:0; }
           .ph-g-prod, .ph-g-pay-a, .ph-g-pay-b{ left:0; }
@@ -457,21 +464,26 @@ const AFF_TOOLS_CSS = `
         @media (max-width:900px){
           .pf-grid{ grid-template-columns:1fr; gap:0; }
           .pf-visual{ display:none; }
-          .pf-step{ gap:0; padding:22px 0; }
+          /* each step becomes a white bordered card; tap to open (no auto-advance) */
+          .pf-steps{ gap:12px; }
+          .pf-step{ gap:0; padding:6%; background:#fff; border:0.5px solid #D2D2CC; border-radius:var(--r-xl); }
+          .pf-step + .pf-step{ border-top:0.5px solid #D2D2CC; }
+          .pf-step:not(.on){ opacity:1; }
+          .pf-step-t{ font-size:18px; }   /* a clear step below the 24px section title */
           .pf-rail{ display:none; }
           .pf-step-fig{ display:grid; grid-template-rows:0fr; transition:grid-template-rows .45s ease; }
           .pf-step.on .pf-step-fig{ grid-template-rows:1fr; }
           .pf-step-fig-in{ overflow:hidden; min-height:0; }
-          /* slide PNGs are transparent: give them the desktop panel's warm-150, and room
-             for the shadow inside the clipped fig (sides via padding, bottom via the img margin) */
-          .cct-img-m{ display:block; width:100%; height:auto; margin:16px 0 30px; border-radius:var(--r-xl); background:var(--warm-150); box-shadow:0 12px 28px rgba(15,28,46,.12); }
-          .pf-step-fig-in{ margin:0 -28px; padding:0 28px; }
-          .pf-step{ transition:padding-bottom .45s ease; }
-          .pf-step.on{ padding-bottom:0; }
+          /* the source PNGs are bleed compositions (content offset right/down on a wide canvas),
+             so crop to the readable top-left over the warm-150 panel (as on desktop) instead of squashing the whole canvas.
+             No shadow: the collapsing fig clips it to a grey strip under the panel; desktop has none either. */
+          .pf-step-fig-img{ display:block; width:100%; aspect-ratio:5/3; object-fit:contain; object-position:center;
+            margin:18px 0 0; border-radius:var(--r-xl);
+            background:var(--warm-150); }
         }`;
 function AffTools() {
   return (
-    <PlatformTabs id="aff-tools" items={AFF_TOOLS} figClass="cct-img-m" css={AFF_TOOLS_CSS}
+    <PlatformTabs id="aff-tools" items={AFF_TOOLS} mobileCards figClass="pf-step-fig-img" css={AFF_TOOLS_CSS}
       title="Built to run at any scale."
       sub="The tools that grow with your site." />
   );
