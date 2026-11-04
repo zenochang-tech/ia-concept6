@@ -116,7 +116,14 @@ function PubHero() {
           .ph-actions{ justify-content:center; }
           .ph-act{ align-items:center; }
           .ph-act-note{ text-align:center; }
-          .ph-visual{ order:-1; max-width:420px; margin:0 auto; justify-self:center; }
+          .ph-sec{ padding-top:12px; }
+          /* hexagon 15% smaller than the full column (and the old 420px cap), centred */
+          .ph-visual{ order:-1; width:85%; max-width:357px; margin:0 auto; justify-self:center; }
+          /* floating UI cards: 15% smaller, and pushed back out to where they sat around the full-width
+             hexagon (8.8% of the 85% box = the 7.5% it lost each side; only the anchored side's margin moves
+             an absolutely positioned card). Scale from the anchored edge so that edge stays put. */
+          .ph-glass{ scale:.85; margin-inline:-8.8%; transform-origin:left center; }
+          .ph-g-link, .ph-g-sales, .ph-g-conv, .ph-ga-appl{ transform-origin:right center; }
           /* keep the floating UI within the hexagon so the composition stays centred */
           .ph-g-link, .ph-g-sales, .ph-g-conv{ right:0; }
           .ph-g-prod, .ph-g-pay-a, .ph-g-pay-b{ left:0; }
