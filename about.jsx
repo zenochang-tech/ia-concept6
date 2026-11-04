@@ -488,24 +488,22 @@ function AboutCareers() {
 
 /* ---------- Final section — "Pick your side" dual-audience CTA (reused) ------- */
 function HexFinaleStatic() {
-  const HF_HONEY = [
-    ['g1', 0, -225], ['g3', 268, -225], ['g1', 536, 0],
-    ['g3', 0, 225], ['g2', -268, 225], ['g2', -536, 225],
-  ];
+  // [column, row] on the .hf-scene grid (publisher photo = col 0 row 0; odd rows shift half a column)
+  const HF_HONEY = [[0, -1], [1, -1], [-2, 1], [-1, 1], [0, 1], [2, 1]];
   return (
     <section id="cta" className="hf">
       <div className="hf-cta">
         <h2 className="hf-head" data-reveal>Pick your side and grow with us.</h2>
         <div className="hf-scene">
           <div className="hf-honey" aria-hidden="true">
-            {HF_HONEY.map(([g, x, y], i) => (
-              <img key={i} className="hf-combhex" src={`media/figma/s9-hex-${g}.png`} alt="" style={{ left: `calc(50% + ${x}px)`, top: `calc(50% + ${y}px)` }} />
+            {HF_HONEY.map(([c, r], i) => (
+              <span key={i} className="hf-combhex" style={{ '--c': c + (r % 2 ? 0.5 : 0), '--r': r, '--i': i + 2 }} />
             ))}
           </div>
           <span className="hf-kick hf-kick-m" aria-hidden="true">Creators. Affiliates. Technology partners.</span>
           <span className="hf-kick adv hf-kick-m" aria-hidden="true">Brands. Retailers. Enterprises.</span>
-          <img className="hf-photohex hf-ph-pub" src="media/figma/s9-hex-pub.webp" alt="A publisher creating content" />
-          <img className="hf-photohex hf-ph-adv" src="media/figma/s9-hex-adv.webp" alt="An advertiser growing their brand" />
+          <img className="hf-photohex hf-ph-pub" src="media/figma/s9-hex-pub.webp" alt="A publisher creating content" style={{ '--i': 0 }} />
+          <img className="hf-photohex hf-ph-adv" src="media/figma/s9-hex-adv.webp" alt="An advertiser growing their brand" style={{ '--i': 1 }} />
           <div className="hf-card hf-card-pub">
             <span className="hf-kick">Creators. Affiliates. Technology partners.</span>
             <h3 className="hf-ct">I'm a <br />Publisher</h3>
@@ -522,14 +520,28 @@ function HexFinaleStatic() {
       </div>
       <style>{`
         .hf{ background:var(--warm-50); position:relative; overflow:hidden; }
-        .hf-cta{ position:relative; padding:clamp(32px,4vh,56px) 0 clamp(48px,7vh,88px); text-align:center; }
+        /* top padding grows as .hf-scene shrinks (its height is clamp(420px,44vw,520px)) so the top
+           honeycomb row, which sits a fixed distance above the scene centre, is never cut by the section edge */
+        .hf-cta{ position:relative; padding:calc(clamp(32px,4vh,56px) + (520px - clamp(420px,44vw,520px)) / 2 + 16px) 0 clamp(48px,7vh,88px); text-align:center; }
         .hf-head{ position:relative; z-index:5; top:clamp(56px,8.5vh,82px); font-size:clamp(24px,3vw,34px); line-height:1.05; letter-spacing:-.01em; margin:clamp(20px,3vh,40px) auto clamp(12px,1.6vh,22px); max-width:none; white-space:nowrap; }
-        .hf-scene{ position:relative; width:min(1320px,100%); height:clamp(420px,44vw,520px); margin:0 auto; }
+        .hf-scene{ position:relative; width:min(1320px,100%); height:clamp(420px,44vw,520px); margin:0 auto;
+          /* one pointy-top honeycomb for photos + decoration. W = flat-to-flat width (the PNG/WebP
+             hexes have no padding), g = photo gap. Column step D = W + g, row step D·√3/2; odd rows
+             shift half a column. Origin (col 0, row 0) = publisher photo, advertiser = col 1. */
+          --hx-w:247px; --hx-g:21px; --hx-D:calc(var(--hx-w) + var(--hx-g)); --hx-x0:calc(var(--hx-D) / -2); }
         .hf-honey{ position:absolute; inset:0; z-index:0; pointer-events:none; }
-        .hf-combhex{ position:absolute; width:247px; height:auto; transform:translate(-50%,-50%); opacity:.5; }
-        .hf-photohex{ position:absolute; left:50%; top:50%; width:247px; height:auto; z-index:2; filter:drop-shadow(0 18px 40px rgba(15,28,46,.16)); }
-        .hf-ph-pub{ transform:translate(calc(-50% - 134px), -50%) scaleX(-1); }
-        .hf-ph-adv{ transform:translate(calc(-50% + 134px), -50%); }
+        /* decorative tiles: flat warm-100, shaped by the rounded-hex PNG used as a mask */
+        .hf-combhex{ position:absolute; width:var(--hx-w); aspect-ratio:640/720; transform:translate(-50%,-50%); background:var(--warm-100);
+          -webkit-mask:url('media/figma/s9-hex-g1.png') center/100% 100% no-repeat; mask:url('media/figma/s9-hex-g1.png') center/100% 100% no-repeat;
+          left:calc(50% + var(--hx-x0) + var(--c) * var(--hx-D)); top:calc(50% + var(--r) * var(--hx-D) * 0.8660254); }
+        /* reveal: ia-shared.jsx adds .hx-anim (JS only) and toggles .is-in as the scene enters/leaves
+           the viewport; hexes fade in one by one (--i), and out in reverse order */
+        .hf-scene.hx-anim .hf-photohex, .hf-scene.hx-anim .hf-combhex{ opacity:0; transition:opacity .5s ease; transition-delay:calc((7 - var(--i)) * 60ms); }
+        .hf-scene.hx-anim.is-in .hf-photohex, .hf-scene.hx-anim.is-in .hf-combhex{ opacity:1; transition-delay:calc(var(--i) * 110ms); }
+        @media (prefers-reduced-motion: reduce){ .hf-scene.hx-anim .hf-photohex, .hf-scene.hx-anim .hf-combhex{ transition:none; } }
+        .hf-photohex{ position:absolute; left:50%; top:50%; width:var(--hx-w); height:auto; z-index:2; filter:drop-shadow(0 18px 40px rgba(15,28,46,.16)); }
+        .hf-ph-pub{ transform:translate(calc(-50% + var(--hx-x0)), -50%) scaleX(-1); }
+        .hf-ph-adv{ transform:translate(calc(-50% + var(--hx-x0) + var(--hx-D)), -50%); }
         .hf-card{ position:absolute; top:50%; transform:translateY(-50%); width:min(280px,23vw); display:flex; flex-direction:column; gap:12px; z-index:4; }
         .hf-card-pub{ left:5%; align-items:flex-start; text-align:left; }
         .hf-card-adv{ right:5%; align-items:flex-end; text-align:right; }
