@@ -887,8 +887,8 @@ function Nav({ getStartedTone = 'midnight' }) {
     }} onMouseLeave={scheduleClose}>
       <div className="wrap" style={{ display: 'flex', alignItems: 'center', height: 74, gap: 24, position: 'relative' }}>
         <a href="#hero" aria-label="Involve Asia home" style={{ display: 'flex', alignItems: 'center', flex: '0 0 auto', zIndex: 2, position: 'relative' }}>
-          <img src={R('logoMidnight', "https://ia-design-system.vercel.app/assets/logo/wordmark-midnight.png")} alt="Involve Asia" width="132" height="28" style={{ height: 28, width: 'auto', transition: 'opacity .35s ease', opacity: onDark ? 0 : 1 }} />
-          <img src={R('logoWhite', "https://ia-design-system.vercel.app/assets/logo/wordmark-white.png")} alt="" aria-hidden="true" width="132" height="28" style={{ height: 28, width: 'auto', position: 'absolute', left: 0, top: '50%', transform: 'translateY(-50%)', transition: 'opacity .35s ease', opacity: onDark ? 1 : 0 }} />
+          <img src={R('logoMidnight', "media/brand/wordmark-midnight.png")} alt="Involve Asia" width="132" height="28" style={{ height: 28, width: 'auto', transition: 'opacity .35s ease', opacity: onDark ? 0 : 1 }} />
+          <img src={R('logoWhite', "media/brand/wordmark-white.png")} alt="" aria-hidden="true" width="132" height="28" style={{ height: 28, width: 'auto', position: 'absolute', left: 0, top: '50%', transform: 'translateY(-50%)', transition: 'opacity .35s ease', opacity: onDark ? 1 : 0 }} />
         </a>
 
         {/* Left-aligned primary nav (Concept 3) */}
@@ -3662,7 +3662,7 @@ function Footer() {
         <div aria-hidden="true" style={{ height: 1, background: 'var(--midnight-mid)', marginBottom: 56 }}></div>
         <div className="foot-grid" style={{ display: 'grid', gridTemplateColumns: '1.4fr repeat(4, 1fr)', gap: 32, paddingBottom: 48 }}>
           <div style={{ maxWidth: 280 }}>
-            <img src={(window.__resources && window.__resources.logoWhite) || "https://ia-design-system.vercel.app/assets/logo/wordmark-white.png"} alt="Involve Asia" width="140" height="30" style={{ height: 30, width: 'auto' }} />
+            <img src={(window.__resources && window.__resources.logoWhite) || "media/brand/wordmark-white.png"} alt="Involve Asia" width="140" height="30" style={{ height: 30, width: 'auto' }} />
             <p style={{ marginTop: 16, fontSize: 14, color: 'var(--warm-300)', lineHeight: 1.6 }}>
               The affiliate marketing network connecting advertisers with creators and publishers across Asia.
             </p>

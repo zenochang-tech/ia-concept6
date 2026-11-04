@@ -234,7 +234,7 @@ function AboutExpertise() {
         .hiw-num{ display:inline-flex; align-items:center; justify-content:center; width:48px; height:48px; border-radius:50%; background:var(--ember); color:#fff; font-family:var(--font-display); font-weight:800; font-size:17px; letter-spacing:-.01em; }
         .hiw-ct{ margin-top:clamp(20px,3vh,28px); font-family:var(--font-display); font-weight:800; font-size:20px; letter-spacing:-.01em; color:var(--warm-900); }
         .hiw-cd{ margin-top:10px; font:400 16px/1.5 var(--font-body); color:var(--warm-600); max-width:340px; }
-        @media (max-width:760px){ .hiw-grid{ grid-template-columns:1fr; gap:clamp(24px,4vh,34px); max-width:440px; } }
+        @media (max-width:760px){ .hiw-grid{ grid-template-columns:1fr; gap:48px; max-width:440px; } }
       `}</style>
     </section>
   );
@@ -344,8 +344,8 @@ function AboutAwards() {
         .aw-ph img{ max-width:100%; max-height:100%; object-fit:contain; display:block; }
         .aw-item b{ display:block; margin-top:14px; font-family:var(--font-display); font-weight:800; font-size:15px; letter-spacing:-.01em; color:var(--warm-900); }
         .aw-item em{ display:block; margin-top:4px; font-style:normal; font:400 13px/1.4 var(--font-body); color:var(--warm-600); }
-        @media (max-width:760px){ .aw-cols{ grid-template-columns:1fr; gap:clamp(28px,5vh,40px); } }
-        @media (max-width:420px){ .aw-grid{ grid-template-columns:1fr; } }
+        @media (max-width:760px){ .aw-cols{ grid-template-columns:1fr; gap:56px; } }
+        @media (max-width:420px){ .aw-grid{ grid-template-columns:1fr; row-gap:32px; } }
       `}</style>
     </section>
   );

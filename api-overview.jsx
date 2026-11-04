@@ -188,7 +188,7 @@ function AutoWork() {
         .aw-ct{ margin-top:18px; font-family:var(--font-display); font-weight:800; font-size:18px; letter-spacing:-.01em; color:var(--warm-900); }
         .aw-cd{ margin-top:8px; font:400 15px/1.4 var(--font-body); color:var(--warm-600); }
         @media (max-width:900px){ .aw-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:26px 22px; } }
-        @media (max-width:540px){ .aw-grid{ grid-template-columns:1fr; max-width:360px; margin-inline:auto; } }
+        @media (max-width:540px){ .aw-grid{ grid-template-columns:1fr; gap:48px; max-width:360px; margin-inline:auto; } }
       `}</style>
     </section>
   );

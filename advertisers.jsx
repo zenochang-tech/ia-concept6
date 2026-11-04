@@ -267,7 +267,7 @@ function AdvGoals() {
         .ag-ico svg{ width:22px; height:22px; }
         .ag-item-t{ margin-top:22px; font-family:var(--font-display); font-weight:800; font-size:21px; letter-spacing:-.02em; color:var(--warm-900); }
         .ag-item-d{ margin-top:10px; font:400 16px/1.31 var(--font-body); color:var(--warm-600); max-width:330px; }
-        @media (max-width:820px){ .ag-grid{ grid-template-columns:1fr; gap:32px; max-width:440px; }
+        @media (max-width:820px){ .ag-grid{ grid-template-columns:1fr; gap:48px; max-width:440px; }
           .ag-title, .ag-sub{ text-align:left; } }
       `}</style>
     </section>
