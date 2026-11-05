@@ -7,27 +7,13 @@
 /* ---------- Decorative honeycomb (ember→blue gradient) — reused from glossary/hero --- */
 let __abHexGradN = 0;
 function AboutHexField() {
-  const [paths, setPaths] = React.useState([]);
   const [gid] = React.useState(() => 'abHexGrad' + (++__abHexGradN));
-  const W = 1204.11, H = 1189.86;
+  const { paths, W, H, transform } = window.useHeroDecoArt();
   const pad = 0.12;
   const vb = `${-W * pad} ${-H * pad} ${W * (1 + 2 * pad)} ${H * (1 + 2 * pad)}`;
-  React.useEffect(() => {
-    let alive = true;
-    window.fetchText('media/figma/pub-cta-hexfield.svg').then((txt) => {
-      if (!alive) return;
-      const out = []; const re = /<path\b([^>]*)>/g; let m;
-      while ((m = re.exec(txt))) {
-        const attrs = m[1], dm = /\bd="([^"]+)"/.exec(attrs), fm = /\bfill="([^"]+)"/.exec(attrs);
-        if (dm && fm && fm[1].toUpperCase() === '#FAC9B9') out.push(dm[1]);
-      }
-      setPaths(out);
-    }).catch(() => {});
-    return () => { alive = false; };
-  }, []);
   return (
     <svg className="ab-hexfield" viewBox={vb} preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <g fill="var(--warm-100)">{paths.map((d, i) => <path key={i} className="hx" d={d} />)}</g>
+      <g fill="var(--warm-100)" transform={transform}>{paths.map((d, i) => <path key={i} className="hx" d={d} />)}</g>
     </svg>
   );
 }
