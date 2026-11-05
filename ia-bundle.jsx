@@ -913,24 +913,39 @@ function HeroSales() {
   return <span className="hs-num">{'$' + sales.toLocaleString('en-US')}</span>;
 }
 
-// Interactive honeycomb field behind the hero figures. Loads the EXACT Figma honeycomb
-// (media/figma/hero-hexgrid.svg, node 1694:22220), splits its single "Union" path into
-// individual hexagons, and each hex is PUSHED radially away from the cursor — the hexes
-// physically move out and leave a gap that follows the mouse (Ramp-style). Each hex is also
-// scaled to 0.9 (10% smaller). Only hexes near the cursor get transform writes per frame;
-// reduced-motion leaves the field static.
+// Interactive honeycomb field behind the hero figures. Each hex is PUSHED radially away from
+// the cursor — the hexes physically move out and leave a gap that follows the mouse
+// (Ramp-style). Only hexes near the cursor get transform writes per frame; reduced-motion
+// leaves the field static.
+//
+// Two artworks, switchable without touching the rest of the hero:
+//   'rings'  — media/figma/hero-hex-rings.svg (1200×1200, 450 rounded hexes in rings that grow
+//              outward; trial, Nov 2026)
+//   'figma'  — media/figma/hero-hexgrid.svg (Figma node 1694:22220, one "Union" path split into
+//              229 hexes, each scaled to 0.81) — the previous design
+// To revert, set HERO_HEX_ART = 'figma'. To compare in the browser, add ?herohex=figma or
+// ?herohex=rings to the URL.
+const HERO_HEX_ARTS = {
+  rings: { src: 'media/figma/hero-hex-rings.svg', W: 1200, H: 1200, scale: 1, cls: 'hexfield-rings',
+    parse: (txt) => Array.from(txt.matchAll(/<path\b[^>]*\bd="([^"]+)"/g), (m) => m[1]) },
+  figma: { src: 'media/figma/hero-hexgrid.svg', W: 690.282, H: 664.1, scale: 0.81, cls: '',
+    parse: (txt) => { const m = txt.match(/id="Union"\s+d="([^"]+)"/); return m ? m[1].split(/[Zz]/).map((x) => x.trim()).filter(Boolean).map((x) => x + 'Z') : []; } },
+};
+const HERO_HEX_ART = 'rings';
+function heroHexArt() {
+  const q = typeof location !== 'undefined' ? new URLSearchParams(location.search).get('herohex') : null;
+  return HERO_HEX_ARTS[q] || HERO_HEX_ARTS[HERO_HEX_ART];
+}
 function HeroHexField() {
   const svgRef = React.useRef(null);
+  const [art] = React.useState(heroHexArt);
   const [paths, setPaths] = React.useState([]);
-  const W = 690.282, H = 664.1;
+  const { W, H } = art;
   React.useEffect(() => {
     let alive = true;
-    fetch('media/figma/hero-hexgrid.svg').then((r) => r.text()).then((txt) => {
+    window.fetchText(art.src).then((txt) => {
       if (!alive) return;
-      const m = txt.match(/id="Union"\s+d="([^"]+)"/);
-      if (!m) return;
-      const subs = m[1].split(/[Zz]/).map((s) => s.trim()).filter(Boolean).map((s) => s + 'Z');
-      setPaths(subs);
+      setPaths(art.parse(txt));
     }).catch(() => {});
     return () => { alive = false; };
   }, []);
@@ -940,14 +955,17 @@ function HeroHexField() {
     const hexes = Array.from(svg.querySelectorAll('.hx')).map((el) => {
       const b = el.getBBox();
       const cx = b.x + b.width / 2, cy = b.y + b.height / 2;
-      const base = `translate(${cx.toFixed(2)} ${cy.toFixed(2)}) scale(0.81) translate(${(-cx).toFixed(2)} ${(-cy).toFixed(2)})`;
-      el.setAttribute('transform', base);
+      const base = art.scale === 1 ? '' : `translate(${cx.toFixed(2)} ${cy.toFixed(2)}) scale(${art.scale}) translate(${(-cx).toFixed(2)} ${(-cy).toFixed(2)})`;
+      if (base) el.setAttribute('transform', base);
       return { el, cx, cy, base, dx: 0, dy: 0 };
     });
     if (prefersReduced()) return;
     const sec = svg.closest('.hero2-sec') || svg.parentElement;
-    // Radial push, softened toward the edge (MAXPUSH·f², f = 1 − dist/R). Gentle strength.
-    const R = 140, MAXPUSH = 24;                            // influence radius + max displacement (viewBox units)
+    // Radial push, softened toward the edge (MAXPUSH·f², f = 1 − dist/R). Set in on-screen px
+    // (the original 140 / 24 viewBox units at its 448px size) and converted per artwork, so the
+    // feel is the same whichever artwork is shown.
+    const R_PX = 91, PUSH_PX = 15.6;
+    let R = 140, MAXPUSH = 24;
     let mx = -9999, my = -9999, active = false, raf = 0;
     const frame = () => {
       let moving = false;
@@ -961,13 +979,15 @@ function HeroHexField() {
         if (Math.abs(h.dx) > 0.06 || Math.abs(h.dy) > 0.06) {
           h.el.setAttribute('transform', `translate(${h.dx.toFixed(2)} ${h.dy.toFixed(2)}) ${h.base}`);
           moving = true;
-        } else if (h.dx !== 0 || h.dy !== 0) { h.dx = 0; h.dy = 0; h.el.setAttribute('transform', h.base); }
+        } else if (h.dx !== 0 || h.dy !== 0) { h.dx = 0; h.dy = 0; if (h.base) h.el.setAttribute('transform', h.base); else h.el.removeAttribute('transform'); }
       }
       if (active || moving) raf = requestAnimationFrame(frame); else raf = 0;
     };
     const onMove = (e) => {
       const r = svg.getBoundingClientRect();
-      mx = (e.clientX - r.left) * (W / r.width);
+      const k = W / r.width;                                 // viewBox units per screen px
+      R = R_PX * k; MAXPUSH = PUSH_PX * k;
+      mx = (e.clientX - r.left) * k;
       my = (e.clientY - r.top) * (H / r.height);
       active = true;
       if (!raf) raf = requestAnimationFrame(frame);
@@ -978,7 +998,7 @@ function HeroHexField() {
     return () => { sec.removeEventListener('mousemove', onMove); sec.removeEventListener('mouseleave', onLeave); if (raf) cancelAnimationFrame(raf); };
   }, [paths]);
   return (
-    <svg ref={svgRef} className="hexfield" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+    <svg ref={svgRef} className={'hexfield' + (art.cls ? ' ' + art.cls : '')} viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid meet" aria-hidden="true">
       <g fill="var(--warm-150)">
         {paths.map((d, i) => <path key={i} className="hx" d={d} />)}
       </g>
@@ -1014,8 +1034,6 @@ function Hero({ dark = false, hex = 3, emphasis = 'equal' }) {
 
   return (
     <section id="hero" className="hero2-sec" style={{ background: 'var(--warm-50)', color: 'var(--warm-900)', position: 'relative', overflow: 'hidden', paddingTop: 'clamp(48px,6vh,76px)', paddingBottom: 0 }}>
-      {/* interactive honeycomb */}
-      <HeroHexField />
       <div className="wrap hero2" style={{ position: 'relative', zIndex: 1 }}>
         <div className="hero2-grid">
           <div className="hero2-copy">
@@ -1034,6 +1052,8 @@ function Hero({ dark = false, hex = 3, emphasis = 'equal' }) {
           </div>
 
           <div className="hero2-figure" data-reveal data-reveal-delay="1">
+            {/* interactive honeycomb, anchored to the figures image */}
+            <HeroHexField />
             <img src="media/figma/hero-figures-2026.png" alt="A creator and a brand partner growing together on Involve Asia" loading="eager" />
             {/* single payout notification, top-left of the figure — swaps brand/amount on a random cadence */}
             <div className="hero2-payouts" aria-hidden="true">
@@ -1073,9 +1093,21 @@ function Hero({ dark = false, hex = 3, emphasis = 'equal' }) {
         .hero2-basefade{ position:absolute; left:50%; width:100vw; transform:translateX(-50%); bottom:0; height:clamp(200px,34%,360px); z-index:2; pointer-events:none;
           background:linear-gradient(to bottom, rgba(250,250,248,0) 0%, rgba(250,250,248,0) 34%, rgba(250,250,248,.6) 66%, rgba(250,250,248,.95) 86%, var(--warm-50) 100%); }
         /* interactive honeycomb field behind the figures (now the right column) — exact Figma hexes, cursor-repelled */
-        .hexfield{ position:absolute; left:76%; top:46%; transform:translate(-50%,-50%); width:min(448px,40%); height:auto; z-index:0; pointer-events:none; }
+        /* The field lives INSIDE .hero2-figure and is sized/placed from the image width (--img-w = the
+           img's rendered width: 100% of the figure up to 460px, right-aligned), so it stays behind the
+           figures at any viewport width or browser zoom. Placement: centre 3.8% right of and 10% above
+           the image centre (right offset .462, tuned by hand in the browser). */
+        .hero2-figure{ --img-w:min(100%,460px); }
+        .hexfield{ position:absolute; right:calc(var(--img-w) * .462); top:calc(var(--img-w) * .40); transform:translate(50%,-50%);
+          width:calc(var(--img-w) * .974); height:auto; z-index:0; pointer-events:none; }
         .hexfield .hx{ will-change:transform; }
-        @media (max-width:980px){ .hexfield{ left:50%; width:min(540px,94%); top:auto; bottom:1%; transform:translateX(-50%); } }
+        /* 'rings' artwork: the ring fills ~93% of its square canvas and sits 1.3% above its centre */
+        .hexfield-rings{ width:calc(var(--img-w) * .99); top:calc(var(--img-w) * .413); }
+        @media (max-width:980px){
+          /* stacked layout: the image is centred, the field centred on it */
+          .hexfield{ right:calc(var(--img-w) * .5); top:calc(var(--img-w) * .477); width:calc(var(--img-w) * 1.038); }
+          .hexfield-rings{ width:calc(var(--img-w) * 1.062); top:calc(var(--img-w) * .49); }
+        }
         /* single payout notification — top-left of the figure */
         /* desktop: sits BEHIND the hero figure (img z-index:1) so it tucks behind the people; mobile brings it to the front */
         .hero2-payouts{ position:absolute; z-index:0; top:6%; left:-6%; width:min(230px,60%); }
