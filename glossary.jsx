@@ -36,31 +36,17 @@ const glossarySlug = (t) => t.toLowerCase().replace(/[()]/g, ' ').replace(/[^a-z
 const glossaryIsLocal = (t) => ((typeof window !== 'undefined' && window.__GLOSSARY_LOCAL) || []).includes(glossarySlug(t));
 const glossaryHref = (t) => glossaryIsLocal(t) ? `glossary-term/${glossarySlug(t)}/` : `https://involve.asia/glossary-term/${glossarySlug(t)}/`;
 
-/* Decorative honeycomb backdrop — same hex field as the pricing hero (pub-cta-hexfield.svg),
+/* Decorative honeycomb backdrop — same hex field as the pricing hero (useHeroDecoArt in ia-shared.jsx),
    filled flat with warm-100 (#F4F4F0) to match the About page hero honeycomb. */
 let __glGradN = 0;
 function GlossaryHexField() {
-  const [paths, setPaths] = React.useState([]);
   const [gid] = React.useState(() => 'glHexGrad' + (++__glGradN));
-  const W = 1204.11, H = 1189.86;
+  const { paths, W, H, transform } = window.useHeroDecoArt();
   const pad = 0.12;
   const vb = `${-W * pad} ${-H * pad} ${W * (1 + 2 * pad)} ${H * (1 + 2 * pad)}`;
-  React.useEffect(() => {
-    let alive = true;
-    window.fetchText('media/figma/pub-cta-hexfield.svg').then((txt) => {
-      if (!alive) return;
-      const out = []; const re = /<path\b([^>]*)>/g; let m;
-      while ((m = re.exec(txt))) {
-        const attrs = m[1], dm = /\bd="([^"]+)"/.exec(attrs), fm = /\bfill="([^"]+)"/.exec(attrs);
-        if (dm && fm && fm[1].toUpperCase() === '#FAC9B9') out.push(dm[1]);
-      }
-      setPaths(out);
-    }).catch(() => {});
-    return () => { alive = false; };
-  }, []);
   return (
     <svg className="gh-hexfield" viewBox={vb} preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <g fill="var(--warm-100)">{paths.map((d, i) => <path key={i} className="hx" d={d} />)}</g>
+      <g fill="var(--warm-100)" transform={transform}>{paths.map((d, i) => <path key={i} className="hx" d={d} />)}</g>
     </svg>
   );
 }

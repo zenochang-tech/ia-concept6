@@ -13,6 +13,40 @@ const prefersReduced = () => window.matchMedia('(prefers-reduced-motion: reduce)
 const fetchText = (url, tries = 3) => fetch(url).then((r) => { if (!r.ok) throw new Error(r.status); return r.text(); })
   .catch((e) => { if (tries <= 1) throw e; return new Promise((res) => setTimeout(res, 400)).then(() => fetchText(url, tries - 1)); });
 
+// Hero honeycomb backdrop used by About, Glossary, Pricing, Get Started and Terms. Two artworks:
+//   'rings'  — media/figma/hero-hex-rings.svg (the homepage hero rings, 1200×1200), mirrored
+//              horizontally; trial, Nov 2026
+//   'figma'  — media/figma/pub-cta-hexfield.svg (the #FAC9B9 hexes) — the previous design
+// To revert, set HERO_DECO_ART = 'figma'. To compare in the browser, add ?herodeco=figma or
+// ?herodeco=rings to the URL. Returns the hex paths, the art size and the <g> transform.
+const HERO_DECO_ARTS = {
+  rings: { src: 'media/figma/hero-hex-rings.svg', W: 1200, H: 1200, flipX: true,
+    parse: (txt) => Array.from(txt.matchAll(/<path\b[^>]*\bd="([^"]+)"/g), (m) => m[1]) },
+  figma: { src: 'media/figma/pub-cta-hexfield.svg', W: 1204.11, H: 1189.86, flipX: false,
+    parse: (txt) => {
+      const out = []; const re = /<path\b([^>]*)>/g; let m;
+      while ((m = re.exec(txt))) {
+        const attrs = m[1], dm = /\bd="([^"]+)"/.exec(attrs), fm = /\bfill="([^"]+)"/.exec(attrs);
+        if (dm && fm && fm[1].toUpperCase() === '#FAC9B9') out.push(dm[1]);
+      }
+      return out;
+    } },
+};
+const HERO_DECO_ART = 'rings';
+function useHeroDecoArt() {
+  const [art] = React.useState(() => {
+    const q = typeof location !== 'undefined' ? new URLSearchParams(location.search).get('herodeco') : null;
+    return HERO_DECO_ARTS[q] || HERO_DECO_ARTS[HERO_DECO_ART];
+  });
+  const [paths, setPaths] = React.useState([]);
+  React.useEffect(() => {
+    let alive = true;
+    fetchText(art.src).then((txt) => { if (alive) setPaths(art.parse(txt)); }).catch(() => {});
+    return () => { alive = false; };
+  }, []);
+  return { paths, W: art.W, H: art.H, transform: art.flipX ? `translate(${art.W} 0) scale(-1 1)` : undefined };
+}
+
 // Nav mega-menu — clean Stripe-style columns: each column has a non-clickable title (head)
 // with a thin #E8E8E2 divider under it, then its links. Column titles are suggestions —
 // rename freely. No feature image card.
@@ -632,4 +666,4 @@ function useScrollReveal() {
   scan();
 })();
 
-Object.assign(window, { prefersReduced, fetchText, GlobeIcon, Nav, Arrow, Footer, HexCursor, BackToTop, useSmoothScroll, useScrollReveal });
+Object.assign(window, { prefersReduced, fetchText, useHeroDecoArt, GlobeIcon, Nav, Arrow, Footer, HexCursor, BackToTop, useSmoothScroll, useScrollReveal });

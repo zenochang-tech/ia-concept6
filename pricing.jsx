@@ -10,29 +10,15 @@
 const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, FinalCta, Faq, LogoMarquee } = window;
 
 /* ---------- Section 1 — Hero ---------------------------------------------- */
-/* Decorative honeycomb reused from the final CTA (pub-cta-hexfield.svg), rendered faint blue. */
+/* Decorative honeycomb backdrop (shared hero art, see useHeroDecoArt in ia-shared.jsx), rendered faint. */
 function PricingHexField() {
-  const [paths, setPaths] = React.useState([]);
-  const W = 1204.11, H = 1189.86;
+  const { paths, W, H, transform } = window.useHeroDecoArt();
   // pad the viewBox to shrink the whole honeycomb (renders ~1/(1+2*pad) of before), closer to Figma's inset deco
   const pad = 0.14;
   const vb = `${-W * pad} ${-H * pad} ${W * (1 + 2 * pad)} ${H * (1 + 2 * pad)}`;
-  React.useEffect(() => {
-    let alive = true;
-    window.fetchText('media/figma/pub-cta-hexfield.svg').then((txt) => {
-      if (!alive) return;
-      const out = []; const re = /<path\b([^>]*)>/g; let m;
-      while ((m = re.exec(txt))) {
-        const attrs = m[1], dm = /\bd="([^"]+)"/.exec(attrs), fm = /\bfill="([^"]+)"/.exec(attrs);
-        if (dm && fm && fm[1].toUpperCase() === '#FAC9B9') out.push(dm[1]);
-      }
-      setPaths(out);
-    }).catch(() => {});
-    return () => { alive = false; };
-  }, []);
   return (
     <svg className="prh-hexfield" viewBox={vb} preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <g fill="var(--warm-200)">{paths.map((d, i) => <path key={i} className="hx" d={d} />)}</g>
+      <g fill="var(--warm-200)" transform={transform}>{paths.map((d, i) => <path key={i} className="hx" d={d} />)}</g>
     </svg>
   );
 }
