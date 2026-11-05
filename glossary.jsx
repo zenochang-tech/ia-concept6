@@ -96,11 +96,11 @@ function GlossaryList() {
   const sentinelRef = React.useRef(null);
   const letters = Object.keys(GLOSSARY);
   // Detect when the index bar pins under the header: a 1px sentinel sits at the bar's
-  // natural top; once it crosses above the header line (74px) the bar is stuck.
+  // natural top; once it crosses above the scrolled header line (63px) the bar is stuck.
   React.useEffect(() => {
     const el = sentinelRef.current; if (!el || !('IntersectionObserver' in window)) return;
     const io = new IntersectionObserver(([e]) => setStuck(!e.isIntersecting),
-      { rootMargin: '-75px 0px 0px 0px', threshold: 0 });
+      { rootMargin: '-64px 0px 0px 0px', threshold: 0 });
     io.observe(el);
     return () => io.disconnect();
   }, []);
@@ -146,8 +146,9 @@ function GlossaryList() {
         .gl-sec{ background:var(--warm-50); padding:0 0 clamp(48px,8vh,96px); }
         /* the gap above the bar lives on the sentinel so it marks the exact pin point */
         .gl-sticky-sentinel{ height:1px; margin-top:clamp(24px,4vh,44px); }
-        /* secondary nav bar — larger by default; shrinks to a mini bar once it pins under the header (74px) */
-        .gl-indexbar{ position:sticky; top:74px; z-index:80; margin:0 0 clamp(40px,7vh,72px);
+        /* secondary nav bar — larger by default; shrinks to a mini bar once it pins under the header.
+           The header is 62px + 1px border once scrolled (74px only at the very top), so pin at 63px */
+        .gl-indexbar{ position:sticky; top:63px; z-index:80; margin:0 0 clamp(40px,7vh,72px);
           background:rgba(250,250,248,0); backdrop-filter:saturate(180%) blur(0px); -webkit-backdrop-filter:saturate(180%) blur(0px);
           border-top:1px solid transparent; border-bottom:1px solid transparent;
           transition:background .3s ease, border-color .3s ease, backdrop-filter .3s ease, -webkit-backdrop-filter .3s ease; }
@@ -175,7 +176,7 @@ function GlossaryList() {
         .gl-ix-off{ color:var(--warm-400); opacity:.5; }
         @media (prefers-reduced-motion: reduce){ .gl-indexbar, .gl-index, .gl-ix{ transition:color .15s ease; } }
         .gl-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(36px,5.52vh,62px) clamp(32px,4vw,64px); align-items:start; }
-        .gl-col{ min-width:0; scroll-margin-top:128px; }
+        .gl-col{ min-width:0; scroll-margin-top:117px; }
         .gl-letter{ font-family:var(--font-display); font-weight:800; font-size:24px; letter-spacing:-.02em; color:var(--midnight); margin-bottom:10px; }
         .gl-terms{ list-style:none; padding:0; margin:0; }
         .gl-terms a{ display:inline-block; padding:6px 0; font:400 16px/1.4 var(--font-body); color:var(--warm-900); text-decoration:none; transition:color .15s ease; }

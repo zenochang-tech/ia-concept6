@@ -82,6 +82,16 @@ const LANGS = [
   { code: 'PH', label: 'Filipino' },
 ];
 
+// Language switcher icon: Lucide "globe" (outline, 1.5px stroke, currentColor), per the design
+// system's icon rules — used in the nav and the footer instead of the 🌐 emoji.
+function GlobeIcon({ size = 16 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ flex: '0 0 auto' }}>
+      <circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" />
+    </svg>
+  );
+}
+
 function Caret({ open }) {
   return <svg width="11" height="11" viewBox="0 0 12 12" style={{ marginLeft: 3, transition: 'transform .2s', transform: open ? 'rotate(180deg)' : 'none' }}><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>;
 }
@@ -174,7 +184,7 @@ function Nav({ getStartedTone = 'midnight', homeHref = 'index.html' }) {
           {/* Language dropdown */}
           <div style={{ position: 'relative' }} onMouseEnter={() => setLangOpen(true)} onMouseLeave={() => setLangOpen(false)}>
             <button aria-label="Change language" aria-expanded={langOpen} style={{ display: 'inline-flex', alignItems: 'center', gap: 5, background: 'none', border: 'none', cursor: 'pointer', color: 'var(--warm-600)', font: '600 13px/1 var(--font-body)', padding: '8px 2px' }}>
-              {lang}<Caret open={langOpen} />
+              <GlobeIcon />{lang}<Caret open={langOpen} />
             </button>
             {langOpen && (
               <div role="menu" className="lang-menu" style={{ position: 'absolute', top: '100%', right: 0, marginTop: 4, minWidth: 200, background: '#fff', border: '1px solid var(--warm-200)', borderRadius: 'var(--r-md)', boxShadow: 'var(--shadow-xl)', padding: 6 }}>
@@ -221,7 +231,7 @@ function Nav({ getStartedTone = 'midnight', homeHref = 'index.html' }) {
               </details>
             ))}
             <details style={{ borderBottom: '1px solid var(--warm-200)' }}>
-              <summary style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '15px 4px', fontWeight: 600, fontSize: 16, cursor: 'pointer', listStyle: 'none' }}>Language: {lang}<Caret /></summary>
+              <summary style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '15px 4px', fontWeight: 600, fontSize: 16, cursor: 'pointer', listStyle: 'none' }}><span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}><GlobeIcon size={18} />Language: {lang}</span><Caret /></summary>
               <div style={{ padding: '0 4px 12px' }}>
                 {LANGS.map(l => (
                   <button key={l.code} onClick={(e) => { setLang(l.code); const d = e.currentTarget.closest('details'); if (d) d.open = false; }} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', textAlign: 'left', background: l.code === lang ? 'var(--warm-150)' : 'none', border: 'none', padding: '11px 12px', color: l.code === lang ? 'var(--warm-900)' : 'var(--warm-600)', font: '600 15px/1 var(--font-body)', cursor: 'pointer', borderRadius: 8 }}>
@@ -279,7 +289,8 @@ function Nav({ getStartedTone = 'midnight', homeHref = 'index.html' }) {
         /* Nav over the dark Midnight surface: links + icons go light, in lockstep with the white logo. */
         .nav-on-dark .nav-desk a{color:rgba(255,255,255,.82) !important;}
         .nav-on-dark .nav-desk a:hover, .nav-on-dark .nav-desk a.is-open{color:#fff !important;}
-        .nav-on-dark .nav-right button, .nav-on-dark .nav-login{color:rgba(255,255,255,.82) !important;}
+        /* menuitems sit on the white language dropdown, so they keep their own (dark) colours */
+        .nav-on-dark .nav-right button:not([role="menuitem"]), .nav-on-dark .nav-login{color:rgba(255,255,255,.82) !important;}
         .nav-on-dark .nav-burger{color:#fff !important;}
         .nav-desk a, .nav-right button, .nav-login{transition:color .3s ease, background .15s;}
         @media (prefers-reduced-motion: reduce){ .mega4, .mega4-overlay, .lang-menu{transition:none; animation:none;} }
@@ -393,7 +404,7 @@ function Footer() {
         <div style={{ borderTop: '1px solid var(--midnight-mid)', padding: '24px 0 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
           <p style={{ fontSize: 13, color: 'var(--warm-300)' }}>© 2014–{year} Involve Asia Technologies Sdn Bhd · 201201032669 (1017157-V)</p>
           <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-            <button aria-label="Change language — English" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'var(--midnight-mid)', border: 'none', borderRadius: 'var(--r-md)', padding: '8px 14px', color: 'var(--warm-300)', font: '500 13px/1 var(--font-body)', cursor: 'pointer' }}>🌐 English</button>
+            <button aria-label="Change language — English" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'var(--midnight-mid)', border: 'none', borderRadius: 'var(--r-md)', padding: '8px 14px', color: 'var(--warm-300)', font: '500 13px/1 var(--font-body)', cursor: 'pointer' }}><GlobeIcon />English</button>
           </div>
         </div>
       </div>
@@ -607,4 +618,4 @@ function useScrollReveal() {
   scan();
 })();
 
-Object.assign(window, { prefersReduced, fetchText, Nav, Arrow, Footer, HexCursor, BackToTop, useSmoothScroll, useScrollReveal });
+Object.assign(window, { prefersReduced, fetchText, GlobeIcon, Nav, Arrow, Footer, HexCursor, BackToTop, useSmoothScroll, useScrollReveal });
