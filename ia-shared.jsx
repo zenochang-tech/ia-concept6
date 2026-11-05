@@ -92,6 +92,11 @@ function GlobeIcon({ size = 16 }) {
   );
 }
 
+// trailing tick on the selected language (select-option pattern); hidden on the other rows so the codes stay aligned
+function LangTick() {
+  return <svg className="lang-opt-tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>;
+}
+
 function Caret({ open }) {
   return <svg width="11" height="11" viewBox="0 0 12 12" style={{ marginLeft: 3, transition: 'transform .2s', transform: open ? 'rotate(180deg)' : 'none' }}><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>;
 }
@@ -189,11 +194,9 @@ function Nav({ getStartedTone = 'midnight', homeHref = 'index.html' }) {
             {langOpen && (
               <div role="menu" className="lang-menu" style={{ position: 'absolute', top: '100%', right: 0, marginTop: 4, minWidth: 200, background: '#fff', border: '1px solid var(--warm-200)', borderRadius: 'var(--r-md)', boxShadow: 'var(--shadow-xl)', padding: 6 }}>
                 {LANGS.map(l => (
-                  <button key={l.code} role="menuitem" onClick={() => { setLang(l.code); setLangOpen(false); }} className="nav-item" style={{
-                    width: '100%', textAlign: 'left', background: l.code === lang ? 'var(--warm-150)' : 'none', border: 'none', cursor: 'pointer',
-                    display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10, padding: '10px 12px', borderRadius: 10, font: '500 14px/1.2 var(--font-body)', color: 'var(--warm-900)' }}>
+                  <button key={l.code} role="menuitemradio" aria-checked={l.code === lang} onClick={() => { setLang(l.code); setLangOpen(false); }} className={'lang-opt' + (l.code === lang ? ' is-selected' : '')}>
                     <span>{l.label}</span>
-                    <span style={{ fontSize: 12, fontWeight: 600, color: l.code === lang ? 'var(--ember)' : 'var(--warm-400)' }}>{l.code}</span>
+                    <span className="lang-opt-code">{l.code}<LangTick /></span>
                   </button>
                 ))}
               </div>
@@ -234,9 +237,9 @@ function Nav({ getStartedTone = 'midnight', homeHref = 'index.html' }) {
               <summary style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '15px 4px', fontWeight: 600, fontSize: 16, cursor: 'pointer', listStyle: 'none' }}><span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}><GlobeIcon size={18} />Language: {lang}</span><Caret /></summary>
               <div style={{ padding: '0 4px 12px' }}>
                 {LANGS.map(l => (
-                  <button key={l.code} onClick={(e) => { setLang(l.code); const d = e.currentTarget.closest('details'); if (d) d.open = false; }} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', textAlign: 'left', background: l.code === lang ? 'var(--warm-150)' : 'none', border: 'none', padding: '11px 12px', color: l.code === lang ? 'var(--warm-900)' : 'var(--warm-600)', font: '600 15px/1 var(--font-body)', cursor: 'pointer', borderRadius: 8 }}>
+                  <button key={l.code} aria-pressed={l.code === lang} onClick={(e) => { setLang(l.code); const d = e.currentTarget.closest('details'); if (d) d.open = false; }} className={'lang-opt lang-opt-m' + (l.code === lang ? ' is-selected' : '')}>
                     <span>{l.label}</span>
-                    <span style={{ fontSize: 13, color: 'var(--warm-400)' }}>{l.code}</span>
+                    <span className="lang-opt-code">{l.code}<LangTick /></span>
                   </button>
                 ))}
               </div>
@@ -251,6 +254,17 @@ function Nav({ getStartedTone = 'midnight', homeHref = 'index.html' }) {
 
       <style>{`
         .lang-menu{transform-origin:top right; animation:navPanel .18s cubic-bezier(.22,1,.36,1) both;}
+        /* language options follow the design system's .select-option states: hover warm-100; selected =
+           warm-900 600 on the ember tint with a trailing ember tick (never ember text) */
+        .lang-opt{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;text-align:left;border:none;cursor:pointer;
+          padding:10px 12px;border-radius:var(--r-sm);background:none;font:500 14px/1.2 var(--font-body);color:var(--warm-900);transition:background .15s;}
+        .lang-opt:hover, .lang-opt:focus-visible{background:var(--warm-100);}
+        .lang-opt.is-selected{font-weight:600;background:rgba(240,88,38,.06);}
+        .lang-opt-code{display:inline-flex;align-items:center;gap:6px;font:600 12px/1 var(--font-body);color:var(--warm-400);}
+        .lang-opt-tick{width:14px;height:14px;color:var(--ember);visibility:hidden;}
+        .lang-opt.is-selected .lang-opt-tick{visibility:visible;}
+        .lang-opt-m{padding:11px 12px;font-size:15px;}
+        .lang-opt-m .lang-opt-code{font-size:13px;}
         /* The sticky nav is transparent over the hero, so let the hero's decoration (hexagons,
            floating cards) run up behind it instead of being cut off at the nav line. Sides and
            bottom stay clipped (overflow-x:clip also keeps horizontal scroll away). */
@@ -289,8 +303,8 @@ function Nav({ getStartedTone = 'midnight', homeHref = 'index.html' }) {
         /* Nav over the dark Midnight surface: links + icons go light, in lockstep with the white logo. */
         .nav-on-dark .nav-desk a{color:rgba(255,255,255,.82) !important;}
         .nav-on-dark .nav-desk a:hover, .nav-on-dark .nav-desk a.is-open{color:#fff !important;}
-        /* menuitems sit on the white language dropdown, so they keep their own (dark) colours */
-        .nav-on-dark .nav-right button:not([role="menuitem"]), .nav-on-dark .nav-login{color:rgba(255,255,255,.82) !important;}
+        /* the language options sit on the white dropdown, so they keep their own (dark) colours */
+        .nav-on-dark .nav-right button:not(.lang-opt), .nav-on-dark .nav-login{color:rgba(255,255,255,.82) !important;}
         .nav-on-dark .nav-burger{color:#fff !important;}
         .nav-desk a, .nav-right button, .nav-login{transition:color .3s ease, background .15s;}
         @media (prefers-reduced-motion: reduce){ .mega4, .mega4-overlay, .lang-menu{transition:none; animation:none;} }
