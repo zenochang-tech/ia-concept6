@@ -767,7 +767,7 @@ Object.assign(window, { Hexagon, HexBadge, HexHeroField, HexTexture, useScrollPr
 /* ===== ia-nav.jsx ===== */
 // Nav (with its NAV / LANGS data), Arrow, BackToTop and prefersReduced come from
 // ia-shared.jsx, which index.html loads first — the same copies every other page uses.
-const { Nav, Arrow, BackToTop, prefersReduced } = window;
+const { Nav, Arrow, BackToTop, prefersReduced, GlobeIcon } = window;
 
 
 /* ===== ia-sections1.jsx ===== */
@@ -3714,7 +3714,7 @@ function Footer() {
         <div style={{ borderTop: '1px solid var(--midnight-mid)', padding: '24px 0 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
           <p style={{ fontSize: 13, color: 'var(--warm-300)' }}>© 2014–{year} Involve Asia Technologies Sdn Bhd · 201201032669 (1017157-V)</p>
           <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-            <button aria-label="Change language — English" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'var(--midnight-mid)', border: 'none', borderRadius: 'var(--r-md)', padding: '8px 14px', color: 'var(--warm-300)', font: '500 13px/1 var(--font-body)', cursor: 'pointer' }}>🌐 English</button>
+            <button aria-label="Change language — English" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'var(--midnight-mid)', border: 'none', borderRadius: 'var(--r-md)', padding: '8px 14px', color: 'var(--warm-300)', font: '500 13px/1 var(--font-body)', cursor: 'pointer' }}><GlobeIcon />English</button>
           </div>
         </div>
       </div>
