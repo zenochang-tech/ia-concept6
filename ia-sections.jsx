@@ -117,20 +117,41 @@ function PlatformTabs({ id, className = '', items, title, sub, split = false, mo
    Heading (+ optional line of copy) and one button over a faint honeycomb whose
    hexes are pushed away from the cursor. Pages pass their copy and button; the
    compact sizing below is the default, pages with a different size pass `css`.  */
-function CtaHexField() {
-  const svgRef = React.useRef(null);
-  const [paths, setPaths] = React.useState([]);
-  const W = 1204.11, H = 1189.86;
-  React.useEffect(() => {
-    let alive = true;
-    window.fetchText('media/figma/pub-cta-hexfield.svg').then((txt) => {
-      if (!alive) return;
+// Final CTA hex field. Two artworks, switchable without touching the rest of the section:
+//   'rings'  — media/figma/cta-hex-rings.svg (1200×1200, 155 rounded hexes, smaller at the top and
+//              growing downward; drawn the right way up, so no CSS flip; trial, Nov 2026)
+//   'figma'  — media/figma/pub-cta-hexfield.svg (the #FAC9B9 hexes, flipped with scaleY(-1)) —
+//              the previous design
+// To revert, set CTA_HEX_ART = 'figma'. To compare in the browser, add ?ctahex=figma or
+// ?ctahex=rings to the URL.
+const CTA_HEX_ARTS = {
+  rings: { src: 'media/figma/cta-hex-rings.svg', W: 1200, H: 1200, flip: false, cls: 'pc-hexfield-rings',
+    parse: (txt) => Array.from(txt.matchAll(/<path\b[^>]*\bd="([^"]+)"/g), (m) => m[1]) },
+  figma: { src: 'media/figma/pub-cta-hexfield.svg', W: 1204.11, H: 1189.86, flip: true, cls: '',
+    parse: (txt) => {
       const out = []; const re = /<path\b([^>]*)>/g; let m;
       while ((m = re.exec(txt))) {
         const attrs = m[1], dm = /\bd="([^"]+)"/.exec(attrs), fm = /\bfill="([^"]+)"/.exec(attrs);
         if (dm && fm && fm[1].toUpperCase() === '#FAC9B9') out.push(dm[1]);
       }
-      setPaths(out);
+      return out;
+    } },
+};
+const CTA_HEX_ART = 'rings';
+function ctaHexArt() {
+  const q = typeof location !== 'undefined' ? new URLSearchParams(location.search).get('ctahex') : null;
+  return CTA_HEX_ARTS[q] || CTA_HEX_ARTS[CTA_HEX_ART];
+}
+function CtaHexField() {
+  const svgRef = React.useRef(null);
+  const [art] = React.useState(ctaHexArt);
+  const [paths, setPaths] = React.useState([]);
+  const { W, H } = art;
+  React.useEffect(() => {
+    let alive = true;
+    window.fetchText(art.src).then((txt) => {
+      if (!alive) return;
+      setPaths(art.parse(txt));
     }).catch(() => {});
     return () => { alive = false; };
   }, []);
@@ -155,14 +176,14 @@ function CtaHexField() {
       }
       if (active || moving) raf = requestAnimationFrame(frame); else raf = 0;
     };
-    // SVG is CSS-flipped vertically (scaleY(-1)), so invert the screen→viewBox Y mapping.
-    const onMove = (e) => { const r = svg.getBoundingClientRect(); mx = (e.clientX - r.left) * (W / r.width); my = H - (e.clientY - r.top) * (H / r.height); active = true; if (!raf) raf = requestAnimationFrame(frame); };
+    // The 'figma' art is CSS-flipped vertically (scaleY(-1)), so invert the screen→viewBox Y mapping.
+    const onMove = (e) => { const r = svg.getBoundingClientRect(); mx = (e.clientX - r.left) * (W / r.width); const y = (e.clientY - r.top) * (H / r.height); my = art.flip ? H - y : y; active = true; if (!raf) raf = requestAnimationFrame(frame); };
     const onLeave = () => { active = false; if (!raf) raf = requestAnimationFrame(frame); };
     sec.addEventListener('mousemove', onMove); sec.addEventListener('mouseleave', onLeave);
     return () => { sec.removeEventListener('mousemove', onMove); sec.removeEventListener('mouseleave', onLeave); if (raf) cancelAnimationFrame(raf); };
   }, [paths]);
   return (
-    <svg ref={svgRef} className="pc-hexfield" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+    <svg ref={svgRef} className={`pc-hexfield ${art.cls}`.trim()} viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid meet" aria-hidden="true">
       <g fill="var(--warm-200)">{paths.map((d, i) => <path key={i} className="hx" d={d} />)}</g>
     </svg>
   );
@@ -171,6 +192,7 @@ const PC_CSS = `
         .pc-hexfield{ position:absolute; left:0; top:50%; transform:translateY(-44%) scaleY(-1); width:100%; height:auto; z-index:0; pointer-events:none; opacity:.6;
           -webkit-mask-image:linear-gradient(180deg, transparent, #000 16%, #000 84%, transparent); mask-image:linear-gradient(180deg, transparent, #000 16%, #000 84%, transparent); }
         .pc-hexfield .hx{ will-change:transform; }
+        .pc-hexfield-rings{ transform:translateY(-50%); }
         /* gradient blend into the section above */
         .pc-topfade{ position:absolute; left:0; right:0; top:0; height:clamp(200px,26%,340px); z-index:0; pointer-events:none;
           background:linear-gradient(180deg, var(--warm-50) 0%, rgba(250,250,248,.6) 45%, rgba(250,250,248,0) 100%); }
