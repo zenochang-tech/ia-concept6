@@ -441,7 +441,7 @@ function AboutCareers() {
             <div className="ac-left" data-reveal>
               <h2 className="ac-title">Build the future of affiliate marketing with us.</h2>
               <p className="ac-body">Join a team of creators, marketers, and data experts solving real problems across Southeast Asia. Let's grow brands, and your career, together.</p>
-              <a className="ac-link" href="/careers/">
+              <a className="ac-link" href="https://careers.involve.asia/">
                 View Open Roles
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5.5l6.5 6.5L9 18.5" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </a>
