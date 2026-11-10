@@ -1095,14 +1095,15 @@ function Hero({ dark = false, hex = 3, emphasis = 'equal' }) {
         /* interactive honeycomb field behind the figures (now the right column) — exact Figma hexes, cursor-repelled */
         /* The field lives INSIDE .hero2-figure and is sized/placed from the image width (--img-w = the
            img's rendered width: 100% of the figure up to 460px, right-aligned), so it stays behind the
-           figures at any viewport width or browser zoom. Placement: centre 3.8% right of and 10% above
-           the image centre (right offset .462, tuned by hand in the browser). */
+           figures at any viewport width or browser zoom. Placement: centre 3.8% right of the image centre
+           (right offset .462, tuned by hand in the browser); the rings sit 5% of the image width
+           lower than the first trial (top .463). */
         .hero2-figure{ --img-w:min(100%,460px); }
         .hexfield{ position:absolute; right:calc(var(--img-w) * .462); top:calc(var(--img-w) * .40); transform:translate(50%,-50%);
           width:calc(var(--img-w) * .974); height:auto; z-index:0; pointer-events:none; }
         .hexfield .hx{ will-change:transform; }
         /* 'rings' artwork: the ring fills ~93% of its square canvas and sits 1.3% above its centre */
-        .hexfield-rings{ width:calc(var(--img-w) * .99); top:calc(var(--img-w) * .413); }
+        .hexfield-rings{ width:calc(var(--img-w) * .99); top:calc(var(--img-w) * .463); }
         @media (max-width:980px){
           /* stacked layout: the image is centred, the field centred on it */
           .hexfield{ right:calc(var(--img-w) * .5); top:calc(var(--img-w) * .477); width:calc(var(--img-w) * 1.038); }
