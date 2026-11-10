@@ -3705,9 +3705,9 @@ function NetworkMorphCTA({ emphasis = 'equal', hex = 3 }) {
 
 /* ---------------- Footer (Midnight — shared anchor) ---------------- */
 const FOOT = [
-  { h: 'For Publishers', links: [['Overview','/partners/overview'],['All Brands Directory','https://app.involve.asia/directory'],['Express Withdrawal','/partners/express-withdrawal/'],['Developer API','/partners/api-overview/'],['Data Feed','datafeed.html']] },
-  { h: 'For Advertisers', links: [['Overview','/advertisers/'],['How We Track','/advertisers/how-we-track/'],['Partner Discovery','/advertisers/partner-discovery/'],['Automation','/advertisers/automation/'],['Case Studies','/advertisers/case-studies/']] },
-  { h: 'Involve', links: [['About Us','/about/'],['Careers','https://career.involve.asia/'],['Blog','https://involve.asia/blog/'],['Support','https://helpcentre.involve.asia/'],['Terms & Conditions','terms-conditions.html'],['Privacy Policy','https://app.involve.asia/publisher/privacypolicy']] },
+  { h: 'For Publishers', links: [['Overview','for-publishers.html'],['All Brands Directory','https://app.involve.asia/directory'],['Express Withdrawal','express-withdrawal.html'],['Developer API','api-overview.html'],['Data Feed','datafeed.html']] },
+  { h: 'For Advertisers', links: [['Overview','for-advertisers.html'],['How We Track','how-we-track.html'],['Partner Discovery','partner-discovery.html'],['Automation','automation.html'],['Case Studies','https://involve.asia/blog/category/advertisers/success-stories/']] },
+  { h: 'Involve', links: [['About Us','about.html'],['Careers','https://career.involve.asia/'],['Blog','https://involve.asia/blog/'],['Support','https://helpcentre.involve.asia/'],['Terms & Conditions','terms-conditions.html'],['Privacy Policy','https://app.involve.asia/publisher/privacypolicy']] },
 ];
 // [name, url, icon] — icons are the white 48×48 "[name]-Social Icon.svg" exports
 const SOCIAL = [['Facebook','https://www.facebook.com/involveasia','facebook'],['Twitter','https://twitter.com/InvolveAsia','twitter'],['Instagram','https://www.instagram.com/involveasia/','instagram'],['LinkedIn','https://www.linkedin.com/company/involve-asia/','linkedin']];
