@@ -1,7 +1,7 @@
 /* ============================================================================
-   referral-program.jsx — "The Involve Referral Programme" page. Rebuilt from the live
+   referral-program.jsx — "The Involve Referral Program" page. Rebuilt from the live
    involve.asia/partners/referral-program/ page with the existing publisher-page parts:
-   the Express Withdrawal hero (HeroHexGrid + hex photo + floating pill), its intro
+   the Express Withdrawal hero (HeroHexGrid + hex photo), its intro
    layout, the shared NumberedSteps / Faq / FinalCta sections, and a design-system
    table for the reward maths. Copy is from the live page; headings in sentence case.
    Loaded AFTER ia-shared.jsx + ia-sections.jsx.
@@ -11,7 +11,6 @@ const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, FinalCt
 
 // Every "Refer your friends" CTA on the live page goes to this short link (dashboard sign-in).
 const RF_LINK = 'https://invl.me/clmpu6y';
-const RF_TERMS = 'https://involve.asia/terms-conditions/referral-my/';
 
 /* ---------- Section 1 — Hero (same layout as the Express Withdrawal hero) ---------- */
 function RfHero() {
@@ -21,8 +20,8 @@ function RfHero() {
       <div className="wrap ph-wrap">
         <HeroHexGrid />
         <div className="ph-copy">
-          <span className="ph-eyebrow" data-reveal>Referral Programme</span>
-          <h1 className="ph-title" data-reveal data-reveal-delay="1">The Involve Referral Programme</h1>
+          <span className="ph-eyebrow" data-reveal>Referral Program</span>
+          <h1 className="ph-title" data-reveal data-reveal-delay="1">The Involve Referral Program</h1>
           <p className="ph-sub" data-reveal data-reveal-delay="1">Invite your friends to join as an Involve Publisher and earn RM5 for every referral. The more you refer, the more you earn. Simple and hassle-free.</p>
           <div className="ph-actions" data-reveal data-reveal-delay="2">
             <a href={RF_LINK} className="btn btn-primary btn-lg">Refer Your Friends Now <Arrow /></a>
@@ -33,9 +32,6 @@ function RfHero() {
         <div className="ph-visual" data-reveal data-reveal-delay="1">
           <span className="ph-hexplate" aria-hidden="true" />
           <div className="ph-photo"><img src="media/figma/referral-hero-image.png" alt="Two friends looking at a phone together" loading="eager" /></div>
-          <div className="ph-static-ui" data-reveal data-reveal-delay="2">
-            <div className="ph-glass ph-g-pay-a"><div className="ph-pay"><span>Referral Reward</span><b>+ RM5</b></div></div>
-          </div>
         </div>
       </div>
 
@@ -58,13 +54,8 @@ function RfHero() {
         .ph-photo{ position:absolute; inset:0; z-index:1;
           -webkit-mask:url('media/figma/pub-hero-hexclip.svg') center/contain no-repeat; mask:url('media/figma/pub-hero-hexclip.svg') center/contain no-repeat; }
         .ph-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
-        .ph-glass{ position:absolute; padding:7px; border-radius:var(--r-xl); background:rgba(255,255,255,.30);
-          -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); box-shadow:0 14px 34px rgba(15,28,46,.12); }
-        .ph-g-pay-a{ left:-7%; top:55%; }
-        .ph-static-ui{ position:absolute; inset:0; z-index:3; pointer-events:none; }
-        .ph-pay{ display:flex; align-items:center; justify-content:space-between; gap:16px; background:#fff; border-radius:var(--r-lg); box-shadow:0 2px 6px rgba(15,28,46,.08); padding:9px 14px; white-space:nowrap; }
-        .ph-pay span{ font:500 13px/1 var(--font-body); color:var(--warm-800); }
-        .ph-pay b{ font-family:var(--font-display); font-weight:800; font-size:15px; color:var(--warm-900); }
+        /* the photo is pre-cut to a hexagon ~4% smaller than the mask; scale it from the top so its edges reach the mask */
+        .ph-photo img{ transform:scale(1.04); transform-origin:50% 0; }
         @media (max-width:900px){
           .ph-wrap{ grid-template-columns:1fr; gap:36px; }
           .ph-copy{ text-align:center; display:flex; flex-direction:column; align-items:center; }
@@ -72,23 +63,21 @@ function RfHero() {
           .ph-actions{ justify-content:center; }
           .ph-sec{ padding-top:12px; }
           .ph-visual{ order:-1; width:85%; max-width:357px; margin:0 auto; justify-self:center; }
-          .ph-glass{ scale:.85; margin-inline:-8.8%; transform-origin:left center; }
-          .ph-g-pay-a{ left:0; top:65%; }
         }
       `}</style>
     </section>
   );
 }
 
-/* ---------- Section 2 — "What is the Involve Referral Programme?" (Express Withdrawal intro layout) ---------- */
+/* ---------- Section 2 — "What is the Involve Referral Program?" (Express Withdrawal intro layout) ---------- */
 function RfWhat() {
   return (
     <section id="rf-what" className="exw-sec">
       <div className="wrap">
         <div className="exw-top">
           <div className="exw-intro">
-            <h2 className="exw-h" data-reveal>What is the Involve Referral Programme?</h2>
-            <p className="exw-p" data-reveal data-reveal-delay="1">The Involve Asia Referral Programme lets you earn rewards by inviting new partners to join our platform. Share your unique link with friends, family, or anyone who wants to earn commissions from top brands.</p>
+            <h2 className="exw-h" data-reveal>What is the Involve Referral Program?</h2>
+            <p className="exw-p" data-reveal data-reveal-delay="1">The Involve Asia Referral Program lets you earn rewards by inviting new partners to join our platform. Share your unique link with friends, family, or anyone who wants to earn commissions from top brands.</p>
             <p className="exw-p" data-reveal data-reveal-delay="1">When they sign up through your link and complete at least 1 sale within 14 days, you earn a referral reward. Your reward details are shown below.</p>
           </div>
           <div className="exw-card" data-reveal data-reveal-delay="1">
@@ -137,7 +126,7 @@ function RfEarn() {
             </tbody>
           </table>
         </div>
-        <p className="rfe-note" data-reveal>Scroll down to our <a href="#pub-faq">FAQs</a> for tips to promote and earn from the Referral Programme. Read the full <a href={RF_TERMS}>Terms &amp; Conditions</a>.</p>
+        <p className="rfe-note" data-reveal>Scroll down to our <a href="#pub-faq">FAQs</a> for tips to promote and earn from the Referral Program.</p>
       </div>
       <style>{`
         .rfe-sec{ background:var(--warm-50); padding:clamp(28px,4vh,48px) 0 clamp(40px,7vh,88px); }
@@ -162,26 +151,26 @@ function RfEarn() {
 
 /* ---------- Section 4 — "Here's how it works" (shared NumberedSteps) ---------- */
 const RF_STEPS = [
-  ['1', 'Get your unique referral link', 'Log in to your Publisher dashboard and search for the Involve Asia Publisher Referral Programme.'],
+  ['1', 'Get your unique referral link', 'Log in to your Publisher dashboard and search for the Involve Asia Publisher Referral Program.'],
   ['2', 'Promote it on your social media', 'Copy your unique link and share it online.'],
   ['3', 'Sit back and track your rewards', 'Track your referral rewards using the Conversion Report.'],
 ];
 
 /* ---------- Section 5 — FAQs (shared Faq) ---------- */
 const RF_FAQ = [
-  ['Who can join the Involve Referral Programme?', 'The Involve Referral Programme is open to all registered Publishers with Involve Asia.'],
+  ['Who can join the Involve Referral Program?', 'The Involve Referral Program is open to all registered Publishers with Involve Asia.'],
   ['Who can I refer to join Involve Asia?', 'Anyone who has never registered as an Involve Asia Publisher before.'],
-  ['What is the cookie duration for this Programme?', '7 days.'],
+  ['What is the cookie duration for this Program?', '7 days.'],
   ['How do I track my referral performance?', <React.Fragment>You can track your referral performance on your Publisher Dashboard, under Reports &gt; Conversion Report.</React.Fragment>],
-  ['How much can I earn through this Programme?', 'You earn RM5 once your referral completes 1 sale conversion within 14 days of account approval.'],
+  ['How much can I earn through this Program?', 'You earn RM5 once your referral completes 1 sale conversion within 14 days of account approval.'],
   ['When will my Reward Payout be paid?', 'Referral rewards are paid monthly.'],
-  ['What is the approval and denial process for this Programme?', <React.Fragment>
+  ['What is the approval and denial process for this Program?', <React.Fragment>
     Your referral reward is approved when your referee completes 1 sale conversion within 14 days of account approval.<br /><br />
     <b>Approve:</b> Reward is granted once the referee gets 1 sale conversion within 14 days.<br />
     <b>Deny:</b> No reward is given if no sale occurs within 14 days.<br /><br />
-    We'll review every referral to make sure it meets the programme requirements. If a referral doesn't qualify, the commission won't be approved.
+    We'll review every referral to make sure it meets the program requirements. If a referral doesn't qualify, the commission won't be approved.
   </React.Fragment>],
-  ['Does Involve Asia provide visual assets for this Programme?', 'Yes. You can download ready-made visuals and banners from the Involve Asia Publisher Dashboard.'],
+  ['Does Involve Asia provide visual assets for this Program?', 'Yes. You can download ready-made visuals and banners from the Involve Asia Publisher Dashboard.'],
   ['Have more questions?', <React.Fragment>If you require further information, feel free to contact your Account Manager or email us at <a className="rf-mail" href="mailto:wecare@involve.asia">wecare@involve.asia</a>.</React.Fragment>],
 ];
 const RF_FAQ_CSS = `
@@ -199,7 +188,7 @@ function ReferralApp() {
         <RfWhat />
         <RfEarn />
         <NumberedSteps id="rf-how" title="Here's how it works" steps={RF_STEPS} cols={3} />
-        <Faq items={RF_FAQ} title="Referral Programme FAQs" css={RF_FAQ_CSS} />
+        <Faq items={RF_FAQ} title="Referral Program FAQs" css={RF_FAQ_CSS} />
         <FinalCta title="Time to earn!" href={RF_LINK} label="Refer Your Friends Now" />
       </main>
       <Footer />
