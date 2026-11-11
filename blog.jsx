@@ -43,8 +43,8 @@ function BlogHero() {
       <div className="hf-scene bh-scene">
         <span className="hf-kick hf-kick-m" aria-hidden="true">{BLOG_DOORS[0].kick}</span>
         <span className="hf-kick adv hf-kick-m" aria-hidden="true">{BLOG_DOORS[1].kick}</span>
-        <img className="hf-photohex hf-ph-pub" src="media/figma/s9-hex-pub.webp" alt="A publisher creating content" style={{ '--i': 0 }} />
-        <img className="hf-photohex hf-ph-adv" src="media/figma/s9-hex-adv.webp" alt="An advertiser growing their brand" style={{ '--i': 1 }} />
+        <img className="hf-photohex hf-ph-pub" src="media/figma/publisher-blog-image.png" alt="A publisher reading on her phone" style={{ '--i': 0 }} />
+        <img className="hf-photohex hf-ph-adv" src="media/figma/advertiser-blog-image.png" alt="An advertiser reading on his tablet" style={{ '--i': 1 }} />
         {BLOG_DOORS.map((x) => (
           <div key={x.tone} className={`hf-card hf-card-${x.tone}`}>
             <span className={'hf-kick' + (x.tone === 'adv' ? ' adv' : '')}>{x.kick}</span>
@@ -72,6 +72,11 @@ function BlogHero() {
         .bh-scene{ z-index:1; margin-top:clamp(-8px,-1vh,0px); height:clamp(380px,34vw,430px); }
         .bh-scene .hf-ct{ font-size:clamp(22px,2vw,28px); line-height:1.15; }
         .bh-scene .hf-cd{ max-width:260px; }
+        /* the blog photos are square, so crop them to the same rounded hexagon the homepage hexes use;
+           shown as supplied (the homepage mirrors its publisher photo, these don't need it) */
+        .bh-scene .hf-photohex{ aspect-ratio:640/720; object-fit:cover;
+          -webkit-mask:url('media/figma/s9-hex-g1.png') center/100% 100% no-repeat; mask:url('media/figma/s9-hex-g1.png') center/100% 100% no-repeat; }
+        .bh-scene .hf-ph-pub{ transform:translate(calc(-50% + var(--hx-x0)), -50%); }
         /* narrow desktops: smaller hexagons so the side copy never runs into them */
         @media (min-width:901px) and (max-width:1180px){ .bh-scene{ --hx-w:200px; --hx-g:16px; } }
         @media (max-width:900px){
@@ -83,6 +88,7 @@ function BlogHero() {
           .bh-scene .hf-card-adv .btn{ text-align:right; }
           /* both cards fill the row so their buttons line up along the bottom */
           .bh-scene .hf-card{ align-self:stretch; }
+          .bh-scene .hf-ph-pub{ transform:none; }
           .bh-scene .hf-card .btn{ margin-top:auto; }
         }
         @media (max-width:700px){
