@@ -13,11 +13,13 @@ const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, FinalCt
 /* Decorative honeycomb backdrop (shared hero art, see useHeroDecoArt in ia-shared.jsx), rendered faint. */
 function PricingHexField() {
   const { paths, W, H, transform } = window.useHeroDecoArt();
+  const svgRef = React.useRef(null);
+  window.useHexPush(svgRef, paths);
   // pad the viewBox to shrink the whole honeycomb (renders ~1/(1+2*pad) of before), closer to Figma's inset deco
   const pad = 0.14;
   const vb = `${-W * pad} ${-H * pad} ${W * (1 + 2 * pad)} ${H * (1 + 2 * pad)}`;
   return (
-    <svg className="prh-hexfield" viewBox={vb} preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <svg ref={svgRef} className="prh-hexfield" viewBox={vb} preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <g fill="var(--warm-200)" transform={transform}>{paths.map((d, i) => <path key={i} className="hx" d={d} />)}</g>
     </svg>
   );
