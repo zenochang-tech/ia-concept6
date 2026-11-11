@@ -47,6 +47,55 @@ function useHeroDecoArt() {
   return { paths, W: art.W, H: art.H, transform: art.flipX ? `translate(${art.W} 0) scale(-1 1)` : undefined };
 }
 
+// Hover push for the hero honeycombs above (same feel as the homepage hero and final CTA fields):
+// hexes within R of the cursor are pushed radially away (MAXPUSH·f², f = 1 − dist/R) and ease
+// back when it leaves. R and the push are set in on-screen px and converted to the art's own
+// units through the <g>'s screen matrix, so the viewBox padding, "slice" cropping and the
+// horizontal flip are all accounted for. The fields are pointer-events:none behind the copy,
+// so the cursor is tracked on the document and counts only while it's over the field.
+function useHexPush(svgRef, paths) {
+  React.useLayoutEffect(() => {
+    const svg = svgRef.current, g = svg && svg.querySelector('g');
+    if (!g || !paths.length || prefersReduced()) return;
+    const hexes = Array.from(g.querySelectorAll('.hx')).map((el) => {
+      const b = el.getBBox();
+      return { el, cx: b.x + b.width / 2, cy: b.y + b.height / 2, dx: 0, dy: 0 };
+    });
+    const R_PX = 200, PUSH_PX = 36;
+    let R = 0, MAXPUSH = 0, mx = 0, my = 0, active = false, raf = 0;
+    const frame = () => {
+      let moving = false;
+      for (const h of hexes) {
+        let tx = 0, ty = 0;
+        if (active) {
+          const ddx = h.cx - mx, ddy = h.cy - my, dist = Math.hypot(ddx, ddy);
+          if (dist < R && dist > 0.01) { const f = 1 - dist / R, push = MAXPUSH * f * f, inv = push / dist; tx = ddx * inv; ty = ddy * inv; }
+        }
+        h.dx += (tx - h.dx) * 0.2; h.dy += (ty - h.dy) * 0.2;
+        if (Math.abs(h.dx) > 0.06 || Math.abs(h.dy) > 0.06) { h.el.setAttribute('transform', `translate(${h.dx.toFixed(2)} ${h.dy.toFixed(2)})`); moving = true; }
+        else if (h.dx !== 0 || h.dy !== 0) { h.dx = 0; h.dy = 0; h.el.removeAttribute('transform'); }
+      }
+      if (active || moving) raf = requestAnimationFrame(frame); else raf = 0;
+    };
+    const onMove = (e) => {
+      const r = svg.getBoundingClientRect();
+      const inside = e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
+      if (inside) {
+        const m = g.getScreenCTM();
+        if (!m) return;
+        const pt = new DOMPoint(e.clientX, e.clientY).matrixTransform(m.inverse());
+        const k = 1 / Math.hypot(m.a, m.b);                     // art units per screen px
+        mx = pt.x; my = pt.y; R = R_PX * k; MAXPUSH = PUSH_PX * k;
+      }
+      if (inside !== active || inside) { active = inside; if (!raf) raf = requestAnimationFrame(frame); }
+    };
+    const onLeave = () => { active = false; if (!raf) raf = requestAnimationFrame(frame); };
+    document.addEventListener('mousemove', onMove, { passive: true });
+    document.documentElement.addEventListener('mouseleave', onLeave);
+    return () => { document.removeEventListener('mousemove', onMove); document.documentElement.removeEventListener('mouseleave', onLeave); if (raf) cancelAnimationFrame(raf); };
+  }, [paths]);
+}
+
 // Nav mega-menu — clean Stripe-style columns: each column has a non-clickable title (head)
 // with a thin #E8E8E2 divider under it, then its links. Column titles are suggestions —
 // rename freely. No feature image card.
@@ -84,11 +133,11 @@ const NAV = [
         ['How We Track', 'how-we-track.html'],
       ]},
     ]},
-  { label: 'Resources', href: 'https://involve.asia/blog/',
-    feat: { head: 'The Involve blog', desc: 'Guides, trends, and affiliate marketing insights.', cta: 'Read the Blog', href: 'https://involve.asia/blog/', img: 'media/webp/sub-card-resources.webp', scrim: 'linear-gradient(26.17deg, rgba(3, 3, 3, 0.32) 19.76%, rgba(2, 2, 2, 0.1024) 55.25%)' },
+  { label: 'Resources', href: 'blog.html',
+    feat: { head: 'The Involve blog', desc: 'Guides, trends, and affiliate marketing insights.', cta: 'Read the Blog', href: 'blog.html', img: 'media/webp/sub-card-resources.webp', scrim: 'linear-gradient(26.17deg, rgba(3, 3, 3, 0.32) 19.76%, rgba(2, 2, 2, 0.1024) 55.25%)' },
     columns: [
       { head: 'Learn', links: [
-        ['Blog', 'https://involve.asia/blog/'],
+        ['Blog', 'blog.html'],
         ['Glossary', 'glossary.html'],
       ]},
       { head: 'Support', links: [
@@ -406,7 +455,7 @@ function Arrow({ s = 16 }) {
 const FOOT = [
   { h: 'For Publishers', links: [['Overview','for-publishers.html'],['All Brands Directory','https://app.involve.asia/directory'],['Express Withdrawal','express-withdrawal.html'],['Developer API','api-overview.html'],['Data Feed','datafeed.html']] },
   { h: 'For Advertisers', links: [['Overview','for-advertisers.html'],['How We Track','how-we-track.html'],['Partner Discovery','partner-discovery.html'],['Automation','automation.html'],['Case Studies','https://involve.asia/blog/category/advertisers/success-stories/']] },
-  { h: 'Involve', links: [['About Us','about.html'],['Careers','https://careers.involve.asia/'],['Blog','https://involve.asia/blog/'],['Support','https://helpcentre.involve.asia/'],['Terms & Conditions','terms-conditions.html'],['Privacy Policy','https://app.involve.asia/publisher/privacypolicy']] },
+  { h: 'Involve', links: [['About Us','about.html'],['Careers','https://careers.involve.asia/'],['Blog','blog.html'],['Support','https://helpcentre.involve.asia/'],['Terms & Conditions','terms-conditions.html'],['Privacy Policy','https://app.involve.asia/publisher/privacypolicy']] },
 ];
 // [name, url, icon] — icons are the white 48×48 "[name]-Social Icon.svg" exports
 const SOCIAL = [['Facebook','https://www.facebook.com/involveasia','facebook'],['Twitter','https://twitter.com/InvolveAsia','twitter'],['Instagram','https://www.instagram.com/involveasia/','instagram'],['LinkedIn','https://www.linkedin.com/company/involve-asia/','linkedin']];
@@ -666,4 +715,4 @@ function useScrollReveal() {
   scan();
 })();
 
-Object.assign(window, { prefersReduced, fetchText, useHeroDecoArt, GlobeIcon, Nav, Arrow, Footer, HexCursor, BackToTop, useSmoothScroll, useScrollReveal });
+Object.assign(window, { prefersReduced, fetchText, useHeroDecoArt, useHexPush, GlobeIcon, Nav, Arrow, Footer, HexCursor, BackToTop, useSmoothScroll, useScrollReveal });

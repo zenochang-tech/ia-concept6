@@ -10,10 +10,12 @@ let __tcGradN = 0;
 function TcHexField() {
   const [gid] = React.useState(() => 'tcHexGrad' + (++__tcGradN));
   const { paths, W, H, transform } = window.useHeroDecoArt();
+  const svgRef = React.useRef(null);
+  window.useHexPush(svgRef, paths);
   const pad = 0.12;
   const vb = `${-W * pad} ${-H * pad} ${W * (1 + 2 * pad)} ${H * (1 + 2 * pad)}`;
   return (
-    <svg className="gh-hexfield" viewBox={vb} preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <svg ref={svgRef} className="gh-hexfield" viewBox={vb} preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <g fill="var(--warm-100)" transform={transform}>{paths.map((d, i) => <path key={i} className="hx" d={d} />)}</g>
     </svg>
   );
