@@ -732,6 +732,7 @@ const HERO_HEXGRID_CSS = `
 const HIW_CSS = (cols) => `
         .hiw-sec{ background:var(--warm-50); padding:clamp(40px,7vh,88px) 0; }
         .hiw-title{ font-family:var(--font-display); font-weight:800; font-size:clamp(24px,3vw,34px); line-height:1.12; letter-spacing:-.03em; color:var(--warm-900); }
+        .hiw-sub{ margin-top:12px; max-width:640px; font:400 16px/1.5 var(--font-body); color:var(--warm-600); }
         .hiw-grid{ margin-top:clamp(34px,5.5vh,58px); display:grid; grid-template-columns:repeat(${cols},minmax(0,1fr)); gap:clamp(26px,3vw,44px); }
         .hiw-step{ min-width:0; }
         .hiw-num{ display:inline-flex; align-items:center; justify-content:center; width:48px; height:48px; border-radius:50%; background:var(--ember); color:#fff; font-family:var(--font-display); font-weight:800; font-size:17px; letter-spacing:-.01em; }
@@ -740,11 +741,12 @@ const HIW_CSS = (cols) => `
         @media (max-width:900px){ .hiw-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(26px,4vw,40px); } }
         @media (max-width:520px){ .hiw-grid{ grid-template-columns:1fr; gap:48px; max-width:440px; } }
       `;
-function NumberedSteps({ id, title, steps, cols = 4 }) {
+function NumberedSteps({ id, title, sub, steps, cols = 4 }) {
   return (
     <section id={id} className="hiw-sec">
       <div className="wrap">
         <h2 className="hiw-title" data-reveal>{title}</h2>
+        {sub && <p className="hiw-sub" data-reveal data-reveal-delay="1">{sub}</p>}
         <div className="hiw-grid">
           {steps.map(([n, t, d], i) => (
             <div className="hiw-step" key={n} data-reveal data-reveal-delay={i + 1}>
@@ -763,7 +765,7 @@ function NumberedSteps({ id, title, steps, cols = 4 }) {
 
 /* ---------- Icon columns — "Why … choose Involve." (wy-*) -------------------
    items: [{ ic, t, d }] (ic = inline SVG) in a 3-column grid, with an optional
-   proof line underneath. Page `css` sits before the ≤760px single-column rule.  */
+   `sub` line under the title and an optional proof line underneath. Page `css` sits before the ≤760px single-column rule.  */
 const WY_CSS = `
         .wy-sec{ background:var(--warm-50); padding:clamp(40px,7vh,88px) 0; }
         .wy-title{ text-align:center; font-family:var(--font-display); font-weight:800; font-size:clamp(24px,3vw,34px); line-height:1.12; letter-spacing:-.03em; color:var(--warm-900); }
@@ -772,16 +774,18 @@ const WY_CSS = `
         .wy-ic{ width:48px; height:48px; border-radius:var(--r-xl); background:var(--ember-tint); color:var(--ember); display:flex; align-items:center; justify-content:center; }
         .wy-ic svg{ width:24px; height:24px; }
         .wy-ct{ margin-top:20px; font-family:var(--font-display); font-weight:800; font-size:20px; letter-spacing:-.01em; color:var(--warm-900); }
+        .wy-sub{ margin:12px auto 0; max-width:640px; text-align:center; font:400 16px/1.5 var(--font-body); color:var(--warm-600); }
         .wy-cd{ margin-top:8px; font:400 16px/1.5 var(--font-body); color:var(--warm-600); max-width:340px; }
         .wy-proof{ margin-top:clamp(28px,4vh,44px); text-align:center; font:400 15px/1.5 var(--font-body); color:var(--warm-400); }`;
 const WY_CSS_MOBILE = `
         @media (max-width:760px){ .wy-grid{ grid-template-columns:1fr; max-width:440px; margin-inline:auto; gap:48px; } }
       `;
-function IconColumns({ id, title, items, proof, css = '' }) {
+function IconColumns({ id, title, sub, items, proof, css = '' }) {
   return (
     <section id={id} className="wy-sec">
       <div className="wrap">
         <h2 className="wy-title" data-reveal>{title}</h2>
+        {sub && <p className="wy-sub" data-reveal data-reveal-delay="1">{sub}</p>}
         <div className="wy-grid">
           {items.map((c, i) => (
             <div className="wy-col" key={c.t} data-reveal data-reveal-delay={(i % 3) + 1}>
