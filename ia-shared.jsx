@@ -432,7 +432,7 @@ function Nav({ getStartedTone = 'midnight', homeHref = './' }) {
           padding:10px 12px;border-radius:var(--r-sm);background:none;font:500 14px/1.2 var(--font-body);color:var(--warm-900);transition:background .15s;}
         .lang-opt:hover, .lang-opt:focus-visible{background:var(--warm-100);}
         .lang-opt.is-selected{font-weight:600;background:rgba(240,88,38,.06);}
-        .lang-opt.is-off{color:var(--warm-400);cursor:default;}
+        .lang-opt.is-off{color:var(--warm-400);cursor:not-allowed;}
         .lang-opt.is-off:hover{background:none;}
         .lang-opt-code{display:inline-flex;align-items:center;gap:6px;font:600 12px/1 var(--font-body);color:var(--warm-400);}
         .lang-opt-tick{width:14px;height:14px;color:var(--ember);visibility:hidden;}
