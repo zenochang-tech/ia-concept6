@@ -148,7 +148,7 @@ function PubCTA() {
 const AFF_KINDS = [
   ['aff-kind-1.png', 'Coupon and deal sites', 'For shoppers who already know what they want. Share promo codes, vouchers, and deals, and earn when they buy at a better price.'],
   ['aff-kind-2.png', 'Cashback and loyalty sites', 'For shoppers who come back for rewards. Give members cashback and points on what they buy, and earn on the sales they drive.'],
-  ['aff-kind-3.png', 'Comparison sites', 'For shoppers still choosing. Compare products and prices to help them decide, and earn when they buy through you.', ['Just an editorial blog that reviews what you use?', 'See Content sites', 'website.html']],
+  ['aff-kind-3.png', 'Comparison sites', 'For shoppers still choosing. Compare products and prices to help them decide, and earn when they buy through you.', ['Just an editorial blog that reviews what you use?', 'See Content sites', 'website']],
 ];
 function BuiltKinds() {
   return (

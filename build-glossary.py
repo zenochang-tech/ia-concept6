@@ -254,7 +254,7 @@ PAGE = """<!DOCTYPE html>
 <main class="gt-main">
   <section class="gt-hero">
     <div class="wrap">
-      <a class="gt-crumb" href="glossary.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg> Involve Glossary</a>
+      <a class="gt-crumb" href="glossary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg> Involve Glossary</a>
       <span class="gt-eyebrow">Glossary</span>
       <h1 class="gt-h1">{title}</h1>
       <div class="gt-tldr"><b>TL;DR</b><p>{tldr}</p></div>

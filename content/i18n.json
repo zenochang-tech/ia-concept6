@@ -1,0 +1,15 @@
+{
+  "_about": "Languages and translated pages. Each language page lives in its own folder (/id/referral-program) and reads its copy from content/pages/<page>/<lang>.json, falling back to en.json for anything missing. To translate a page: add its <lang>.json, then list the language under 'pages' below. build-i18n.py, build-seo.py and scripts/build.mjs all read this file.",
+  "default": "en",
+  "languages": [
+    { "code": "en", "path": "",   "menu": "EN", "label": "English",          "htmlLang": "en",    "hreflang": "en" },
+    { "code": "th", "path": "th", "menu": "TH", "label": "ไทย",              "htmlLang": "th",    "hreflang": "th" },
+    { "code": "vn", "path": "vn", "menu": "VN", "label": "Tiếng Việt",       "htmlLang": "vi",    "hreflang": "vi" },
+    { "code": "id", "path": "id", "menu": "ID", "label": "Bahasa Indonesia", "htmlLang": "id",    "hreflang": "id" },
+    { "code": "ms", "path": "ms", "menu": "MS", "label": "Bahasa Melayu",    "htmlLang": "ms",    "hreflang": "ms" },
+    { "code": "ph", "path": "ph", "menu": "PH", "label": "Filipino",         "htmlLang": "fil",   "hreflang": "fil" }
+  ],
+  "pages": {
+    "referral-program": ["id"]
+  }
+}

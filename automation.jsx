@@ -182,10 +182,10 @@ function ConsolidatedView() {
 }
 /* ---------- Automation §3 — "Part of one platform" (2 link cards) ---------- */
 const OP_CARDS = [
-  { t: 'How We Track', href: 'how-we-track.html', link: 'Explore tracking systems',
+  { t: 'How We Track', href: 'how-we-track', link: 'Explore tracking systems',
     ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12h4l2.5-7 5 14 2.5-7H21" /></svg>,
     d: 'Reliable tracking and attribution that credits every sale to the publisher who drove it, so your reporting and payouts stay accurate.' },
-  { t: 'Partner Discovery', href: 'partner-discovery.html', link: 'Find verified partners',
+  { t: 'Partner Discovery', href: 'partner-discovery', link: 'Find verified partners',
     ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="7" /><path d="M21 21l-4.3-4.3" /></svg>,
     d: 'Search over 1,000,000 publishers by category, channel, and audience, and invite the ones that fit, or have our team recruit them for you.' },
 ];

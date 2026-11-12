@@ -132,7 +132,7 @@ const BC_TERMS = [
   'Bonus will be credited to the publisher’s payment account.',
   'Publishers can track performance via Dashboard > Conversion Report using the Conversion Date Created field.',
   'This campaign is run by Involve Asia and participating brands are not involved in campaign mechanics.',
-  <React.Fragment>These terms should be read together with the <a className="bct-link" href="terms-conditions.html">Involve Asia Terms and Conditions</a>.</React.Fragment>,
+  <React.Fragment>These terms should be read together with the <a className="bct-link" href="terms-conditions">Involve Asia Terms and Conditions</a>.</React.Fragment>,
 ];
 function BcTerms() {
   return (

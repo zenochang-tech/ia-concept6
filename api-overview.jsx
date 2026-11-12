@@ -202,7 +202,7 @@ function ShopeeBand() {
           <div className="sb-body">
             <h2 className="sb-title">Boosted commissions on Shopee, built in.</h2>
             <p className="sb-desc">Some Shopee brands pay boosted rates through Commissions XTRA. Pull the full list through the API and refresh it automatically, so you always know which Shopee shops are paying more, and promote them first.</p>
-            <a href="shopee-commissions-xtra.html" className="sb-link">Learn More <Arrow /></a>
+            <a href="shopee-commissions-xtra" className="sb-link">Learn More <Arrow /></a>
           </div>
           <div className="sb-visual"><img src="media/figma/api-shopee-xtra.png" alt="Shopee Commissions XTRA" loading="lazy" /></div>
         </div>

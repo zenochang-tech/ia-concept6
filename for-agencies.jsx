@@ -141,9 +141,9 @@ const PUB_FAQ = [
   ['Can I manage more than one client?',
     'Yes. Run all your clients from one account and separate each with sub-IDs, or hold a separate account per client for clean billing. Either way, the API lets you pull the data into your own reporting.'],
   ['Do I need my own audience or traffic?',
-    <>No. This path is for agencies running affiliate activity for clients, not for monetising your own audience — if that's you, see the <a href="for-publishers.html">five publisher types</a> instead.</>],
+    <>No. This path is for agencies running affiliate activity for clients, not for monetising your own audience — if that's you, see the <a href="for-publishers">five publisher types</a> instead.</>],
   ['How do we integrate technically?',
-    <>Through our Publisher API — pull offers, generate deeplinks, and sync conversions (with sub-ID breakdowns per client). See the <a href="api-overview.html">API page</a> for the endpoints and docs.</>],
+    <>Through our Publisher API — pull offers, generate deeplinks, and sync conversions (with sub-ID breakdowns per client). See the <a href="api-overview">API page</a> for the endpoints and docs.</>],
   ["How do we keep each client's performance separate?",
     'Use sub-IDs to tag and report activity per client, or run a separate account per client — whichever fits how you bill.'],
 ];
@@ -156,7 +156,7 @@ function PubFAQ() {
   return (
     <Faq items={PUB_FAQ} css={PUB_FAQ_CSS}
       after={<React.Fragment>
-        <p className="fq-xlinks" data-reveal>Need the technical detail? <a href="api-overview.html">See the API page</a>. Have your own audience to monetise? <a href="for-publishers.html">See the five publisher types</a>.</p>
+        <p className="fq-xlinks" data-reveal>Need the technical detail? <a href="api-overview">See the API page</a>. Have your own audience to monetise? <a href="for-publishers">See the five publisher types</a>.</p>
       </React.Fragment>} />
   );
 }
@@ -189,7 +189,7 @@ function ScaleApi() {
           <div className="sa-left" data-reveal>
             <h2 className="sa-title">The API for integration.</h2>
             <p className="sa-body">Pull offers, generate trackable deeplinks, and sync conversion data into your own systems and client dashboards. See the API page for endpoints and docs.</p>
-            <a className="sa-link" href="api-overview.html">
+            <a className="sa-link" href="api-overview">
               API Overview
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5.5l6.5 6.5L9 18.5" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </a>

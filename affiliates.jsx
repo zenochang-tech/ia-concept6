@@ -148,7 +148,7 @@ const PUB_FAQ = [
   ['Do you support cashback and coupon models?',
     'Yes. Cashback, coupon, comparison, loyalty, and deal sites all run on the platform.'],
   ['Is there an API?',
-    <>Yes. Generate deep links and pull conversions and offers programmatically. See the <a href="api-overview.html">Developer API</a>.</>],
+    <>Yes. Generate deep links and pull conversions and offers programmatically. See the <a href="api-overview">Developer API</a>.</>],
 ];
 function PubFAQ() {
   return <Faq items={PUB_FAQ} />;

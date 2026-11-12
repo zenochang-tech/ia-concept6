@@ -100,70 +100,133 @@ function useHexPush(svgRef, paths) {
 // with a thin #E8E8E2 divider under it, then its links. Column titles are suggestions —
 // rename freely. No feature image card.
 const NAV = [
-  { label: 'For Publishers', href: 'for-publishers.html', tone: 'pub',
+  { label: 'For Publishers', href: 'for-publishers', tone: 'pub',
     feat: { head: '500+ brands, ready to promote', desc: 'Find the ones your audience already loves, and start earning.', cta: 'Browse Brands', href: 'https://app.involve.asia/directory', img: 'media/webp/sub-card-publisher.webp', scrim: 'linear-gradient(26.17deg, rgba(196, 62, 24, 0.32) 19.76%, rgba(196, 62, 24, 0.1024) 55.25%)' },
     columns: [
       { head: 'Explore', links: [
-        ['Publisher Overview', 'for-publishers.html'],
+        ['Publisher Overview', 'for-publishers'],
         ['Brand Directory', 'https://app.involve.asia/directory'],
         ['Success Stories', 'https://involve.asia/blog/category/partners/success-stories-partners/'],
       ]},
       { head: "Who It's For", links: [
-        ['Creator Partners', 'content-creators.html'],
-        ['Affiliate Partners', 'affiliates.html'],
-        ['Technology Partners', 'technology-partners.html'],
+        ['Creator Partners', 'content-creators'],
+        ['Affiliate Partners', 'affiliates'],
+        ['Technology Partners', 'technology-partners'],
       ]},
       { head: 'Features', links: [
-        ['Express Withdrawal', 'express-withdrawal.html'],
-        ['Developer API', 'api-overview.html'],
-        ['Data Feed', 'datafeed.html'],
+        ['Express Withdrawal', 'express-withdrawal'],
+        ['Developer API', 'api-overview'],
+        ['Data Feed', 'datafeed'],
       ]},
     ]},
-  { label: 'For Advertisers', href: 'for-advertisers.html', tone: 'adv',
-    feat: { head: 'Simple, scalable pricing', desc: 'Volume-based plans that grow with your program.', cta: 'See Pricing', href: 'pricing.html', img: 'media/webp/sub-card-advertiser.webp', scrim: 'linear-gradient(26.17deg, rgba(61, 90, 128, 0.32) 19.76%, rgba(61, 90, 128, 0.1024) 55.25%)' },
+  { label: 'For Advertisers', href: 'for-advertisers', tone: 'adv',
+    feat: { head: 'Simple, scalable pricing', desc: 'Volume-based plans that grow with your program.', cta: 'See Pricing', href: 'pricing', img: 'media/webp/sub-card-advertiser.webp', scrim: 'linear-gradient(26.17deg, rgba(61, 90, 128, 0.32) 19.76%, rgba(61, 90, 128, 0.1024) 55.25%)' },
     columns: [
       { head: 'Explore', links: [
-        ['Advertiser Overview', 'for-advertisers.html'],
-        ['Pricing', 'pricing.html'],
+        ['Advertiser Overview', 'for-advertisers'],
+        ['Pricing', 'pricing'],
         ['Case Study', 'https://involve.asia/blog/category/advertisers/success-stories/'],
       ]},
       { head: 'Features', links: [
-        ['Automation', 'automation.html'],
-        ['Partner Discovery', 'partner-discovery.html'],
-        ['How We Track', 'how-we-track.html'],
+        ['Automation', 'automation'],
+        ['Partner Discovery', 'partner-discovery'],
+        ['How We Track', 'how-we-track'],
       ]},
     ]},
-  { label: 'Resources', href: 'blog.html',
-    feat: { head: 'The Involve blog', desc: 'Guides, trends, and affiliate marketing insights.', cta: 'Read the Blog', href: 'blog.html', img: 'media/webp/sub-card-resources.webp', scrim: 'linear-gradient(26.17deg, rgba(3, 3, 3, 0.32) 19.76%, rgba(2, 2, 2, 0.1024) 55.25%)' },
+  { label: 'Resources', href: 'blog',
+    feat: { head: 'The Involve blog', desc: 'Guides, trends, and affiliate marketing insights.', cta: 'Read the Blog', href: 'blog', img: 'media/webp/sub-card-resources.webp', scrim: 'linear-gradient(26.17deg, rgba(3, 3, 3, 0.32) 19.76%, rgba(2, 2, 2, 0.1024) 55.25%)' },
     columns: [
       { head: 'Learn', links: [
-        ['Blog', 'blog.html'],
-        ['Glossary', 'glossary.html'],
+        ['Blog', 'blog'],
+        ['Glossary', 'glossary'],
       ]},
       { head: 'Support', links: [
         ['Help Centre', 'https://helpcentre.involve.asia/'],
-        ['Download App', 'download-app.html'],
+        ['Download App', 'download-app'],
         ['API Docs', 'https://api.involve.asia/docs/'],
       ]},
     ]},
-  { label: 'Company', href: 'about.html',
-    feat: { head: 'About Involve Asia', desc: '12 years connecting brands and partners across Asia.', cta: 'Our Story', href: 'about.html', img: 'media/webp/sub-card-company.webp', scrim: 'linear-gradient(26.17deg, rgba(3, 3, 3, 0.32) 19.76%, rgba(2, 2, 2, 0.1024) 55.25%)' },
+  { label: 'Company', href: 'about',
+    feat: { head: 'About Involve Asia', desc: '12 years connecting brands and partners across Asia.', cta: 'Our Story', href: 'about', img: 'media/webp/sub-card-company.webp', scrim: 'linear-gradient(26.17deg, rgba(3, 3, 3, 0.32) 19.76%, rgba(2, 2, 2, 0.1024) 55.25%)' },
     columns: [
       { head: 'Company', links: [
-        ['About Us', 'about.html'],
+        ['About Us', 'about'],
         ['Careers', 'https://careers.involve.asia/'],
       ]},
     ]},
 ];
 
-const LANGS = [
-  { code: 'EN', label: 'English' },
-  { code: 'TH', label: 'ไทย' },
-  { code: 'VN', label: 'Tiếng Việt' },
-  { code: 'ID', label: 'Bahasa Indonesia' },
-  { code: 'MS', label: 'Bahasa Melayu' },
-  { code: 'PH', label: 'Filipino' },
-];
+/* ---------- Translation ----------------------------------------------------
+   content/i18n.json lists the languages and which pages are translated; a translated
+   page keeps its copy in content/pages/<page>/<lang>.json (en.json is the base, other
+   languages override it key by key). build-i18n.py writes each language copy of the
+   page to its own folder (id/referral-program.html, with <base href="../"> and
+   window.IA_LANG). The production build inlines window.IA_I18N / window.IA_COPY, so
+   the JSON is only fetched here on the unbuilt local preview. */
+function loadJSON(url) {
+  try {
+    const x = new XMLHttpRequest();
+    x.open('GET', url, false);
+    x.send();
+    return x.status === 200 ? JSON.parse(x.responseText) : null;
+  } catch (e) { return null; }
+}
+const IA_I18N = window.IA_I18N || loadJSON('content/i18n.json')
+  || { default: 'en', languages: [{ code: 'en', path: '', menu: 'EN', label: 'English' }], pages: {} };
+const LANGS = IA_I18N.languages;
+const langOf = (code) => LANGS.find((l) => l.code === code) || LANGS[0];
+const currentLang = () => window.IA_LANG || IA_I18N.default;
+// page key from the URL: /ia-concept6/id/referral-program(.html) → "referral-program", folder root → "index"
+const currentPage = () => decodeURIComponent(location.pathname.split('/').pop().replace(/\.html$/, '')) || 'index';
+const hasLang = (page, code) => code === IA_I18N.default || (IA_I18N.pages[page] || []).includes(code);
+
+// Same page in another language. Language pages carry <base href="../">, so every
+// href here is written from the site root: "referral-program", "id/referral-program".
+function langHref(code, page = currentPage()) {
+  const dir = langOf(code).path;
+  const p = page === 'index' ? '' : page;
+  return (dir ? dir + '/' + p : p) || './';
+}
+// An internal page link ("about", "pricing?x=1") points at this language's copy when
+// that page is translated; otherwise it stays on the English page.
+function localHref(href) {
+  const lang = currentLang();
+  if (lang === IA_I18N.default || typeof href !== 'string') return href;
+  const m = href.match(/^([a-z0-9-]+)([?#].*)?$/i);
+  return m && hasLang(m[1], lang) ? langOf(lang).path + '/' + href : href;
+}
+
+const deepMerge = (base, over) => {
+  if (Array.isArray(over) || typeof over !== 'object' || over === null) return over === undefined ? base : over;
+  const out = { ...(base || {}) };
+  for (const k of Object.keys(over)) out[k] = deepMerge(out[k], over[k]);
+  return out;
+};
+// A page's copy in the current language (English for any key a translation leaves out).
+function useCopy(page) {
+  return React.useMemo(() => {
+    if (window.IA_COPY) return window.IA_COPY;
+    const base = loadJSON(`content/pages/${page}/${IA_I18N.default}.json`) || {};
+    const lang = currentLang();
+    return lang === IA_I18N.default ? base : deepMerge(base, loadJSON(`content/pages/${page}/${lang}.json`) || {});
+  }, [page]);
+}
+// Copy strings may use **bold**, [label](link) and line breaks (\n).
+function rich(str, linkClass) {
+  if (str == null) return null;
+  const out = [];
+  const re = /\*\*(.+?)\*\*|\[([^\]]+)\]\(([^)]+)\)|\n/g;
+  let last = 0, m;
+  while ((m = re.exec(str))) {
+    if (m.index > last) out.push(str.slice(last, m.index));
+    if (m[1] !== undefined) out.push(<b key={m.index}>{m[1]}</b>);
+    else if (m[2] !== undefined) out.push(<a key={m.index} className={linkClass} href={localHref(m[3])}>{m[2]}</a>);
+    else out.push(<br key={m.index} />);
+    last = re.lastIndex;
+  }
+  if (last < str.length) out.push(str.slice(last));
+  return out;
+}
 
 // Language switcher icon: Lucide "globe" (outline, 1.5px stroke, currentColor), per the design
 // system's icon rules — used in the nav and the footer instead of the 🌐 emoji.
@@ -180,6 +243,17 @@ function LangTick() {
   return <svg className="lang-opt-tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>;
 }
 
+// One row of the language menu: a link to this page in that language, or a dimmed row
+// when the page isn't translated into it yet.
+function LangOption({ l, lang, page, role, mobile }) {
+  const cls = 'lang-opt' + (mobile ? ' lang-opt-m' : '') + (l.code === lang ? ' is-selected' : '');
+  const inner = <React.Fragment><span>{l.label}</span><span className="lang-opt-code">{l.menu}<LangTick /></span></React.Fragment>;
+  if (!hasLang(page, l.code)) {
+    return <span role={role} aria-disabled="true" title="This page isn't available in this language yet" className={cls + ' is-off'}>{inner}</span>;
+  }
+  return <a role={role} aria-checked={role ? l.code === lang : undefined} aria-current={l.code === lang ? 'page' : undefined} hrefLang={l.hreflang} lang={l.htmlLang} href={langHref(l.code, page)} className={cls}>{inner}</a>;
+}
+
 function Caret({ open }) {
   return <svg width="11" height="11" viewBox="0 0 12 12" style={{ marginLeft: 3, transition: 'transform .2s', transform: open ? 'rotate(180deg)' : 'none' }}><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>;
 }
@@ -189,13 +263,14 @@ function Caret({ open }) {
 function MegaLink({ link }) {
   const [t, href, soon] = link;
   if (soon) return <span className="mega4-link mega4-soon"><b>{t}</b><em>(coming soon)</em></span>;
-  return <a href={href} role="menuitem" className="mega4-link"><b>{t}</b></a>;
+  return <a href={localHref(href)} role="menuitem" className="mega4-link"><b>{t}</b></a>;
 }
 
 
-function Nav({ getStartedTone = 'midnight', homeHref = 'index.html' }) {
+function Nav({ getStartedTone = 'midnight', homeHref = './' }) {
   const [open, setOpen] = React.useState(null);
-  const [lang, setLang] = React.useState('EN');
+  const lang = currentLang();
+  const page = currentPage();
   const [langOpen, setLangOpen] = React.useState(false);
   const [mobile, setMobile] = React.useState(false);
   const [scrolled, setScrolled] = React.useState(false);
@@ -250,7 +325,7 @@ function Nav({ getStartedTone = 'midnight', homeHref = 'index.html' }) {
       transition: 'background .3s, border-color .3s, box-shadow .3s',
     }} onMouseLeave={scheduleClose}>
       <div className="wrap" style={{ display: 'flex', alignItems: 'center', height: scrolled ? 62 : 74, gap: 24, position: 'relative', transition: 'height .3s' }}>
-        <a href={homeHref} aria-label="Involve Asia home" style={{ display: 'flex', alignItems: 'center', flex: '0 0 auto', zIndex: 2, position: 'relative' }}>
+        <a href={localHref(homeHref)} aria-label="Involve Asia home" style={{ display: 'flex', alignItems: 'center', flex: '0 0 auto', zIndex: 2, position: 'relative' }}>
           <img src={R('logoMidnight', "media/brand/wordmark-midnight.png")} alt="Involve Asia" width="132" height="28" style={{ height: 28, width: 'auto', transition: 'opacity .35s ease', opacity: dark ? 0 : 1 }} />
           <img src={R('logoWhite', "media/brand/wordmark-white.png")} alt="" aria-hidden="true" width="132" height="28" style={{ height: 28, width: 'auto', position: 'absolute', left: 0, top: '50%', transform: 'translateY(-50%)', transition: 'opacity .35s ease', opacity: dark ? 1 : 0 }} />
         </a>
@@ -258,7 +333,7 @@ function Nav({ getStartedTone = 'midnight', homeHref = 'index.html' }) {
         {/* Left-aligned primary nav (Concept 3) */}
         <nav className="nav-desk" style={{ display: 'flex', alignItems: 'center', gap: 28, marginLeft: 22, marginRight: 'auto' }} aria-label="Primary">
           {NAV.map((n, i) => (
-            <a key={n.label} href={n.href} aria-expanded={open === i} aria-haspopup="true"
+            <a key={n.label} href={localHref(n.href)} aria-expanded={open === i} aria-haspopup="true"
               className={open === i ? 'is-open' : ''}
               onMouseEnter={() => openMega(i)}
               style={{ display: 'inline-flex', alignItems: 'center', font: '500 14px/1 var(--font-body)',
@@ -272,16 +347,11 @@ function Nav({ getStartedTone = 'midnight', homeHref = 'index.html' }) {
           {/* Language dropdown */}
           <div style={{ position: 'relative' }} onMouseEnter={() => setLangOpen(true)} onMouseLeave={() => setLangOpen(false)}>
             <button aria-label="Change language" aria-expanded={langOpen} style={{ display: 'inline-flex', alignItems: 'center', gap: 5, background: 'none', border: 'none', cursor: 'pointer', color: 'var(--warm-600)', font: '600 13px/1 var(--font-body)', padding: '8px 2px' }}>
-              <GlobeIcon />{lang}<Caret open={langOpen} />
+              <GlobeIcon />{langOf(lang).menu}<Caret open={langOpen} />
             </button>
             {langOpen && (
               <div role="menu" className="lang-menu" style={{ position: 'absolute', top: '100%', right: 0, marginTop: 4, minWidth: 200, background: '#fff', border: '1px solid var(--warm-200)', borderRadius: 'var(--r-md)', boxShadow: 'var(--shadow-xl)', padding: 6 }}>
-                {LANGS.map(l => (
-                  <button key={l.code} role="menuitemradio" aria-checked={l.code === lang} onClick={() => { setLang(l.code); setLangOpen(false); }} className={'lang-opt' + (l.code === lang ? ' is-selected' : '')}>
-                    <span>{l.label}</span>
-                    <span className="lang-opt-code">{l.code}<LangTick /></span>
-                  </button>
-                ))}
+                {LANGS.map(l => <LangOption key={l.code} l={l} lang={lang} page={page} role="menuitemradio" />)}
               </div>
             )}
           </div>
@@ -305,26 +375,21 @@ function Nav({ getStartedTone = 'midnight', homeHref = 'index.html' }) {
                   {n.columns
                     ? n.columns.map((col, ci) => (
                         <div key={ci} style={{ marginTop: ci ? 22 : 6 }}>
-                          {col.top && <a href={col.top[1]} style={{ display: 'block', padding: '10px 12px', color: 'var(--warm-600)', fontSize: 15 }}>{col.top[0]}</a>}
+                          {col.top && <a href={localHref(col.top[1])} style={{ display: 'block', padding: '10px 12px', color: 'var(--warm-600)', fontSize: 15 }}>{col.top[0]}</a>}
                           {col.head && <div style={{ margin: '0 0 10px', padding: '2px 0 9px', borderBottom: '1px solid var(--warm-200)', font: '700 12px/1 var(--font-body)', color: 'var(--warm-400)' }}>{col.head}</div>}
                           {col.links.map(([t, href, soon]) => soon
                             ? <span key={t} style={{ display: 'block', padding: '10px 12px', color: 'var(--warm-400)', fontSize: 15 }}>{t} <em style={{ fontStyle: 'normal', fontSize: 13 }}>(coming soon)</em></span>
-                            : <a key={t} href={href} style={{ display: 'block', padding: '10px 12px', color: 'var(--warm-600)', fontSize: 15 }}>{t}</a>)}
+                            : <a key={t} href={localHref(href)} style={{ display: 'block', padding: '10px 12px', color: 'var(--warm-600)', fontSize: 15 }}>{t}</a>)}
                         </div>
                       ))
-                    : n.items.map((it) => <a key={it.t} href={it.href} style={{ display: 'block', padding: '10px 12px', color: 'var(--warm-600)', fontSize: 15 }}>{it.t}</a>)}
+                    : n.items.map((it) => <a key={it.t} href={localHref(it.href)} style={{ display: 'block', padding: '10px 12px', color: 'var(--warm-600)', fontSize: 15 }}>{it.t}</a>)}
                 </div>
               </details>
             ))}
             <details style={{ borderBottom: '1px solid var(--warm-200)' }}>
-              <summary style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '15px 4px', fontWeight: 600, fontSize: 16, cursor: 'pointer', listStyle: 'none' }}><span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}><GlobeIcon size={18} />Language: {lang}</span><Caret /></summary>
+              <summary style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '15px 4px', fontWeight: 600, fontSize: 16, cursor: 'pointer', listStyle: 'none' }}><span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}><GlobeIcon size={18} />Language: {langOf(lang).menu}</span><Caret /></summary>
               <div style={{ padding: '0 4px 12px' }}>
-                {LANGS.map(l => (
-                  <button key={l.code} aria-pressed={l.code === lang} onClick={(e) => { setLang(l.code); const d = e.currentTarget.closest('details'); if (d) d.open = false; }} className={'lang-opt lang-opt-m' + (l.code === lang ? ' is-selected' : '')}>
-                    <span>{l.label}</span>
-                    <span className="lang-opt-code">{l.code}<LangTick /></span>
-                  </button>
-                ))}
+                {LANGS.map(l => <LangOption key={l.code} l={l} lang={lang} page={page} mobile />)}
               </div>
             </details>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginTop: 14 }}>
@@ -343,6 +408,8 @@ function Nav({ getStartedTone = 'midnight', homeHref = 'index.html' }) {
           padding:10px 12px;border-radius:var(--r-sm);background:none;font:500 14px/1.2 var(--font-body);color:var(--warm-900);transition:background .15s;}
         .lang-opt:hover, .lang-opt:focus-visible{background:var(--warm-100);}
         .lang-opt.is-selected{font-weight:600;background:rgba(240,88,38,.06);}
+        .lang-opt.is-off{color:var(--warm-400);cursor:default;}
+        .lang-opt.is-off:hover{background:none;}
         .lang-opt-code{display:inline-flex;align-items:center;gap:6px;font:600 12px/1 var(--font-body);color:var(--warm-400);}
         .lang-opt-tick{width:14px;height:14px;color:var(--ember);visibility:hidden;}
         .lang-opt.is-selected .lang-opt-tick{visibility:visible;}
@@ -430,7 +497,7 @@ function Nav({ getStartedTone = 'midnight', homeHref = 'index.html' }) {
               </div>
             ))}
             {n.feat && (
-              <a className="mega4-feat" href={n.feat.href} role="menuitem">
+              <a className="mega4-feat" href={localHref(n.feat.href)} role="menuitem">
                 <img src={n.feat.img} alt="" loading="lazy" />
                 <span className="mega4-feat-scrim" aria-hidden="true" style={{ background: n.feat.scrim }} />
                 <span className="mega4-feat-body">
@@ -453,9 +520,9 @@ function Arrow({ s = 16 }) {
 }
 
 const FOOT = [
-  { h: 'For Publishers', links: [['Overview','for-publishers.html'],['All Brands Directory','https://app.involve.asia/directory'],['Express Withdrawal','express-withdrawal.html'],['Developer API','api-overview.html'],['Data Feed','datafeed.html']] },
-  { h: 'For Advertisers', links: [['Overview','for-advertisers.html'],['How We Track','how-we-track.html'],['Partner Discovery','partner-discovery.html'],['Automation','automation.html'],['Case Studies','https://involve.asia/blog/category/advertisers/success-stories/']] },
-  { h: 'Involve', links: [['About Us','about.html'],['Careers','https://careers.involve.asia/'],['Blog','blog.html'],['Support','https://helpcentre.involve.asia/'],['Terms & Conditions','terms-conditions.html'],['Privacy Policy','https://app.involve.asia/publisher/privacypolicy']] },
+  { h: 'For Publishers', links: [['Overview','for-publishers'],['All Brands Directory','https://app.involve.asia/directory'],['Express Withdrawal','express-withdrawal'],['Developer API','api-overview'],['Data Feed','datafeed']] },
+  { h: 'For Advertisers', links: [['Overview','for-advertisers'],['How We Track','how-we-track'],['Partner Discovery','partner-discovery'],['Automation','automation'],['Case Studies','https://involve.asia/blog/category/advertisers/success-stories/']] },
+  { h: 'Involve', links: [['About Us','about'],['Careers','https://careers.involve.asia/'],['Blog','blog'],['Support','https://helpcentre.involve.asia/'],['Terms & Conditions','terms-conditions'],['Privacy Policy','https://app.involve.asia/publisher/privacypolicy']] },
 ];
 // [name, url, icon] — icons are the white 48×48 "[name]-Social Icon.svg" exports
 const SOCIAL = [['Facebook','https://www.facebook.com/involveasia','facebook'],['Twitter','https://twitter.com/InvolveAsia','twitter'],['Instagram','https://www.instagram.com/involveasia/','instagram'],['LinkedIn','https://www.linkedin.com/company/involve-asia/','linkedin']];
@@ -491,7 +558,7 @@ function Footer() {
               <h4 style={{ fontSize: 13, color: '#fff', fontFamily: 'var(--font-body)', fontWeight: 700 }}>{col.h}</h4>
               <ul style={{ marginTop: 16, display: 'flex', flexDirection: 'column', gap: 11 }}>
                 {col.links.map(([t, u]) => (
-                  <li key={t}><a href={u} style={{ fontSize: 14, color: 'var(--warm-300)', transition: 'color .15s' }}
+                  <li key={t}><a href={localHref(u)} style={{ fontSize: 14, color: 'var(--warm-300)', transition: 'color .15s' }}
                     onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = 'var(--warm-300)'}>{t}</a></li>
                 ))}
               </ul>
@@ -501,7 +568,7 @@ function Footer() {
         <div style={{ borderTop: '1px solid var(--midnight-mid)', padding: '24px 0 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
           <p style={{ fontSize: 13, color: 'var(--warm-300)' }}>© 2014–{year} Involve Asia Technologies Sdn Bhd · 201201032669 (1017157-V)</p>
           <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-            <button aria-label="Change language — English" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'var(--midnight-mid)', border: 'none', borderRadius: 'var(--r-md)', padding: '8px 14px', color: 'var(--warm-300)', font: '500 13px/1 var(--font-body)', cursor: 'pointer' }}><GlobeIcon />English</button>
+            <span aria-label={`Language: ${langOf(currentLang()).label}`} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'var(--midnight-mid)', borderRadius: 'var(--r-md)', padding: '8px 14px', color: 'var(--warm-300)', font: '500 13px/1 var(--font-body)' }}><GlobeIcon />{langOf(currentLang()).label}</span>
           </div>
         </div>
       </div>
@@ -715,4 +782,5 @@ function useScrollReveal() {
   scan();
 })();
 
-Object.assign(window, { prefersReduced, fetchText, useHeroDecoArt, useHexPush, GlobeIcon, Nav, Arrow, Footer, HexCursor, BackToTop, useSmoothScroll, useScrollReveal });
+Object.assign(window, { prefersReduced, fetchText, useHeroDecoArt, useHexPush, GlobeIcon, Nav, Arrow, Footer, HexCursor, BackToTop, useSmoothScroll, useScrollReveal,
+  IA_I18N, currentLang, currentPage, langHref, localHref, useCopy, rich });

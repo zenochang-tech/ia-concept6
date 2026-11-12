@@ -2331,14 +2331,14 @@ function SuccessSlider() {
    (per audience, most recent first). Each card = background image + title + "Read more".
    Mobile mirrors the "Real results" section: tabs above the scroller, "Read the blog" CTA below it. */
 const BLOG_PUB = [
-  { title: 'How to promote affiliate links on TikTok', img: 'home-blog-pub-1.jpg', href: 'blog.html' },
-  { title: 'Express Withdrawal, explained', img: 'home-blog-pub-2.jpg', href: 'blog.html' },
-  { title: 'What is EPC in affiliate marketing?', img: 'home-blog-pub-3.jpg', href: 'blog.html' },
+  { title: 'How to promote affiliate links on TikTok', img: 'home-blog-pub-1.jpg', href: 'blog' },
+  { title: 'Express Withdrawal, explained', img: 'home-blog-pub-2.jpg', href: 'blog' },
+  { title: 'What is EPC in affiliate marketing?', img: 'home-blog-pub-3.jpg', href: 'blog' },
 ];
 const BLOG_ADV = [
-  { title: 'How to launch your first affiliate program', img: 'home-blog-adv-1.jpg', href: 'blog.html' },
-  { title: 'Choosing the right commission structure', img: 'home-blog-adv-2.jpg', href: 'blog.html' },
-  { title: 'Measuring ROI across your publisher network', img: 'home-blog-adv-3.jpg', href: 'blog.html' },
+  { title: 'How to launch your first affiliate program', img: 'home-blog-adv-1.jpg', href: 'blog' },
+  { title: 'Choosing the right commission structure', img: 'home-blog-adv-2.jpg', href: 'blog' },
+  { title: 'Measuring ROI across your publisher network', img: 'home-blog-adv-3.jpg', href: 'blog' },
 ];
 function BlogSection() {
   const [btab, setBtab] = React.useState(0); // 0 = Publisher, 1 = Advertiser
@@ -2352,7 +2352,7 @@ function BlogSection() {
             <p className="bg-sub">Fresh tips, playbooks, and insights, whichever side you're on.</p>
           </div>
           <div className="bg-controls">
-            <a href="blog.html" className="bg-readall">Read the Blog <Arrow /></a>
+            <a href="blog" className="bg-readall">Read the Blog <Arrow /></a>
             <div className="bg-tabs" role="tablist" aria-label="Blog audience">
               <button type="button" role="tab" aria-selected={btab === 0} className={'bg-tab' + (btab === 0 ? ' on' : '')} onClick={() => setBtab(0)}>Publisher</button>
               <button type="button" role="tab" aria-selected={btab === 1} className={'bg-tab' + (btab === 1 ? ' on' : '')} onClick={() => setBtab(1)}>Advertiser</button>
@@ -2369,7 +2369,7 @@ function BlogSection() {
             </a>
           ))}
         </div>
-        <a href="blog.html" className="bg-readall-m">Read the Blog <Arrow /></a>
+        <a href="blog" className="bg-readall-m">Read the Blog <Arrow /></a>
       </div>
       <style>{`
         .bg-sec{ background:var(--warm-50); }
@@ -3705,9 +3705,9 @@ function NetworkMorphCTA({ emphasis = 'equal', hex = 3 }) {
 
 /* ---------------- Footer (Midnight — shared anchor) ---------------- */
 const FOOT = [
-  { h: 'For Publishers', links: [['Overview','for-publishers.html'],['All Brands Directory','https://app.involve.asia/directory'],['Express Withdrawal','express-withdrawal.html'],['Developer API','api-overview.html'],['Data Feed','datafeed.html']] },
-  { h: 'For Advertisers', links: [['Overview','for-advertisers.html'],['How We Track','how-we-track.html'],['Partner Discovery','partner-discovery.html'],['Automation','automation.html'],['Case Studies','https://involve.asia/blog/category/advertisers/success-stories/']] },
-  { h: 'Involve', links: [['About Us','about.html'],['Careers','https://careers.involve.asia/'],['Blog','blog.html'],['Support','https://helpcentre.involve.asia/'],['Terms & Conditions','terms-conditions.html'],['Privacy Policy','https://app.involve.asia/publisher/privacypolicy']] },
+  { h: 'For Publishers', links: [['Overview','for-publishers'],['All Brands Directory','https://app.involve.asia/directory'],['Express Withdrawal','express-withdrawal'],['Developer API','api-overview'],['Data Feed','datafeed']] },
+  { h: 'For Advertisers', links: [['Overview','for-advertisers'],['How We Track','how-we-track'],['Partner Discovery','partner-discovery'],['Automation','automation'],['Case Studies','https://involve.asia/blog/category/advertisers/success-stories/']] },
+  { h: 'Involve', links: [['About Us','about'],['Careers','https://careers.involve.asia/'],['Blog','blog'],['Support','https://helpcentre.involve.asia/'],['Terms & Conditions','terms-conditions'],['Privacy Policy','https://app.involve.asia/publisher/privacypolicy']] },
 ];
 // [name, url, icon] — icons are the white 48×48 "[name]-Social Icon.svg" exports
 const SOCIAL = [['Facebook','https://www.facebook.com/involveasia','facebook'],['Twitter','https://twitter.com/InvolveAsia','twitter'],['Instagram','https://www.instagram.com/involveasia/','instagram'],['LinkedIn','https://www.linkedin.com/company/involve-asia/','linkedin']];

@@ -85,7 +85,7 @@ function PricingPlans() {
               <ul className="pp-feats">
                 {p.feats.map((f, i) => (<li key={i}><span className="pp-chk" aria-hidden="true"><PlanCheck /></span>{f}</li>))}
               </ul>
-              <a href={`get-started.html?plan=${encodeURIComponent(p.name)}`} className="btn btn-advertiser btn-lg pp-cta">{p.cta} <Arrow /></a>
+              <a href={`get-started?plan=${encodeURIComponent(p.name)}`} className="btn btn-advertiser btn-lg pp-cta">{p.cta} <Arrow /></a>
             </div>
           ))}
         </div>

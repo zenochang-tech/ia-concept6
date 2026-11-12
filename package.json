@@ -4,7 +4,7 @@
   "description": "Build step: compiles the page .jsx ahead of time and pre-renders every page to static HTML (see scripts/build.mjs).",
   "type": "module",
   "scripts": {
-    "build": "python3 build-seo.py && node scripts/build.mjs",
+    "build": "python3 build-i18n.py && python3 build-seo.py && node scripts/build.mjs",
     "preview": "node scripts/build.mjs --serve"
   },
   "devDependencies": {
