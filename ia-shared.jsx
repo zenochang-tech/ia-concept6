@@ -228,6 +228,30 @@ function rich(str, linkClass) {
   return out;
 }
 
+/* Shared chrome (menu, footer, app pop-up, back-to-top) is written in English in the code;
+   content/shared/<lang>.json translates it with the English text as the key —
+     "text":  { "For Publishers": "Untuk Publisher", "Involve Asia on {name} (opens in a new tab)": "…" }
+     "links": { "<English URL>": "<this market's URL>" or null to hide that link }
+   Anything missing stays English. Change an English string here and its translations
+   need the same new key. */
+const IA_SHARED = window.IA_SHARED
+  || (currentLang() === IA_I18N.default ? null : loadJSON(`content/shared/${currentLang()}.json`)) || {};
+function tr(str, vars) {
+  let out = (IA_SHARED.text && IA_SHARED.text[str]) || str;
+  if (vars) out = out.replace(/\{(\w+)\}/g, (m, k) => (k in vars ? vars[k] : m));
+  return out;
+}
+const trLink = (url) => (IA_SHARED.links && url in IA_SHARED.links ? IA_SHARED.links[url] : url);
+// Menu data in the current language; links a market hides (mapped to null) drop out.
+const trLinks = (links) => links.map(([l, h, soon]) => [tr(l), trLink(h), soon]).filter(([, h]) => h !== null);
+const trNav = (nav) => nav.map((n) => ({
+  ...n, label: tr(n.label), href: trLink(n.href),
+  feat: n.feat && { ...n.feat, head: tr(n.feat.head), desc: tr(n.feat.desc), cta: tr(n.feat.cta), href: trLink(n.feat.href) },
+  columns: n.columns && n.columns.map((c) => ({ ...c, head: c.head && tr(c.head), top: c.top && [tr(c.top[0]), trLink(c.top[1])], links: trLinks(c.links) })),
+  items: n.items && n.items.map((it) => ({ ...it, t: tr(it.t), href: trLink(it.href) })).filter((it) => it.href !== null),
+}));
+const NAV_LOCAL = trNav(NAV);
+
 // Language switcher icon: Lucide "globe" (outline, 1.5px stroke, currentColor), per the design
 // system's icon rules — used in the nav and the footer instead of the 🌐 emoji.
 function GlobeIcon({ size = 16 }) {
@@ -249,7 +273,7 @@ function LangOption({ l, lang, page, role, mobile }) {
   const cls = 'lang-opt' + (mobile ? ' lang-opt-m' : '') + (l.code === lang ? ' is-selected' : '');
   const inner = <React.Fragment><span>{l.label}</span><span className="lang-opt-code">{l.menu}<LangTick /></span></React.Fragment>;
   if (!hasLang(page, l.code)) {
-    return <span role={role} aria-disabled="true" title="This page isn't available in this language yet" className={cls + ' is-off'}>{inner}</span>;
+    return <span role={role} aria-disabled="true" title={tr("This page isn't available in this language yet")} className={cls + ' is-off'}>{inner}</span>;
   }
   return <a role={role} aria-checked={role ? l.code === lang : undefined} aria-current={l.code === lang ? 'page' : undefined} hrefLang={l.hreflang} lang={l.htmlLang} href={langHref(l.code, page)} className={cls}>{inner}</a>;
 }
@@ -262,7 +286,7 @@ function Caret({ open }) {
 // `soon` — rendered non-clickable with a grey "(coming soon)" tag.
 function MegaLink({ link }) {
   const [t, href, soon] = link;
-  if (soon) return <span className="mega4-link mega4-soon"><b>{t}</b><em>(coming soon)</em></span>;
+  if (soon) return <span className="mega4-link mega4-soon"><b>{t}</b><em>{tr('(coming soon)')}</em></span>;
   return <a href={localHref(href)} role="menuitem" className="mega4-link"><b>{t}</b></a>;
 }
 
@@ -325,14 +349,14 @@ function Nav({ getStartedTone = 'midnight', homeHref = './' }) {
       transition: 'background .3s, border-color .3s, box-shadow .3s',
     }} onMouseLeave={scheduleClose}>
       <div className="wrap" style={{ display: 'flex', alignItems: 'center', height: scrolled ? 62 : 74, gap: 24, position: 'relative', transition: 'height .3s' }}>
-        <a href={localHref(homeHref)} aria-label="Involve Asia home" style={{ display: 'flex', alignItems: 'center', flex: '0 0 auto', zIndex: 2, position: 'relative' }}>
+        <a href={localHref(homeHref)} aria-label={tr('Involve Asia home')} style={{ display: 'flex', alignItems: 'center', flex: '0 0 auto', zIndex: 2, position: 'relative' }}>
           <img src={R('logoMidnight', "media/brand/wordmark-midnight.png")} alt="Involve Asia" width="132" height="28" style={{ height: 28, width: 'auto', transition: 'opacity .35s ease', opacity: dark ? 0 : 1 }} />
           <img src={R('logoWhite', "media/brand/wordmark-white.png")} alt="" aria-hidden="true" width="132" height="28" style={{ height: 28, width: 'auto', position: 'absolute', left: 0, top: '50%', transform: 'translateY(-50%)', transition: 'opacity .35s ease', opacity: dark ? 1 : 0 }} />
         </a>
 
         {/* Left-aligned primary nav (Concept 3) */}
-        <nav className="nav-desk" style={{ display: 'flex', alignItems: 'center', gap: 28, marginLeft: 22, marginRight: 'auto' }} aria-label="Primary">
-          {NAV.map((n, i) => (
+        <nav className="nav-desk" style={{ display: 'flex', alignItems: 'center', gap: 28, marginLeft: 22, marginRight: 'auto' }} aria-label={tr('Primary')}>
+          {NAV_LOCAL.map((n, i) => (
             <a key={n.label} href={localHref(n.href)} aria-expanded={open === i} aria-haspopup="true"
               className={open === i ? 'is-open' : ''}
               onMouseEnter={() => openMega(i)}
@@ -346,7 +370,7 @@ function Nav({ getStartedTone = 'midnight', homeHref = './' }) {
         <div className="nav-right" style={{ display: 'flex', alignItems: 'center', gap: 18, zIndex: 2 }}>
           {/* Language dropdown */}
           <div style={{ position: 'relative' }} onMouseEnter={() => setLangOpen(true)} onMouseLeave={() => setLangOpen(false)}>
-            <button aria-label="Change language" aria-expanded={langOpen} style={{ display: 'inline-flex', alignItems: 'center', gap: 5, background: 'none', border: 'none', cursor: 'pointer', color: 'var(--warm-600)', font: '600 13px/1 var(--font-body)', padding: '8px 2px' }}>
+            <button aria-label={tr('Change language')} aria-expanded={langOpen} style={{ display: 'inline-flex', alignItems: 'center', gap: 5, background: 'none', border: 'none', cursor: 'pointer', color: 'var(--warm-600)', font: '600 13px/1 var(--font-body)', padding: '8px 2px' }}>
               <GlobeIcon />{langOf(lang).menu}<Caret open={langOpen} />
             </button>
             {langOpen && (
@@ -355,10 +379,10 @@ function Nav({ getStartedTone = 'midnight', homeHref = './' }) {
               </div>
             )}
           </div>
-          <a href="https://app.involve.asia/v2/login" className="nav-login" style={{ font: '600 14px/1 var(--font-body)', color: 'var(--warm-900)', padding: '8px 4px' }}>Login</a>
-          <a href="https://app.involve.asia/v2/create-account" className={`btn ${gsClass}`} style={{ padding: '11px 22px', fontSize: 14 }}>Get Started <span className="arw">→</span></a>
+          <a href="https://app.involve.asia/v2/login" className="nav-login" style={{ font: '600 14px/1 var(--font-body)', color: 'var(--warm-900)', padding: '8px 4px' }}>{tr('Login')}</a>
+          <a href="https://app.involve.asia/v2/create-account" className={`btn ${gsClass}`} style={{ padding: '11px 22px', fontSize: 14 }}>{tr('Get Started')} <span className="arw">→</span></a>
         </div>
-        <button className="nav-burger" aria-label="Open menu" aria-expanded={mobile} onClick={() => setMobile(v => !v)} style={{ display: 'none', background: 'none', border: 'none', cursor: 'pointer', padding: 8, color: 'var(--midnight)', marginLeft: 'auto', zIndex: 2 }}>
+        <button className="nav-burger" aria-label={tr('Open menu')} aria-expanded={mobile} onClick={() => setMobile(v => !v)} style={{ display: 'none', background: 'none', border: 'none', cursor: 'pointer', padding: 8, color: 'var(--midnight)', marginLeft: 'auto', zIndex: 2 }}>
           <svg width="26" height="26" viewBox="0 0 24 24"><path d={mobile ? 'M5 5l14 14M19 5L5 19' : 'M4 7h16M4 12h16M4 17h16'} stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
         </button>
       </div>
@@ -368,7 +392,7 @@ function Nav({ getStartedTone = 'midnight', homeHref = './' }) {
       {mobile && (
         <div className="nav-mobile" style={{ position: 'absolute', top: '100%', left: 0, right: 0, borderTop: '1px solid var(--warm-200)', background: 'var(--warm-50)', padding: '12px 0 24px', maxHeight: 'calc(100dvh - 75px)', overflowY: 'auto', overscrollBehavior: 'contain', boxShadow: '0 24px 40px rgba(15,28,46,.10)' }}>
           <div className="wrap">
-            {NAV.map((n) => (
+            {NAV_LOCAL.map((n) => (
               <details key={n.label} style={{ borderBottom: '1px solid var(--warm-200)' }}>
                 <summary style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '15px 4px', fontWeight: 600, fontSize: 16, cursor: 'pointer', listStyle: 'none' }}>{n.label}<Caret /></summary>
                 <div style={{ padding: '0 4px 12px' }}>
@@ -378,7 +402,7 @@ function Nav({ getStartedTone = 'midnight', homeHref = './' }) {
                           {col.top && <a href={localHref(col.top[1])} style={{ display: 'block', padding: '10px 12px', color: 'var(--warm-600)', fontSize: 15 }}>{col.top[0]}</a>}
                           {col.head && <div style={{ margin: '0 0 10px', padding: '2px 0 9px', borderBottom: '1px solid var(--warm-200)', font: '700 12px/1 var(--font-body)', color: 'var(--warm-400)' }}>{col.head}</div>}
                           {col.links.map(([t, href, soon]) => soon
-                            ? <span key={t} style={{ display: 'block', padding: '10px 12px', color: 'var(--warm-400)', fontSize: 15 }}>{t} <em style={{ fontStyle: 'normal', fontSize: 13 }}>(coming soon)</em></span>
+                            ? <span key={t} style={{ display: 'block', padding: '10px 12px', color: 'var(--warm-400)', fontSize: 15 }}>{t} <em style={{ fontStyle: 'normal', fontSize: 13 }}>{tr('(coming soon)')}</em></span>
                             : <a key={t} href={localHref(href)} style={{ display: 'block', padding: '10px 12px', color: 'var(--warm-600)', fontSize: 15 }}>{t}</a>)}
                         </div>
                       ))
@@ -387,14 +411,14 @@ function Nav({ getStartedTone = 'midnight', homeHref = './' }) {
               </details>
             ))}
             <details style={{ borderBottom: '1px solid var(--warm-200)' }}>
-              <summary style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '15px 4px', fontWeight: 600, fontSize: 16, cursor: 'pointer', listStyle: 'none' }}><span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}><GlobeIcon size={18} />Language: {langOf(lang).menu}</span><Caret /></summary>
+              <summary style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '15px 4px', fontWeight: 600, fontSize: 16, cursor: 'pointer', listStyle: 'none' }}><span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}><GlobeIcon size={18} />{tr('Language: {lang}', { lang: langOf(lang).menu })}</span><Caret /></summary>
               <div style={{ padding: '0 4px 12px' }}>
                 {LANGS.map(l => <LangOption key={l.code} l={l} lang={lang} page={page} mobile />)}
               </div>
             </details>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginTop: 14 }}>
-              <a href="https://app.involve.asia/v2/login" className="btn btn-secondary btn-block">Login</a>
-              <a href="https://app.involve.asia/v2/create-account" className={`btn ${gsClass} btn-block`}>Get Started</a>
+              <a href="https://app.involve.asia/v2/login" className="btn btn-secondary btn-block">{tr('Login')}</a>
+              <a href="https://app.involve.asia/v2/create-account" className={`btn ${gsClass} btn-block`}>{tr('Get Started')}</a>
             </div>
           </div>
         </div>
@@ -486,7 +510,7 @@ function Nav({ getStartedTone = 'midnight', homeHref = './' }) {
       transform: open !== null ? 'translateY(0)' : 'translateY(-16px)',
       transition: 'opacity .35s cubic-bezier(.4,0,.2,1), transform .4s cubic-bezier(.4,0,.2,1), visibility .35s cubic-bezier(.4,0,.2,1)',
     }}>
-      {NAV.map((n, i) => open === i && (
+      {NAV_LOCAL.map((n, i) => open === i && (
         <div key={n.label} className="wrap" role="menu">
           <div className="mega4-cols" style={{ display: 'flex', flexWrap: 'wrap', gap: '10px clamp(44px,5vw,72px)', alignItems: 'flex-start' }}>
             {n.columns.map((col, ci) => (
@@ -525,6 +549,7 @@ const FOOT = [
   { h: 'Involve', links: [['About Us','about'],['Careers','https://careers.involve.asia/'],['Blog','blog'],['Support','https://helpcentre.involve.asia/'],['Terms & Conditions','terms-conditions'],['Privacy Policy','https://app.involve.asia/publisher/privacypolicy']] },
 ];
 // [name, url, icon] — icons are the white 48×48 "[name]-Social Icon.svg" exports
+const FOOT_LOCAL = FOOT.map((col) => ({ h: tr(col.h), links: trLinks(col.links) }));
 const SOCIAL = [['Facebook','https://www.facebook.com/involveasia','facebook'],['Twitter','https://twitter.com/InvolveAsia','twitter'],['Instagram','https://www.instagram.com/involveasia/','instagram'],['LinkedIn','https://www.linkedin.com/company/involve-asia/','linkedin']];
 function Footer() {
   const year = new Date().getFullYear();
@@ -541,11 +566,11 @@ function Footer() {
           <div style={{ maxWidth: 280 }}>
             <img src={(window.__resources && window.__resources.logoWhite) || "media/brand/wordmark-white.png"} alt="Involve Asia" width="140" height="30" style={{ height: 30, width: 'auto' }} />
             <p style={{ marginTop: 16, fontSize: 14, color: 'var(--warm-300)', lineHeight: 1.6 }}>
-              The affiliate marketing platform connecting advertisers with creators and publishers across Asia.
+              {tr('The affiliate marketing platform connecting advertisers with creators and publishers across Asia.')}
             </p>
             <div style={{ display: 'flex', gap: 10, marginTop: 20 }}>
               {SOCIAL.map(([n, u, ic]) => (
-                <a key={n} href={u} target="_blank" rel="noopener noreferrer" aria-label={`Involve Asia on ${n} (opens in a new tab)`} style={{ width: 38, height: 38, borderRadius: 'var(--r-lg)', background: 'var(--midnight-mid)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--warm-300)', fontSize: 12, fontWeight: 600, transition: 'background .15s' }}
+                <a key={n} href={u} target="_blank" rel="noopener noreferrer" aria-label={tr('Involve Asia on {name} (opens in a new tab)', { name: n })} style={{ width: 38, height: 38, borderRadius: 'var(--r-lg)', background: 'var(--midnight-mid)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--warm-300)', fontSize: 12, fontWeight: 600, transition: 'background .15s' }}
                    onMouseEnter={e => e.currentTarget.style.background = 'var(--midnight-soft)'}
                    onMouseLeave={e => e.currentTarget.style.background = 'var(--midnight-mid)'}>
                   <img src={`media/figma/${ic}-Social%20Icon.svg`} alt="" width="18" height="18" style={{ display: 'block', width: 18, height: 18 }} />
@@ -553,7 +578,7 @@ function Footer() {
               ))}
             </div>
           </div>
-          {FOOT.map(col => (
+          {FOOT_LOCAL.map(col => (
             <div key={col.h}>
               <h4 style={{ fontSize: 13, color: '#fff', fontFamily: 'var(--font-body)', fontWeight: 700 }}>{col.h}</h4>
               <ul style={{ marginTop: 16, display: 'flex', flexDirection: 'column', gap: 11 }}>
@@ -568,7 +593,7 @@ function Footer() {
         <div style={{ borderTop: '1px solid var(--midnight-mid)', padding: '24px 0 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
           <p style={{ fontSize: 13, color: 'var(--warm-300)' }}>© 2014–{year} Involve Asia Technologies Sdn Bhd · 201201032669 (1017157-V)</p>
           <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-            <span aria-label={`Language: ${langOf(currentLang()).label}`} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'var(--midnight-mid)', borderRadius: 'var(--r-md)', padding: '8px 14px', color: 'var(--warm-300)', font: '500 13px/1 var(--font-body)' }}><GlobeIcon />{langOf(currentLang()).label}</span>
+            <span aria-label={tr('Language: {lang}', { lang: langOf(currentLang()).label })} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'var(--midnight-mid)', borderRadius: 'var(--r-md)', padding: '8px 14px', color: 'var(--warm-300)', font: '500 13px/1 var(--font-body)' }}><GlobeIcon />{langOf(currentLang()).label}</span>
           </div>
         </div>
       </div>
@@ -670,7 +695,7 @@ function BackToTop() {
   };
   return (
     <React.Fragment>
-      <button type="button" className={'b2t' + (show ? ' b2t-in' : '')} onClick={toTop} aria-label="Back to top" tabIndex={show ? 0 : -1}>
+      <button type="button" className={'b2t' + (show ? ' b2t-in' : '')} onClick={toTop} aria-label={tr('Back to top')} tabIndex={show ? 0 : -1}>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M6 15l6-6 6 6" /></svg>
       </button>
       <style>{`
@@ -783,4 +808,4 @@ function useScrollReveal() {
 })();
 
 Object.assign(window, { prefersReduced, fetchText, useHeroDecoArt, useHexPush, GlobeIcon, Nav, Arrow, Footer, HexCursor, BackToTop, useSmoothScroll, useScrollReveal,
-  IA_I18N, currentLang, currentPage, langHref, localHref, useCopy, rich });
+  IA_I18N, currentLang, currentPage, langHref, localHref, useCopy, rich, tr });

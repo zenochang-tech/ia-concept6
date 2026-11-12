@@ -10,6 +10,8 @@ from the English  <page>.html :
   - <base href="../">  so the shared scripts, styles and media resolve from the site root,
   - window.IA_LANG, which the page scripts read to pick content/pages/<page>/<lang>.json,
   - <title> and <meta description> from that file's "meta" block.
+The menu, footer and app pop-up read content/shared/<lang>.json (English text -> translation);
+this script warns when a key there no longer matches any English text in the code.
 build-seo.py then adds the SEO block (canonical, hreflang, sitemap) to these copies too.
 
 The language folders are generated: every run clears their .html files first, so
@@ -29,8 +31,21 @@ def load(rel):
         return json.load(f)
 
 
+def check_shared(cfg):
+    """Warn about shared-text keys whose English no longer appears in the code (a reworded menu label)."""
+    code = "".join(open(f, encoding="utf-8").read() for f in glob.glob(os.path.join(HERE, "*.jsx")))
+    for l in cfg["languages"]:
+        rel = f"content/shared/{l['code']}.json"
+        if not os.path.exists(os.path.join(HERE, rel)):
+            continue
+        for key in load(rel).get("text", {}):
+            if key not in code and key.replace("'", "\\'") not in code:
+                print(f"WARN   {rel}: no English text \"{key}\" in the code — reworded or removed?")
+
+
 def main():
     cfg = load("content/i18n.json")
+    check_shared(cfg)
     langs = {l["code"]: l for l in cfg["languages"]}
 
     # Clear previous copies (only generated .html files inside the language folders).

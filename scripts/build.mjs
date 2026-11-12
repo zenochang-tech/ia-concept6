@@ -9,8 +9,8 @@
 //   3. every page is opened in headless Chrome and its rendered #root is baked into
 //      the HTML, so the real headings, copy and links are in the page source.
 // Language copies (id/referral-program.html, written by build-i18n.py) go through the same
-// steps, and the language list + each translated page's copy are inlined as
-// window.IA_I18N / window.IA_COPY, so the live site never fetches content/*.json.
+// steps, and the language list, the shared menu/footer text and each translated page's copy
+// are inlined as window.IA_I18N / IA_SHARED / IA_COPY, so the live site never fetches content/*.json.
 // Pages are linked without ".html"; the preview server below resolves /about to about.html
 // the same way GitHub Pages does.
 // In the browser React still mounts as before and replaces the baked markup; until it
@@ -89,7 +89,8 @@ const uses = new Map();
 for (const name of rootHtml) {
   for (const m of fs.readFileSync(path.join(OUT, name), 'utf8').matchAll(BABEL_TAG)) uses.set(m[1], (uses.get(m[1]) || 0) + 1);
 }
-// window.IA_I18N on every page; window.IA_COPY (English merged with the page's language) on translated ones.
+// window.IA_I18N on every page; on a language copy also window.IA_SHARED (menu/footer text,
+// content/shared/<lang>.json); window.IA_COPY (English merged with the page's language) on translated pages.
 const readJSON = (rel) => JSON.parse(fs.readFileSync(path.join(ROOT, rel), 'utf8'));
 const merge = (base, over) => {
   if (Array.isArray(over) || typeof over !== 'object' || over === null) return over === undefined ? base : over;
@@ -103,6 +104,8 @@ function i18nScript(name) {
   const key = file.replace(/\.html$/, '');
   const lang = I18N.languages.find((l) => l.path === dir) || I18N.languages.find((l) => l.code === I18N.default);
   let js = `window.IA_I18N=${inline(I18N)};`;
+  const shared = `content/shared/${lang.code}.json`;
+  if (lang.code !== I18N.default && fs.existsSync(path.join(ROOT, shared))) js += `window.IA_SHARED=${inline(readJSON(shared))};`;
   if (I18N.pages[key]) {
     let copy = readJSON(`content/pages/${key}/${I18N.default}.json`);
     if (lang.code !== I18N.default) copy = merge(copy, readJSON(`content/pages/${key}/${lang.code}.json`));
