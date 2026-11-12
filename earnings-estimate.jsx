@@ -41,7 +41,7 @@ function EarningsHero() {
           </form>
           <p className="ee-micro" data-reveal data-reveal-delay="2">No sign up needed. We only read what's already public, no password.</p>
         </div>
-        <p className="ee-alt" data-reveal data-reveal-delay="3">Run paid traffic, an app, or a network instead? <br /><a href="for-publishers.html">See how to earn with Involve here.</a></p>
+        <p className="ee-alt" data-reveal data-reveal-delay="3">Run paid traffic, an app, or a network instead? <br /><a href="for-publishers">See how to earn with Involve here.</a></p>
       </div>
       <style>{`
         .ee-sec{ position:relative; overflow:hidden; background:var(--warm-50); }

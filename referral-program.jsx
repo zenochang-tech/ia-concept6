@@ -3,35 +3,33 @@
    involve.asia/partners/referral-program/ page with the existing publisher-page parts:
    the Express Withdrawal hero (HeroHexGrid + hex photo), its intro
    layout, the shared NumberedSteps / Faq / FinalCta sections, and a design-system
-   table for the reward maths. Copy is from the live page; headings in sentence case.
-   Loaded AFTER ia-shared.jsx + ia-sections.jsx.
+   table for the reward maths. All copy (and the per-country reward, links and
+   amounts) lives in content/pages/referral-program/<lang>.json and arrives through
+   useCopy — this file only holds the layout. Loaded AFTER ia-shared.jsx + ia-sections.jsx.
    ============================================================================ */
 
-const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, FinalCta, Faq, AppDownload, NumberedSteps, HeroHexGrid, HERO_HEXGRID_CSS } = window;
-
-// Every "Refer your friends" CTA on the live page goes to this short link (dashboard sign-in).
-const RF_LINK = 'https://invl.me/clmpu6y';
+const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, FinalCta, Faq, AppDownload, NumberedSteps, HeroHexGrid, HERO_HEXGRID_CSS, useCopy, rich } = window;
 
 /* ---------- Section 1 — Hero (same layout as the Express Withdrawal hero) ---------- */
-function RfHero() {
+function RfHero({ c, link }) {
   return (
     <section id="pub-hero" className="ph-sec">
       <span className="ph-basefade" aria-hidden="true" />
       <div className="wrap ph-wrap">
         <HeroHexGrid />
         <div className="ph-copy">
-          <span className="ph-eyebrow" data-reveal>Referral Program</span>
-          <h1 className="ph-title" data-reveal data-reveal-delay="1">The Involve Referral Program</h1>
-          <p className="ph-sub" data-reveal data-reveal-delay="1">Invite your friends to join as an Involve Publisher and earn RM5 for every referral. The more you refer, the more you earn. Simple and hassle-free.</p>
+          <span className="ph-eyebrow" data-reveal>{c.eyebrow}</span>
+          <h1 className="ph-title" data-reveal data-reveal-delay="1">{c.title}</h1>
+          <p className="ph-sub" data-reveal data-reveal-delay="1">{c.sub}</p>
           <div className="ph-actions" data-reveal data-reveal-delay="2">
-            <a href={RF_LINK} className="btn btn-primary btn-lg">Refer Your Friends Now <Arrow /></a>
-            <a href="#rf-what" className="btn btn-secondary btn-lg">Learn More</a>
+            <a href={link} className="btn btn-primary btn-lg">{c.cta} <Arrow /></a>
+            <a href="#rf-what" className="btn btn-secondary btn-lg">{c.more}</a>
           </div>
         </div>
 
         <div className="ph-visual" data-reveal data-reveal-delay="1">
           <span className="ph-hexplate" aria-hidden="true" />
-          <div className="ph-photo"><img src="media/figma/referral-hero-image.png" alt="Two friends looking at a phone together" loading="eager" /></div>
+          <div className="ph-photo"><img src="media/figma/referral-hero-image.png" alt={c.imageAlt} loading="eager" /></div>
         </div>
       </div>
 
@@ -70,20 +68,19 @@ function RfHero() {
 }
 
 /* ---------- Section 2 — "What is the Involve Referral Program?" (Express Withdrawal intro layout) ---------- */
-function RfWhat() {
+function RfWhat({ c }) {
   return (
     <section id="rf-what" className="exw-sec">
       <div className="wrap">
         <div className="exw-top">
           <div className="exw-intro">
-            <h2 className="exw-h" data-reveal>What is the Involve Referral Program?</h2>
-            <p className="exw-p" data-reveal data-reveal-delay="1">The Involve Asia Referral Program lets you earn rewards by inviting new partners to join our platform. Share your unique link with friends, family, or anyone who wants to earn commissions from top brands.</p>
-            <p className="exw-p" data-reveal data-reveal-delay="1">When they sign up through your link and complete at least 1 sale within 14 days, you earn a referral reward. Your reward details are shown below.</p>
+            <h2 className="exw-h" data-reveal>{c.title}</h2>
+            {c.paras.map((t, i) => <p className="exw-p" data-reveal data-reveal-delay="1" key={i}>{rich(t)}</p>)}
           </div>
           <div className="exw-card" data-reveal data-reveal-delay="1">
-            <span className="exw-card-lbl">Your Sign-Up Reward</span>
-            <div className="exw-amt"><span className="exw-cur">RM</span><span className="exw-num">5</span></div>
-            <p className="rf-card-note">For you and your friend, once they make their first sale within 14 days.</p>
+            <span className="exw-card-lbl">{c.cardLabel}</span>
+            <div className="exw-amt"><span className="exw-cur">{c.currency}</span><span className="exw-num">{c.amount}</span></div>
+            <p className="rf-card-note">{c.cardNote}</p>
           </div>
         </div>
       </div>
@@ -106,27 +103,26 @@ function RfWhat() {
 }
 
 /* ---------- Section 3 — "Here's how much you can earn" (design-system table) ---------- */
-const RF_EARN = [[10, 'RM50'], [20, 'RM100'], [100, 'RM500']];
-function RfEarn() {
+function RfEarn({ c }) {
   return (
     <section id="rf-earn" className="rfe-sec">
       <div className="wrap">
-        <h2 className="rfe-title" data-reveal>Here's how much you can earn</h2>
-        <p className="rfe-sub" data-reveal data-reveal-delay="1">Each new sign-up must have at least 1 sale conversion (CPS) within 14 days of their account approval. Both of you will earn RM5 as a Sign-Up Reward.</p>
+        <h2 className="rfe-title" data-reveal>{c.title}</h2>
+        <p className="rfe-sub" data-reveal data-reveal-delay="1">{c.sub}</p>
         <div className="rfe-wrap" data-reveal data-reveal-delay="1">
           <table className="rfe-table">
-            <caption className="rfe-cap">Sign-Up Rewards</caption>
+            <caption className="rfe-cap">{c.caption}</caption>
             <thead>
-              <tr><th scope="col">New Sign-Ups</th><th scope="col">Your Sign-Up Reward</th><th scope="col">Your Earnings</th></tr>
+              <tr>{c.cols.map((h) => <th scope="col" key={h}>{h}</th>)}</tr>
             </thead>
             <tbody>
-              {RF_EARN.map(([n, total]) => (
-                <tr key={n}><td>{n} sign-ups</td><td>RM5 each</td><td className="rfe-total">{total}</td></tr>
+              {c.rows.map(([n, each, total]) => (
+                <tr key={n}><td>{n}</td><td>{each}</td><td className="rfe-total">{total}</td></tr>
               ))}
             </tbody>
           </table>
         </div>
-        <p className="rfe-note" data-reveal>Scroll down to our <a href="#pub-faq">FAQs</a> for tips to promote and earn from the Referral Program.</p>
+        <p className="rfe-note" data-reveal>{rich(c.note)}</p>
       </div>
       <style>{`
         .rfe-sec{ background:var(--warm-50); padding:clamp(28px,4vh,48px) 0 clamp(40px,7vh,88px); }
@@ -143,36 +139,14 @@ function RfEarn() {
         .rfe-note{ margin-top:18px; font:400 14px/1.5 var(--font-body); color:var(--warm-600); }
         .rfe-note a{ font-weight:600; color:var(--warm-900); text-decoration:underline; text-underline-offset:3px; }
         .rfe-note a:hover{ color:var(--ember-dark); }
-        @media (max-width:560px){ .rfe-table th, .rfe-table td{ padding-left:14px; padding-right:12px; } .rfe-table{ font-size:14px; } }
+        /* cells may wrap on phones: translated labels ("Rp15.000 per orang") run longer than the English */
+        @media (max-width:560px){ .rfe-table th, .rfe-table td{ padding-left:14px; padding-right:12px; } .rfe-table{ font-size:14px; } .rfe-table td{ white-space:normal; } }
       `}</style>
     </section>
   );
 }
 
-/* ---------- Section 4 — "Here's how it works" (shared NumberedSteps) ---------- */
-const RF_STEPS = [
-  ['1', 'Get your unique referral link', 'Log in to your Publisher dashboard and search for the Involve Asia Publisher Referral Program.'],
-  ['2', 'Promote it on your social media', 'Copy your unique link and share it online.'],
-  ['3', 'Sit back and track your rewards', 'Track your referral rewards using the Conversion Report.'],
-];
-
-/* ---------- Section 5 — FAQs (shared Faq) ---------- */
-const RF_FAQ = [
-  ['Who can join the Involve Referral Program?', 'The Involve Referral Program is open to all registered Publishers with Involve Asia.'],
-  ['Who can I refer to join Involve Asia?', 'Anyone who has never registered as an Involve Asia Publisher before.'],
-  ['What is the cookie duration for this Program?', '7 days.'],
-  ['How do I track my referral performance?', <React.Fragment>You can track your referral performance on your Publisher Dashboard, under Reports &gt; Conversion Report.</React.Fragment>],
-  ['How much can I earn through this Program?', 'You earn RM5 once your referral completes 1 sale conversion within 14 days of account approval.'],
-  ['When will my Reward Payout be paid?', 'Referral rewards are paid monthly.'],
-  ['What is the approval and denial process for this Program?', <React.Fragment>
-    Your referral reward is approved when your referee completes 1 sale conversion within 14 days of account approval.<br /><br />
-    <b>Approve:</b> Reward is granted once the referee gets 1 sale conversion within 14 days.<br />
-    <b>Deny:</b> No reward is given if no sale occurs within 14 days.<br /><br />
-    We'll review every referral to make sure it meets the program requirements. If a referral doesn't qualify, the commission won't be approved.
-  </React.Fragment>],
-  ['Does Involve Asia provide visual assets for this Program?', 'Yes. You can download ready-made visuals and banners from the Involve Asia Publisher Dashboard.'],
-  ['Have more questions?', <React.Fragment>If you require further information, feel free to contact your Account Manager or email us at <a className="rf-mail" href="mailto:wecare@involve.asia">wecare@involve.asia</a>.</React.Fragment>],
-];
+/* ---------- Sections 4–6 — shared NumberedSteps / Faq / FinalCta, fed from the copy ---------- */
 const RF_FAQ_CSS = `
         .rf-mail{ font-weight:600; color:var(--warm-900); text-decoration:underline; text-underline-offset:3px; }
         .rf-mail:hover{ color:var(--ember-dark); }`;
@@ -180,16 +154,18 @@ const RF_FAQ_CSS = `
 function ReferralApp() {
   useSmoothScroll();
   useScrollReveal();
+  const c = useCopy('referral-program');
+  const faq = c.faq.items.map(([q, a]) => [q, rich(a, 'rf-mail')]);
   return (
     <React.Fragment>
       <Nav getStartedTone="pub" />
       <main>
-        <RfHero />
-        <RfWhat />
-        <RfEarn />
-        <NumberedSteps id="rf-how" title="Here's how it works" steps={RF_STEPS} cols={3} />
-        <Faq items={RF_FAQ} title="Referral Program FAQs" css={RF_FAQ_CSS} />
-        <FinalCta title="Time to earn!" href={RF_LINK} label="Refer Your Friends Now" />
+        <RfHero c={c.hero} link={c.links.refer} />
+        <RfWhat c={c.what} />
+        <RfEarn c={c.earn} />
+        <NumberedSteps id="rf-how" title={c.steps.title} steps={c.steps.items} cols={3} />
+        <Faq items={faq} title={c.faq.title} css={RF_FAQ_CSS} />
+        <FinalCta title={c.cta.title} href={c.links.refer} label={c.cta.label} />
       </main>
       <Footer />
       <AppDownload />

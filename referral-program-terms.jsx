@@ -61,7 +61,7 @@ const RFT_TERMS = [
   ]],
   <React.Fragment>Only CPS conversions (<b>excluding Involve Asia’s internal Offers</b>) by the Referee will be counted towards this Offer.</React.Fragment>,
   [<React.Fragment>The <b>full list of bonus</b> you may get from this Offer is listed in the website landing pages below:</React.Fragment>, [
-    RFT_LINK('referral-program.html', 'Malaysia'),
+    RFT_LINK('referral-program', 'Malaysia'),
     RFT_LINK('https://involve.asia/id/partners/referral-programme-id/', 'Indonesia'),
     RFT_LINK('https://involve.asia/th/partners/referral-programme-th/', 'Thailand'),
     RFT_LINK('https://involve.asia/partners/referral-program-ph/', 'Philippines'),

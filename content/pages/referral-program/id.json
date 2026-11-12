@@ -1,0 +1,66 @@
+{
+  "meta": {
+    "title": "Program Referral | Involve Asia",
+    "description": "Ajak temanmu bergabung sebagai Publisher Involve Asia dan dapatkan Rp15.000 untuk setiap referral yang melakukan penjualan. Sederhana dan tanpa ribet."
+  },
+  "links": {
+    "refer": "https://app.involve.asia/publisher/browse/involve-asia-publisher-referral-program-cpa-affiliate-program"
+  },
+  "hero": {
+    "eyebrow": "Program Referral",
+    "title": "Program Referral Involve",
+    "sub": "Ajak temanmu bergabung sebagai Publisher Involve dan dapatkan Rp15.000 untuk setiap referral. Semakin banyak yang kamu ajak, semakin banyak yang kamu dapatkan. Sederhana dan tanpa ribet.",
+    "cta": "Ajak Teman Sekarang",
+    "more": "Pelajari Lebih Lanjut",
+    "imageAlt": "Dua teman melihat ponsel bersama"
+  },
+  "what": {
+    "title": "Apa itu Program Referral Involve?",
+    "paras": [
+      "Program Referral Involve Asia memungkinkan kamu mendapatkan reward dengan mengajak partner baru bergabung di platform kami. Bagikan link unik milikmu kepada teman, keluarga, atau siapa pun yang ingin mendapatkan komisi dari brand ternama.",
+      "Saat mereka mendaftar melalui link kamu dan menyelesaikan minimal 1 penjualan dalam 14 hari, kamu akan mendapatkan reward referral. Detail reward kamu ditunjukkan di bawah ini."
+    ],
+    "cardLabel": "Reward Pendaftaran Kamu",
+    "currency": "Rp",
+    "amount": "15.000",
+    "cardNote": "Untuk kamu dan temanmu, setelah mereka melakukan penjualan pertama dalam 14 hari."
+  },
+  "earn": {
+    "title": "Berikut seberapa banyak yang bisa kamu dapatkan",
+    "sub": "Setiap pendaftar baru harus mendapatkan minimal 1 konversi penjualan (CPS) dalam 14 hari setelah akun mereka disetujui. Kalian berdua akan mendapatkan Rp15.000 sebagai Reward Pendaftaran.",
+    "caption": "Reward Pendaftaran",
+    "cols": ["Pendaftar Baru", "Reward Pendaftaran Kamu", "Penghasilan Kamu"],
+    "rows": [
+      ["10 pendaftar", "Rp15.000 per orang", "Rp150.000"],
+      ["20 pendaftar", "Rp15.000 per orang", "Rp300.000"],
+      ["100 pendaftar", "Rp15.000 per orang", "Rp1.500.000"]
+    ],
+    "note": "Lihat [FAQ](#pub-faq) di bawah untuk tips mempromosikan dan menghasilkan dari Program Referral."
+  },
+  "steps": {
+    "title": "Begini cara kerjanya",
+    "items": [
+      ["1", "Dapatkan link referral unikmu", "Masuk ke dashboard Publisher dan cari Program Referral Publisher Involve Asia."],
+      ["2", "Promosikan di social media milikmu", "Salin link unikmu dan bagikan secara online."],
+      ["3", "Tunggu dan pantau reward-mu", "Lacak reward referral kamu melalui Laporan Konversi."]
+    ]
+  },
+  "faq": {
+    "title": "FAQ Program Referral",
+    "items": [
+      ["Siapa yang bisa mengikuti Program Referral Involve?", "Program Referral Involve terbuka untuk semua Publisher yang terdaftar di Involve Asia."],
+      ["Siapa yang bisa saya ajak bergabung dengan Involve Asia?", "Siapa pun yang belum pernah terdaftar sebagai Publisher Involve Asia."],
+      ["Berapa lama durasi cookie untuk program ini?", "7 hari."],
+      ["Bagaimana cara melacak performa referral saya?", "Kamu bisa melacak performa referral di Dashboard Publisher milikmu, pada Laporan > Laporan Konversi."],
+      ["Berapa banyak yang bisa saya hasilkan dari program ini?", "Kamu mendapatkan Rp15.000 setelah orang yang kamu ajak menyelesaikan 1 konversi penjualan dalam 14 hari setelah akunnya disetujui."],
+      ["Kapan reward saya akan dibayarkan?", "Reward referral dibayarkan setiap bulan."],
+      ["Bagaimana proses persetujuan dan penolakan untuk program ini?", "Reward referral kamu disetujui saat orang yang kamu ajak menyelesaikan 1 konversi penjualan dalam 14 hari setelah akunnya disetujui.\n\n**Disetujui:** Reward diberikan setelah orang yang kamu ajak mendapatkan 1 konversi penjualan dalam 14 hari.\n**Ditolak:** Tidak ada reward jika tidak ada penjualan dalam 14 hari.\n\nKami akan meninjau setiap referral untuk memastikan semuanya memenuhi syarat program. Jika referral tidak memenuhi syarat, komisinya tidak akan disetujui."],
+      ["Apakah Involve Asia menyediakan materi visual untuk program ini?", "Ya. Kamu bisa mengunduh visual dan banner siap pakai dari Dashboard Publisher Involve Asia."],
+      ["Punya pertanyaan lain?", "Jika kamu membutuhkan info lebih lanjut, hubungi Account Manager kamu atau kirim email ke [wecare@involve.asia](mailto:wecare@involve.asia)."]
+    ]
+  },
+  "cta": {
+    "title": "Waktunya menghasilkan!",
+    "label": "Ajak Teman Sekarang"
+  }
+}

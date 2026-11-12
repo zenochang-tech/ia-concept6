@@ -51,7 +51,7 @@ function PubHero() {
           </div>
         </div>
         <form className="gs-form" data-reveal data-reveal-delay="1" onSubmit={(e) => e.preventDefault()}>
-          {plan && <div className="gs-chip">You selected: <b>{plan} plan</b> <a href="pricing.html" className="gs-chip-change">Change</a></div>}
+          {plan && <div className="gs-chip">You selected: <b>{plan} plan</b> <a href="pricing" className="gs-chip-change">Change</a></div>}
           <input type="hidden" name="interestedPlan" value={interestedPlan} />
           <h2 className="gs-form-title">How can we help you?</h2>
           <fieldset className="gs-fieldset">

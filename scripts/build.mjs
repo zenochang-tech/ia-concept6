@@ -8,10 +8,15 @@
 //   2. React's development builds are swapped for the production builds (self-hosted);
 //   3. every page is opened in headless Chrome and its rendered #root is baked into
 //      the HTML, so the real headings, copy and links are in the page source.
+// Language copies (id/referral-program.html, written by build-i18n.py) go through the same
+// steps, and the language list + each translated page's copy are inlined as
+// window.IA_I18N / window.IA_COPY, so the live site never fetches content/*.json.
+// Pages are linked without ".html"; the preview server below resolves /about to about.html
+// the same way GitHub Pages does.
 // In the browser React still mounts as before and replaces the baked markup; until it
 // does, the baked copy stays invisible so the page looks exactly as it does today.
 //
-//   npm run build            → python3 build-seo.py, then this script
+//   npm run build            → python3 build-i18n.py, python3 build-seo.py, then this script
 //   npm run preview          → serve dist/ on http://localhost:8800 (after a build)
 
 import fs from 'node:fs';
@@ -38,6 +43,7 @@ function serve(dir, port) {
   const server = http.createServer((req, res) => {
     let p = decodeURIComponent(new URL(req.url, 'http://x').pathname);
     if (p.endsWith('/')) p += 'index.html';
+    else if (!path.extname(p) && fs.existsSync(path.join(dir, p + '.html'))) p += '.html';
     const file = path.join(dir, p);
     if (!file.startsWith(dir) || !fs.existsSync(file) || fs.statSync(file).isDirectory()) {
       res.writeHead(404); return res.end('Not found');
@@ -73,11 +79,38 @@ for (const [pkg, file] of [['react', 'react.production.min.js'], ['react-dom', '
 // `function Nav`). esbuild keeps `const`, so page scripts (anything not loaded by several
 // pages) get their own scope; shared scripts stay global and export via `window`.
 const BABEL_TAG = /<script type="text\/babel" src="([^"]+\.jsx)"><\/script>/g;
-const htmlFiles = fs.readdirSync(OUT).filter((f) => f.endsWith('.html')).sort();
+const I18N = JSON.parse(fs.readFileSync(path.join(ROOT, 'content', 'i18n.json'), 'utf8'));
+const langDirs = I18N.languages.map((l) => l.path).filter((d) => d && fs.existsSync(path.join(OUT, d)));
+const rootHtml = fs.readdirSync(OUT).filter((f) => f.endsWith('.html')).sort();
+const htmlFiles = [...rootHtml, ...langDirs.flatMap((d) => fs.readdirSync(path.join(OUT, d)).filter((f) => f.endsWith('.html')).sort().map((f) => `${d}/${f}`))];
 const uses = new Map();
-for (const name of htmlFiles) {
+// Count each script once per English page: a language copy loads the same page script,
+// which must still get its own scope.
+for (const name of rootHtml) {
   for (const m of fs.readFileSync(path.join(OUT, name), 'utf8').matchAll(BABEL_TAG)) uses.set(m[1], (uses.get(m[1]) || 0) + 1);
 }
+// window.IA_I18N on every page; window.IA_COPY (English merged with the page's language) on translated ones.
+const readJSON = (rel) => JSON.parse(fs.readFileSync(path.join(ROOT, rel), 'utf8'));
+const merge = (base, over) => {
+  if (Array.isArray(over) || typeof over !== 'object' || over === null) return over === undefined ? base : over;
+  const out = { ...(base || {}) };
+  for (const k of Object.keys(over)) out[k] = merge(out[k], over[k]);
+  return out;
+};
+const inline = (v) => JSON.stringify(v).replace(/</g, '\\u003c');
+function i18nScript(name) {
+  const [dir, file] = name.includes('/') ? name.split('/') : ['', name];
+  const key = file.replace(/\.html$/, '');
+  const lang = I18N.languages.find((l) => l.path === dir) || I18N.languages.find((l) => l.code === I18N.default);
+  let js = `window.IA_I18N=${inline(I18N)};`;
+  if (I18N.pages[key]) {
+    let copy = readJSON(`content/pages/${key}/${I18N.default}.json`);
+    if (lang.code !== I18N.default) copy = merge(copy, readJSON(`content/pages/${key}/${lang.code}.json`));
+    js += `window.IA_COPY=${inline(copy)};`;
+  }
+  return `<script>${js}</script>\n`;
+}
+
 const compiled = new Map();   // x.jsx -> x.js
 async function compile(jsx) {
   if (compiled.has(jsx)) return compiled.get(jsx);
@@ -107,6 +140,7 @@ for (const name of htmlFiles) {
     .replace(/<script src="https:\/\/unpkg\.com\/react-dom@[^"]+"[^>]*><\/script>/, '<script src="vendor/react-dom.production.min.js"></script>')
     .replace('<!-- React + Babel (pinned) -->', '<!-- React (production, self-hosted) — page scripts are pre-compiled by scripts/build.mjs -->');
   if (/text\/babel|babel\.min\.js|\.development\.js/.test(html)) throw new Error(`${name}: leftover dev/Babel script`);
+  html = html.replace('</head>', i18nScript(name) + '</head>');
   fs.writeFileSync(file, html);
   pages.push(name);
 }

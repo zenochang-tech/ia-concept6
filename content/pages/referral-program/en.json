@@ -1,0 +1,62 @@
+{
+  "links": {
+    "refer": "https://invl.me/clmpu6y"
+  },
+  "hero": {
+    "eyebrow": "Referral Program",
+    "title": "The Involve Referral Program",
+    "sub": "Invite your friends to join as an Involve Publisher and earn RM5 for every referral. The more you refer, the more you earn. Simple and hassle-free.",
+    "cta": "Refer Your Friends Now",
+    "more": "Learn More",
+    "imageAlt": "Two friends looking at a phone together"
+  },
+  "what": {
+    "title": "What is the Involve Referral Program?",
+    "paras": [
+      "The Involve Asia Referral Program lets you earn rewards by inviting new partners to join our platform. Share your unique link with friends, family, or anyone who wants to earn commissions from top brands.",
+      "When they sign up through your link and complete at least 1 sale within 14 days, you earn a referral reward. Your reward details are shown below."
+    ],
+    "cardLabel": "Your Sign-Up Reward",
+    "currency": "RM",
+    "amount": "5",
+    "cardNote": "For you and your friend, once they make their first sale within 14 days."
+  },
+  "earn": {
+    "title": "Here's how much you can earn",
+    "sub": "Each new sign-up must have at least 1 sale conversion (CPS) within 14 days of their account approval. Both of you will earn RM5 as a Sign-Up Reward.",
+    "caption": "Sign-Up Rewards",
+    "cols": ["New Sign-Ups", "Your Sign-Up Reward", "Your Earnings"],
+    "rows": [
+      ["10 sign-ups", "RM5 each", "RM50"],
+      ["20 sign-ups", "RM5 each", "RM100"],
+      ["100 sign-ups", "RM5 each", "RM500"]
+    ],
+    "note": "Scroll down to our [FAQs](#pub-faq) for tips to promote and earn from the Referral Program."
+  },
+  "steps": {
+    "title": "Here's how it works",
+    "items": [
+      ["1", "Get your unique referral link", "Log in to your Publisher dashboard and search for the Involve Asia Publisher Referral Program."],
+      ["2", "Promote it on your social media", "Copy your unique link and share it online."],
+      ["3", "Sit back and track your rewards", "Track your referral rewards using the Conversion Report."]
+    ]
+  },
+  "faq": {
+    "title": "Referral Program FAQs",
+    "items": [
+      ["Who can join the Involve Referral Program?", "The Involve Referral Program is open to all registered Publishers with Involve Asia."],
+      ["Who can I refer to join Involve Asia?", "Anyone who has never registered as an Involve Asia Publisher before."],
+      ["What is the cookie duration for this Program?", "7 days."],
+      ["How do I track my referral performance?", "You can track your referral performance on your Publisher Dashboard, under Reports > Conversion Report."],
+      ["How much can I earn through this Program?", "You earn RM5 once your referral completes 1 sale conversion within 14 days of account approval."],
+      ["When will my Reward Payout be paid?", "Referral rewards are paid monthly."],
+      ["What is the approval and denial process for this Program?", "Your referral reward is approved when your referee completes 1 sale conversion within 14 days of account approval.\n\n**Approve:** Reward is granted once the referee gets 1 sale conversion within 14 days.\n**Deny:** No reward is given if no sale occurs within 14 days.\n\nWe'll review every referral to make sure it meets the program requirements. If a referral doesn't qualify, the commission won't be approved."],
+      ["Does Involve Asia provide visual assets for this Program?", "Yes. You can download ready-made visuals and banners from the Involve Asia Publisher Dashboard."],
+      ["Have more questions?", "If you require further information, feel free to contact your Account Manager or email us at [wecare@involve.asia](mailto:wecare@involve.asia)."]
+    ]
+  },
+  "cta": {
+    "title": "Time to earn!",
+    "label": "Refer Your Friends Now"
+  }
+}

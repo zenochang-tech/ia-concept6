@@ -179,7 +179,7 @@ const PUB_FAQ = [
   ['What can the API do?',
     'Generate deeplinks, pull offers and product data, and track sales at item level. Deeplink generation is capped at 1,000 per rolling 30 days.'],
   ['Not sure what to promote in my app?',
-    <>Start with the brands your users already shop. See <a href="website.html">Content sites</a> for ideas.</>],
+    <>Start with the brands your users already shop. See <a href="website">Content sites</a> for ideas.</>],
   ['How technical is the integration?',
     'You will need a developer to connect the API. The docs cover every endpoint.'],
 ];
