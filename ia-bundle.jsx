@@ -893,7 +893,9 @@ const HERO_PAYOUTS = [
 // Live "Total Sales" counter — every 4 or 6s it climbs by a random 2-, 3- or 4-digit
 // amount and rolls up to the new figure. Own component so its ticks re-render only the
 // number, never the hero or the payout stack.
-function HeroSales() {
+// Formats a number for the page's language (en.json/id.json "numberLocale"); d = fixed decimals.
+const fmtNum = (n, loc, d = 0) => Number(n).toLocaleString(loc || 'en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
+function HeroSales({ c }) {
   const START = 15612881;
   const [sales, setSales] = React.useState(START);
   React.useEffect(() => {
@@ -917,7 +919,7 @@ function HeroSales() {
     timer = setTimeout(bump, Math.random() < 0.5 ? 4000 : 6000);
     return () => { clearTimeout(timer); if (tween) tween.kill(); };
   }, []);
-  return <span className="hs-num">{'$' + sales.toLocaleString('en-US')}</span>;
+  return <span className="hs-num">{c.salesPrefix + fmtNum(sales, c.numberLocale)}</span>;
 }
 
 // Interactive honeycomb field behind the hero figures. Each hex is PUSHED radially away from
@@ -1067,14 +1069,14 @@ function Hero({ c, dark = false, hex = 3, emphasis = 'equal' }) {
               <div className={'pcard' + (payVis ? '' : ' is-swapping')}>
                 <span className="pcard-status">{c.payoutStatus}</span>
                 <span className="pcard-brand">{pay.brand}</span>
-                <span className="pcard-amt">{c.payoutPrefix}<strong>{pay.amt}</strong></span>
+                <span className="pcard-amt">{c.payoutPrefix}<strong>{fmtNum(pay.amt, c.numberLocale, 2)}</strong></span>
               </div>
             </div>
             {/* total-sales card */}
             <div className="hero2-sales" aria-hidden="true">
               <span className="hs-label">{c.salesLabel}</span>
               <span className="hs-sub">{c.salesSub}</span>
-              <HeroSales />
+              <HeroSales c={c} />
             </div>
           </div>
         </div>
@@ -1456,7 +1458,7 @@ function LiveDirectory({ c }) {
     return arr.slice(0, count).map((b) => ({
       ...b,
       comm: (2 + rnd() * 6).toFixed(1),
-      pub: (500 + Math.floor(rnd() * 8500)).toLocaleString(),
+      pub: 500 + Math.floor(rnd() * 8500),
     }));
   }, [cat]);
   return (
@@ -1487,8 +1489,8 @@ function LiveDirectory({ c }) {
                 </span>
                 <span className="lb-info">
                   <span className="lb-name">{b.name}</span>
-                  <span className="lb-comm"><small>{c.upTo}</small><b>{fillCopy(c.commission, { rate: b.comm })}</b></span>
-                  <span className="lb-pub">{fillCopy(c.publishers, { count: b.pub })}</span>
+                  <span className="lb-comm"><small>{c.upTo}</small><b>{fillCopy(c.commission, { rate: fmtNum(b.comm, c.numberLocale, 1) })}</b></span>
+                  <span className="lb-pub">{fillCopy(c.publishers, { count: fmtNum(String(b.pub).replace(/,/g, ''), c.numberLocale) })}</span>
                 </span>
               </a>
             ))}
@@ -1735,7 +1737,7 @@ function StartOverlay({ type, c }) {
           {[['JD Sports', '3.5', '#0F1C2E', 'JD-ft-img.png'], ['PUMA', '2.1', '#1A2E47', 'PUMA-ft-img.png']].map(([b, rate, bg, logo]) => (
             <div className="st-pick" key={b}>
               <span className="st-pick-th" style={{ background: bg }}><img src={`media/figma/${logo}`} alt={fillCopy(c.logoAlt, { name: b })} /></span>
-              <span className="st-pick-t"><b className="st-pick-name">{b}</b><span className="st-pick-comm"><small>{c.upTo}</small>{fillCopy(c.commission, { rate })}</span></span>
+              <span className="st-pick-t"><b className="st-pick-name">{b}</b><span className="st-pick-comm"><small>{c.upTo}</small>{fillCopy(c.commission, { rate: fmtNum(rate, c.numberLocale, 1) })}</span></span>
             </div>
           ))}
         </div>
@@ -2421,12 +2423,13 @@ function BlogSection({ c }) {
 
 /* ---------------- Stat band (concept-8) — standalone section ----------------
    Centered caption + a 4-up row of headline stats that count up when scrolled into view. */
-// counter target + format per stat; the labels are en.json stats.labels (same order)
+// counter target + decimals per stat; the labels are en.json stats.labels and the number
+// patterns ("{n}+", "${n}M+" …) are stats.formats (same order), formatted with stats.numberLocale
 const STAT_BAND = [
-  { to: 1000000, fmt: (v) => Math.round(v).toLocaleString() + '+' },
-  { to: 270, fmt: (v) => '$' + Math.round(v) + 'M+' }, // confirmed: $270M+
-  { to: 3.2, fmt: (v) => '$' + v.toFixed(1) + 'B+' },
-  { to: 500, fmt: (v) => Math.round(v) + '+' },
+  { to: 1000000, d: 0 },
+  { to: 270, d: 0 }, // confirmed: $270M+
+  { to: 3.2, d: 1 },
+  { to: 500, d: 0 },
 ];
 function StatCount({ to, fmt }) {
   const ref = React.useRef(null);
@@ -2455,6 +2458,8 @@ function StatCount({ to, fmt }) {
   return <span ref={ref} className="sb-num">{fmt(0)}</span>;
 }
 function StatBand({ c }) {
+  const fmts = React.useMemo(() => STAT_BAND.map((s, i) => (v) =>
+    c.formats[i].replace('{n}', fmtNum(s.d ? v : Math.round(v), c.numberLocale, s.d))), [c]);
   return (
     <section id="impact" className="sb-sec">
       <div className="wrap">
@@ -2462,7 +2467,7 @@ function StatBand({ c }) {
         <div className="sb-row">
           {STAT_BAND.map((s, i) => (
             <div className="sb-item" key={i} data-reveal data-reveal-delay={i + 1}>
-              <StatCount to={s.to} fmt={s.fmt} />
+              <StatCount to={s.to} fmt={fmts[i]} />
               <span className="sb-lbl">{c.labels[i]}</span>
             </div>
           ))}

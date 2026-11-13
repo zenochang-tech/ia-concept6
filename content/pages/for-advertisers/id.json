@@ -1,0 +1,112 @@
+{
+  "numberLocale": "id-ID",
+  "meta": {
+    "title": "Untuk Advertiser | Involve Asia",
+    "description": "Jangkau 1.000.000+ Publisher tepercaya di Asia Tenggara, jalankan kampanye berbasis performa, dan bayar hanya untuk hasil nyata bersama Involve Asia."
+  },
+  "hero": {
+    "eyebrow": "Affiliate Marketing untuk Advertiser",
+    "title": "Tingkatkan penjualan dengan Publisher yang tepat.",
+    "sub": "Jangkau 1.000.000+ Publisher, bayar hanya untuk penjualan yang terverifikasi, dan lihat hasilnya lebih cepat. Mulai dalam hitungan hari, bukan bulan, apa pun yang Anda jual.",
+    "cta": "Lihat Paket dan Harga",
+    "free": "Tim kami membantu Anda memulai, dan Anda hanya membayar saat penjualannya nyata.",
+    "slideAlts": [
+      "Dashboard Advertiser dengan penjualan kotor, komisi dibayarkan, dan tren performa",
+      "1.428 Publisher aktif ditemukan — Clarke, Fernandez, Michelle, Jeanne",
+      "Kampanye Saya: kampanye 11.11 dan Black Friday 2026 dengan kode kupon",
+      "918 konversi ditemukan untuk kampanye 11.11"
+    ],
+    "convLabel": "Conversion Rate",
+    "convValue": "10%",
+    "convDelta": "↑9%",
+    "catLabel": "Publisher untuk",
+    "catValue": "Kategori fashion",
+    "live": "Kampanye 11.11 sudah dimulai!",
+    "applLabel": "Pendaftar",
+    "applValue": "428 Publisher",
+    "vcLabel": "Konversi Tervalidasi",
+    "vcValue": "316"
+  },
+  "logos": {
+    "caption": "Dipercaya oleh brand yang sudah dikenal pelanggan Anda, di kategori retail, travel, kecantikan, dan keuangan."
+  },
+  "goals": {
+    "title": "Apa pun tujuan Anda, wujudkan di sini.",
+    "sub": "Ada Publisher dan strategi untuk setiap tujuan: awareness, pelanggan, atau pendapatan.",
+    "items": [
+      { "title": "Bangun awareness", "desc": "Perkenalkan brand Anda ke audiens baru melalui kreator, situs konten, dan situs perbandingan." },
+      { "title": "Dapatkan pelanggan", "desc": "Ubah perhatian menjadi tindakan dengan promosi yang menjangkau pembeli baru dan membawa kembali pelanggan lama." },
+      { "title": "Tingkatkan pendapatan", "desc": "Dorong pertumbuhan yang terukur bersama Publisher yang dibayar berdasarkan performa, dilacak hingga setiap konversi." }
+    ]
+  },
+  "platform": {
+    "title": "Satu platform, semua yang Anda butuhkan untuk menjalankan program",
+    "sub": "Temukan Publisher, luncurkan offer, bagikan materi kreatif, dan lacak setiap penjualan, semuanya di satu tempat.",
+    "items": [
+      { "t": "Temukan dan pilih Publisher Anda", "d": "Cari Publisher berdasarkan audiens, channel, dan tier keanggotaan, lalu setujui siapa yang mewakili brand Anda. Anda tetap memegang kendali penuh atas siapa yang mempromosikan Anda." },
+      { "t": "Minta rekrutmen Publisher", "d": "Butuh bantuan? Tim kami menjalankan kampanye rekrutmen dan memperkenalkan Publisher yang cocok dengan brand Anda, dan Anda yang menyetujui siapa yang bergabung." },
+      { "t": "Luncurkan offer dan bagikan materi kreatif", "d": "Tentukan komisi, luncurkan offer, dan unggah kampanye Anda agar bisa dipakai Publisher, lalu lihat siapa yang mempromosikannya." },
+      { "t": "Lacak setiap hasil", "d": "Pantau klik, konversi, dan pembayaran di satu dashboard, lengkap dengan detail per konversi dan ekspor data kapan pun Anda butuhkan." }
+    ]
+  },
+  "real": {
+    "title": "Anda hanya membayar \npenjualan yang nyata",
+    "desc": "Setiap konversi diperiksa dan divalidasi sebelum Anda membayar, jadi anggaran Anda hanya untuk hasil yang asli, bukan pengeluaran yang sia-sia. Anda yang menyetujui mana yang dihitung.",
+    "points": [
+      "Setiap konversi diverifikasi sebelum pembayaran",
+      "Setiap penjualan dilacak hingga Publisher yang menghasilkannya"
+    ],
+    "chip": "Penjualan tervalidasi"
+  },
+  "stats": {
+    "title": "Inilah hasil dari \npenjualan yang nyata.",
+    "brands": "Brand",
+    "publishers": "Publisher",
+    "sales": "Penjualan untuk Brand",
+    "brandsSuffix": "+",
+    "publishersSuffix": "+",
+    "salesPrefix": "$",
+    "salesSuffix": " M+"
+  },
+  "results": {
+    "title": "Hasil terbukti di setiap industri.",
+    "sub": "Brand nyata yang tumbuh di platform kami, dengan kata-kata mereka sendiri.",
+    "prev": "Studi kasus sebelumnya",
+    "next": "Studi kasus berikutnya",
+    "cases": [
+      {
+        "head": "Involve meningkatkan partner Shopee dari 2.000 menjadi 20.000 dalam 2 tahun",
+        "quote": "“Our growth would not have been possible without Involve’s support. Involve has been one of our biggest affiliate partners from the start, and a benchmark & role model to our other partners.”",
+        "who": "Shopee Malaysia"
+      },
+      {
+        "head": "Involve menghemat waktu onboarding partner baru dan mengoptimalkan partner yang sudah ada",
+        "quote": "“Involve saves us so much time by not having to reach out to new partners one by one. Involve also optimized our existing partnerships, where we saw a 3.4% growth despite implementing a commission cut.”",
+        "who": "DECATHLON"
+      },
+      {
+        "head": "Kenaikan pesanan 8% yang luar biasa dalam waktu singkat.",
+        "quote": "“Through their expansive network of publisher and influencer channels, which have become instrumental marketing avenues for us, we have achieved significant milestones. The growth we have experienced across our diverse range of brands has been nothing short of extraordinary, with a remarkable 8% increase in orders within a short period of time.”",
+        "who": "Limitless Technology"
+      },
+      {
+        "head": "Involve Asia berfokus pada beragam sumber traffic dan pengembangan.",
+        "quote": "“Involve Asia focuses on a variety of traffic and development, and looks forward to common progress in the future!”",
+        "who": "Alibaba Group"
+      }
+    ]
+  },
+  "awards": {
+    "title": "Diakui, dan dibangun atas kepercayaan",
+    "alts": [
+      "Certified B Corporation",
+      "Deloitte Technology Fast 500",
+      "MSC Malaysia Status Company",
+      "Forbes Asia 100 To Watch"
+    ]
+  },
+  "cta": {
+    "title": "Mulai kembangkan bisnis Anda dengan paket yang tepat hari ini.",
+    "label": "Lihat Paket dan Harga"
+  }
+}

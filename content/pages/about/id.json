@@ -1,0 +1,118 @@
+{
+  "meta": {
+    "title": "Tentang Kami | Involve Asia",
+    "description": "Involve Asia adalah platform affiliate marketing yang membantu brand dan partner meningkatkan penghasilan online. Baca kisah kami."
+  },
+  "hero": {
+    "eyebrow": "Tentang kami",
+    "title": "Mendorong pertumbuhan di seluruh Asia.",
+    "sub": "Kami menghubungkan brand dan partner melalui teknologi yang transparan, pembayaran komisi yang lancar, dan peluang global.",
+    "chips": ["Pelacakan akurat", "Pembayaran tepat waktu", "Aman dan andal"]
+  },
+  "stats": {
+    "labels": ["Penjualan Dihasilkan", "Partner", "Brand", "Komisi Dibayarkan"],
+    "numberLocale": "id-ID",
+    "prefixes": ["$", "", "", "$"],
+    "suffixes": [" M+", "+", "+", " jt+"]
+  },
+  "story": {
+    "eyebrow": "Kisah kami",
+    "title": "Dibangun untuk Asia Tenggara sejak hari pertama.",
+    "body": "Kami memulai pada 2014 dengan satu tujuan: menghubungkan brand dengan orang-orang yang benar-benar bisa membantu mereka tumbuh, dan membuat hasilnya bisa dipercaya kedua belah pihak. Kini, lebih dari 500 brand dan lebih dari satu juta partner tumbuh bersama di Involve Asia, dari situs cashback hingga kreator. Setiap penjualan dilacak dan divalidasi sebelum siapa pun dibayar.",
+    "milestones": [
+      ["2014", "Didirikan di Kuala Lumpur", "Involve Asia dimulai dengan satu tujuan: menghubungkan brand dengan partner yang benar-benar bisa membantu mereka tumbuh."],
+      ["Pertumbuhan", "Di seluruh Asia Tenggara", "Berekspansi ke enam negara, membangun tim lokal yang memahami setiap pasar."],
+      ["Kemitraan", "Dipercaya platform terkemuka", "Menjadi partner andalan bagi brand seperti Shopee, Lazada, dan TikTok Shop."],
+      ["Pengakuan", "Meraih penghargaan dan sertifikasi", "Meraih sertifikasi B Corp dan tempat di Deloitte Technology Fast 500."]
+    ]
+  },
+  "sign": {
+    "label": "Kantor Involve Asia",
+    "imageAlt": "Papan logo Involve Asia di dinding hitam kantor kami"
+  },
+  "expertise": {
+    "eyebrow": "Keahlian kami",
+    "title": "Apa yang kami lakukan.",
+    "sub": "Kami menghubungkan brand dengan Publisher yang bisa membantu mereka tumbuh, serta memberi kedua pihak pelacakan dan pembayaran yang membuat hasilnya bisa dipercaya.",
+    "items": [
+      ["Kemitraan berbasis performa", "Kami menghubungkan brand dengan Publisher, dan Anda hanya membayar untuk hasil nyata, dengan pelacakan dan transparansi penuh."],
+      ["Teknologi yang lancar", "Platform kami menangani pengaturan kampanye, pelacakan, dan pembayaran, dengan laporan akurat yang bisa Anda periksa sendiri."],
+      ["Keahlian lintas pasar", "Tim lokal kami memahami setiap pasar, jadi brand dan partner mendapatkan dukungan yang sesuai dengan tempat mereka beroperasi."]
+    ]
+  },
+  "mission": {
+    "eyebrow": "Mengapa kami ada",
+    "title": "Misi, visi & nilai.",
+    "missionLabel": "Misi",
+    "mission": "Memberdayakan brand dan partner untuk tumbuh melalui teknologi yang transparan dan pemasaran berbasis performa.",
+    "visionLabel": "Visi",
+    "vision": "Membangun platform affiliate marketing yang dipercaya Asia Tenggara, di mana setiap konversi menciptakan kesuksesan bersama.",
+    "values": [
+      ["Partner adalah prioritas", "Kami berhasil saat partner kami tumbuh."],
+      ["Jelas dan tepercaya", "Anda melihat angka yang sebenarnya, divalidasi sebelum siapa pun dibayar."],
+      ["Terus berkembang", "Kami menantang batas dan merayakan setiap kemajuan."]
+    ]
+  },
+  "awards": {
+    "eyebrow": "Bukti performa",
+    "title": "Penghargaan & pengakuan.",
+    "sub": "Dari pengakuan sebagai startup hingga penghargaan industri, kami bangga dengan perjalanan kami, dan para partner yang mewujudkannya.",
+    "cols": [
+      {
+        "head": "Penghargaan Industri",
+        "items": [
+          ["Shopee's Best Partner of the Year", "Inovasi & pertumbuhan dalam skala besar"],
+          ["TikTok Shop's Top Affiliate Link Star", "Keunggulan yang dipimpin kreator"],
+          ["Lazada's Affiliate of the Year", "Hasil partner yang luar biasa"],
+          ["Malaysia's Affiliate Marketing Pioneer", "Kepemimpinan industri"]
+        ]
+      },
+      {
+        "head": "Pengakuan Teknologi",
+        "items": [
+          ["Certified B Corporation®", "Standar sosial & lingkungan"],
+          ["Deloitte Technology Fast 500", "Penghargaan pertumbuhan teknologi Asia Pasifik"],
+          ["MSC Status", "Pengakuan nasional di bidang teknologi & inovasi"]
+        ]
+      }
+    ]
+  },
+  "regions": {
+    "eyebrow": "Kehadiran regional",
+    "title": "Di mana Anda bisa menemukan kami.",
+    "sub": "Kami beroperasi di enam negara Asia Tenggara, menghubungkan brand, kreator, dan komunitas lokal melalui affiliate marketing.",
+    "hq": {
+      "name": "Malaysia",
+      "tag": "Kantor Pusat",
+      "desc": "Kuala Lumpur, tempat semuanya dimulai. Kantor pusat kami adalah rumah bagi tim inti marketing, kemitraan, dan teknologi yang mendorong pertumbuhan di seluruh kawasan."
+    },
+    "others": ["Indonesia", "Singapura", "Filipina", "Thailand", "Vietnam"]
+  },
+  "culture": {
+    "eyebrow": "Kehidupan di Involve Asia",
+    "title": "Momen yang membentuk budaya kami.",
+    "sub": "Budaya kami dibangun di atas kolaborasi, rasa ingin tahu, dan pertumbuhan. Kami merayakan setiap pencapaian dan memberi ruang bagi ide-ide yang membawa kami maju.",
+    "imageAlt": "Kehidupan di Involve Asia"
+  },
+  "careers": {
+    "title": "Bangun masa depan affiliate marketing bersama kami.",
+    "body": "Bergabunglah dengan tim kreator, marketer, dan pakar data yang memecahkan masalah nyata di seluruh Asia Tenggara. Mari kembangkan brand, dan karier Anda, bersama-sama.",
+    "link": "Lihat Lowongan",
+    "imageAlt": "Tim Involve Asia"
+  },
+  "finale": {
+    "title": "Pilih peran Anda dan tumbuh bersama kami.",
+    "pubKick": "Kreator. Afiliasi. Partner Teknologi.",
+    "advKick": "Brand. Retailer. Perusahaan.",
+    "pubImageAlt": "Seorang Publisher sedang membuat konten",
+    "advImageAlt": "Seorang Advertiser sedang mengembangkan brand-nya",
+    "pubTitle": "Saya seorang \nPublisher",
+    "pubDesc": "Promosikan brand yang Anda sukai. ",
+    "pubMore": "Ubah audiens atau traffic Anda menjadi penghasilan.",
+    "pubCta": "Mulai Menghasilkan",
+    "advTitle": "Saya seorang \nAdvertiser",
+    "advDesc": "Tingkatkan penjualan dengan Publisher yang tepat. ",
+    "advMore": "Bayar hanya untuk hasil.",
+    "advCta": "Kembangkan Brand"
+  }
+}

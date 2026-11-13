@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "title": "Affiliate marketing untuk media buyer | Involve Asia",
+    "description": "Ubah paid traffic menjadi profit. Jalankan kampanye di 500+ brand dengan pelacakan, atribusi, dan laporan yang menjaga margin Anda."
+  },
+  "hero": {
+    "eyebrow": "Untuk Media Buyer",
+    "title": "Jalankan paid traffic di ratusan brand, dengan pelacakan bawaan.",
+    "sub": "Ubah biaya iklan menjadi profit, dengan atribusi, laporan, dan pembayaran untuk menjalankannya dalam skala besar.",
+    "cta": "Mulai Menghasilkan",
+    "free": "Gratis bergabung. Mulai menghasilkan hari ini.",
+    "imageAlt": "Dashboard kampanye seorang media buyer"
+  },
+  "how": {
+    "title": "Cara Anda menghasilkan.",
+    "items": [
+      ["01", "Pilih offer dengan konversi tinggi", "Jelajahi 4.000+ offer dengan rate dan ketentuan yang terlihat sejak awal, jadi Anda bisa menghitung margin."],
+      ["02", "Arahkan paid traffic", "Kirim traffic search, social, dan native lewat link pelacakan Anda."],
+      ["03", "Lacak setiap konversi", "Lihat klik, penjualan, dan EPC secara real-time, lalu kirim postback ke tracker Anda sendiri."],
+      ["04", "Terima pembayaran", "Tarik dana dalam mata uang lokal Anda setelah konversi tervalidasi, atau lebih cepat dengan Express Withdrawal."]
+    ]
+  },
+  "run": {
+    "title": "Dibuat sesuai cara kerja Anda.",
+    "items": [
+      ["Ketahui margin sebelum belanja iklan.", "Lihat payout dan EPC setiap offer sejak awal, jadi Anda bisa menghitung angkanya sebelum membeli satu klik pun. Payout dikurangi biaya traffic adalah profit Anda. Kami tunjukkan dua yang pertama, Anda mengendalikan yang ketiga."],
+      ["Hubungkan ke tracker Anda sendiri.", "Kirim postback server-to-server ke Voluum, RedTrack, Binom, atau sistem Anda sendiri. Teruskan click ID dan sub ID lewat link dan dapatkan kembali saat konversi, jadi laporan Anda cocok dengan laporan kami hingga sen terakhir."],
+      ["Ketahui aturannya sebelum menjalankan.", "Setiap offer mencantumkan sumber traffic yang diizinkan dan aturan brand bidding sejak awal, jadi Anda tahu apa yang boleh dijalankan sebelum belanja iklan, dan Anda mempertahankan setiap komisi yang Anda dapatkan."]
+    ]
+  },
+  "why": {
+    "title": "Mengapa media buyer memilih Involve.",
+    "items": [
+      ["Rate dan ketentuan sejak awal.", "Lihat komisi sebelum belanja iklan, jadi Anda bisa menjaga margin."],
+      ["Atribusi yang andal.", "Pelacakan last-click dan postback server-to-server yang cocok dengan sistem Anda sendiri."],
+      ["Performa real-time.", "Data EPC, konversi, dan payout saat itu juga, bukan beberapa hari kemudian."]
+    ]
+  },
+  "faq": [
+    ["Bisakah saya menggunakan postback server-to-server?", "Bisa. Kirim postback ke tracker Anda sendiri agar data Anda cocok dengan data kami."],
+    ["Seberapa cepat pelacakannya?", "Real-time dalam 10 hingga 30 menit untuk sebagian besar konversi, ditambah pelacakan manual bila diperlukan."],
+    ["Sumber traffic apa saja yang diizinkan?", "Cek ketentuan setiap offer. Beberapa brand membatasi paid search atau brand bidding."]
+  ],
+  "cta": {
+    "title": "Ubah biaya iklan menjadi profit."
+  }
+}

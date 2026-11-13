@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "title": "API Developer | Involve Asia",
+    "description": "Bangun dan otomatisasi dengan API Developer Involve Asia: tarik data offer dan konversi, buat link pelacakan, dan bawa data afiliasi ke sistem Anda."
+  },
+  "links": {
+    "docs": "https://api.involve.asia/docs/"
+  },
+  "hero": {
+    "eyebrow": "API Developer",
+    "title": "Bangun dan otomatisasi dengan API Developer Involve Asia.",
+    "sub": "Tarik data promosi, buat link pelacakan, dan dapatkan laporan Anda, semuanya tanpa masuk ke dashboard. Bawa penghasilan afiliasi ke aplikasi atau alur kerja Anda sendiri.",
+    "cta": "Ajukan API Key",
+    "docs": "Baca Dokumentasi API",
+    "imageAlt": "Contoh kode API Involve Asia: autentikasi, menampilkan daftar offer, dan membuat deeplink"
+  },
+  "auto": {
+    "title": "Otomatiskan pekerjaan, tingkatkan penghasilan.",
+    "items": [
+      ["Dapatkan data promosi terbaru", "Tingkat komisi dan ketentuan pembayaran untuk setiap offer yang bisa Anda akses."],
+      ["Buat link pelacakan", "Ubah URL produk menjadi deeplink yang bisa dilacak melalui API, hingga 1.000 link unik setiap 30 hari."],
+      ["Tarik laporan performa", "Konversi dan penghasilan, dalam format Anda sendiri."],
+      ["Dapatkan banner dan voucher kampanye", "Materi kreatif siap pakai dan promo musiman."]
+    ]
+  },
+  "shopee": {
+    "title": "Komisi Shopee yang lebih tinggi, langsung tersedia.",
+    "desc": "Beberapa brand Shopee memberikan komisi lebih tinggi melalui Commissions XTRA. Tarik daftar lengkapnya lewat API dan perbarui secara otomatis, jadi Anda selalu tahu toko Shopee mana yang membayar lebih, lalu promosikan lebih dulu.",
+    "more": "Pelajari Lebih Lanjut",
+    "imageAlt": "Shopee Commissions XTRA"
+  },
+  "teams": {
+    "title": "Siapa yang membangun dengan API",
+    "sub": "Untuk tim yang mengelola data dan link afiliasi di sistem mereka sendiri, secara otomatis.",
+    "items": [
+      ["Tim produk & aplikasi", "Tampilkan offer dan cashback di aplikasi atau platform Anda sendiri, dan dapatkan komisi dari apa yang dibeli pengguna Anda."],
+      ["Publisher bervolume tinggi", "Buat link pelacakan dan sinkronkan konversi secara terprogram, tanpa membuka dashboard."],
+      ["Tim berbasis data", "Tarik offer, konversi, dan feed produk ke sistem dan laporan Anda sendiri."]
+    ]
+  },
+  "start": {
+    "title": "Mulai dalam tiga langkah",
+    "cta": "Ajukan di Sini",
+    "items": [
+      ["Minta API key Anda", "Minta API key Anda dari dashboard."],
+      ["Tambahkan key ke tool Anda", "Tambahkan key ke tool API Anda (Postman, cURL, Insomnia, dan lainnya)."],
+      ["Ikuti dokumentasi", "Ikuti dokumentasi untuk menarik data, membuat link, dan mulai membangun."]
+    ]
+  },
+  "faq": {
+    "items": [
+      ["Apa yang bisa dilakukan API ini?", "Bangun aplikasi afiliasi, atau tambahkan fitur afiliasi ke platform Anda sendiri, isi laporan, buat link, akses banner kampanye dan landing page siap pakai, serta tarik konten promosi."],
+      ["Siapa yang bisa menggunakannya?", "Media buyer, agensi KOL, jaringan programmatic dan afiliasi, situs cashback, dan situs konten."],
+      ["Berapa banyak link yang bisa saya buat?", "Hingga 1.000 link unik per periode 30 hari berjalan."],
+      ["Tool apa saja yang bisa saya gunakan?", "Postman, cURL, Insomnia, SoapUI, Paw, atau tool apa pun yang sesuai dengan sistem Anda."],
+      ["Bagaimana cara saya melacak performa?", "Tarik laporan performa melalui API, termasuk setiap transaksi dan parameter kustom."],
+      ["Apa yang saya butuhkan?", "Anggota tim yang berpengalaman di bidang pemrograman untuk melakukan pengaturannya."]
+    ]
+  },
+  "cta": {
+    "title": "Mulai membangun dengan API.",
+    "label": "Ajukan API Key"
+  }
+}

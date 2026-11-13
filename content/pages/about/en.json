@@ -10,7 +10,10 @@
     "chips": ["Accurate tracking", "On-time payouts", "Secure and reliable"]
   },
   "stats": {
-    "labels": ["Sales Generated", "Partners", "Brands", "Commissions Paid"]
+    "labels": ["Sales Generated", "Partners", "Brands", "Commissions Paid"],
+    "numberLocale": "en-US",
+    "prefixes": ["$", "", "", "$"],
+    "suffixes": ["B+", "+", "+", "M+"]
   },
   "story": {
     "eyebrow": "Our story",

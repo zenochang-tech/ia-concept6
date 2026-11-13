@@ -1,0 +1,48 @@
+{
+  "meta": {
+    "title": "Cara Kami Melacak | Involve Asia",
+    "description": "Lacak setiap klik dan konversi di satu dashboard, atribusikan setiap penjualan ke Publisher yang tepat, dan bayar hanya untuk penjualan yang valid."
+  },
+  "hero": {
+    "title": "Lihat dengan jelas hasil dari setiap partner.",
+    "sub": "Lacak setiap klik dan konversi di satu dashboard, atribusikan setiap penjualan ke publisher yang menghasilkannya, dan bayar hanya untuk penjualan yang nyata.",
+    "cta": "Lihat Paket dan Harga",
+    "imageAlt": "Dashboard advertiser Involve yang melacak klik dan konversi setiap partner",
+    "added": "815 deeplink dibuat"
+  },
+  "view": {
+    "title": "Satu tampilan terpadu dan terverifikasi.",
+    "old": {
+      "imageAlt": "Laporan yang tersebar di dashboard partner yang terpisah-pisah",
+      "eyebrow": "Cara Lama",
+      "title": "Laporan tersebar, optimasi tanpa arah",
+      "desc": "Bekerja dengan partner di seluruh internet membuat Anda sulit melihat apa yang benar-benar berhasil, apalagi jika harus mengelola laporan dan pembayaran terpisah untuk masing-masing partner.",
+      "points": ["Laporan terpisah untuk setiap partner", "Anda bergantung pada angka dari masing-masing partner", "ROI yang tidak bisa dibandingkan secara setara"]
+    },
+    "new": {
+      "imageAlt": "Semua kemitraan terpadu dalam satu dashboard Involve",
+      "eyebrow": "Bersama Involve Asia",
+      "title": "Transparansi terpadu dan terverifikasi",
+      "desc": "Involve menyatukan semua kemitraan Anda dalam satu dashboard, sehingga Anda bisa membandingkan performa secara setara dan melihat ROI yang sebenarnya.",
+      "points": ["Semua partner dalam satu dashboard", "Penjualan tercatat ke partner yang menghasilkannya", "ROI yang bisa dibandingkan secara setara"]
+    }
+  },
+  "how": {
+    "title": "Cara kerja pelacakan.",
+    "items": [
+      ["01", "Publisher membagikan link pelacakan mereka", "Setiap partner mendapatkan link unik untuk offer Anda."],
+      ["02", "Setiap klik tercatat", "Begitu seseorang mengklik, klik itu langsung terlacak."],
+      ["03", "Penjualan diatribusikan secara otomatis", "Saat sebuah klik menghasilkan penjualan, penjualan itu dikaitkan dengan publisher yang menghasilkannya."]
+    ]
+  },
+  "verified": {
+    "title": "Terverifikasi, \nbukan sekadar dilaporkan",
+    "body": "Anda memvalidasi setiap konversi sebelum pembayaran. Setujui yang asli, dan anggaran Anda hanya untuk penjualan yang nyata, bukan laporan partner yang dibesar-besarkan.",
+    "checks": ["Setiap konversi diverifikasi sebelum pembayaran", "Anda menolak apa pun yang tidak asli", "Setiap penjualan tercatat ke publisher yang menghasilkannya"],
+    "imageAlt": "Tabel persetujuan konversi yang menunjukkan setiap pesanan diverifikasi atau ditolak sebelum pembayaran"
+  },
+  "cta": {
+    "title": "Ketahui hasil nyata dari setiap partner dan kembangkan brand Anda hari ini.",
+    "label": "Kembangkan Brand"
+  }
+}

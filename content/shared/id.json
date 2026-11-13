@@ -1,13 +1,12 @@
 {
-  "_about": "Indonesian text for the parts every page shares: top menu, footer, app pop-up and back-to-top button. Left: the English text exactly as it appears in the code. Right: the translation. Anything not listed stays in English. 'links' can swap an English URL for this market's URL, or set it to null to hide that link.",
+  "_about": "Indonesian text for the parts every page shares: top menu, footer, app pop-up, back-to-top button and the sections several pages share (testimonials, FAQ heading, feature cards). Left: the English text exactly as it appears in the code. Right: the translation. Anything not listed stays in English. 'links' can swap an English URL for this market's URL, or set it to null to hide that link.",
   "text": {
     "For Publishers": "Untuk Publisher",
     "For Advertisers": "Untuk Advertiser",
     "Resources": "Sumber Daya",
     "Company": "Perusahaan",
-
     "500+ brands, ready to promote": "500+ brand, siap dipromosikan",
-    "Find the ones your audience already loves, and start earning.": "Temukan brand yang sudah disukai audiensmu, dan mulai menghasilkan.",
+    "Find the ones your audience already loves, and start earning.": "Temukan brand yang sudah disukai audiens Anda, dan mulai menghasilkan.",
     "Browse Brands": "Jelajahi Brand",
     "Explore": "Jelajahi",
     "Publisher Overview": "Ringkasan Publisher",
@@ -19,16 +18,14 @@
     "Technology Partners": "Partner Teknologi",
     "Features": "Fitur",
     "Developer API": "API Developer",
-
     "Simple, scalable pricing": "Harga yang sederhana dan fleksibel",
-    "Volume-based plans that grow with your program.": "Paket berbasis volume yang tumbuh bersama programmu.",
+    "Volume-based plans that grow with your program.": "Paket berbasis volume yang tumbuh bersama program Anda.",
     "See Pricing": "Lihat Harga",
     "Advertiser Overview": "Ringkasan Advertiser",
     "Pricing": "Harga",
     "Case Study": "Studi Kasus",
     "Automation": "Otomatisasi",
     "How We Track": "Cara Kami Melacak",
-
     "The Involve blog": "Blog Involve",
     "Guides, trends, and affiliate marketing insights.": "Panduan, tren, dan wawasan seputar affiliate marketing.",
     "Read the Blog": "Baca Blog",
@@ -38,13 +35,11 @@
     "Help Centre": "Pusat Bantuan",
     "Download App": "Unduh Aplikasi",
     "API Docs": "Dokumentasi API",
-
     "About Involve Asia": "Tentang Involve Asia",
     "12 years connecting brands and partners across Asia.": "12 tahun menghubungkan brand dan partner di seluruh Asia.",
     "Our Story": "Kisah Kami",
     "About Us": "Tentang Kami",
     "Careers": "Karier",
-
     "Login": "Masuk",
     "Get Started": "Mulai Sekarang",
     "(coming soon)": "(segera hadir)",
@@ -54,7 +49,6 @@
     "Change language": "Ganti bahasa",
     "Open menu": "Buka menu",
     "This page isn't available in this language yet": "Halaman ini belum tersedia dalam bahasa ini",
-
     "The affiliate marketing platform connecting advertisers with creators and publishers across Asia.": "Platform affiliate marketing yang menghubungkan advertiser dengan kreator dan publisher di seluruh Asia.",
     "Involve Asia on {name} (opens in a new tab)": "Involve Asia di {name} (terbuka di tab baru)",
     "Overview": "Ringkasan",
@@ -62,14 +56,33 @@
     "Case Studies": "Studi Kasus",
     "Terms & Conditions": "Syarat & Ketentuan",
     "Privacy Policy": "Kebijakan Privasi",
-
     "Download the Involve Asia app": "Unduh aplikasi Involve Asia",
     "Scan to start earning": "Pindai untuk mulai menghasilkan",
-    "Sign up and track your earnings on the app.": "Daftar dan pantau penghasilanmu di aplikasi.",
+    "Sign up and track your earnings on the app.": "Daftar dan pantau penghasilan Anda di aplikasi.",
     "QR code to download the Involve Asia app": "Kode QR untuk mengunduh aplikasi Involve Asia",
     "Maybe later": "Nanti saja",
     "Get the Involve Asia app": "Dapatkan aplikasi Involve Asia",
-    "Back to top": "Kembali ke atas"
+    "Back to top": "Kembali ke atas",
+    "Start Earning": "Mulai Menghasilkan",
+    "Questions, answered.": "Pertanyaan yang sering diajukan.",
+    "Hear from publishers like you.": "Dengarkan langsung dari para publisher.",
+    "Real people earning on the platform, in their own words.": "Orang-orang nyata yang menghasilkan di platform kami, dengan kata-kata mereka sendiri.",
+    "Previous testimonial": "Testimoni sebelumnya",
+    "Next testimonial": "Testimoni berikutnya",
+    "Validating…": "Memvalidasi…",
+    "Processing payout": "Memproses pembayaran",
+    "Commission Paid": "Komisi Dibayarkan",
+    "Get paid\neasier and faster": "Dibayar lebih mudah\ndan lebih cepat",
+    "We confirm earnings every day, and with Express Withdrawal you can withdraw a portion of your earnings before your conversions are even validated. Less waiting, more earning.": "Kami mengonfirmasi penghasilan setiap hari, dan dengan Express Withdrawal Anda bisa menarik sebagian penghasilan bahkan sebelum konversi Anda divalidasi. Lebih sedikit menunggu, lebih banyak menghasilkan.",
+    "Brands your audience already knows": "Brand yang sudah dikenal audiens Anda",
+    "Promote Shopee, Lazada, Zalora, Nike and more across retail, travel, beauty and finance. One account, 500+ brands, so you earn more in one place instead of chasing programs one by one.": "Promosikan Shopee, Lazada, Zalora, Nike, dan banyak lagi di kategori retail, travel, kecantikan, dan keuangan. Satu akun, 500+ brand, jadi Anda bisa menghasilkan lebih banyak di satu tempat tanpa harus mengejar program satu per satu.",
+    "Total clicks": "Total klik",
+    "Conversion Rate": "Conversion Rate",
+    "Know exactly what's working": "Ketahui dengan pasti apa yang berhasil",
+    "Generate trackable links in bulk, follow every click and sale in live reports, and find clear guides whenever you need them.": "Buat link pelacakan secara massal, pantau setiap klik dan penjualan di laporan real-time, dan temukan panduan yang jelas kapan pun Anda membutuhkannya.",
+    "Unlock more as you grow": "Buka lebih banyak keuntungan seiring pertumbuhan Anda",
+    "As you earn more, you get access to upsized commissions, exclusive promotions, and member bonuses that reward your growth.": "Semakin banyak Anda menghasilkan, semakin banyak akses yang Anda dapatkan: komisi yang lebih besar, promosi eksklusif, dan bonus member yang menghargai pertumbuhan Anda.",
+    "{name} logo": "Logo {name}"
   },
   "links": {}
 }

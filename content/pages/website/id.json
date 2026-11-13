@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "title": "Affiliate marketing untuk blog, situs niche, dan berita | Involve Asia",
+    "description": "Ubah traffic yang sudah Anda miliki menjadi penghasilan. Tambahkan link pelacakan ke artikel dan dapatkan komisi dari setiap penjualan, lama setelah terbit."
+  },
+  "hero": {
+    "eyebrow": "Untuk Situs Konten",
+    "title": "Tambah penghasilan dari konten yang sudah Anda terbitkan.",
+    "sub": "Blog, situs niche, dan berita. Hasilkan dari konten yang sudah Anda terbitkan, tanpa mengubah cara Anda menulis.",
+    "cta": "Mulai Menghasilkan",
+    "free": "Gratis bergabung. Mulai menghasilkan hari ini.",
+    "imageAlt": "Situs konten yang ditampilkan di laptop"
+  },
+  "how": {
+    "title": "Cara Anda menghasilkan.",
+    "items": [
+      ["01", "Temukan offer", "Jelajahi 500+ brand dan pilih yang sudah disukai pembaca Anda."],
+      ["02", "Tambahkan link ke konten Anda", "Pasang link pelacakan di artikel dan ulasan baru maupun lama, hanya dengan beberapa klik."],
+      ["03", "Hasilkan setelah terbit", "Artikel lama terus menghasilkan setiap kali pembaca mengklik dan membeli."],
+      ["04", "Terima pembayaran", "Tarik dana dalam mata uang lokal Anda setelah penjualan tervalidasi, atau lebih cepat dengan Express Withdrawal."]
+    ]
+  },
+  "kinds": {
+    "title": "Dibuat untuk konten yang sudah punya audiens.",
+    "items": [
+      ["Blog", "Tambahkan link yang relevan ke artikel yang sudah Anda tulis, dan hasilkan dari konten yang memang sudah Anda buat."],
+      ["Situs niche", "Punya blog atau situs khusus yang diikuti komunitas niche Anda? Tambahkan link ke ulasan dan panduan yang sudah Anda tulis, dan dapatkan komisi dari apa yang dibeli pembaca."],
+      ["Situs berita dan media", "Ubah artikel Anda menjadi penghasilan yang terus mengalir lama setelah terbit."]
+    ]
+  },
+  "why": {
+    "title": "Mengapa situs konten menghasilkan dengan Involve.",
+    "items": [
+      ["Link yang sesuai dengan konten Anda.", "Anda sendiri yang menempatkan link kontekstual. Tidak ada iklan atau banner paksaan yang memenuhi situs Anda."],
+      ["Konten terbaik Anda terus menghasilkan.", "Ulasan yang Anda tulis tahun lalu masih menghasilkan hari ini."],
+      ["Laporan yang memandu apa yang Anda tulis.", "Lihat artikel dan link mana yang mendorong penjualan, jadi Anda tahu apa yang perlu diterbitkan berikutnya."]
+    ]
+  },
+  "faq": [
+    ["Apakah link afiliasi akan mengubah tampilan situs saya?", "Tidak. Anda yang memilih di mana link ditempatkan. Tidak ada iklan atau banner paksaan."],
+    ["Apakah artikel lama saya masih bisa menghasilkan?", "Ya. Setiap artikel dengan link aktif terus menghasilkan dari setiap penjualan yang didorongnya."],
+    ["Situs seperti apa yang memenuhi syarat?", "Blog, situs niche, berita, dan media. Situs apa pun yang punya konten dan pembaca."]
+  ],
+  "cta": {
+    "title": "Mulai menghasilkan dari situs Anda."
+  }
+}

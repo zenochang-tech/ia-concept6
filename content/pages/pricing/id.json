@@ -1,0 +1,188 @@
+{
+  "meta": {
+    "title": "Harga | Involve Asia",
+    "description": "Jangkau 1.000.000+ publisher tepercaya di Asia Tenggara, jalankan kampanye performa, dan bayar hanya untuk hasil. Kembangkan brand Anda bersama Involve Asia."
+  },
+  "hero": {
+    "eyebrow": "Harga Affiliate Marketing untuk Advertiser",
+    "title": "Paket yang sesuai dengan pertumbuhan Anda.",
+    "sub": "Baik Anda baru meluncurkan program pertama atau mengembangkan program yang sudah berjalan,\npilih paket yang sesuai dengan tahap Anda."
+  },
+  "plans": {
+    "recommended": "Direkomendasikan",
+    "terms": "Semua paket termasuk biaya setup dan peluncuran satu kali sebesar $1.000 dan masa kontrak minimum 3 bulan.",
+    "items": [
+      {
+        "name": "Startup",
+        "desc": "Untuk brand yang meluncurkan program afiliasi pertamanya.",
+        "price": "$99",
+        "unit": "/bln",
+        "cta": "Mulai Sekarang",
+        "feats": [
+          "Lacak hingga 100.000 klik per bulan",
+          "Setup 1 offer",
+          "Komisi single-tier",
+          "Akses ke marketplace publisher",
+          "Akses dashboard",
+          "Dukungan helpdesk"
+        ]
+      },
+      {
+        "name": "Growth",
+        "desc": "Untuk brand yang siap menjadikan afiliasi sebagai channel pertumbuhan utama.",
+        "price": "$499",
+        "unit": "/bln",
+        "cta": "Mulai Sekarang",
+        "plus": "Semua fitur Startup, ditambah:",
+        "feats": [
+          "Lacak hingga 1.000.000 klik per bulan",
+          "Setup hingga 3 offer",
+          "Komisi multi-tier",
+          "Hingga 3 kampanye rekrutmen per bulan",
+          "Perkenalan dengan publisher",
+          "Account Manager khusus",
+          "Tinjauan performa setiap kuartal"
+        ]
+      },
+      {
+        "name": "Enterprise",
+        "desc": "Untuk brand besar dengan volume tinggi atau kebutuhan khusus.",
+        "price": "Kustom",
+        "priceNote": "Harga berbasis volume.",
+        "cta": "Hubungi Kami",
+        "plus": "Semua fitur Growth, ditambah:",
+        "feats": [
+          "Account Manager khusus dan dukungan prioritas",
+          "Volume, offer, dan laporan kustom yang disesuaikan dengan tujuan Anda."
+        ]
+      }
+    ]
+  },
+  "compare": {
+    "eyebrow": "Paket Harga",
+    "title": "Bandingkan level kemitraan kami",
+    "sub": "Harga yang sederhana dan transparan, dirancang untuk mengembangkan channel afiliasi Anda.",
+    "included": "Termasuk",
+    "notIncluded": "Tidak termasuk",
+    "labelHead": "Fitur platform",
+    "recommended": "Direkomendasikan",
+    "plans": [
+      {
+        "name": "Startup",
+        "price": "$99",
+        "unit": "/bln",
+        "cta": "Mulai Sekarang"
+      },
+      {
+        "name": "Growth",
+        "price": "$499",
+        "unit": "/bln",
+        "cta": "Mulai Sekarang"
+      },
+      {
+        "name": "Enterprise",
+        "price": "Kustom",
+        "cta": "Hubungi Sales"
+      }
+    ],
+    "rows": [
+      ["Harga bulanan", "$99", "$499", "Kustom"],
+      ["Klik terlacak per bulan", "Hingga 100.000", "Hingga 1.000.000", "Kustom"],
+      ["Setup offer", "1", "Hingga 3", "Kustom"],
+      ["Struktur komisi", "Single-tier", "Multi-tier", "Multi-tier"],
+      ["Kampanye rekrutmen per bulan", false, "Hingga 3", "Kustom"],
+      ["Perkenalan dengan publisher", false, true, true],
+      ["Account Manager khusus", false, true, true],
+      ["Dukungan prioritas", false, false, true],
+      ["Tinjauan performa kuartalan", false, true, true],
+      ["Offer dan laporan kustom", false, false, true],
+      ["Akses marketplace publisher", true, true, true],
+      ["Konversi terverifikasi dan perlindungan fraud", true, true, true],
+      ["Biaya setup dan peluncuran", "$1.000 satu kali", "$1.000 satu kali", "$1.000 satu kali"],
+      ["Masa kontrak minimum", "3 bulan", "3 bulan", "3 bulan"],
+      ["Dukungan", "Helpdesk", "Manager khusus", "Manager khusus dan prioritas"]
+    ]
+  },
+  "essentials": {
+    "title": "Setiap paket sudah dilengkapi fitur penting.",
+    "items": [
+      {
+        "title": "1.000.000+ publisher",
+        "desc": "Akses ke lebih dari 1.000.000 publisher di kategori retail, travel, kecantikan, keuangan, dan lainnya."
+      },
+      {
+        "title": "Pelacakan presisi",
+        "desc": "Pelacakan nyata hingga setiap klik dan konversi, dalam satu dashboard."
+      },
+      {
+        "title": "Verifikasi konversi",
+        "desc": "Setiap konversi diverifikasi sebelum Anda membayar."
+      },
+      {
+        "title": "Dukungan langsung dari tim kami",
+        "desc": "Dukungan dari orang sungguhan, sejak hari pertama."
+      }
+    ]
+  },
+  "how": {
+    "title": "Cara kerja harga, dalam dua bagian yang jelas.",
+    "plan": {
+      "title": "Paket platform Anda.",
+      "d": "Biaya bulanan (Startup $99, Growth $499, atau kustom untuk Enterprise), biaya setup dan peluncuran satu kali sebesar $1.000, dan masa kontrak minimum 3 bulan. Inilah yang Anda bayar kepada Involve untuk menjalankan program Anda.",
+      "notes": [
+        "Biaya setup mencakup tim kami yang membangun dan meluncurkan program bersama Anda, sehingga program tayang dengan pengaturan yang benar, tanpa Anda harus mengurusnya sendiri.",
+        "Masa minimum 3 bulan memberi program baru cukup waktu untuk merekrut publisher dan mengumpulkan data sebelum Anda menentukan langkah berikutnya."
+      ]
+    },
+    "pay": {
+      "title": "Yang Anda bayar kepada publisher.",
+      "d": "Komisi yang Anda tetapkan untuk setiap offer, dibayar hanya saat publisher menghasilkan penjualan nyata yang terverifikasi. Inilah bagian bayar-sesuai-hasil, sehingga pengeluaran ini selalu sejalan dengan pendapatan.",
+      "callout": "Affiliate marketing sepenuhnya berbasis performa. Anda memegang kendali penuh atas tarif komisi dan hanya membayar setelah validasi."
+    }
+  },
+  "logos": {
+    "caption": "Dipercaya oleh brand yang sudah dikenal pelanggan Anda, di kategori retail, travel, kecantikan, dan keuangan."
+  },
+  "faq": {
+    "title": "Pertanyaan seputar harga.",
+    "items": [
+      [
+        "Berapa sebenarnya yang saya bayar kepada publisher?",
+        "Anda menetapkan komisi untuk setiap offer. Publisher hanya mendapatkannya saat mereka menghasilkan penjualan nyata, sehingga pengeluaran Anda sejalan dengan pendapatan."
+      ],
+      [
+        "Untuk apa biaya setup $1.000?",
+        "Biaya ini mencakup pembangunan dan peluncuran program Anda bersama tim kami, sehingga program diatur dengan benar dan cepat tayang."
+      ],
+      [
+        "Mengapa ada masa minimum 3 bulan?",
+        "Program afiliasi butuh waktu untuk merekrut publisher dan mengumpulkan data. Tiga bulan cukup untuk melihat hasil nyata."
+      ],
+      [
+        "Apa yang terjadi setelah masa minimum tiga bulan?",
+        "Paket Anda berlanjut secara bulanan, dan Anda bisa upgrade, downgrade, atau membatalkannya sesuai perkembangan program Anda."
+      ],
+      [
+        "Apa yang terjadi jika saya melebihi batas pelacakan paket saya?",
+        "Jika traffic Anda tumbuh melebihi paket, Anda bisa pindah ke paket yang sesuai, dan tim kami akan membantu proses peralihannya."
+      ],
+      [
+        "Bisakah saya mengganti paket nanti?",
+        "Bisa. Pindah dari Startup ke Growth, atau naik ke Enterprise, seiring program Anda berkembang."
+      ],
+      [
+        "Paket mana yang sebaiknya saya pilih?",
+        "Sebagian besar brand yang menjadikan afiliasi sebagai channel utama memilih Growth. Mulailah dengan Startup untuk meluncurkan dan menguji, dan hubungi kami untuk volume Enterprise. Atau dapatkan audit pertumbuhan gratis."
+      ],
+      [
+        "Bagaimana hasil dilacak?",
+        "Setiap klik dan konversi dilacak ke publisher yang menghasilkannya, dan diverifikasi sebelum pembayaran."
+      ]
+    ]
+  },
+  "cta": {
+    "title": "Belum tahu harus mulai dari mana? Kami bantu.",
+    "sub": "Jadwalkan panggilan singkat dan tim kami akan memetakan cara tercepat untuk mengembangkan brand Anda bersama Involve.",
+    "label": "Hubungi Kami"
+  }
+}

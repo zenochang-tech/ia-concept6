@@ -1,0 +1,63 @@
+{
+  "meta": {
+    "title": "Affiliate marketing untuk kreator dan influencer | Involve Asia",
+    "description": "Untuk kreator dan influencer: hasilkan uang dari audiens yang sudah Anda miliki. Bagikan produk favorit, dapatkan komisi tiap penjualan. Gratis bergabung."
+  },
+  "hero": {
+    "eyebrow": "Untuk Partner Kreator",
+    "title": "Ubah konten yang Anda buat menjadi penghasilan.",
+    "sub": "Ribuan brand ingin bekerja sama dengan kreator dan influencer seperti Anda, berapa pun jumlah follower Anda. Bagikan yang Anda sukai, dapatkan komisi dari setiap penjualan.",
+    "cta": "Mulai Menghasilkan",
+    "free": "Gratis bergabung. Mulai menghasilkan hari ini.",
+    "imageAlt": "Seorang kreator konten membagikan rekomendasi produk kepada audiensnya"
+  },
+  "made": {
+    "title": "Dibuat untuk TikTok, YouTube, Instagram, dan lainnya.",
+    "points": [
+      ["Hasilkan di platform mana pun.", "Involve bekerja di platform mana pun tempat follower Anda berada. Link Anda berfungsi di mana pun Anda posting, jadi Anda tidak terikat pada satu channel. Di mana pun Anda bisa membagikan link, Anda bisa menghasilkan."],
+      ["Tanpa website, tanpa toko, tanpa minimum follower.", "Anda tidak perlu toko atau audiens besar untuk memulai. Bagikan link Anda di mana pun follower Anda berada, dan dapatkan komisi saat mereka membeli."]
+    ],
+    "carouselLabel": "Kreator yang sama membagikan produk di TikTok, YouTube, dan Instagram",
+    "previews": ["Pratinjau TikTok", "Pratinjau YouTube", "Pratinjau Instagram"]
+  },
+  "how": {
+    "title": "Cara Anda menghasilkan.",
+    "steps": [
+      ["Pilih brand", "Jelajahi 500+ brand dan pilih produk yang cocok untuk audiens Anda."],
+      ["Bagikan link Anda", "Pasang link pelacakan di bio, story, atau caption Anda, atau bagikan kode promo."],
+      ["Dapatkan komisi dari setiap penjualan", "Saat follower membeli melalui link Anda, penjualan tersebut tercatat untuk Anda."],
+      ["Terima pembayaran", "Tarik dana dalam mata uang lokal Anda setelah penjualan tervalidasi, atau lebih cepat dengan Express Withdrawal."]
+    ]
+  },
+  "create": {
+    "title": "Dibuat sesuai cara Anda berkarya.",
+    "sub": "Semua yang Anda butuhkan untuk mengubah konten menjadi penghasilan, di satu tempat.",
+    "items": [
+      ["Aplikasi mobile", "Buat link dan dapatkan kode di mana saja. Bagikan ke social media Anda dalam hitungan detik, dan pantau klik, konversi, dan penghasilan dari ponsel Anda."],
+      ["Code Generator", "Dapatkan kode unik untuk dibagikan di tempat link tidak berfungsi, seperti caption Instagram Anda. Audiens Anda memakainya saat checkout dan penjualannya tercatat untuk Anda."],
+      ["Creative Hub", "Dapatkan banner siap pakai dan kode kupon dari brand ternama, lalu langsung masukkan ke konten Anda."]
+    ]
+  },
+  "why": {
+    "title": "Mengapa kreator menghasilkan bersama Involve.",
+    "items": [
+      ["Anda dibayar per penjualan, bukan per follower.", "Audiens kecil yang aktif bisa menghasilkan lebih banyak daripada audiens besar. Tanpa minimum follower untuk memulai."],
+      ["Promosikan yang memang cocok.", "Tetap buat konten seperti biasa. Tambahkan link ke produk yang memang akan Anda rekomendasikan."],
+      ["Dibayar lebih cepat.", "Penghasilan divalidasi setiap hari, dan Express Withdrawal memungkinkan Anda menarik dana sebelum validasi selesai."]
+    ]
+  },
+  "voices": {
+    "siakapKeliQuote": "Such a good overall experience with IA, very friendly & professional."
+  },
+  "faq": {
+    "items": [
+      ["Apakah saya perlu banyak follower?", "Tidak. Anda menghasilkan dari penjualan yang Anda datangkan, bukan dari jumlah follower, jadi engagement lebih penting daripada ukuran."],
+      ["Platform apa saja yang bisa saya gunakan?", "Instagram, TikTok, YouTube, dan lainnya. Di mana pun Anda bisa membagikan link atau kode."],
+      ["Bagaimana dan kapan saya dibayar?", "Setelah penjualan Anda tervalidasi, Anda bisa menarik dana dalam mata uang lokal Anda, dengan Express Withdrawal untuk akses lebih awal."],
+      ["Saya seorang influencer. Apakah ini untuk saya?", "Ya. Baik Anda menyebut diri kreator atau influencer, jika Anda punya audiens di platform mana pun, Anda bisa menghasilkan, berapa pun jumlah follower Anda."]
+    ]
+  },
+  "cta": {
+    "title": "Ubah audiens Anda menjadi penghasilan."
+  }
+}

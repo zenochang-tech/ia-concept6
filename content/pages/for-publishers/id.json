@@ -1,0 +1,61 @@
+{
+  "meta": {
+    "title": "Untuk Publisher | Involve Asia",
+    "description": "Promosikan 4.000+ brand, ubah audiens atau traffic Anda menjadi penghasilan, dan terima pembayaran cepat dalam mata uang lokal. Gratis bergabung."
+  },
+  "hero": {
+    "eyebrow": "Affiliate Marketing untuk Publisher",
+    "title": "Ubah audiens Anda menjadi penghasilan.",
+    "sub": "Promosikan yang Anda sukai, dapatkan komisi dari setiap penjualan, dan dibayar lebih cepat.",
+    "cta": "Mulai Menghasilkan",
+    "free": "Gratis bergabung. Mulai menghasilkan hari ini.",
+    "slides": [
+      { "alt": "Seorang kreator merekam ulasan produk untuk dibagikan kepada audiensnya", "link": "invl.me/yourDeepLink", "product": "Kalung" },
+      { "alt": "Seorang publisher meninjau penjualannya di dashboard", "label": "Total Penjualan", "value": "$136.578", "change": "↑36%" },
+      { "alt": "Seorang publisher memeriksa analitik konversi", "label": "Conversion Rate", "value": "12", "unit": "%", "change": "↑21%" },
+      { "alt": "Seorang publisher menerima notifikasi pembayaran", "label": "Pembayaran Diterima", "payouts": ["+ $48", "+ $61"] }
+    ]
+  },
+  "logos": {
+    "caption": "Jelajahi dan promosikan ribuan offer dari 500+ brand, siap untuk publisher seperti Anda hari ini."
+  },
+  "audience": {
+    "title": "Apa pun cara Anda menjangkau orang, selalu ada cara untuk menghasilkan.",
+    "sub": "Apa pun yang Anda jalankan, selalu ada yang cocok: kampanye, kode promo, penawaran produk, dan banyak lagi.",
+    "cards": [
+      ["Partner Kreator", "Social media, influencer, video. Bagikan yang Anda sukai, dan dapatkan komisi setiap kali follower Anda membeli."],
+      ["Partner Afiliasi", "Blog, situs ulasan, cashback, kupon, dan perbandingan. Ubah traffic situs Anda menjadi penghasilan afiliasi, dalam skala apa pun."],
+      ["Partner Teknologi", "Aplikasi, platform web, dan software. Hubungkan Involve ke produk Anda sendiri melalui API kami, dan dapatkan penghasilan dari pengguna Anda."]
+    ]
+  },
+  "platform": {
+    "title": "Dibuat sesuai cara Anda menghasilkan.",
+    "sub": "Temukan offer, bagikan link Anda, lacak setiap penjualan, dan terima pembayaran, semuanya dari satu dashboard.",
+    "items": [
+      ["Temukan offer untuk dipromosikan", "Jelajahi 500+ brand dan ribuan offer, lalu pilih yang cocok untuk audiens Anda."],
+      ["Buat link Anda", "Buat link pelacakan, kupon, atau banner hanya dengan beberapa klik, juga secara massal saat Anda membutuhkannya."],
+      ["Lacak penghasilan Anda", "Pantau klik, penjualan, dan komisi Anda yang diperbarui secara real-time, di web atau aplikasi."],
+      ["Terima pembayaran", "Tarik dana dalam mata uang pilihan Anda setelah konversi tervalidasi, atau lebih cepat dengan Express Withdrawal."]
+    ]
+  },
+  "faq": {
+    "items": [
+      ["Apa itu affiliate marketing?", "Affiliate marketing adalah cara menghasilkan berbasis performa: Anda mempromosikan produk advertiser dengan link pelacakan milik Anda sendiri, dan Anda mendapatkan komisi dari setiap penjualan yang Anda hasilkan. Di platform Involve Asia, Anda mendapatkan akses ke ratusan brand, link dan pelacakan untuk mempromosikannya, serta pembayarannya, semuanya di satu tempat. [Baca panduan pemula kami](/resources/affiliate-marketing-guide/)."],
+      ["Bagaimana cara kerja affiliate marketing?", "Anda membagikan link pelacakan. Saat seseorang mengkliknya dan membeli, penjualan tersebut dicatat atas nama Anda, dan Anda mendapatkan komisi. Bahkan jika mereka kembali beberapa hari kemudian, cookie memastikan penjualan tetap tercatat untuk Anda. Di Involve Asia, Anda menemukan kampanye, melacak performa, dan menerima pembayaran dari dashboard dan aplikasi."],
+      ["Apa itu program afiliasi?", "Program afiliasi adalah kumpulan offer dan komisi dari advertiser untuk publisher yang mempromosikannya. Di platform, Anda mencari brand yang Anda sukai, membuat link, lalu mulai mempromosikan. Beberapa program perlu menyetujui publisher sebelum promosi dimulai."],
+      ["Apakah affiliate marketing legal?", "Ya. Affiliate marketing adalah model pemasaran yang sah dan banyak digunakan. Kami menjaga setiap kemitraan dan promosi tetap patuh aturan dan transparan, sehingga publisher maupun advertiser bisa memercayai angkanya."],
+      ["Apa itu platform afiliasi, dan apa bedanya dengan network?", "Network adalah lapisan penghubung antara advertiser dan publisher. Platform adalah produk lengkap di atasnya: offer, alat link dan pelacakan, laporan, serta pembayaran, semuanya di satu tempat. Involve Asia adalah platform affiliate marketing yang memberi kedua pihak semua yang mereka butuhkan untuk berkembang."],
+      ["Publisher jenis apa saja yang bisa bergabung?", "Hampir semua jenis. Social media dan influencer, situs konten dan berita, situs kupon dan promo, situs cashback dan loyalitas, situs perbandingan, pemilik aplikasi, serta media buyer atau agensi. Jika Anda punya audiens atau traffic, selalu ada cara untuk menghasilkan."],
+      ["Apakah saya perlu punya website?", "Tidak. Anda bisa menghasilkan lewat blog, channel YouTube, Instagram, Facebook, TikTok, daftar email, aplikasi, dan lainnya. Cukup buat akun, tambahkan properti Anda, lalu mulai."],
+      ["Apakah gratis untuk bergabung?", "Ya, bergabung gratis dan tidak ada biaya pendaftaran. Ada dua biaya yang perlu Anda ketahui: biaya pemrosesan berlaku saat Anda menarik penghasilan, dan jika akun Anda tidak aktif dalam waktu lama, biaya pemeliharaan akun tidak aktif mungkin berlaku. Keduanya ditampilkan dengan jelas di dashboard Anda."],
+      ["Bagaimana cara saya memulai dan disetujui?", "Buat akun Anda, tambahkan properti Anda, lalu daftar ke program yang ingin Anda promosikan. Beberapa advertiser perlu menyetujui publisher sebelum promosi dimulai; setelah disetujui, Anda bisa membuat link dan mulai menghasilkan."],
+      ["Bagaimana komisi dihitung?", "Setiap brand menentukan komisinya sendiri. Misalnya, brand fashion bisa membayar 4,2% dari setiap penjualan yang tervalidasi. Ada dua hal yang memengaruhi pembayaran Anda: periode validasi (advertiser memastikan penjualan asli dan tidak dibatalkan sebelum membayar) dan periode cookie (berapa lama setelah klik sebuah pembelian masih dihitung untuk Anda). Keduanya ditampilkan di setiap offer."],
+      ["Bagaimana dan kapan saya dibayar?", "Anda dibayar melalui PayPal atau transfer bank, dalam mata uang pilihan Anda, dalam 10 hari kerja setelah permintaan Anda, setelah konversi Anda tervalidasi. Jika Anda ingin menerima penghasilan lebih cepat, [Express Withdrawal](/express-withdrawal/) memungkinkan publisher yang memenuhi syarat mencairkan sebagian penghasilan sebelum validasi, dengan biaya pemrosesan dan persetujuan."],
+      ["Bagaimana cara melacak performa saya?", "Masuk lalu buka Laporan, kemudian Laporan Performa. Filter berdasarkan rentang tanggal, brand, atau jenis kampanye untuk melihat klik, penjualan, dan penghasilan Anda secara real-time. Publisher tingkat lanjut juga bisa mengambil data performa melalui API."]
+    ]
+  },
+  "cta": {
+    "title": "Mulai menghasilkan dari audiens Anda hari ini.",
+    "label": "Buat Akun Gratis Anda"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "title": "Penarikan Dana USDT | Involve Asia",
+    "description": "Tarik penghasilan afiliasi USD Anda dalam USDT, bukan lewat Bank Transfer atau PayPal. Atur dalam sekitar 2 menit di Payment Settings."
+  },
+  "hero": {
+    "eyebrow": "Opsi Pembayaran Baru",
+    "title": "Dibayar sesuai pilihan Anda dengan penarikan USDT",
+    "sub": "Tarik penghasilan afiliasi USD Anda dalam USDT, bukan lewat Bank Transfer atau PayPal. Kini tersedia di Involve Asia.",
+    "chips": ["Atur dalam 2 Menit", "Ganti Kapan Saja", "Tanpa Antre di Bank"],
+    "cta": "Atur Penarikan USDT",
+    "more": "Pelajari Lebih Lanjut",
+    "imageAlt": "Koin USDT"
+  },
+  "why": {
+    "title": "Lebih leluasa mengatur cara Anda dibayar",
+    "sub": "Tiga alasan para Publisher menambahkan USDT ke opsi pembayaran mereka.",
+    "items": [
+      ["1", "Tak perlu menunggu bank lagi", "Penyelesaian di blockchain hampir instan setelah Anda klaim, tidak seperti transfer bank yang makan waktu berhari-hari."],
+      ["2", "Fiat atau digital, Anda yang pilih", "Penarikan USD kini mendukung transfer biasa maupun USDT, pengalaman pembayaran yang efisien dan lancar untuk Publisher lintas negara."],
+      ["3", "Pilihan Anda, kapan saja", "Beralih antara Bank Transfer, PayPal, atau USDT kapan pun Anda mau, tanpa komitmen jangka panjang."]
+    ]
+  },
+  "setup": {
+    "title": "Cara pengaturannya",
+    "sub": "Lima langkah di Payment Settings. Hanya sekitar 2 menit.",
+    "items": [
+      ["1", "Buka Payment Settings", "Buka Settings > Payment > Payment Details, lalu pilih Edit."],
+      ["2", "Isi alamat dan jenis pembayaran", "Masukkan alamat Anda, lalu atur Payout Type ke Stablecoins. Mata uang pembayaran Anda otomatis ditetapkan ke USD."],
+      ["3", "Lengkapi detail akun Anda", "Masukkan Name, Account Type, Nationality, Contact Number, dan Recipient Email Address tempat Anda akan menerima link klaim pembayaran."],
+      ["4", "Kirim email uji coba (opsional)", "Pastikan email penerima Anda benar dan aktif sebelum link pembayaran pertama dikirim ke sana."],
+      ["5", "Klik Save", "Selesai. Pembayaran berikutnya yang memenuhi syarat siap diklaim dalam USDT."]
+    ]
+  },
+  "know": {
+    "title": "Perlu diketahui",
+    "sub": "Beberapa hal yang perlu Anda ketahui sebelum mengatur penarikan USDT.",
+    "items": [
+      ["Belum perlu wallet", "Anda memasukkan alamat wallet secara aman setiap kali mengklaim pembayaran, bukan saat pengaturan."],
+      ["Biaya pemrosesan 1%", "Dipotong otomatis dari pembayaran kotor Anda dan dirinci di invoice penarikan Involve Anda."],
+      ["Didukung partner berlisensi", "Pembayaran diproses melalui Triple A, yang berlisensi dari Monetary Authority of Singapore."],
+      ["Verifikasi ID satu kali", "Pembayaran pertama di atas USD 1.500 mungkin memerlukan verifikasi identitas singkat, sesuai regulasi standar."],
+      ["Kembali kapan saja", "Anda bisa kembali ke Bank Transfer atau PayPal kapan saja di Payment Settings."]
+    ]
+  },
+  "warn": {
+    "title": "Periksa lagi sebelum melanjutkan",
+    "items": [
+      ["Pastikan alamat email Anda benar.", "Link klaim pembayaran USDT hanya dikirim ke email yang Anda atur saat pengaturan. Alamat yang salah atau sudah tidak aktif bisa membuat dana Anda hilang permanen dan tidak bisa dipulihkan."],
+      ["Periksa lagi alamat wallet dan jaringan Anda setiap kali mengklaim pembayaran.", "Transaksi blockchain tidak bisa dibatalkan setelah dikirim, baik oleh Anda maupun oleh kami."]
+    ]
+  },
+  "cta": {
+    "title": "Siap dibayar dalam USDT?",
+    "label": "Atur Penarikan USDT"
+  }
+}

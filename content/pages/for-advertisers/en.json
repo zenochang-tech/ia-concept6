@@ -1,4 +1,5 @@
 {
+  "numberLocale": "en-US",
   "meta": {
     "title": "For advertisers | Involve Asia",
     "description": "Reach 1,000,000+ trusted publishers across Southeast Asia, launch performance campaigns, and pay only for results. Grow your brand with Involve Asia."
@@ -61,7 +62,11 @@
     "title": "This is what real sales \nadd up to.",
     "brands": "Brands",
     "publishers": "Publishers",
-    "sales": "Sales Driven for Brands"
+    "sales": "Sales Driven for Brands",
+    "brandsSuffix": "+",
+    "publishersSuffix": "+",
+    "salesPrefix": "$",
+    "salesSuffix": "B+"
   },
   "results": {
     "title": "Proven results across every industry.",

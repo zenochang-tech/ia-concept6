@@ -1,0 +1,52 @@
+{
+  "meta": {
+    "title": "Datafeed | Involve Asia",
+    "description": "Dapatkan seluruh katalog produk advertiser dalam satu file dengan Involve Datafeed. Tambahkan link pelacakan Anda dan tampilkan produk sebanyak yang Anda mau."
+  },
+  "hero": {
+    "title": "Tampilkan seluruh katalog, tanpa mengumpulkannya satu per satu.",
+    "sub": "Datafeed memberi Anda daftar produk lengkap dari advertiser dalam satu file, berisi nama, harga, gambar, dan lainnya, jadi Anda bisa menampilkan produk sebanyak yang Anda mau tanpa harus mengumpulkannya satu per satu.",
+    "cta": "Mulai Menghasilkan",
+    "imageAlt": "Daftar produk yang tersinkron ke situs melalui Involve Datafeed",
+    "added": "2.087 produk baru ditambahkan"
+  },
+  "what": {
+    "title": "Apa itu Involve Datafeed?",
+    "sub": "Datafeed adalah file siap pakai berisi produk advertiser, lengkap dengan detail yang Anda butuhkan untuk menampilkannya: nama produk, harga, URL produk, gambar, deskripsi, dan kategori. Daripada menambahkan produk satu per satu, Anda langsung mendapatkan seluruh katalog, lalu menambahkan pelacakan Anda sendiri agar penjualannya tercatat atas nama Anda.",
+    "imageAlt": "Kumpulan produk advertiser yang siap ditampilkan melalui Involve Datafeed"
+  },
+  "how": {
+    "title": "Cara kerjanya",
+    "items": [
+      ["01", "Temukan advertiser.", "Jelajahi datafeed dan pilih advertiser yang produknya ingin Anda tampilkan."],
+      ["02", "Dapatkan feed dan panduannya.", "Unduh feed produk beserta panduan langkah demi langkah dari advertiser tersebut."],
+      ["03", "Tambahkan pelacakan Anda.", "Ikuti panduan untuk menambahkan pelacakan ke link produk, agar klik dan penjualan Anda tercatat atas nama Anda."],
+      ["04", "Tampilkan produknya.", "Publikasikan di seluruh situs Anda."]
+    ]
+  },
+  "ways": {
+    "manual": {
+      "title": "Cara manual",
+      "items": [
+        "Cari setiap produk, lalu salin judul dan gambarnya dari situs brand.",
+        "Buat link afiliasi untuk produk tersebut.",
+        "Tempel semuanya ke situs Anda.",
+        "Ulangi untuk setiap produk."
+      ]
+    },
+    "involve": {
+      "titleA": "Cara ",
+      "titleEm": "Involve Datafeed",
+      "titleB": "",
+      "sub": "Dapatkan katalog dalam satu file. Tambahkan pelacakan sekali saja, lalu tampilkan produk sebanyak yang Anda mau.",
+      "items": [
+        "Unduh feed produk dari brand, seluruh katalog dalam satu file.",
+        "Tambahkan pelacakan ke link produk di feed, sesuai panduan brand, cukup sekali per brand.",
+        "Publikasikan produknya di situs Anda."
+      ]
+    }
+  },
+  "cta": {
+    "title": "Isi situs Anda dengan produk yang menghasilkan mulai hari ini."
+  }
+}

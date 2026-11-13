@@ -44,7 +44,85 @@
     }
   ],
   "pages": {
+    "about": [
+      "id"
+    ],
+    "affiliates": [
+      "id"
+    ],
+    "api-overview": [
+      "id"
+    ],
+    "app-owners": [
+      "id"
+    ],
+    "automation": [
+      "id"
+    ],
+    "blog": [
+      "id"
+    ],
+    "bonus-campaign": [
+      "id"
+    ],
+    "content-creators": [
+      "id"
+    ],
+    "datafeed": [
+      "id"
+    ],
+    "download-app": [
+      "id"
+    ],
+    "earnings-estimate": [
+      "id"
+    ],
+    "express-withdrawal": [
+      "id"
+    ],
+    "for-advertisers": [
+      "id"
+    ],
+    "for-agencies": [
+      "id"
+    ],
+    "for-publishers": [
+      "id"
+    ],
+    "fraud-awareness": [
+      "id"
+    ],
+    "get-started": [
+      "id"
+    ],
+    "how-we-track": [
+      "id"
+    ],
+    "index": [
+      "id"
+    ],
+    "media-buyer": [
+      "id"
+    ],
+    "membership-program": [
+      "id"
+    ],
+    "partner-discovery": [
+      "id"
+    ],
+    "pricing": [
+      "id"
+    ],
     "referral-program": [
+      "id"
+    ],
+    "stablecoin-payout": [
+      "id"
+    ],
+    "technology-partners": [
+      "id"
+    ],
+    "website": [
       "id"
     ]
   }

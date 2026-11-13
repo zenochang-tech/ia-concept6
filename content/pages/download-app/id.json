@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "title": "Unduh Aplikasi | Involve Asia",
+    "description": "Unduh aplikasi Involve Asia untuk melacak konversi, membuat link, dan mengelola pembayaran Anda di mana saja."
+  },
+  "hero": {
+    "title": "Penghasilan afiliasi Anda, dalam genggaman.",
+    "sub": "Temukan brand, buat link pelacakan, dan pantau penghasilan Anda di mana saja. Aplikasi Involve Asia menghadirkan seluruh alur kerja afiliasi Anda di ponsel.",
+    "features": [
+      "Temukan brand yang akan disukai audiens Anda, dan mulai promosi dengan sekali ketuk.",
+      "Buat dan bagikan link pelacakan di mana saja, sebanyak yang Anda butuhkan.",
+      "Pantau klik, penjualan, dan penghasilan Anda secara real-time, di mana pun Anda berada."
+    ],
+    "more": "Fitur lain hadir di rilis berikutnya.",
+    "qrAria": "Unduh aplikasi Involve Asia",
+    "qrAlt": "Kode QR untuk mengunduh aplikasi Involve Asia",
+    "qrText": "Pindai untuk mengunduh aplikasi Involve Asia di sini",
+    "qrTextMobile": "Pindai atau tekan kode QR untuk mengunduh aplikasi Involve Asia",
+    "googlePlay": { "aria": "Dapatkan di Google Play", "small": "TERSEDIA DI", "name": "Google Play" },
+    "appStore": { "aria": "Download di App Store", "small": "Download di", "name": "App Store" },
+    "imageAlt": "Aplikasi Involve Asia ditampilkan di dua ponsel"
+  }
+}

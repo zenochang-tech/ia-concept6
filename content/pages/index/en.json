@@ -15,7 +15,9 @@
     "payoutStatus": "Payout Completed",
     "payoutPrefix": "+ $",
     "salesLabel": "Sales Driven",
-    "salesSub": "last 30 days"
+    "salesSub": "last 30 days",
+    "salesPrefix": "$",
+    "numberLocale": "en-US"
   },
   "trust": {
     "title": "Trusted by brands you already know",
@@ -31,7 +33,8 @@
     "logoAlt": "{name} logo",
     "upTo": "Up to",
     "commission": "{rate}% commission",
-    "publishers": "{count} publishers promoting this"
+    "publishers": "{count} publishers promoting this",
+    "numberLocale": "en-US"
   },
   "start": {
     "title": "Simple enough to start today.",
@@ -82,7 +85,8 @@
       "rateUnit": "%",
       "rateDelta": "↑21%",
       "payoutReceived": "Payout Received",
-      "payoutAmount": "+ $48"
+      "payoutAmount": "+ $48",
+      "numberLocale": "en-US"
     }
   },
   "support": {
@@ -122,7 +126,9 @@
   },
   "stats": {
     "caption": "This is what growing together looks like, since 2014.",
-    "labels": ["Publishers", "Commissions Paid", "Sales Generated", "Brands"]
+    "labels": ["Publishers", "Commissions Paid", "Sales Generated", "Brands"],
+    "formats": ["{n}+", "${n}M+", "${n}B+", "{n}+"],
+    "numberLocale": "en-US"
   },
   "blog": {
     "title": "From the Involve blog.",

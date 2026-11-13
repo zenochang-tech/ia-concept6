@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "title": "Mulai Sekarang | Involve Asia",
+    "description": "Ceritakan tentang bisnis Anda dan jangkau 1.000.000+ Publisher di seluruh Asia: kreator, situs konten, affiliate marketer, situs kupon dan loyalitas."
+  },
+  "hero": {
+    "eyebrow": "Untuk Advertiser",
+    "title": "Mulai bersama Involve Asia.",
+    "titlePlan": "Mulai dengan paket {plan}.",
+    "sub": "Ceritakan tentang bisnis Anda, dan tim kami akan membantu menyiapkan program afiliasi Anda.",
+    "stats": [
+      ["1.000.000+", "Publisher Global"],
+      ["$270 jt+", "Dibayarkan ke Publisher"],
+      ["$3,2 M+", "Penjualan Dihasilkan"]
+    ]
+  },
+  "form": {
+    "selected": "Pilihan Anda: ",
+    "selectedPlan": "Paket {plan}",
+    "change": "Ubah",
+    "title": "Apa yang bisa kami bantu?",
+    "business": "Ceritakan tentang bisnis Anda",
+    "website": "URL Website",
+    "websitePh": "https://brandanda.com",
+    "country": "Negara",
+    "countryPh": "Pilih negara",
+    "countries": ["Malaysia", "Singapura", "Indonesia", "Thailand", "Filipina", "Vietnam", "Taiwan", "Hong Kong", "Lainnya"],
+    "industry": "Industri",
+    "industryPh": "Pilih industri",
+    "industries": ["E-commerce & Retail", "Fashion & Pakaian", "Kecantikan & Perawatan Diri", "Elektronik", "Travel & Perhotelan", "Layanan Keuangan", "Makanan & Minuman", "Kesehatan & Kebugaran", "Gaming", "Lainnya"],
+    "aov": "Rata-rata Nilai Pesanan",
+    "aovCurrency": "USD",
+    "aovPh": "50",
+    "budget": "Anggaran Marketing Bulanan",
+    "budgetPh": "Pilih anggaran",
+    "budgets": ["Di bawah $1.000", "$1.000 – $5.000", "$5.000 – $20.000", "$20.000 – $50.000", "$50.000+"],
+    "contact": "Bagaimana kami bisa menghubungi Anda?",
+    "name": "Nama Anda",
+    "namePh": "Nama Anda",
+    "phone": "No. Telepon",
+    "phonePh": "+60 12 345 6789",
+    "email": "Email Perusahaan",
+    "emailPh": "anda@perusahaan.com",
+    "submit": "Saya Tertarik",
+    "note": "Kami akan menghubungi Anda dalam 1–2 hari kerja."
+  },
+  "logos": {
+    "caption": "Dipercaya oleh brand yang sudah dikenal pelanggan Anda, di bidang retail, travel, kecantikan, dan keuangan."
+  }
+}

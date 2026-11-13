@@ -1,0 +1,51 @@
+{
+  "meta": {
+    "title": "Untuk Agensi | Involve Asia",
+    "description": "Jalankan program afiliasi untuk banyak klien dari satu platform, lengkap dengan brand, pelacakan, dan laporan terpadu untuk mengelola semuanya."
+  },
+  "links": {
+    "signup": "https://app.involve.asia/v2/create-account"
+  },
+  "hero": {
+    "eyebrow": "Untuk Agensi",
+    "title": "Jalankan afiliasi untuk setiap klien dari satu platform",
+    "sub": "Anda tidak perlu punya audiens sendiri. Kelola kampanye untuk banyak klien di satu tempat, lengkap dengan brand, pelacakan, dan laporan untuk menjalankan semuanya.",
+    "cta": "Daftar Gratis",
+    "note": "Gratis bergabung. Dapatkan akses API dalam ~48 jam.",
+    "imageAlt": "Dashboard agensi yang mengelola kampanye afiliasi untuk banyak klien"
+  },
+  "get": {
+    "title": "Yang Anda dapatkan.",
+    "items": [
+      ["01", "Akses ke katalog", "500+ brand dan 4.000+ offer yang bisa diaktifkan untuk klien mana pun."],
+      ["02", "Satu tempat untuk semua klien", "Jalankan dan lacak kampanye setiap klien tanpa harus berpindah-pindah tool."],
+      ["03", "Pelacakan dan laporan terpadu", "Lihat performa setiap klien dalam satu akun, dipisahkan dengan rapi menggunakan sub-ID, atau tarik semuanya ke dashboard Anda sendiri melalui API."]
+    ]
+  },
+  "api": {
+    "title": "API untuk integrasi.",
+    "body": "Tarik offer, buat deeplink yang bisa dilacak, dan sinkronkan data konversi ke sistem dan dashboard klien Anda sendiri. Lihat halaman API untuk endpoint dan dokumentasinya.",
+    "link": "Ringkasan API"
+  },
+  "how": {
+    "title": "Cara kerjanya.",
+    "items": [
+      ["Daftar dan dapatkan akses API", "Daftar gratis, minta API key Anda, lalu mulai aktifkan offer dan buat link pelacakan untuk klien Anda."],
+      ["Pisahkan klien dengan sub-ID", "Tandai aktivitas per klien dan lihat konversi yang dirinci untuk setiap klien."],
+      ["Hubungi kami untuk berkembang", "Tim kami membantu Anda memilih pengaturan yang tepat, satu akun dengan sub-ID untuk tampilan gabungan atau akun terpisah untuk setiap klien, dan membantu Anda mulai berjalan."]
+    ]
+  },
+  "faq": {
+    "items": [
+      ["Bisakah saya mengelola lebih dari satu klien?", "Bisa. Jalankan semua klien Anda dari satu akun dan pisahkan masing-masing dengan sub-ID, atau gunakan akun terpisah untuk setiap klien agar penagihan lebih rapi. Apa pun pilihannya, API memungkinkan Anda menarik data ke laporan Anda sendiri."],
+      ["Apakah saya perlu punya audiens atau traffic sendiri?", "Tidak. Jalur ini untuk agensi yang menjalankan aktivitas afiliasi bagi klien, bukan untuk memonetisasi audiens Anda sendiri. Jika itu Anda, lihat [lima jenis publisher](for-publishers)."],
+      ["Bagaimana cara saya melakukan integrasi teknis?", "Melalui Publisher API kami: tarik offer, buat deeplink, dan sinkronkan konversi (dengan rincian sub-ID per klien). Lihat [halaman API](api-overview) untuk endpoint dan dokumentasinya."],
+      ["Bagaimana cara saya memisahkan performa setiap klien?", "Gunakan sub-ID untuk menandai dan melaporkan aktivitas per klien, atau gunakan akun terpisah untuk setiap klien, sesuai cara Anda melakukan penagihan."]
+    ],
+    "after": "Butuh detail teknis? [Lihat halaman API](api-overview). Punya audiens sendiri untuk dimonetisasi? [Lihat lima jenis publisher](for-publishers)."
+  },
+  "cta": {
+    "title": "Jalankan afiliasi untuk setiap klien, dari satu platform.",
+    "label": "Daftar Gratis"
+  }
+}

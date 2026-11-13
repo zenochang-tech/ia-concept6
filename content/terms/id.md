@@ -6,15 +6,11 @@ Status: **draft**, waiting for review by a fluent Indonesian speaker on the team
 
 ## 1. Tone
 
-| Audience | Pages | Address the reader as | Example |
-|---|---|---|---|
-| Publishers and creators | For Publishers, Affiliates, Content Creators, App Owners, Website, Media Buyer, Referral, Membership, Express Withdrawal, USDT Withdrawal, Bonus Campaign, Download App, Get Started, Earnings Estimate, Fraud Awareness, Blog | **kamu** (friendly, informal), possessive **-mu** / **kamu** | "Ajak temanmu bergabung…" |
-| Advertisers and partners (B2B) | For Advertisers, Pricing, For Agencies, Technology Partners, Partner Discovery, Automation, How We Track, API Overview, Datafeed | **Anda** (polite, business) | "Jangkau jutaan pembeli bersama Anda…" |
-| Homepage and About | Home, About | Neutral: avoid addressing the reader where possible; use **kamu** in publisher sections and **Anda** in advertiser sections | |
+Address the reader as **Anda** (polite) on every page, publisher and advertiser alike; possessive "Anda" ("penghasilan Anda", not "penghasilanmu"). Decided 13 November 2026.
 
-FAQ questions are written from the reader's side and use **saya** ("Bagaimana cara melacak performa referral saya?"); the answers use **kamu** or **Anda** to match the page.
+FAQ questions are written from the reader's side and use **saya** ("Bagaimana cara melacak performa referral saya?"); the answers use **Anda**.
 
-**To confirm:** is "Anda" right for the advertiser pages, or should the whole site use "kamu"?
+Keep it warm and plain rather than stiff: short sentences, active verbs, no bureaucratic phrasing ("Mulai hasilkan komisi" rather than "Silakan melakukan pendaftaran").
 
 ## 2. Keep in English
 
@@ -73,4 +69,28 @@ These stay exactly as written, because Indonesian marketers use them in English 
 2. **Pricing page:** what are the Indonesian plan prices and currency (Rp or USD)?
 3. **Bonus Campaign and Membership Program:** do they run in Indonesia with the same amounts and rules? If not, what are the Indonesian ones?
 4. **Testimonials:** translate the publisher quotes, or keep them in the speaker's original language? (One, Media Terkini, is Indonesian.)
-5. **Tone:** "Anda" on the advertiser pages, or "kamu" everywhere (section 1)?
+
+## 6. Choices to review (first full translation, 13 November 2026)
+
+Wording the translators were least sure of. A fluent reviewer should confirm or replace these; the files are `content/pages/<page>/id.json`.
+
+**Kept in English on purpose:** Startup / Growth / Enterprise (plan names), Silver / Gold / Platinum / Black, Early Withdrawal, Single-tier / Multi-tier, Helpdesk, Conversion Rate, Datafeed Manager, Creative Hub, Code Generator, Postback, awareness, media buyer, paid traffic, payout, EPC, landing page, deeplink, endpoint, tracker. App menu paths and field names on USDT Withdrawal (Settings > Payment > Payment Details, Payout Type, Bank Transfer…) stay as the app shows them.
+
+**Translated, worth a second look:**
+- Grow My Brand → Kembangkan Brand (shortened so it fits the homepage button on phones)
+- Get paid → Terima pembayaran · Sales Driven → Penjualan Dihasilkan · Payout Completed → Pembayaran Selesai
+- Pick your side and grow with us. → Pilih peran Anda dan tumbuh bersama kami. · I'm a Publisher → Saya seorang Publisher
+- Whatever your goal, grow it here. → Apa pun tujuan Anda, wujudkan di sini.
+- No cold outreach. → Tanpa perlu menghubungi satu per satu.
+- Real human support, at every step. → Dukungan dari manusia sungguhan, di setiap langkah.
+- Talk to Sales → Hubungi Sales · Dedicated manager → Manager khusus · /mo → /bln · Custom → Kustom
+- USDT Withdrawal → Penarikan Dana USDT · No Bank Delays → Tanpa Antre di Bank
+- Pending Advertiser Collection → Penagihan Advertiser Tertunda · Standard withdrawal → Penarikan standar
+- no forced ads or banners → tanpa iklan atau banner paksaan (may sound stiff)
+- Performance Report → Laporan Performa (confirm against the Indonesian dashboard)
+- Store badges: GET IT ON → TERSEDIA DI · Download on the → Download di
+- The Involve Datafeed way → Cara Involve Datafeed
+
+**Still in English everywhere, pending a decision:** customer testimonials and the case-study quotes on For Advertisers, the "Start today" step quotes and the support quote on the homepage (question 4 above).
+
+**English source issues spotted:** the search descriptions of For Publishers, Express Withdrawal and Automation say "Promote 4,000+ brands…" while the site says 500+ brands elsewhere; Automation reuses Express Withdrawal's description. The Indonesian Datafeed, How We Track and Partner Discovery pages got their own descriptions instead of the generic English one.

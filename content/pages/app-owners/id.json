@@ -1,0 +1,65 @@
+{
+  "meta": {
+    "title": "Monetisasi aplikasi Anda dengan offer afiliasi | Involve Asia",
+    "description": "Hasilkan pendapatan di dalam aplikasi Anda. Tampilkan offer dan cashback yang relevan bagi pengguna, otomatis lewat API kami."
+  },
+  "hero": {
+    "eyebrow": "Untuk Pemilik Aplikasi",
+    "title": "Jadikan aplikasi Anda sumber pendapatan baru.",
+    "sub": "Tampilkan offer dan cashback yang relevan bagi pengguna Anda, dengan penghasilan yang berjalan di dalam aplikasi lewat API kami.",
+    "cta": "Mulai Menghasilkan",
+    "free": "Gratis bergabung. Mulai menghasilkan hari ini.",
+    "imageAlt": "Aplikasi yang menampilkan rekomendasi produk dan konten yang menghasilkan komisi bagi pemiliknya",
+    "payLabel": "Komisi Didapat",
+    "payAmount": "+ $816"
+  },
+  "platform": {
+    "title": "Dibuat untuk semua aplikasi dengan audiens yang aktif.",
+    "sub": "Jika pengguna Anda bertindak atas apa yang Anda tampilkan, Anda bisa menghasilkan dari situ. Hubungkan sekali lewat API kami, lalu offer yang relevan dan pelacakan berjalan di latar belakang.",
+    "items": [
+      ["Aplikasi belanja", "Tampilkan produk relevan dari brand yang sudah dipercaya pengguna Anda, dan dapatkan komisi setiap kali mereka membeli lewat aplikasi Anda."],
+      ["Aplikasi cashback dan reward", "Beri pengguna cashback dan poin untuk brand yang sudah biasa mereka beli, dan dapatkan bagian dari setiap pembelian yang memenuhi syarat."],
+      ["Aplikasi konten dan komunitas", "Rekomendasikan produk yang cocok dengan konten dan komunitas Anda, dan dapatkan komisi setiap kali audiens Anda membeli lewat aplikasi Anda."]
+    ]
+  },
+  "how": {
+    "title": "Cara Anda menghasilkan.",
+    "items": [
+      ["01", "Hubungkan API", "Integrasi sekali, lalu tarik offer, link, dan pelacakan langsung ke aplikasi Anda."],
+      ["02", "Tampilkan offer yang relevan", "Tampilkan cashback dan promo yang benar-benar diinginkan pengguna, di dalam UI Anda sendiri."],
+      ["03", "Dapatkan komisi dari setiap penjualan", "Saat pengguna membeli lewat aplikasi Anda, penjualannya tercatat atas nama Anda."],
+      ["04", "Terima pembayaran", "Tarik dana dalam mata uang lokal Anda setelah penjualan tervalidasi, atau lebih cepat dengan Express Withdrawal."]
+    ]
+  },
+  "earn": {
+    "title": "Hasilkan dari apa yang sudah dilakukan pengguna Anda.",
+    "items": [
+      ["Komisi dari setiap penjualan", "Rekomendasikan produk dan layanan yang diinginkan pengguna, dan dapatkan komisi setiap kali mereka membeli."],
+      ["Beri cashback, bangun loyalitas", "Tawarkan cashback dan reward yang membuat pengguna terus kembali. Cukup atur sekali, lalu berjalan otomatis."],
+      ["Menyatu, tidak mengganggu", "Padukan rekomendasi produk asli ke dalam aplikasi Anda agar terasa seperti bagian dari pengalaman, bukan iklan."]
+    ]
+  },
+  "api": {
+    "title": "Otomatis lewat \nAPI kami.",
+    "body": "Hubungkan sekali, dan API kami menjaga aplikasi Anda selalu berisi offer terbaru, membuat link Anda, dan melacak setiap konversi, jadi penghasilan berjalan di latar belakang sementara Anda fokus pada produk.",
+    "link": "Ringkasan API",
+    "codeComment": "// Inisialisasi koneksi dengan Involve API",
+    "responseComment": "// Respons JSON"
+  },
+  "why": {
+    "title": "Mengapa pemilik aplikasi membangun dengan Involve.",
+    "items": [
+      ["Aplikasi Anda, pengalaman Anda.", "Offer tampil di dalam UI Anda sendiri. Anda yang mengatur tampilan dan posisinya."],
+      ["Satu integrasi, ratusan brand.", "Hubungkan sekali untuk mengakses 500+ brand dan 4.000+ offer."],
+      ["Dibuat untuk developer.", "Dokumentasi API yang jelas, pelacakan per item, dan pembayaran yang andal."]
+    ]
+  },
+  "faq": [
+    ["Apa saja yang bisa dilakukan API?", "Membuat deeplink, menarik offer dan data produk, serta melacak penjualan per item. Pembuatan deeplink dibatasi 1.000 per 30 hari bergulir."],
+    ["Belum tahu apa yang harus dipromosikan di aplikasi saya?", "Mulailah dari brand tempat pengguna Anda sudah biasa berbelanja. Lihat [Situs konten](website) untuk ide."],
+    ["Seberapa teknis integrasinya?", "Anda butuh developer untuk menghubungkan API. Dokumentasinya mencakup setiap endpoint."]
+  ],
+  "cta": {
+    "title": "Mulai monetisasi aplikasi Anda hari ini."
+  }
+}

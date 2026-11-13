@@ -39,7 +39,8 @@ def check_shared(cfg):
         if not os.path.exists(os.path.join(HERE, rel)):
             continue
         for key in load(rel).get("text", {}):
-            if key not in code and key.replace("'", "\\'") not in code:
+            as_code = key.replace("'", "\\'").replace("\n", "\\n")   # how the key is written inside a JS string
+            if key not in code and as_code not in code:
                 print(f"WARN   {rel}: no English text \"{key}\" in the code — reworded or removed?")
 
 
