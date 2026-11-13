@@ -1,0 +1,77 @@
+{
+  "meta": {
+    "title": "Monetise your product's users with our affiliate API | Involve Asia",
+    "description": "For technology partners — apps, web apps, and software with their own users. Integrate offers, tracking, and cashback through our API, postback, and datafeed."
+  },
+  "hero": {
+    "eyebrow": "For Technology Partners",
+    "title": "Turn the product you've built into revenue.",
+    "sub": "Whether you run an app, a web platform, or your own software, integrate once and earn when your users act on the offers and cashback you surface, all through our API.",
+    "cta": "Start Earning",
+    "free": "Free to join. Start earning today.",
+    "imageAlt": "A technology partner integrating Involve offers into their own product"
+  },
+  "made": {
+    "title": "Built for teams that build.",
+    "sub": "If you run your own product and have the engineers to integrate, you can plug Involve straight in.",
+    "points": [
+      ["Runs inside your own product.", "One API integration puts offers, links, and tracking inside your app, web platform, or software, all in your own UI and on your own terms."],
+      ["Real-time, hands-off.", "Postback pushes every conversion to your server the moment it happens, so your systems stay in sync without anyone logging in to check."]
+    ],
+    "viz": {
+      "phoneAlt": "A fashion store app with Involve offers and tracking built in",
+      "feedTitle": "Live datafeed",
+      "feed": [
+        ["N°04 Silk Satin Shirt", "$780"],
+        ["N°22 Calfskin Frame Bag", "$2,400"],
+        ["N°11 Wool Crepe Blazer", "$1,600"]
+      ],
+      "postTitle": "Postback URL",
+      "postStatus": "200 · delivered",
+      "convTitle": "Conversion tracked",
+      "convAgo": "0.4s ago",
+      "convProduct": "Wool Crepe Blazer",
+      "convCommission": "Commission (8%) · $128.00"
+    }
+  },
+  "how": {
+    "title": "How you earn.",
+    "items": [
+      ["Connect the API", "Integrate once, and bring product data, trackable links, and real-time conversions into your own product."],
+      ["Surface relevant offers", "Show cashback and deals your users actually want, inside your own UI."],
+      ["Earn on every sale", "When a user buys through your product, the sale is credited to you."],
+      ["Get paid", "Withdraw in your local currency once sales are validated, or sooner with Express Withdrawal."]
+    ]
+  },
+  "create": {
+    "title": "Built to integrate.",
+    "sub": "The three tools your engineers will use.",
+    "items": [
+      ["API", "Authenticate with your key and secret, pull offers and conversions, and generate tracking links programmatically, with no manual dashboard work."],
+      ["Postback", "Get conversions pushed to your server in real time (server-to-server), so you never have to log in and check reports. You handle the data on your own system."],
+      ["Datafeed Manager", "Pull live product data like prices, offers, and stock to surface catalogues inside your product."]
+    ]
+  },
+  "why": {
+    "title": "Why technology partners build on Involve.",
+    "items": [
+      ["Your product, your experience.", "Offers live inside your own UI. You control how they look and where they appear."],
+      ["One integration, hundreds of brands.", "Connect once to access 500+ brands and 4,000+ offers."],
+      ["Real-time and hands-off.", "Postback and the API keep offers current and conversions flowing, so no one has to check a dashboard."],
+      ["Built for developers.", "Clear API docs, item-level tracking, and reliable payouts."]
+    ]
+  },
+  "voices": {
+    "siakapQuote": "Such a good overall experience with IA, very friendly & professional."
+  },
+  "faq": [
+    ["What can the API do?", "Generate deeplinks, pull offers and product data, and track sales at item level. Deeplink generation is capped at 1,000 per rolling 30 days."],
+    ["How does postback work?", "When a conversion is created or updated, we send the data to a URL you configure, so your system is notified in real time. You handle the received data on your own server."],
+    ["Can I pull a product datafeed?", "Yes. Pull live product data per advertiser to surface in your product. Feeds vary by advertiser."],
+    ["How technical is the integration?", "You'll need a developer to set up the API and postback, but the docs are clear and the endpoints are simple."],
+    ["What kind of products qualify?", "Apps, web apps, software, and platforms with their own users."]
+  ],
+  "cta": {
+    "title": "Turn your product into revenue."
+  }
+}

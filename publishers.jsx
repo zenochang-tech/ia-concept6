@@ -1,5 +1,7 @@
 /* ============================================================================
    publishers.jsx — "For Publishers" overview page.
+   All copy lives in content/pages/for-publishers/<lang>.json and arrives through
+   useCopy — this file only holds the layout.
    Loaded AFTER ia-shared.jsx (which defines Nav/Footer/etc. and exposes them on
    window). Sections are built one at a time from the Figma frame (node 1260:46678),
    same flow as the homepage. Motion/animation is a final pass.
@@ -7,7 +9,7 @@
 
 // Shared UI comes from ia-shared.jsx (pulled off window so this works regardless
 // of how Babel-standalone scopes each script tag).
-const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, PlatformTabs, FinalCta, Testimonials, Faq, AppDownload, EarnFeatures, HeroHexGrid, HERO_HEXGRID_CSS, LogoMarquee } = window;
+const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, PlatformTabs, FinalCta, Testimonials, Faq, AppDownload, EarnFeatures, HeroHexGrid, HERO_HEXGRID_CSS, LogoMarquee, useCopy, rich } = window;
 
 const LinkIcon = () => (
   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.1" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -17,7 +19,7 @@ const LinkIcon = () => (
 );
 
 /* ---------- Section 1 — Hero ---------------------------------------------- */
-function PubHero() {
+function PubHero({ c }) {
   // Right-hand visual is a 4-slide fade slider: each slide's photo + its floating UI
   // cross-fade in/out together every 1.5s. Reduced-motion holds slide 1.
   const [slide, setSlide] = React.useState(0);
@@ -28,19 +30,20 @@ function PubHero() {
     return () => clearInterval(id);
   }, []);
   const on = (i) => 'ph-slide' + (slide === i ? ' is-active' : '');
+  const [s1, s2, s3, s4] = c.slides;
   return (
     <section id="pub-hero" className="ph-sec">
       <span className="ph-basefade" aria-hidden="true" />
       <div className="wrap ph-wrap">
         <HeroHexGrid />
         <div className="ph-copy">
-          <span className="ph-eyebrow" data-reveal>Affiliate Marketing for Publishers</span>
-          <h1 className="ph-title" data-reveal data-reveal-delay="1">Turn your audience into income.</h1>
-          <p className="ph-sub" data-reveal data-reveal-delay="2">Promote what you love, earn on every sale, and get paid faster.</p>
+          <span className="ph-eyebrow" data-reveal>{c.eyebrow}</span>
+          <h1 className="ph-title" data-reveal data-reveal-delay="1">{c.title}</h1>
+          <p className="ph-sub" data-reveal data-reveal-delay="2">{c.sub}</p>
           <div className="ph-actions" data-reveal data-reveal-delay="3">
-            <a href="/partners/" className="btn btn-primary btn-lg">Start Earning <Arrow /></a>
+            <a href="/partners/" className="btn btn-primary btn-lg">{c.cta} <Arrow /></a>
           </div>
-          <span className="ph-free" data-reveal data-reveal-delay="3">Free to join. Start earning today.</span>
+          <span className="ph-free" data-reveal data-reveal-delay="3">{c.free}</span>
         </div>
 
         <div className="ph-visual" data-reveal data-reveal-delay="1">
@@ -48,32 +51,32 @@ function PubHero() {
           <span className="ph-hexplate" aria-hidden="true" />
 
           <div className={on(0)} aria-hidden={slide !== 0}>
-            <div className="ph-photo"><img className="ph-flip" src="media/figma/pub-hero-creator.png" alt="A creator filming a product review to share with her audience" loading="eager" /></div>
+            <div className="ph-photo"><img className="ph-flip" src="media/figma/pub-hero-creator.png" alt={s1.alt} loading="eager" /></div>
             <div className="ph-slide-ui">
-              <div className="ph-glass ph-g-link"><div className="ph-link"><span className="ph-link-ic"><LinkIcon /></span>invl.me/yourDeepLink</div></div>
-              <div className="ph-glass ph-g-prod"><span className="ph-prod-lbl">Necklace</span><img className="ph-prod-img" src="media/figma/pub-hero-necklace.png" alt="" /></div>
+              <div className="ph-glass ph-g-link"><div className="ph-link"><span className="ph-link-ic"><LinkIcon /></span>{s1.link}</div></div>
+              <div className="ph-glass ph-g-prod"><span className="ph-prod-lbl">{s1.product}</span><img className="ph-prod-img" src="media/figma/pub-hero-necklace.png" alt="" /></div>
             </div>
           </div>
 
           <div className={on(1)} aria-hidden={slide !== 1}>
-            <div className="ph-photo"><img src="media/figma/pub-hero-slide2.png" alt="A publisher reviewing their sales in the dashboard" loading="eager" /></div>
+            <div className="ph-photo"><img src="media/figma/pub-hero-slide2.png" alt={s2.alt} loading="eager" /></div>
             <div className="ph-slide-ui">
-              <div className="ph-glass ph-g-sales"><div className="ph-stat"><span className="ph-stat-lbl">Total Sales</span><span className="ph-stat-row"><b>$136,578</b><em>&uarr;36%</em></span></div></div>
+              <div className="ph-glass ph-g-sales"><div className="ph-stat"><span className="ph-stat-lbl">{s2.label}</span><span className="ph-stat-row"><b>{s2.value}</b><em>{s2.change}</em></span></div></div>
             </div>
           </div>
 
           <div className={on(2)} aria-hidden={slide !== 2}>
-            <div className="ph-photo"><img className="ph-flip" src="media/figma/pub-hero-slide3.png" alt="A publisher checking conversion analytics" loading="eager" /></div>
+            <div className="ph-photo"><img className="ph-flip" src="media/figma/pub-hero-slide3.png" alt={s3.alt} loading="eager" /></div>
             <div className="ph-slide-ui">
-              <div className="ph-glass ph-g-conv"><div className="ph-stat"><span className="ph-stat-lbl">Conversion Rate</span><span className="ph-stat-row"><b>12<small>%</small></b><em>&uarr;21%</em></span></div></div>
+              <div className="ph-glass ph-g-conv"><div className="ph-stat"><span className="ph-stat-lbl">{s3.label}</span><span className="ph-stat-row"><b>{s3.value}<small>{s3.unit}</small></b><em>{s3.change}</em></span></div></div>
             </div>
           </div>
 
           <div className={on(3)} aria-hidden={slide !== 3}>
-            <div className="ph-photo"><img src="media/figma/pub-hero-slide4.png" alt="A publisher receiving a payout notification" loading="eager" /></div>
+            <div className="ph-photo"><img src="media/figma/pub-hero-slide4.png" alt={s4.alt} loading="eager" /></div>
             <div className="ph-slide-ui">
-              <div className="ph-glass ph-g-pay-a"><div className="ph-pay"><span>Payout Received</span><b>+ $48</b></div></div>
-              <div className="ph-glass ph-g-pay-b"><div className="ph-pay"><span>Payout Received</span><b>+ $61</b></div></div>
+              <div className="ph-glass ph-g-pay-a"><div className="ph-pay"><span>{s4.label}</span><b>{s4.payouts[0]}</b></div></div>
+              <div className="ph-glass ph-g-pay-b"><div className="ph-pay"><span>{s4.label}</span><b>{s4.payouts[1]}</b></div></div>
             </div>
           </div>
         </div>
@@ -175,28 +178,25 @@ function PubHero() {
 }
 
 /* ---------- Section 2 — Logo strip ---------------------------------------- */
-function PubLogos() {
-  return <LogoMarquee caption="Explore and promote thousands of offers from 500+ brands, ready for publishers like you today." />;
+function PubLogos({ c }) {
+  return <LogoMarquee caption={c.caption} />;
 }
 
 /* ---------- Section 3 — "If you have an audience, you can earn." ----------- */
-const PUB_AUDIENCE = [
-  ['Creator Partners', 'Social, influencers, video. Share what you love, and earn every time a follower buys.', 'creator-partner-type-image.png'],
-  ['Affiliate Partners', "Blogs, review, cashback, coupon and comparison sites. Turn your site's traffic into affiliate income, at any scale.", 'aff-partner-type-image.png'],
-  ['Technology Partners', 'Apps, web platforms, and software. Plug Involve into your own product through our API, and earn from your users.', 'tech-partner-type-image.png'],
-];
-function PubAudience() {
+// Card images by index; the titles/descriptions come from c.cards.
+const PUB_AUDIENCE_IMG = ['creator-partner-type-image.png', 'aff-partner-type-image.png', 'tech-partner-type-image.png'];
+function PubAudience({ c }) {
   return (
     <section id="pub-audience" className="au-sec">
       <div className="wrap">
         <div className="au-head-l" data-reveal>
-          <h2 className="au-title">However you reach people, there's a way to earn.</h2>
-          <p className="au-sub">Whatever you run, there's a fit for it, across campaigns, promo codes, product deals and more.</p>
+          <h2 className="au-title">{c.title}</h2>
+          <p className="au-sub">{c.sub}</p>
         </div>
         <div className="au-grid" data-reveal data-reveal-delay="1">
-          {PUB_AUDIENCE.map(([t, d, img]) => (
+          {c.cards.map(([t, d], i) => (
             <div className="au-card" key={t}>
-              <img className="au-card-img" src={`media/figma/${img}`} alt="" draggable="false" loading="lazy" />
+              <img className="au-card-img" src={`media/figma/${PUB_AUDIENCE_IMG[i]}`} alt="" draggable="false" loading="lazy" />
               <div className="au-card-body">
                 <h3 className="au-card-t">{t}</h3>
                 <p className="au-card-d">{d}</p>
@@ -227,11 +227,12 @@ function PubAudience() {
 /* ---------------- "Built for how you actually earn." — auto-advancing platform stepper ----------------
    Same interaction as the advertiser page's "One platform…" section: left tabs auto-advance on a
    timer (a fill bar tracks the dwell), each swaps the dashboard image on the right. Ember accent. */
+// Step keys + dashboard images by index; the step text comes from c.items.
 const PUB_PLATFORM = [
-  { key: 'find', t: 'Find offers to promote', d: 'Browse 500+ brands and thousands of offers, and pick the ones that fit your audience.', img: 'publisher-feature-01.png' },
-  { key: 'links', t: 'Generate your links', d: 'Create a trackable link, coupon, or banner in a couple of clicks, in bulk when you need to.', img: 'publisher-feature-02.png' },
-  { key: 'track', t: 'Track your earnings', d: 'Watch your clicks, sales, and commissions update in real time, on web or the app.', img: 'publisher-feature-03.png' },
-  { key: 'paid', t: 'Get paid', d: 'Withdraw in your preferred currency once your conversions are validated, or sooner with Express Withdrawal.', img: 'publisher-feature-04.png' },
+  { key: 'find', img: 'publisher-feature-01.png' },
+  { key: 'links', img: 'publisher-feature-02.png' },
+  { key: 'track', img: 'publisher-feature-03.png' },
+  { key: 'paid', img: 'publisher-feature-04.png' },
 ];
 const PUB_PLATFORM_CSS = `
         .pf-sec{ background:var(--warm-50); padding:clamp(77px,11.11vh,152px) 0 clamp(89px,14.28vh,191px); overflow:hidden; }
@@ -271,11 +272,12 @@ const PUB_PLATFORM_CSS = `
             margin:18px 0 0; border-radius:var(--r-xl);
             background:var(--warm-150); }
         }`;
-function PubPlatform() {
+function PubPlatform({ c }) {
+  const items = PUB_PLATFORM.map((p, i) => ({ ...p, t: c.items[i][0], d: c.items[i][1] }));
   return (
-    <PlatformTabs id="pub-platform" items={PUB_PLATFORM} mobileCards figClass="pf-step-fig-img" css={PUB_PLATFORM_CSS}
-      title="Built for how you actually earn."
-      sub="Find offers, share your links, track every sale, and get paid, all from one dashboard." />
+    <PlatformTabs id="pub-platform" items={items} mobileCards figClass="pf-step-fig-img" css={PUB_PLATFORM_CSS}
+      title={c.title}
+      sub={c.sub} />
   );
 }
 
@@ -299,57 +301,32 @@ function PubVoices() {
    Copy supplied by the client. Two answers carry links (beginner guide, Express
    Withdrawal) — hrefs are placeholders pending the real URLs. Example figures
    (4.2% commission, 10 working days) are illustrative — confirm before launch. */
-const PUB_FAQ = [
-  ['What is affiliate marketing?',
-    <>Affiliate marketing is a performance-based way to earn: you promote an advertiser&rsquo;s products with your own trackable link, and you earn a commission on every sale you drive. On the Involve Asia platform, you get access to hundreds of brands, the links and tracking to promote them, and the payouts, all in one place. <a href="/resources/affiliate-marketing-guide/">Read our beginner guide</a>.</>],
-  ['How does affiliate marketing work?',
-    'You share a trackable link. When someone clicks it and buys, the sale is recorded to you, and you earn a commission. Even if they come back days later, a cookie keeps the sale credited to you. On Involve Asia you find campaigns, track performance, and get paid from the dashboard and the app.'],
-  ['What is an affiliate program?',
-    'An affiliate program is an advertiser’s set of offers and commissions for publishers who promote them. On the platform you search for the brands you like, generate a link, and start promoting. Some programs approve publishers before promotion begins.'],
-  ['Is affiliate marketing legal?',
-    'Yes. Affiliate marketing is a legitimate, widely used marketing model. We keep every partnership and promotion compliant and transparent, so both publishers and advertisers can trust the numbers.'],
-  ['What is an affiliate platform, and how is it different from a network?',
-    'A network is the connective layer that links advertisers and publishers. A platform is the full product that sits on top: the offers, the link and tracking tools, the reporting, and the payouts, in one place. Involve Asia is an affiliate marketing platform that gives both sides everything they need to grow.'],
-  ['What types of publishers can join?',
-    'Almost any kind. Social and influencer, content and news sites, coupon and deal sites, cashback and loyalty sites, comparison sites, app owners, and media buyers or agencies. If you have an audience or traffic, there is a way to earn.'],
-  ['Do I need a website?',
-    'No. You can earn with a blog, a YouTube channel, Instagram, Facebook, TikTok, an email list, an app, and more. Just create an account, add your property, and start.'],
-  ['Is it free to join?',
-    "Yes, joining is free and there's no cost to sign up. Two fees to know about: a processing fee applies when you withdraw your earnings, and if your account stays inactive for a long period an inactivity maintenance fee may apply. Both are shown clearly in your dashboard."],
-  ['How do I get started and approved?',
-    'Create your account, add your property, and apply to the programs you want to promote. Some advertisers approve publishers before promotion begins; once you are approved, you can generate links and start earning.'],
-  ['How are commissions calculated?',
-    'Each brand sets its own commission. For example, a fashion brand might pay 4.2% on every validated sale. Two things shape your payout: the validation period (the advertiser confirms the sale is genuine and not cancelled before it pays out) and the cookie period (how long after a click a purchase still counts for you). Both are shown on each offer.'],
-  ['How and when do I get paid?',
-    <>You get paid by PayPal or bank transfer, in your preferred currency, within 10 working days of your request, once your conversions are validated. If you want your earnings sooner, <a href="/express-withdrawal/">Express Withdrawal</a> lets eligible publishers unlock a portion before validation, subject to a processing fee and approval.</>],
-  ['How do I track my performance?',
-    'Log in and open Reports, then Performance Report. Filter by date range, brand, or campaign type to see your clicks, sales, and earnings in real time. Advanced publishers can also pull performance through the API.'],
-];
-function PubFAQ() {
-  return <Faq items={PUB_FAQ} />;
+function PubFAQ({ c }) {
+  return <Faq items={c.items.map(([q, a]) => [q, rich(a)])} />;
 }
 
 /* ---------- Final CTA (shared FinalCta, ia-sections.jsx) ----------------- */
-function PubCTA() {
-  return <FinalCta title="Start earning with your audience today." label="Create Your Free Account" />;
+function PubCTA({ c }) {
+  return <FinalCta title={c.title} label={c.label} />;
 }
 
 function PublisherApp() {
   useSmoothScroll();
   useScrollReveal();
+  const c = useCopy('for-publishers');
   return (
     <React.Fragment>
       <Nav getStartedTone="pub" />
       <main>
-        <PubHero />
-        <PubLogos />
-        <PubAudience />
-        <PubPlatform />
+        <PubHero c={c.hero} />
+        <PubLogos c={c.logos} />
+        <PubAudience c={c.audience} />
+        <PubPlatform c={c.platform} />
         {/* <PubEarn /> hidden per request */}
         <PubBuilt />
         <PubVoices />
-        <PubFAQ />
-        <PubCTA />
+        <PubFAQ c={c.faq} />
+        <PubCTA c={c.cta} />
       </main>
       <Footer />
       <AppDownload />

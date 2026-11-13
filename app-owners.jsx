@@ -1,37 +1,38 @@
 /* ============================================================================
-   publishers.jsx — "For Publishers" overview page.
-   Loaded AFTER ia-shared.jsx (which defines Nav/Footer/etc. and exposes them on
+   app-owners.jsx — "For App Owners" page (key: app-owners).
+   All visible copy lives in content/pages/app-owners/en.json and arrives through
+   useCopy — this file only holds the layout, icons and images. Loaded AFTER ia-shared.jsx (which defines Nav/Footer/etc. and exposes them on
    window). Sections are built one at a time from the Figma frame (node 1260:46678),
    same flow as the homepage. Motion/animation is a final pass.
    ============================================================================ */
 
 // Shared UI comes from ia-shared.jsx (pulled off window so this works regardless
 // of how Babel-standalone scopes each script tag).
-const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, PlatformTabs, FinalCta, Testimonials, Faq, AppDownload, HeroHexGrid, HERO_HEXGRID_CSS, NumberedSteps } = window;
+const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, PlatformTabs, FinalCta, Testimonials, Faq, AppDownload, HeroHexGrid, HERO_HEXGRID_CSS, NumberedSteps, useCopy, rich } = window;
 
 /* ---------- Section 1 — Hero ---------------------------------------------- */
-function PubHero() {
+function PubHero({ c }) {
   return (
     <section id="pub-hero" className="ph-sec">
       <span className="ph-basefade" aria-hidden="true" />
       <div className="wrap ph-wrap">
         <HeroHexGrid />
         <div className="ph-copy">
-          <span className="ph-eyebrow" data-reveal>For App Owners</span>
-          <h1 className="ph-title" data-reveal data-reveal-delay="1">Turn your app into a new revenue stream.</h1>
-          <p className="ph-sub" data-reveal data-reveal-delay="2">Show relevant offers and cashback to your users, earning that runs inside your app through our API.</p>
+          <span className="ph-eyebrow" data-reveal>{c.eyebrow}</span>
+          <h1 className="ph-title" data-reveal data-reveal-delay="1">{c.title}</h1>
+          <p className="ph-sub" data-reveal data-reveal-delay="2">{c.sub}</p>
           <div className="ph-actions" data-reveal data-reveal-delay="3">
-            <a href="/partners/" className="btn btn-primary btn-lg">Start Earning <Arrow /></a>
+            <a href="/partners/" className="btn btn-primary btn-lg">{c.cta} <Arrow /></a>
           </div>
-          <span className="ph-free" data-reveal data-reveal-delay="3">Free to join. Start earning today.</span>
+          <span className="ph-free" data-reveal data-reveal-delay="3">{c.free}</span>
         </div>
 
         <div className="ph-visual" data-reveal data-reveal-delay="1">
           <span className="ph-hexglow" aria-hidden="true" />
           <span className="ph-hexplate" aria-hidden="true" />
-          <div className="ph-photo"><img src="media/figma/app-owners-hero.png" alt="An app showing recommended products and content that earn its owner a commission" loading="eager" /></div>
+          <div className="ph-photo"><img src="media/figma/app-owners-hero.png" alt={c.imageAlt} loading="eager" /></div>
           <div className="ph-static-ui" data-reveal data-reveal-delay="2">
-            <div className="ph-glass ph-g-pay-a"><div className="ph-pay"><span>Commission Earned</span><b>+ $816</b></div></div>
+            <div className="ph-glass ph-g-pay-a"><div className="ph-pay"><span>{c.payLabel}</span><b>{c.payAmount}</b></div></div>
           </div>
         </div>
       </div>
@@ -129,10 +130,11 @@ function PubHero() {
 /* ---------------- "Built for how you actually earn." — auto-advancing platform stepper ----------------
    Same interaction as the advertiser page's "One platform…" section: left tabs auto-advance on a
    timer (a fill bar tracks the dwell), each swaps the dashboard image on the right. Ember accent. */
+/* tab text comes from c.items, zipped by index with these keys/images */
 const PUB_PLATFORM = [
-  { key: 'shopping', t: 'Shopping apps', d: 'Show your users relevant products from brands they already trust, and earn a commission whenever they buy through your app.', img: 'app-stepper-shopping.png' },
-  { key: 'cashback', t: 'Cashback and rewards apps', d: 'Reward your users with cashback and points on the brands they already buy, and earn a share of every qualifying purchase.', img: 'app-stepper-cashback.png' },
-  { key: 'content', t: 'Content and community apps', d: 'Recommend products that fit your content and community, and earn a commission whenever your audience buys through your app.', img: 'app-stepper-content.png' },
+  { key: 'shopping', img: 'app-stepper-shopping.png' },
+  { key: 'cashback', img: 'app-stepper-cashback.png' },
+  { key: 'content', img: 'app-stepper-content.png' },
 ];
 const PUB_PLATFORM_CSS = `
         .pf-sec{ background:var(--warm-50); padding:clamp(77px,11.11vh,152px) 0 clamp(89px,14.28vh,191px); overflow:hidden; }
@@ -165,11 +167,12 @@ const PUB_PLATFORM_CSS = `
           .pf-step-fig-in{ overflow:hidden; min-height:0; }
           .pf-step-fig-img{ display:block; width:100%; max-width:230px; height:auto; margin:18px auto 0; filter:drop-shadow(0 16px 30px rgba(15,28,46,.14)); }
         }`;
-function PubPlatform() {
+function PubPlatform({ c }) {
+  const items = c.items.map(([t, d], i) => ({ ...PUB_PLATFORM[i], t, d }));
   return (
-    <PlatformTabs id="pub-platform" items={PUB_PLATFORM} split mobileCards figClass="pf-step-fig-img" css={PUB_PLATFORM_CSS}
-      title="Built for any app with an engaged audience."
-      sub="If your users act on what you show them, you can earn from it. Connect once through our API, and relevant offers and tracking run in the background." />
+    <PlatformTabs id="pub-platform" items={items} split mobileCards figClass="pf-step-fig-img" css={PUB_PLATFORM_CSS}
+      title={c.title}
+      sub={c.sub} />
   );
 }
 
@@ -182,38 +185,27 @@ function PubVoices() {
    Copy supplied by the client. Two answers carry links (beginner guide, Express
    Withdrawal) — hrefs are placeholders pending the real URLs. Example figures
    (4.2% commission, 10 working days) are illustrative — confirm before launch. */
-const PUB_FAQ = [
-  ['What can the API do?',
-    'Generate deeplinks, pull offers and product data, and track sales at item level. Deeplink generation is capped at 1,000 per rolling 30 days.'],
-  ['Not sure what to promote in my app?',
-    <>Start with the brands your users already shop. See <a href="website">Content sites</a> for ideas.</>],
-  ['How technical is the integration?',
-    'You will need a developer to connect the API. The docs cover every endpoint.'],
-];
-function PubFAQ() {
-  return <Faq items={PUB_FAQ} />;
+function PubFAQ({ items }) {
+  return <Faq items={items.map(([q, a]) => [q, rich(a)])} />;
 }
 
 /* ---------- Final CTA (shared FinalCta, ia-sections.jsx) ----------------- */
-function PubCTA() {
-  return <FinalCta title="Start monetizing your app today." />;
+function PubCTA({ c }) {
+  return <FinalCta title={c.title} />;
 }
 
 /* ---------- App-owners §3 — "Earn from what your users already do." (3 cards) ---------- */
-const EARN_CARDS = [
-  ['app-earn-1.png', 'Earn on every sale', 'Recommend products and services your users want, and earn a commission whenever they buy.'],
-  ['app-earn-2.png', 'Give cashback, build loyalty', 'Offer cashback and rewards that keep users coming back, set up once and run automatically.'],
-  ['app-earn-3.png', 'Native, not intrusive', 'Blend real product recommendations into your app so they feel like part of the experience, not an ad.'],
-];
-function AppEarn() {
+/* card text comes from c.items, zipped by index with these images */
+const EARN_CARDS = ['app-earn-1.png', 'app-earn-2.png', 'app-earn-3.png'];
+function AppEarn({ c }) {
   return (
     <section id="app-earn" className="eu-sec">
       <div className="wrap">
-        <h2 className="eu-title" data-reveal>Earn from what your users already do.</h2>
+        <h2 className="eu-title" data-reveal>{c.title}</h2>
         <div className="eu-grid">
-          {EARN_CARDS.map(([img, t, d], i) => (
+          {c.items.map(([t, d], i) => (
             <div className="eu-card" key={t} data-reveal data-reveal-delay={i + 1}>
-              <div className="eu-visual"><img src={`media/figma/${img}`} alt="" loading="lazy" /></div>
+              <div className="eu-visual"><img src={`media/figma/${EARN_CARDS[i]}`} alt="" loading="lazy" /></div>
               <h3 className="eu-ct">{t}</h3>
               <p className="eu-cd">{d}</p>
             </div>
@@ -235,17 +227,17 @@ function AppEarn() {
   );
 }
 /* ---------- App-owners §4 — "Automated through our API." (copy + code card) ---------- */
-function AppApi() {
+function AppApi({ c }) {
   return (
     <section id="app-api" className="aa-sec">
       <div className="wrap">
         <div className="aa-box">
         <div className="aa-grid">
           <div className="aa-left" data-reveal>
-            <h2 className="aa-title">Automated through <br />our API.</h2>
-            <p className="aa-body">Connect once, and our API keeps your app stocked with the latest offers, generates your links, and tracks every conversion, so earning runs in the background while you focus on your product.</p>
+            <h2 className="aa-title">{rich(c.title)}</h2>
+            <p className="aa-body">{c.body}</p>
             <a className="aa-link" href="#">
-              API Overview
+              {c.link}
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5.5l6.5 6.5L9 18.5" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </a>
           </div>
@@ -257,11 +249,11 @@ function AppApi() {
               <span className="aa-file">involve_asia_api_v2.json</span>
             </div>
             <div className="aa-code-body">
-              <div className="cl"><span className="c-com">{'// Initialize connection with Involve API'}</span></div>
+              <div className="cl"><span className="c-com">{c.codeComment}</span></div>
               <div className="cl"><span className="c-txt">GET </span><span className="c-grn">https://api.involve.asia/v2/offers</span></div>
               <div className="cl"><span className="c-txt">Authorization: Bearer ia_app_key_849204</span></div>
               <div className="aa-hr" />
-              <div className="cl"><span className="c-com">{'// JSON Response'}</span></div>
+              <div className="cl"><span className="c-com">{c.responseComment}</span></div>
               <div className="cl"><span className="c-cyan">{'{'}</span></div>
               <div className="cl"><span className="c-txt">{'  "status": '}</span><span className="c-yel">"active"</span><span className="c-txt">,</span></div>
               <div className="cl"><span className="c-txt">{'  "cashback_rate_pct": '}</span><span className="c-pur">12.0</span><span className="c-txt">,</span></div>
@@ -297,14 +289,8 @@ function AppApi() {
   );
 }
 /* ---------- App-owners §4b — "How you earn." (3 numbered steps) — Figma 2546:45558 ---------- */
-const HIW_STEPS = [
-  ['01', 'Connect the API', 'Integrate once, and pull offers, links, and tracking straight into your app.'],
-  ['02', 'Surface relevant offers', 'Show cashback and deals your users actually want, inside your own UI.'],
-  ['03', 'Earn on every sale', 'When a user buys through your app, the sale is tracked to you.'],
-  ['04', 'Get paid', 'Withdraw in your local currency once sales are validated, or sooner with Express Withdrawal.'],
-];
-function HowItWorks() {
-  return <NumberedSteps id="ao-how" title="How you earn." steps={HIW_STEPS} />;
+function HowItWorks({ c }) {
+  return <NumberedSteps id="ao-how" title={c.title} steps={c.items} />;
 }
 /* ---------- App-owners §4c — "Why app owners build on Involve." (3 icon columns) ---------- */
 const WB_ICONS = {
@@ -312,20 +298,17 @@ const WB_ICONS = {
   brands: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z" /><path d="M3 12l9 5 9-5" /><path d="M3 16.5l9 5 9-5" /></svg>,
   dev: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="8 7.5 3.5 12 8 16.5" /><polyline points="16 7.5 20.5 12 16 16.5" /></svg>,
 };
-const WHY_BUILD = [
-  ['app', 'Your app, your experience.', 'Offers live inside your own UI. You control how they look and where they appear.'],
-  ['brands', 'One integration, hundreds of brands.', 'Connect once to access 500+ brands and 4,000+ offers.'],
-  ['dev', 'Built for developers.', 'Clear API docs, item-level tracking, and reliable payouts.'],
-];
-function WhyBuild() {
+/* item text comes from c.items, zipped by index with these icon keys */
+const WHY_BUILD = ['app', 'brands', 'dev'];
+function WhyBuild({ c }) {
   return (
     <section id="ao-why" className="wb-sec">
       <div className="wrap">
-        <h2 className="wb-title" data-reveal>Why app owners build on Involve.</h2>
+        <h2 className="wb-title" data-reveal>{c.title}</h2>
         <div className="wb-grid">
-          {WHY_BUILD.map(([ic, t, d], i) => (
+          {c.items.map(([t, d], i) => (
             <div className="wb-item" key={t} data-reveal data-reveal-delay={i + 1}>
-              <span className="wb-ic">{WB_ICONS[ic]}</span>
+              <span className="wb-ic">{WB_ICONS[WHY_BUILD[i]]}</span>
               <h3 className="wb-ct">{t}</h3>
               <p className="wb-cd">{d}</p>
             </div>
@@ -349,19 +332,20 @@ function WhyBuild() {
 function PublisherApp() {
   useSmoothScroll();
   useScrollReveal();
+  const c = useCopy('app-owners');
   return (
     <React.Fragment>
       <Nav getStartedTone="pub" />
       <main>
-        <PubHero />
-        <PubPlatform />
-        <HowItWorks />
-        <AppEarn />
-        <AppApi />
-        <WhyBuild />
+        <PubHero c={c.hero} />
+        <PubPlatform c={c.platform} />
+        <HowItWorks c={c.how} />
+        <AppEarn c={c.earn} />
+        <AppApi c={c.api} />
+        <WhyBuild c={c.why} />
         <PubVoices />
-        <PubFAQ />
-        <PubCTA />
+        <PubFAQ items={c.faq} />
+        <PubCTA c={c.cta} />
       </main>
       <Footer />
       <AppDownload />

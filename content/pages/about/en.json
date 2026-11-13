@@ -1,0 +1,115 @@
+{
+  "meta": {
+    "title": "About | Involve Asia",
+    "description": "Involve Asia is the affiliate marketing platform that helps brands and partners grow their online earnings. Read our story."
+  },
+  "hero": {
+    "eyebrow": "About us",
+    "title": "Driving growth across Asia.",
+    "sub": "We connect brands and partners through transparent technology, seamless commission payouts, and global opportunities.",
+    "chips": ["Accurate tracking", "On-time payouts", "Secure and reliable"]
+  },
+  "stats": {
+    "labels": ["Sales Generated", "Partners", "Brands", "Commissions Paid"]
+  },
+  "story": {
+    "eyebrow": "Our story",
+    "title": "Built for Southeast Asia from day one.",
+    "body": "We started in 2014 with one goal: connect brands with the people who can genuinely grow them, and make the results something both sides can trust. Today, more than 500 brands and over a million partners grow together on Involve Asia, from cashback sites to creators. Every sale is tracked and validated before anyone is paid.",
+    "milestones": [
+      ["2014", "Founded in Kuala Lumpur", "Involve Asia starts with one goal: connect brands with the partners who can genuinely grow them."],
+      ["Growth", "Across Southeast Asia", "Expands into six markets, building local teams that understand each one."],
+      ["Partnerships", "Trusted by leading platforms", "Becomes a go-to partner for brands like Shopee, Lazada and TikTok Shop."],
+      ["Recognition", "Awarded and certified", "Earns B Corp certification and a place on the Deloitte Technology Fast 500."]
+    ]
+  },
+  "sign": {
+    "label": "Involve Asia office",
+    "imageAlt": "The Involve Asia logo sign on a black wall in our office"
+  },
+  "expertise": {
+    "eyebrow": "Our expertise",
+    "title": "What we do.",
+    "sub": "We connect brands with the publishers who can grow them, and give both sides the tracking and payouts to trust the results.",
+    "items": [
+      ["Performance partnership", "We connect brands with publishers, and you pay only for real results, with full tracking and transparency."],
+      ["Seamless technology", "Our platform handles campaign setup, tracking, and payouts, with accurate reporting you can check yourself."],
+      ["Cross-market expertise", "Our local teams know each market, so brands and partners get support that fits where they operate."]
+    ]
+  },
+  "mission": {
+    "eyebrow": "Why we exist",
+    "title": "Mission, vision & values.",
+    "missionLabel": "Mission",
+    "mission": "Empower brands and partners to grow through transparent technology and performance-driven marketing.",
+    "visionLabel": "Vision",
+    "vision": "Build the affiliate marketing platform Southeast Asia trusts, where every conversion creates shared success.",
+    "values": [
+      ["Partners first", "We win when our partners grow."],
+      ["Clarity and trust", "You see the real numbers, validated before anyone is paid."],
+      ["Always improving", "We challenge limits and celebrate progress."]
+    ]
+  },
+  "awards": {
+    "eyebrow": "Proof of performance",
+    "title": "Awards & recognition.",
+    "sub": "From startup recognition to industry awards, we're proud of our journey, and the partners who made it possible.",
+    "cols": [
+      {
+        "head": "Industry Awards",
+        "items": [
+          ["Shopee's Best Partner of the Year", "Innovation & growth at scale"],
+          ["TikTok Shop's Top Affiliate Link Star", "Creator-led excellence"],
+          ["Lazada's Affiliate of the Year", "Outstanding partner results"],
+          ["Malaysia's Affiliate Marketing Pioneer", "Industry leadership"]
+        ]
+      },
+      {
+        "head": "Technology Recognition",
+        "items": [
+          ["Certified B Corporation®", "Social & environmental standards"],
+          ["Deloitte Technology Fast 500", "Asia Pacific tech growth award"],
+          ["MSC Status", "National tech & innovation recognition"]
+        ]
+      }
+    ]
+  },
+  "regions": {
+    "eyebrow": "Regional presence",
+    "title": "Where you can find us.",
+    "sub": "We operate across six Southeast Asian markets, connecting local brands, creators, and communities through affiliate marketing.",
+    "hq": {
+      "name": "Malaysia",
+      "tag": "Headquarters",
+      "desc": "Kuala Lumpur, where it all began. Our HQ is home to the core marketing, partnerships, and tech teams driving growth across the region."
+    },
+    "others": ["Indonesia", "Singapore", "Philippines", "Thailand", "Vietnam"]
+  },
+  "culture": {
+    "eyebrow": "Life at Involve Asia",
+    "title": "Moments that define our culture.",
+    "sub": "Our culture is built on collaboration, curiosity, and growth. We celebrate milestones and make space for ideas that move us forward.",
+    "imageAlt": "Life at Involve Asia"
+  },
+  "careers": {
+    "title": "Build the future of affiliate marketing with us.",
+    "body": "Join a team of creators, marketers, and data experts solving real problems across Southeast Asia. Let's grow brands, and your career, together.",
+    "link": "View Open Roles",
+    "imageAlt": "The Involve Asia team"
+  },
+  "finale": {
+    "title": "Pick your side and grow with us.",
+    "pubKick": "Creators. Affiliates. Technology Partners.",
+    "advKick": "Brands. Retailers. Enterprises.",
+    "pubImageAlt": "A publisher creating content",
+    "advImageAlt": "An advertiser growing their brand",
+    "pubTitle": "I'm a \nPublisher",
+    "pubDesc": "Promote brands you love. ",
+    "pubMore": "Turn your audience or traffic into income.",
+    "pubCta": "Start Earning",
+    "advTitle": "I'm an \nAdvertiser",
+    "advDesc": "Grow your sales with the right publishers. ",
+    "advMore": "Pay only for results.",
+    "advCta": "Grow My Brand"
+  }
+}

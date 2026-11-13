@@ -1,35 +1,37 @@
 /* ============================================================================
-   publishers.jsx — "For Publishers" overview page.
+   api-overview.jsx — "Developer API" overview page.
    Loaded AFTER ia-shared.jsx (which defines Nav/Footer/etc. and exposes them on
    window). Sections are built one at a time from the Figma frame (node 1260:46678),
    same flow as the homepage. Motion/animation is a final pass.
+   All copy lives in content/pages/api-overview/<lang>.json and arrives through
+   useCopy — this file only holds the layout.
    ============================================================================ */
 
 // Shared UI comes from ia-shared.jsx (pulled off window so this works regardless
 // of how Babel-standalone scopes each script tag).
-const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, FinalCta, Faq, AppDownload, HeroHexGrid, HERO_HEXGRID_CSS } = window;
+const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, FinalCta, Faq, AppDownload, HeroHexGrid, HERO_HEXGRID_CSS, useCopy, rich } = window;
 
 /* ---------- Section 1 — Hero ---------------------------------------------- */
-function PubHero() {
+function PubHero({ c, docs }) {
   return (
     <section id="pub-hero" className="ph-sec">
       <span className="ph-basefade" aria-hidden="true" />
       <div className="wrap ph-wrap">
         <HeroHexGrid />
         <div className="ph-copy">
-          <span className="ph-eyebrow" data-reveal>Developer API</span>
-          <h1 className="ph-title" data-reveal data-reveal-delay="1">Build and automate with the Involve Asia Developer API.</h1>
-          <p className="ph-sub" data-reveal data-reveal-delay="1">Pull promotions, generate tracking links, and get your reports, all without logging into the dashboard. Bring affiliate earning into your own app or workflow.</p>
+          <span className="ph-eyebrow" data-reveal>{c.eyebrow}</span>
+          <h1 className="ph-title" data-reveal data-reveal-delay="1">{c.title}</h1>
+          <p className="ph-sub" data-reveal data-reveal-delay="1">{c.sub}</p>
           <div className="ph-actions" data-reveal data-reveal-delay="2">
-            <a href="/partners/" className="btn btn-primary btn-lg">Apply for an API Key <Arrow /></a>
-            <a href="https://api.involve.asia/docs/" className="btn btn-secondary btn-lg">Read the API Docs <Arrow /></a>
+            <a href="/partners/" className="btn btn-primary btn-lg">{c.cta} <Arrow /></a>
+            <a href={docs} className="btn btn-secondary btn-lg">{c.docs} <Arrow /></a>
           </div>
         </div>
 
         <div className="ph-visual" data-reveal data-reveal-delay="1">
           <span className="ph-hexglow" aria-hidden="true" />
           <span className="ph-hexplate" aria-hidden="true" />
-          <div className="ph-photo ph-photo-fill"><img src="media/figma/api-overview-hero-image.png" alt="Involve Asia API code example: authenticate, list offers, and generate a deeplink" loading="eager" /></div>
+          <div className="ph-photo ph-photo-fill"><img src="media/figma/api-overview-hero-image.png" alt={c.imageAlt} loading="eager" /></div>
         </div>
       </div>
 
@@ -130,48 +132,28 @@ function PubHero() {
 }
 
 /* ---------- Section 8 — "Questions, answered." (FAQ accordion) ------------
-   Copy supplied by the client. Two answers carry links (beginner guide, Express
-   Withdrawal) — hrefs are placeholders pending the real URLs. Example figures
-   (4.2% commission, 10 working days) are illustrative — confirm before launch. */
-const PUB_FAQ = [
-  ['What does the API do?',
-    'Build an affiliate app, or add affiliate capabilities to your own platform, populate reports, generate links, access ready-made campaign banners and landing pages, and pull promotional content.'],
-  ['Who can use it?',
-    'Media buyers, KOL agencies, programmatic and affiliate networks, cashback, and content sites.'],
-  ['How many links can I generate?',
-    'Up to 1,000 unique links per rolling 30-day window.'],
-  ['Which tools can I use?',
-    'Postman, cURL, Insomnia, SoapUI, Paw, or any tool that fits your stack.'],
-  ['How do I track performance?',
-    'Pull the performance report through the API, including individual transactions and custom parameters.'],
-  ['What do I need?',
-    'A team member with programming experience to set it up.'],
-];
-function PubFAQ() {
-  return <Faq items={PUB_FAQ} />;
+   Copy supplied by the client (Q&A pairs in the page's en.json, faq.items). */
+function PubFAQ({ c }) {
+  return <Faq items={c.items} />;
 }
 
 /* ---------- Final CTA (shared FinalCta, ia-sections.jsx) ----------------- */
-function PubCTA() {
-  return <FinalCta title="Start building with the API." label="Apply for an API Key" />;
+function PubCTA({ c }) {
+  return <FinalCta title={c.title} label={c.label} />;
 }
 
 /* ---------- API §2 — "Automate the work, scale your earnings." (4 cards) ---------- */
-const AUTO_CARDS = [
-  ['api-auto-1.png', 'Get the latest promotion data', 'Commission rates and payout terms for every offer you have access to.'],
-  ['api-auto-2.png', 'Generate tracking links', 'Turn product URLs into trackable deeplinks through the API, up to 1,000 unique links every 30 days.'],
-  ['api-auto-3.png', 'Pull performance reports', 'Conversions and earnings, in your own format.'],
-  ['api-auto-4.png', 'Get campaign banners and vouchers', 'Ready-made creatives and seasonal deals.'],
-];
-function AutoWork() {
+// card images, zipped by index with c.auto.items ([title, description])
+const AUTO_IMGS = ['api-auto-1.png', 'api-auto-2.png', 'api-auto-3.png', 'api-auto-4.png'];
+function AutoWork({ c }) {
   return (
     <section id="api-auto" className="aw-sec">
       <div className="wrap">
-        <h2 className="aw-title" data-reveal>Automate the work, scale your earnings.</h2>
+        <h2 className="aw-title" data-reveal>{c.title}</h2>
         <div className="aw-grid">
-          {AUTO_CARDS.map(([img, t, d], i) => (
+          {c.items.map(([t, d], i) => (
             <div className="aw-card" key={t} data-reveal data-reveal-delay={(i % 3) + 1}>
-              <div className="aw-visual"><img src={`media/figma/${img}`} alt="" loading="lazy" /></div>
+              <div className="aw-visual"><img src={`media/figma/${AUTO_IMGS[i]}`} alt="" loading="lazy" /></div>
               <h3 className="aw-ct">{t}</h3>
               <p className="aw-cd">{d}</p>
             </div>
@@ -194,17 +176,17 @@ function AutoWork() {
   );
 }
 /* ---------- API §3 — "Boosted commissions on Shopee, built in." (promo band) ---------- */
-function ShopeeBand() {
+function ShopeeBand({ c }) {
   return (
     <section id="api-shopee" className="sb-sec">
       <div className="wrap">
         <div className="sb-card" data-reveal>
           <div className="sb-body">
-            <h2 className="sb-title">Boosted commissions on Shopee, built in.</h2>
-            <p className="sb-desc">Some Shopee brands pay boosted rates through Commissions XTRA. Pull the full list through the API and refresh it automatically, so you always know which Shopee shops are paying more, and promote them first.</p>
-            <a href="shopee-commissions-xtra" className="sb-link">Learn More <Arrow /></a>
+            <h2 className="sb-title">{c.title}</h2>
+            <p className="sb-desc">{c.desc}</p>
+            <a href="shopee-commissions-xtra" className="sb-link">{c.more} <Arrow /></a>
           </div>
-          <div className="sb-visual"><img src="media/figma/api-shopee-xtra.png" alt="Shopee Commissions XTRA" loading="lazy" /></div>
+          <div className="sb-visual"><img src="media/figma/api-shopee-xtra.png" alt={c.imageAlt} loading="lazy" /></div>
         </div>
       </div>
       <style>{`
@@ -223,22 +205,17 @@ function ShopeeBand() {
   );
 }
 /* ---------- API §4 — "Built for teams that build" (category grid) ---------- */
-const TEAM_CATS = [
-  ['Product & app teams', 'Surface offers and cashback inside your own app or platform, and earn on what your users buy.'],
-  ['High-volume publishers', 'Generate tracking links and sync conversions programmatically, without touching the dashboard.'],
-  ['Data-driven teams', 'Pull offers, conversions, and product feeds into your own systems and reporting.'],
-];
-function BuiltTeams() {
+function BuiltTeams({ c }) {
   return (
     <section id="api-teams" className="bt-sec">
       <div className="wrap">
         <div className="bt-grid">
           <div className="bt-head" data-reveal>
-            <h2 className="bt-title">Who builds with the API</h2>
-            <p className="bt-sub">For teams that run affiliate data and links inside their own systems, through automation.</p>
+            <h2 className="bt-title">{c.title}</h2>
+            <p className="bt-sub">{c.sub}</p>
           </div>
           <div className="bt-cats" data-reveal data-reveal-delay="1">
-            {TEAM_CATS.map(([t, d]) => (
+            {c.items.map(([t, d]) => (
               <div className="bt-cat" key={t}>
                 <span className="bt-cat-t">{t}</span>
                 <span className="bt-cat-d">{d}</span>
@@ -262,26 +239,27 @@ function BuiltTeams() {
   );
 }
 /* ---------- API §5 — "Get started in three steps" ---------- */
+// icons + which step carries the CTA; titles/descriptions zip in by index from c.start.items
 const START_STEPS = [
-  { t: 'Request your API key', d: 'Request your API key from your dashboard.', cta: true,
+  { cta: true,
     ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M8 12V6.5a1.8 1.8 0 0 1 3.6 0V11m0-.5a1.8 1.8 0 0 1 3.6 0V12m0-.8a1.8 1.8 0 0 1 3.6 0v3.8a6 6 0 0 1-6 6h-1.5a6 6 0 0 1-5.2-3l-1.9-3.3a1.8 1.8 0 0 1 3.1-1.8L8 12" /></svg> },
-  { t: 'Add the key to your tool', d: 'Add the key to your API tool (Postman, cURL, Insomnia, and more).', cta: false,
+  { cta: false,
     ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h6a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><path d="M12 11.5v4M10 13.5h4" /></svg> },
-  { t: 'Follow documentation', d: 'Follow the documentation to pull data, generate links, and build.', cta: false,
+  { cta: false,
     ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" /><path d="M14 3v5h5" /><path d="M9 14.5l2 2 4-4" /></svg> },
 ];
-function GetStarted() {
+function GetStarted({ c }) {
   return (
     <section id="api-start" className="gs-sec">
       <div className="wrap">
-        <h2 className="gs-title" data-reveal>Get started in three steps</h2>
+        <h2 className="gs-title" data-reveal>{c.title}</h2>
         <div className="gs-grid">
-          {START_STEPS.map((s, i) => (
+          {START_STEPS.map((s, i) => ({ ...s, t: c.items[i][0], d: c.items[i][1] })).map((s, i) => (
             <div className="gs-step" key={s.t} data-reveal data-reveal-delay={i + 1}>
               <span className="gs-ic" aria-hidden="true">{s.ic}</span>
               <h3 className="gs-st">{s.t}</h3>
               <p className="gs-sd">{s.d}</p>
-              {s.cta && <a href="/partners/" className="btn btn-primary gs-cta">Apply Here <Arrow /></a>}
+              {s.cta && <a href="/partners/" className="btn btn-primary gs-cta">{c.cta} <Arrow /></a>}
             </div>
           ))}
         </div>
@@ -304,17 +282,18 @@ function GetStarted() {
 function PublisherApp() {
   useSmoothScroll();
   useScrollReveal();
+  const c = useCopy('api-overview');
   return (
     <React.Fragment>
       <Nav getStartedTone="pub" />
       <main>
-        <PubHero />
-        <AutoWork />
-        <ShopeeBand />
-        <BuiltTeams />
-        <GetStarted />
-        <PubFAQ />
-        <PubCTA />
+        <PubHero c={c.hero} docs={c.links.docs} />
+        <AutoWork c={c.auto} />
+        <ShopeeBand c={c.shopee} />
+        <BuiltTeams c={c.teams} />
+        <GetStarted c={c.start} />
+        <PubFAQ c={c.faq} />
+        <PubCTA c={c.cta} />
       </main>
       <Footer />
       <AppDownload />

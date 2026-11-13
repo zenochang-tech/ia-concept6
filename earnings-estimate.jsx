@@ -1,8 +1,10 @@
 /* ============================================================================
    earnings-estimate.jsx — "Estimate your possible earnings" entry page.
    Focused single-screen hero: a URL input + CTA over a subtle honeycomb, with a
-   secondary route link at the bottom. Loaded AFTER ia-shared.jsx
-   (Nav/Footer/Arrow/BackToTop/useSmoothScroll/useScrollReveal on global scope).
+   secondary route link at the bottom. All copy lives in
+   content/pages/earnings-estimate/<lang>.json and arrives through useCopy.
+   Loaded AFTER ia-shared.jsx (Nav/Footer/Arrow/BackToTop/useSmoothScroll/
+   useScrollReveal/useCopy/rich on global scope).
    Figma 2957-34847.
    ============================================================================ */
 
@@ -27,21 +29,21 @@ function EeHexField() {
   );
 }
 
-function EarningsHero() {
+function EarningsHero({ c }) {
   return (
     <section className="ee-sec">
       <div className="ee-honey" aria-hidden="true"><EeHexField /></div>
       <div className="wrap ee-wrap">
         <div className="ee-top">
-          <h1 className="ee-title" data-reveal>Estimate your possible earnings</h1>
-          <p className="ee-sub" data-reveal data-reveal-delay="1">Have a social following, a blog, or a site with traffic? <br />Drop your link and we'll estimate what you could earn, in about a minute.</p>
+          <h1 className="ee-title" data-reveal>{c.title}</h1>
+          <p className="ee-sub" data-reveal data-reveal-delay="1">{rich(c.sub)}</p>
           <form className="ee-form" data-reveal data-reveal-delay="2" onSubmit={(e) => e.preventDefault()}>
-            <input className="ee-input" type="text" inputMode="url" placeholder="Paste your social following, blog, website url here…" aria-label="Your social following, blog, or website URL" />
-            <button type="submit" className="btn btn-primary ee-cta">Estimate My Earnings <Arrow /></button>
+            <input className="ee-input" type="text" inputMode="url" placeholder={c.placeholder} aria-label={c.inputAria} />
+            <button type="submit" className="btn btn-primary ee-cta">{c.cta} <Arrow /></button>
           </form>
-          <p className="ee-micro" data-reveal data-reveal-delay="2">No sign up needed. We only read what's already public, no password.</p>
+          <p className="ee-micro" data-reveal data-reveal-delay="2">{c.micro}</p>
         </div>
-        <p className="ee-alt" data-reveal data-reveal-delay="3">Run paid traffic, an app, or a network instead? <br /><a href="for-publishers">See how to earn with Involve here.</a></p>
+        <p className="ee-alt" data-reveal data-reveal-delay="3">{rich(c.alt)}</p>
       </div>
       <style>{`
         .ee-sec{ position:relative; overflow:hidden; background:var(--warm-50); }
@@ -79,10 +81,11 @@ function EarningsHero() {
 function EarningsApp() {
   useSmoothScroll();
   useScrollReveal();
+  const c = useCopy('earnings-estimate');
   return (
     <React.Fragment>
       <Nav getStartedTone="pub" />
-      <main><EarningsHero /></main>
+      <main><EarningsHero c={c.hero} /></main>
       <Footer />
       <BackToTop />
     </React.Fragment>

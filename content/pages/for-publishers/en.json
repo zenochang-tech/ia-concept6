@@ -1,0 +1,61 @@
+{
+  "meta": {
+    "title": "For publishers | Involve Asia",
+    "description": "Promote 4,000+ brands, turn your audience or traffic into income, and get fast local-currency payouts. Free to join — grow with Involve Asia."
+  },
+  "hero": {
+    "eyebrow": "Affiliate Marketing for Publishers",
+    "title": "Turn your audience into income.",
+    "sub": "Promote what you love, earn on every sale, and get paid faster.",
+    "cta": "Start Earning",
+    "free": "Free to join. Start earning today.",
+    "slides": [
+      { "alt": "A creator filming a product review to share with her audience", "link": "invl.me/yourDeepLink", "product": "Necklace" },
+      { "alt": "A publisher reviewing their sales in the dashboard", "label": "Total Sales", "value": "$136,578", "change": "↑36%" },
+      { "alt": "A publisher checking conversion analytics", "label": "Conversion Rate", "value": "12", "unit": "%", "change": "↑21%" },
+      { "alt": "A publisher receiving a payout notification", "label": "Payout Received", "payouts": ["+ $48", "+ $61"] }
+    ]
+  },
+  "logos": {
+    "caption": "Explore and promote thousands of offers from 500+ brands, ready for publishers like you today."
+  },
+  "audience": {
+    "title": "However you reach people, there's a way to earn.",
+    "sub": "Whatever you run, there's a fit for it, across campaigns, promo codes, product deals and more.",
+    "cards": [
+      ["Creator Partners", "Social, influencers, video. Share what you love, and earn every time a follower buys."],
+      ["Affiliate Partners", "Blogs, review, cashback, coupon and comparison sites. Turn your site's traffic into affiliate income, at any scale."],
+      ["Technology Partners", "Apps, web platforms, and software. Plug Involve into your own product through our API, and earn from your users."]
+    ]
+  },
+  "platform": {
+    "title": "Built for how you actually earn.",
+    "sub": "Find offers, share your links, track every sale, and get paid, all from one dashboard.",
+    "items": [
+      ["Find offers to promote", "Browse 500+ brands and thousands of offers, and pick the ones that fit your audience."],
+      ["Generate your links", "Create a trackable link, coupon, or banner in a couple of clicks, in bulk when you need to."],
+      ["Track your earnings", "Watch your clicks, sales, and commissions update in real time, on web or the app."],
+      ["Get paid", "Withdraw in your preferred currency once your conversions are validated, or sooner with Express Withdrawal."]
+    ]
+  },
+  "faq": {
+    "items": [
+      ["What is affiliate marketing?", "Affiliate marketing is a performance-based way to earn: you promote an advertiser’s products with your own trackable link, and you earn a commission on every sale you drive. On the Involve Asia platform, you get access to hundreds of brands, the links and tracking to promote them, and the payouts, all in one place. [Read our beginner guide](/resources/affiliate-marketing-guide/)."],
+      ["How does affiliate marketing work?", "You share a trackable link. When someone clicks it and buys, the sale is recorded to you, and you earn a commission. Even if they come back days later, a cookie keeps the sale credited to you. On Involve Asia you find campaigns, track performance, and get paid from the dashboard and the app."],
+      ["What is an affiliate program?", "An affiliate program is an advertiser’s set of offers and commissions for publishers who promote them. On the platform you search for the brands you like, generate a link, and start promoting. Some programs approve publishers before promotion begins."],
+      ["Is affiliate marketing legal?", "Yes. Affiliate marketing is a legitimate, widely used marketing model. We keep every partnership and promotion compliant and transparent, so both publishers and advertisers can trust the numbers."],
+      ["What is an affiliate platform, and how is it different from a network?", "A network is the connective layer that links advertisers and publishers. A platform is the full product that sits on top: the offers, the link and tracking tools, the reporting, and the payouts, in one place. Involve Asia is an affiliate marketing platform that gives both sides everything they need to grow."],
+      ["What types of publishers can join?", "Almost any kind. Social and influencer, content and news sites, coupon and deal sites, cashback and loyalty sites, comparison sites, app owners, and media buyers or agencies. If you have an audience or traffic, there is a way to earn."],
+      ["Do I need a website?", "No. You can earn with a blog, a YouTube channel, Instagram, Facebook, TikTok, an email list, an app, and more. Just create an account, add your property, and start."],
+      ["Is it free to join?", "Yes, joining is free and there's no cost to sign up. Two fees to know about: a processing fee applies when you withdraw your earnings, and if your account stays inactive for a long period an inactivity maintenance fee may apply. Both are shown clearly in your dashboard."],
+      ["How do I get started and approved?", "Create your account, add your property, and apply to the programs you want to promote. Some advertisers approve publishers before promotion begins; once you are approved, you can generate links and start earning."],
+      ["How are commissions calculated?", "Each brand sets its own commission. For example, a fashion brand might pay 4.2% on every validated sale. Two things shape your payout: the validation period (the advertiser confirms the sale is genuine and not cancelled before it pays out) and the cookie period (how long after a click a purchase still counts for you). Both are shown on each offer."],
+      ["How and when do I get paid?", "You get paid by PayPal or bank transfer, in your preferred currency, within 10 working days of your request, once your conversions are validated. If you want your earnings sooner, [Express Withdrawal](/express-withdrawal/) lets eligible publishers unlock a portion before validation, subject to a processing fee and approval."],
+      ["How do I track my performance?", "Log in and open Reports, then Performance Report. Filter by date range, brand, or campaign type to see your clicks, sales, and earnings in real time. Advanced publishers can also pull performance through the API."]
+    ]
+  },
+  "cta": {
+    "title": "Start earning with your audience today.",
+    "label": "Create Your Free Account"
+  }
+}

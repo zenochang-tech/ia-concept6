@@ -1,35 +1,37 @@
 /* ============================================================================
-   publishers.jsx — "For Publishers" overview page.
+   datafeed.jsx — "Datafeed" page.
    Loaded AFTER ia-shared.jsx (which defines Nav/Footer/etc. and exposes them on
    window). Sections are built one at a time from the Figma frame (node 1260:46678),
    same flow as the homepage. Motion/animation is a final pass.
+   All copy lives in content/pages/datafeed/<lang>.json and arrives through
+   useCopy — this file only holds the layout.
    ============================================================================ */
 
 // Shared UI comes from ia-shared.jsx (pulled off window so this works regardless
 // of how Babel-standalone scopes each script tag).
-const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, FinalCta, AppDownload, HeroHexGrid, HERO_HEXGRID_CSS } = window;
+const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, FinalCta, AppDownload, HeroHexGrid, HERO_HEXGRID_CSS, useCopy, rich } = window;
 
 /* ---------- Section 1 — Hero ---------------------------------------------- */
-function PubHero() {
+function PubHero({ c }) {
   return (
     <section id="pub-hero" className="ph-sec">
       <span className="ph-basefade" aria-hidden="true" />
       <div className="wrap ph-wrap">
         <HeroHexGrid />
         <div className="ph-copy">
-          <h1 className="ph-title" data-reveal data-reveal-delay="1">Feature a whole catalogue, without collecting it by hand.</h1>
-          <p className="ph-sub" data-reveal data-reveal-delay="1">Datafeed hands you an advertiser&rsquo;s full product list in one file, names, prices, images, and more, so you can feature as many products as you want without gathering each one yourself.</p>
+          <h1 className="ph-title" data-reveal data-reveal-delay="1">{c.title}</h1>
+          <p className="ph-sub" data-reveal data-reveal-delay="1">{c.sub}</p>
           <div className="ph-actions" data-reveal data-reveal-delay="2">
-            <a href="/partners/" className="btn btn-primary btn-lg">Start Earning <Arrow /></a>
+            <a href="/partners/" className="btn btn-primary btn-lg">{c.cta} <Arrow /></a>
           </div>
         </div>
 
         <div className="ph-visual" data-reveal data-reveal-delay="1">
           <span className="ph-hexglow" aria-hidden="true" />
           <span className="ph-hexplate" aria-hidden="true" />
-          <div className="ph-photo ph-photo-df"><img src="media/figma/datafeed-hero-1.png" alt="A product list synced to a site through Involve Datafeed" loading="eager" /></div>
+          <div className="ph-photo ph-photo-df"><img src="media/figma/datafeed-hero-1.png" alt={c.imageAlt} loading="eager" /></div>
           <div className="ph-static-ui" data-reveal data-reveal-delay="2">
-            <div className="ph-glass ph-g-added"><div className="ph-added">2,087 new products added</div></div>
+            <div className="ph-glass ph-g-added"><div className="ph-added">{c.added}</div></div>
           </div>
         </div>
       </div>
@@ -135,32 +137,21 @@ const PUB_CTA_CSS = `
         .pc-sec{ position:relative; overflow:hidden; background:var(--warm-50); padding:clamp(199px,33.12vh,365px) 0 clamp(232px,35.88vh,430px); }
         .pc-title{ font-size:clamp(24px,3vw,34px); line-height:1.15; letter-spacing:-.03em; color:var(--warm-900); max-width:900px; }
       `;
-function PubCTA() {
-  return <FinalCta title="Fill your site with products that earn today." css={PUB_CTA_CSS} />;
+function PubCTA({ c }) {
+  return <FinalCta title={c.title} css={PUB_CTA_CSS} />;
 }
 
 /* ---------- Datafeed §2 — "What is Involve Datafeed?" (manual vs datafeed) ---------- */
-const DF_MANUAL = [
-  'Find each product and copy its title and image from the brand’s site.',
-  'Generate an affiliate link for it.',
-  'Paste everything onto your site.',
-  'Repeat for every product.',
-];
-const DF_WAY = [
-  'Download the brand’s product feed, the whole catalogue in one file.',
-  'Add your tracking to the feed’s product links, following the brand’s guide, once per brand.',
-  'Publish the products on your site.',
-];
-function WhatIs() {
+function WhatIs({ c }) {
   return (
     <section id="df-what" className="wi-sec">
       <div className="wrap wi-grid">
         <div className="wi-copy" data-reveal>
-          <h2 className="wi-title">What is Involve Datafeed?</h2>
-          <p className="wi-sub">A datafeed is a ready-made file of an advertiser&rsquo;s products, with the details you need to feature them: product name, price, product URL, image, description, and category. Instead of adding products one by one, you get the whole catalogue at once, then add your own tracking so the sales are credited to you.</p>
+          <h2 className="wi-title">{c.title}</h2>
+          <p className="wi-sub">{c.sub}</p>
         </div>
         <div className="wi-visual" data-reveal data-reveal-delay="1">
-          <img src="media/figma/datafeed-grid-1.png" alt="A grid of an advertiser's products ready to feature through Involve Datafeed" loading="lazy" />
+          <img src="media/figma/datafeed-grid-1.png" alt={c.imageAlt} loading="lazy" />
         </div>
       </div>
       <style>{`
@@ -185,19 +176,13 @@ function WhatIs() {
   );
 }
 /* ---------- Datafeed §4 — "How it works" (3 numbered steps) ---------- */
-const DF_STEPS = [
-  ['01', 'Find the advertiser.', 'Browse the datafeed and pick the advertiser whose products you want to feature.'],
-  ['02', 'Get the feed and guide.', 'Download the product feed and that advertiser’s step-by-step guide.'],
-  ['03', 'Add your tracking.', 'Follow the guide to add your tracking to the product links, so your clicks and sales are credited to you.'],
-  ['04', 'Feature the products.', 'Publish them across your site.'],
-];
-function HowItWorks() {
+function HowItWorks({ c }) {
   return (
     <section id="df-how" className="hw-sec">
       <div className="wrap">
-        <h2 className="hw-title" data-reveal>How it works</h2>
+        <h2 className="hw-title" data-reveal>{c.title}</h2>
         <div className="hw-grid">
-          {DF_STEPS.map(([n, t, d], i) => (
+          {c.items.map(([n, t, d], i) => (
             <div className="hw-step" key={n} data-reveal data-reveal-delay={i + 1}>
               <span className="hw-num">{n}</span>
               <h3 className="hw-st">{t}</h3>
@@ -220,22 +205,22 @@ function HowItWorks() {
   );
 }
 /* ---------- Datafeed §5 — "The manual way / The Involve Datafeed way" (comparison) ---------- */
-function WaysCompare() {
+function WaysCompare({ c }) {
   return (
     <section id="df-ways" className="wc-sec">
       <div className="wrap">
         <div className="wc-cards">
           <div className="wc-card wc-manual" data-reveal>
-            <h3 className="wc-ct">The manual way</h3>
+            <h3 className="wc-ct">{c.manual.title}</h3>
             <ol className="wc-list">
-              {DF_MANUAL.map((t, i) => <li key={i}>{i + 1}. {t}</li>)}
+              {c.manual.items.map((t, i) => <li key={i}>{i + 1}. {t}</li>)}
             </ol>
           </div>
           <div className="wc-card wc-hl" data-reveal data-reveal-delay="1">
-            <h3 className="wc-ct">The <span className="wc-em">Involve Datafeed</span> way</h3>
-            <p className="wc-sub">Get the catalogue in one file. Add your tracking once, then feature as many products as you like.</p>
+            <h3 className="wc-ct">{c.involve.titleA}<span className="wc-em">{c.involve.titleEm}</span>{c.involve.titleB}</h3>
+            <p className="wc-sub">{c.involve.sub}</p>
             <ol className="wc-list">
-              {DF_WAY.map((t, i) => <li key={i}>{i + 1}. {t}</li>)}
+              {c.involve.items.map((t, i) => <li key={i}>{i + 1}. {t}</li>)}
             </ol>
           </div>
         </div>
@@ -259,15 +244,16 @@ function WaysCompare() {
 function PublisherApp() {
   useSmoothScroll();
   useScrollReveal();
+  const c = useCopy('datafeed');
   return (
     <React.Fragment>
       <Nav getStartedTone="pub" />
       <main>
-        <PubHero />
-        <WhatIs />
-        <HowItWorks />
-        <WaysCompare />
-        <PubCTA />
+        <PubHero c={c.hero} />
+        <WhatIs c={c.what} />
+        <HowItWorks c={c.how} />
+        <WaysCompare c={c.ways} />
+        <PubCTA c={c.cta} />
       </main>
       <Footer />
       <AppDownload />

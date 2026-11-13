@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "title": "Download app | Involve Asia",
+    "description": "Download the Involve Asia app to track conversions, generate links, and manage your payouts on the go."
+  },
+  "hero": {
+    "title": "Your affiliate earnings, in your pocket.",
+    "sub": "Find brands, create trackable links, and track your earnings, anywhere. The Involve Asia app puts your whole affiliate workflow on your phone.",
+    "features": [
+      "Find brands your audience will love, and start promoting in a tap.",
+      "Create and share trackable links on the go, as many as you need.",
+      "Track your clicks, sales, and earnings in real time, wherever you are."
+    ],
+    "more": "More coming in future releases.",
+    "qrAria": "Download the Involve Asia app",
+    "qrAlt": "QR code to download the Involve Asia app",
+    "qrText": "Scan to download Involve Asia app here",
+    "qrTextMobile": "Scan or press on the QR to download the Involve Asia app",
+    "googlePlay": { "aria": "Get it on Google Play", "small": "GET IT ON", "name": "Google Play" },
+    "appStore": { "aria": "Download on the App Store", "small": "Download on the", "name": "App Store" },
+    "imageAlt": "The Involve Asia app shown on two phones"
+  }
+}

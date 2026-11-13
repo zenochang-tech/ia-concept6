@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "title": "Affiliate marketing for content, cashback, coupon & comparison sites | Involve Asia",
+    "description": "Turn your website's traffic into affiliate income — blogs, niche, news, cashback, coupon and comparison sites. Offers, datafeeds, API, and creatives to run at any scale."
+  },
+  "hero": {
+    "eyebrow": "For Affiliate Partners",
+    "title": "Turn the site you already run into income.",
+    "sub": "From a blog with a few links to a cashback site running at volume. Earn on what your readers and members buy, with the offers, feeds, and tools to match.",
+    "cta": "Start Earning",
+    "free": "Free to join. Start earning today.",
+    "imageAlt": "An affiliate site dashboard shown on a laptop"
+  },
+  "kinds": {
+    "title": "Built for every kind of affiliate site.",
+    "sub": "Whatever you run and however big it is, there's a way to earn.",
+    "points": [
+      ["Whatever kind of site you run.", "Blogs, news, cashback, coupon, and comparison sites all earn here. If it has content and an audience, you can turn it into income."],
+      ["Light touch, or high volume.", "Add a few links to your posts, or run datafeeds and the API at scale. The tools work either way, and grow as you do."]
+    ],
+    "flowLabel": "Affiliate site types: blog, cashback, coupon and comparison",
+    "sites": [
+      { "url": "Blog Site", "alt": "Blog affiliate site" },
+      { "url": "Cashback Site", "alt": "Cashback affiliate site" },
+      { "url": "Coupon Site", "alt": "Coupon affiliate site" },
+      { "url": "Comparison Site", "alt": "Comparison affiliate site" }
+    ]
+  },
+  "how": {
+    "title": "How you earn.",
+    "steps": [
+      ["Find offers", "Browse 4,000+ offers across 500+ brands, with the rates and terms up front."],
+      ["Add links, or pull the datafeed", "Drop trackable links into your content in a couple of clicks, or feed live product data into your site to run at scale."],
+      ["Earn on every sale", "When someone buys through your link, the sale is credited to you."],
+      ["Get paid", "Withdraw in your local currency once sales are validated, or sooner with Express Withdrawal."]
+    ]
+  },
+  "tools": {
+    "title": "Built to run at any scale.",
+    "sub": "The tools that grow with your site.",
+    "items": [
+      ["Datafeed Manager", "Feed live product data like prices, offers, and stock straight into your site, and keep it current automatically."],
+      ["API", "Pull offers and conversions and generate tracking links programmatically, so affiliate data and links live inside your own systems."],
+      ["Creative Hub", "Grab ready-made banners and campaign coupon codes from top brands to promote."]
+    ]
+  },
+  "why": {
+    "title": "Why affiliate sites earn with Involve.",
+    "proof": "Content, cashback, coupon, and comparison sites across the region run on Involve Asia.",
+    "items": [
+      ["Links that fit your site.", "Place contextual links yourself, with no forced ads or banners cluttering your pages."],
+      ["Your content keeps earning.", "A review you wrote last year still earns today, every time it drives a sale."],
+      ["Built for volume.", "Datafeeds and API link generation to run at the scale your site needs."],
+      ["Reliable tracking and payouts.", "Every sale is validated, with reporting you can check yourself, plus Express Withdrawal when you want paying sooner."]
+    ]
+  },
+  "voices": {
+    "siakapKeliQuote": "Such a good overall experience with IA, very friendly & professional."
+  },
+  "faq": {
+    "items": [
+      ["Will affiliate links change how my site looks?", "No. You choose where links go. There are no forced ads or banners."],
+      ["Do old articles still earn?", "Yes. Any post with a live link keeps earning on every sale it drives."],
+      ["What kinds of sites qualify?", "Blogs, niche sites, news and media, plus cashback, coupon, comparison, loyalty and deal sites."],
+      ["Can I get a product datafeed?", "Yes. Pull live product data per advertiser and add your own tracking to the links. Feeds vary by advertiser."],
+      ["Do you support cashback and coupon models?", "Yes. Cashback, coupon, comparison, loyalty, and deal sites all run on the platform."],
+      ["Is there an API?", "Yes. Generate deep links and pull conversions and offers programmatically. See the [Developer API](api-overview)."]
+    ]
+  },
+  "cta": {
+    "title": "Grow the site you already run."
+  }
+}

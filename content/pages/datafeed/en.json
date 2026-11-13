@@ -1,0 +1,52 @@
+{
+  "meta": {
+    "title": "Datafeed | Involve Asia",
+    "description": "Promote 4,000+ brands, turn your audience or traffic into income, and get fast local-currency payouts. Free to join — grow with Involve Asia."
+  },
+  "hero": {
+    "title": "Feature a whole catalogue, without collecting it by hand.",
+    "sub": "Datafeed hands you an advertiser’s full product list in one file, names, prices, images, and more, so you can feature as many products as you want without gathering each one yourself.",
+    "cta": "Start Earning",
+    "imageAlt": "A product list synced to a site through Involve Datafeed",
+    "added": "2,087 new products added"
+  },
+  "what": {
+    "title": "What is Involve Datafeed?",
+    "sub": "A datafeed is a ready-made file of an advertiser’s products, with the details you need to feature them: product name, price, product URL, image, description, and category. Instead of adding products one by one, you get the whole catalogue at once, then add your own tracking so the sales are credited to you.",
+    "imageAlt": "A grid of an advertiser's products ready to feature through Involve Datafeed"
+  },
+  "how": {
+    "title": "How it works",
+    "items": [
+      ["01", "Find the advertiser.", "Browse the datafeed and pick the advertiser whose products you want to feature."],
+      ["02", "Get the feed and guide.", "Download the product feed and that advertiser’s step-by-step guide."],
+      ["03", "Add your tracking.", "Follow the guide to add your tracking to the product links, so your clicks and sales are credited to you."],
+      ["04", "Feature the products.", "Publish them across your site."]
+    ]
+  },
+  "ways": {
+    "manual": {
+      "title": "The manual way",
+      "items": [
+        "Find each product and copy its title and image from the brand’s site.",
+        "Generate an affiliate link for it.",
+        "Paste everything onto your site.",
+        "Repeat for every product."
+      ]
+    },
+    "involve": {
+      "titleA": "The ",
+      "titleEm": "Involve Datafeed",
+      "titleB": " way",
+      "sub": "Get the catalogue in one file. Add your tracking once, then feature as many products as you like.",
+      "items": [
+        "Download the brand’s product feed, the whole catalogue in one file.",
+        "Add your tracking to the feed’s product links, following the brand’s guide, once per brand.",
+        "Publish the products on your site."
+      ]
+    }
+  },
+  "cta": {
+    "title": "Fill your site with products that earn today."
+  }
+}

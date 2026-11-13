@@ -1,29 +1,31 @@
 /* ============================================================================
-   publishers.jsx — "For Publishers" overview page.
+   for-agencies.jsx — "For Agencies" page.
    Loaded AFTER ia-shared.jsx (which defines Nav/Footer/etc. and exposes them on
    window). Sections are built one at a time from the Figma frame (node 1260:46678),
    same flow as the homepage. Motion/animation is a final pass.
+   All copy (and the sign-up link) lives in content/pages/for-agencies/<lang>.json and
+   arrives through useCopy — this file only holds the layout (and the API code sample).
    ============================================================================ */
 
 // Shared UI comes from ia-shared.jsx (pulled off window so this works regardless
 // of how Babel-standalone scopes each script tag).
-const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, FinalCta, Faq, AppDownload, HeroHexGrid, HERO_HEXGRID_CSS, NumberedSteps, IconColumns } = window;
+const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, FinalCta, Faq, AppDownload, HeroHexGrid, HERO_HEXGRID_CSS, NumberedSteps, IconColumns, useCopy, rich } = window;
 
 /* ---------- Section 1 — Hero ---------------------------------------------- */
-function PubHero() {
+function PubHero({ c, signup }) {
   return (
     <section id="pub-hero" className="ph-sec">
       <span className="ph-basefade" aria-hidden="true" />
       <div className="wrap ph-wrap">
         <HeroHexGrid />
         <div className="ph-copy">
-          <span className="ph-eyebrow" data-reveal>For Agencies</span>
-          <h1 className="ph-title" data-reveal data-reveal-delay="1">Run affiliate for every client from one platform</h1>
-          <p className="ph-sub" data-reveal data-reveal-delay="2">You don't need an audience of your own. Manage campaigns for multiple clients in one place, with the brands, tracking, and reporting to run them all.</p>
+          <span className="ph-eyebrow" data-reveal>{c.eyebrow}</span>
+          <h1 className="ph-title" data-reveal data-reveal-delay="1">{c.title}</h1>
+          <p className="ph-sub" data-reveal data-reveal-delay="2">{c.sub}</p>
           <div className="ph-actions" data-reveal data-reveal-delay="3">
             <span className="ph-act">
-              <a href="https://app.involve.asia/v2/create-account" className="btn btn-primary btn-lg">Sign Up Free <Arrow /></a>
-              <span className="ph-act-note">Free to join. Get API access in ~48 hours.</span>
+              <a href={signup} className="btn btn-primary btn-lg">{c.cta} <Arrow /></a>
+              <span className="ph-act-note">{c.note}</span>
             </span>
           </div>
         </div>
@@ -31,7 +33,7 @@ function PubHero() {
         <div className="ph-visual" data-reveal data-reveal-delay="1">
           <span className="ph-hexglow" aria-hidden="true" />
           <span className="ph-hexplate" aria-hidden="true" />
-          <div className="ph-photo ph-photo-fill"><img src="media/figma/hero-image-agencies.png" alt="Agency dashboard managing multiple client affiliate campaigns" loading="eager" /></div>
+          <div className="ph-photo ph-photo-fill"><img src="media/figma/hero-image-agencies.png" alt={c.imageAlt} loading="eager" /></div>
         </div>
       </div>
 
@@ -134,63 +136,54 @@ function PubHero() {
 }
 
 /* ---------- Section 8 — "Questions, answered." (FAQ accordion) ------------
-   Copy supplied by the client. Two answers carry links (beginner guide, Express
-   Withdrawal) — hrefs are placeholders pending the real URLs. Example figures
-   (4.2% commission, 10 working days) are illustrative — confirm before launch. */
-const PUB_FAQ = [
-  ['Can I manage more than one client?',
-    'Yes. Run all your clients from one account and separate each with sub-IDs, or hold a separate account per client for clean billing. Either way, the API lets you pull the data into your own reporting.'],
-  ['Do I need my own audience or traffic?',
-    <>No. This path is for agencies running affiliate activity for clients, not for monetising your own audience — if that's you, see the <a href="for-publishers">five publisher types</a> instead.</>],
-  ['How do we integrate technically?',
-    <>Through our Publisher API — pull offers, generate deeplinks, and sync conversions (with sub-ID breakdowns per client). See the <a href="api-overview">API page</a> for the endpoints and docs.</>],
-  ["How do we keep each client's performance separate?",
-    'Use sub-IDs to tag and report activity per client, or run a separate account per client — whichever fits how you bill.'],
-];
+   Copy supplied by the client (Q&A pairs in the page's en.json, faq.items; links use rich()). */
 const PUB_FAQ_CSS = `
         .fq-xlinks{ margin:clamp(28px,4vh,44px) auto 0; max-width:1160px; text-align:center; font:400 15px/1.6 var(--font-body); color:var(--warm-600); }
         .fq-xlinks a{ color:var(--ember); font-weight:600; text-decoration:underline; text-underline-offset:2px; }
         .fq-xlinks a:hover{ opacity:.82; }
       `;
-function PubFAQ() {
+function PubFAQ({ c }) {
+  const items = c.items.map(([q, a]) => [q, rich(a)]);
   return (
-    <Faq items={PUB_FAQ} css={PUB_FAQ_CSS}
+    <Faq items={items} css={PUB_FAQ_CSS}
       after={<React.Fragment>
-        <p className="fq-xlinks" data-reveal>Need the technical detail? <a href="api-overview">See the API page</a>. Have your own audience to monetise? <a href="for-publishers">See the five publisher types</a>.</p>
+        <p className="fq-xlinks" data-reveal>{rich(c.after)}</p>
       </React.Fragment>} />
   );
 }
 
 /* ---------- Final CTA (shared FinalCta, ia-sections.jsx) ----------------- */
-function PubCTA() {
-  return <FinalCta title="Run affiliate for every client, from one platform." label="Sign Up Free" />;
+function PubCTA({ c }) {
+  return <FinalCta title={c.title} label={c.label} />;
 }
 
 /* ---------- Affiliates §3 — "Why affiliate sites choose Involve." (4 icon columns) ---------- */
+// icons only; titles/descriptions zip in by index from c.how.items
 const AFF_WHY = [
-  { t: 'Sign up and get API access', d: 'Register free, request your API key, and start activating offers and generating trackable links for your clients.',
+  {
     ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z" /><path d="M3 12l9 5 9-5" /><path d="M3 16.5l9 5 9-5" /></svg> },
-  { t: 'Separate clients with sub-IDs', d: 'Tag activity by client and see conversions broken out per client.',
+  {
     ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="12" cy="6" rx="7.5" ry="3" /><path d="M4.5 6v6c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3V6" /><path d="M4.5 12v6c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-6" /></svg> },
-  { t: 'Talk to us to scale', d: 'Our team helps you pick the right setup — one account with sub-IDs for a combined view, or a separate account per client — and gets you running.',
+  {
     ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" /><path d="M14 3v5h5" /><path d="M9 14.5l2 2 4-4" /></svg> },
 ];
-function WhyChoose() {
+function WhyChoose({ c }) {
+  const items = AFF_WHY.map((it, i) => ({ t: c.items[i][0], d: c.items[i][1], ...it }));
   return (
-    <IconColumns id="aff-why" title="How it works." items={AFF_WHY} />
+    <IconColumns id="aff-why" title={c.title} items={items} />
   );
 }
 /* ---------- Affiliates §4 — "Scale with bulk tools and our API." (copy + code card) ---------- */
-function ScaleApi() {
+function ScaleApi({ c }) {
   return (
     <section id="aff-api" className="sa-sec">
       <div className="wrap">
         <div className="sa-grid">
           <div className="sa-left" data-reveal>
-            <h2 className="sa-title">The API for integration.</h2>
-            <p className="sa-body">Pull offers, generate trackable deeplinks, and sync conversion data into your own systems and client dashboards. See the API page for endpoints and docs.</p>
+            <h2 className="sa-title">{c.title}</h2>
+            <p className="sa-body">{c.body}</p>
             <a className="sa-link" href="api-overview">
-              API Overview
+              {c.link}
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5.5l6.5 6.5L9 18.5" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </a>
           </div>
@@ -240,27 +233,23 @@ function ScaleApi() {
   );
 }
 /* ---------- Affiliates §4b — "How it works" (3 numbered steps) — Figma 2546:45012 ---------- */
-const HIW_STEPS = [
-  ['01', 'Access to the catalogue', '500+ brands and 4,000+ offers to activate for any client.'],
-  ['02', 'One place for every client', "Run and track each client's campaigns without juggling separate tools."],
-  ['03', 'Consolidated tracking and reporting', "See every client's performance in one account, separated cleanly with sub-IDs — or pull it all into your own dashboard through the API."],
-];
-function HowItWorks() {
-  return <NumberedSteps id="af-how" title="What you get." steps={HIW_STEPS} cols={3} />;
+function HowItWorks({ c }) {
+  return <NumberedSteps id="af-how" title={c.title} steps={c.items} cols={3} />;
 }
 function PublisherApp() {
   useSmoothScroll();
   useScrollReveal();
+  const c = useCopy('for-agencies');
   return (
     <React.Fragment>
       <Nav getStartedTone="pub" />
       <main>
-        <PubHero />
-        <HowItWorks />
-        <ScaleApi />
-        <WhyChoose />
-        <PubFAQ />
-        <PubCTA />
+        <PubHero c={c.hero} signup={c.links.signup} />
+        <HowItWorks c={c.get} />
+        <ScaleApi c={c.api} />
+        <WhyChoose c={c.how} />
+        <PubFAQ c={c.faq} />
+        <PubCTA c={c.cta} />
       </main>
       <Footer />
       <AppDownload />

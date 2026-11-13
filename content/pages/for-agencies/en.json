@@ -1,0 +1,51 @@
+{
+  "meta": {
+    "title": "For agencies | Involve Asia",
+    "description": "Run affiliate programs for multiple clients from one platform, with the brands, tracking, and consolidated reporting to manage them all in one place."
+  },
+  "links": {
+    "signup": "https://app.involve.asia/v2/create-account"
+  },
+  "hero": {
+    "eyebrow": "For Agencies",
+    "title": "Run affiliate for every client from one platform",
+    "sub": "You don't need an audience of your own. Manage campaigns for multiple clients in one place, with the brands, tracking, and reporting to run them all.",
+    "cta": "Sign Up Free",
+    "note": "Free to join. Get API access in ~48 hours.",
+    "imageAlt": "Agency dashboard managing multiple client affiliate campaigns"
+  },
+  "get": {
+    "title": "What you get.",
+    "items": [
+      ["01", "Access to the catalogue", "500+ brands and 4,000+ offers to activate for any client."],
+      ["02", "One place for every client", "Run and track each client's campaigns without juggling separate tools."],
+      ["03", "Consolidated tracking and reporting", "See every client's performance in one account, separated cleanly with sub-IDs — or pull it all into your own dashboard through the API."]
+    ]
+  },
+  "api": {
+    "title": "The API for integration.",
+    "body": "Pull offers, generate trackable deeplinks, and sync conversion data into your own systems and client dashboards. See the API page for endpoints and docs.",
+    "link": "API Overview"
+  },
+  "how": {
+    "title": "How it works.",
+    "items": [
+      ["Sign up and get API access", "Register free, request your API key, and start activating offers and generating trackable links for your clients."],
+      ["Separate clients with sub-IDs", "Tag activity by client and see conversions broken out per client."],
+      ["Talk to us to scale", "Our team helps you pick the right setup — one account with sub-IDs for a combined view, or a separate account per client — and gets you running."]
+    ]
+  },
+  "faq": {
+    "items": [
+      ["Can I manage more than one client?", "Yes. Run all your clients from one account and separate each with sub-IDs, or hold a separate account per client for clean billing. Either way, the API lets you pull the data into your own reporting."],
+      ["Do I need my own audience or traffic?", "No. This path is for agencies running affiliate activity for clients, not for monetising your own audience — if that's you, see the [five publisher types](for-publishers) instead."],
+      ["How do we integrate technically?", "Through our Publisher API — pull offers, generate deeplinks, and sync conversions (with sub-ID breakdowns per client). See the [API page](api-overview) for the endpoints and docs."],
+      ["How do we keep each client's performance separate?", "Use sub-IDs to tag and report activity per client, or run a separate account per client — whichever fits how you bill."]
+    ],
+    "after": "Need the technical detail? [See the API page](api-overview). Have your own audience to monetise? [See the five publisher types](for-publishers)."
+  },
+  "cta": {
+    "title": "Run affiliate for every client, from one platform.",
+    "label": "Sign Up Free"
+  }
+}

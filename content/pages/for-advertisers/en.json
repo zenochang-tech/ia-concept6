@@ -1,0 +1,107 @@
+{
+  "meta": {
+    "title": "For advertisers | Involve Asia",
+    "description": "Reach 1,000,000+ trusted publishers across Southeast Asia, launch performance campaigns, and pay only for results. Grow your brand with Involve Asia."
+  },
+  "hero": {
+    "eyebrow": "Affiliate Marketing for Advertisers",
+    "title": "Grow your sales with the right publishers.",
+    "sub": "Reach 1,000,000+ publishers, pay only for verified sales, and see results sooner. Launch in days, not months, whatever you sell.",
+    "cta": "See Plans and Pricing",
+    "free": "Our team helps you launch, and you only pay when a sale is real.",
+    "slideAlts": [
+      "Advertiser dashboard with gross sales, commission paid and performance trends",
+      "1,428 active publishers found — Clarke, Fernandez, Michelle, Jeanne",
+      "My Campaigns: 11.11 and 2026 Black Friday campaigns with coupon codes",
+      "918 conversions found for 11.11 campaign"
+    ],
+    "convLabel": "Conversion Rate",
+    "convValue": "10%",
+    "convDelta": "↑9%",
+    "catLabel": "Publishers for",
+    "catValue": "Fashion category",
+    "live": "11.11 Campaign is live!",
+    "applLabel": "Applicants",
+    "applValue": "428 publishers",
+    "vcLabel": "Validated Conversion",
+    "vcValue": "316"
+  },
+  "logos": {
+    "caption": "Trusted by brands your customers already know, across retail, travel, beauty, and finance."
+  },
+  "goals": {
+    "title": "Whatever your goal, grow it here.",
+    "sub": "There's a publisher and a strategy for every objective, awareness, customers, or revenue.",
+    "items": [
+      { "title": "Build awareness", "desc": "Get your brand in front of new audiences through creators, content sites, and comparison sites." },
+      { "title": "Win customers", "desc": "Turn attention into action with promotions that reach new buyers and bring existing ones back." },
+      { "title": "Grow revenue", "desc": "Drive measurable growth with publishers who are paid to perform, tracked down to every conversion." }
+    ]
+  },
+  "platform": {
+    "title": "One platform, everything you need to run your program",
+    "sub": "Find publishers, launch offers, share your creatives, and track every sale, all in one place.",
+    "items": [
+      { "t": "Find and choose your publishers", "d": "Search publishers by audience, channel, and membership tier, then approve who represents your brand. You stay in full control of who promotes you." },
+      { "t": "Request publisher recruitment", "d": "Prefer a hand? Our team runs recruitment campaigns and introduces publishers that fit your brand, and you approve who joins." },
+      { "t": "Launch offers and share your creatives", "d": "Set your commission, launch an offer, and upload your campaigns for publishers to pick up, then see who is promoting them." },
+      { "t": "Track every result", "d": "Watch clicks, conversions, and payouts in one dashboard, with conversion-level detail and exports whenever you need them." }
+    ]
+  },
+  "real": {
+    "title": "You only pay for \nsales that are real",
+    "desc": "Every conversion is checked and validated before you pay, so your budget only ever goes to genuine results, never wasted spend. You approve what counts.",
+    "points": [
+      "Every conversion verified before payout",
+      "Every sale tracked to the publisher who drove it"
+    ],
+    "chip": "Validated sales"
+  },
+  "stats": {
+    "title": "This is what real sales \nadd up to.",
+    "brands": "Brands",
+    "publishers": "Publishers",
+    "sales": "Sales Driven for Brands"
+  },
+  "results": {
+    "title": "Proven results across every industry.",
+    "sub": "Real brands growing on the platform, in their own words.",
+    "prev": "Previous case study",
+    "next": "Next case study",
+    "cases": [
+      {
+        "head": "Involve increased Shopee’s partnerships from 2,000 to 20,000 partners within 2 years",
+        "quote": "“Our growth would not have been possible without Involve’s support. Involve has been one of our biggest affiliate partners from the start, and a benchmark & role model to our other partners.”",
+        "who": "Shopee Malaysia"
+      },
+      {
+        "head": "Involve saves time onboarding new partnerships and optimises your existing ones",
+        "quote": "“Involve saves us so much time by not having to reach out to new partners one by one. Involve also optimized our existing partnerships, where we saw a 3.4% growth despite implementing a commission cut.”",
+        "who": "DECATHLON"
+      },
+      {
+        "head": "A remarkable 8% increase in orders within a short period of time.",
+        "quote": "“Through their expansive network of publisher and influencer channels, which have become instrumental marketing avenues for us, we have achieved significant milestones. The growth we have experienced across our diverse range of brands has been nothing short of extraordinary, with a remarkable 8% increase in orders within a short period of time.”",
+        "who": "Limitless Technology"
+      },
+      {
+        "head": "Involve Asia focuses on a variety of traffic and development.",
+        "quote": "“Involve Asia focuses on a variety of traffic and development, and looks forward to common progress in the future!”",
+        "who": "Alibaba Group"
+      }
+    ]
+  },
+  "awards": {
+    "title": "Recognised, and built on trust",
+    "alts": [
+      "Certified B Corporation",
+      "Deloitte Technology Fast 500",
+      "MSC Malaysia Status Company",
+      "Forbes Asia 100 To Watch"
+    ]
+  },
+  "cta": {
+    "title": "Start growing your business with the right plan today.",
+    "label": "See Plans and Pricing"
+  }
+}

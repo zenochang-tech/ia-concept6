@@ -4,12 +4,12 @@
    the About page hero (hexagon-ring backdrop + chips), the shared
    NumberedSteps / FinalCta sections, the homepage offer cards (.offer-card, styled in
    the page head) and the Terms & Conditions text block. Copy is from the live page;
-   headings in sentence case. Loaded AFTER ia-shared.jsx + ia-sections.jsx.
+   headings in sentence case. All copy (and the dashboard log-in link) lives in
+   content/pages/bonus-campaign/<lang>.json and arrives through useCopy. Loaded AFTER ia-shared.jsx + ia-sections.jsx.
    ============================================================================ */
 
-const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, FinalCta, AppDownload, NumberedSteps } = window;
+const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, FinalCta, AppDownload, NumberedSteps, useCopy, rich } = window;
 
-const BC_LOGIN = 'https://invl.me/clmpu6y';
 const BC_UTM = '?utm_source=LandingPage&utm_medium=BonusCampaign2026&utm_campaign=LP-BC-2026';
 
 /* ---------- Section 1 — Hero (same layout as the About page hero) ---------- */
@@ -25,21 +25,20 @@ function BcHexField() {
     </svg>
   );
 }
-const BC_CHIPS = ['High commissions', 'Easy targets', 'Bonus payouts'];
-function BcHero() {
+function BcHero({ c, login }) {
   return (
     <section id="bc-hero" className="ah-sec">
       <div className="ah-honey" aria-hidden="true"><BcHexField /></div>
       <div className="wrap ah-wrap">
-        <span className="ah-eyebrow" data-reveal>Bonus Campaign</span>
-        <h1 className="ah-title" data-reveal data-reveal-delay="1">Earn $40 extra with just five conversions</h1>
-        <p className="ah-sub" data-reveal data-reveal-delay="1">We’ve partnered with selected advertisers to help you unlock more earnings with minimal effort.</p>
+        <span className="ah-eyebrow" data-reveal>{c.eyebrow}</span>
+        <h1 className="ah-title" data-reveal data-reveal-delay="1">{c.title}</h1>
+        <p className="ah-sub" data-reveal data-reveal-delay="1">{c.sub}</p>
         <div className="ah-chips" data-reveal data-reveal-delay="2">
-          {BC_CHIPS.map((c) => <span className="ah-chip" key={c}>{c}</span>)}
+          {c.chips.map((t) => <span className="ah-chip" key={t}>{t}</span>)}
         </div>
         <div className="bh-actions" data-reveal data-reveal-delay="2">
-          <a href="#bc-offers" className="btn btn-primary btn-lg">View Offers <Arrow /></a>
-          <a href={BC_LOGIN} className="btn btn-secondary btn-lg">Log In to Your Dashboard</a>
+          <a href="#bc-offers" className="btn btn-primary btn-lg">{c.cta} <Arrow /></a>
+          <a href={login} className="btn btn-secondary btn-lg">{c.login}</a>
         </div>
       </div>
       <style>{`
@@ -64,32 +63,29 @@ function BcHero() {
   );
 }
 
-/* ---------- Section 2 — "How to unlock your exclusive bonus" (shared NumberedSteps) ---------- */
-const BC_STEPS = [
-  ['1', 'Choose your advertisers', 'Pick one or more participating offers below and decide where to focus your efforts.'],
-  ['2', 'Drive five conversions per advertiser', 'Promote your link and generate five validated conversions for each advertiser you want to qualify for.'],
-  ['3', 'Unlock your $40 bonus', 'Earn a bonus for each advertiser once five conversions are validated.'],
-];
+/* ---------- Section 2 — "How to unlock your exclusive bonus" (shared NumberedSteps, fed from c.steps) ---------- */
 
 /* ---------- Section 3 — Campaign offers (homepage .offer-card) ---------- */
+// brand/logo/slug here; the rate and description text (num, up, rem, desc) come from c.offers.items by index
 const BC_OFFERS = [
-  { brand: 'GOM Lab', logo: 'gomlab.svg', slug: 'gom-lab-affiliate-program', num: '28%', rem: 'commission', desc: 'Video player and utility software' },
-  { brand: 'Airwallex', logo: 'airwallex.webp', slug: 'airwallex-affiliate-program', num: 'USD 210', rem: 'commission', desc: 'Global business payments and finance platform' },
-  { brand: 'Preply', logo: 'preply.png', slug: 'preply-affiliate-program', up: 'Up to', num: 'USD 70', desc: 'Online language learning marketplace' },
-  { brand: 'Ninja WiFi', logo: 'ninja-wifi.webp', slug: 'ninja-wifi-affiliate-program', num: '7%', rem: 'commission', desc: 'Travel WiFi rental for international users' },
-  { brand: 'PakaiDulu by DirectD', logo: 'pakaidulu.png', slug: 'pakaidulu-directd-malaysia-affiliate-program', up: 'Up to', num: 'MYR 225', desc: 'Try-before-you-buy gadgets and electronics' },
+  { brand: 'GOM Lab', logo: 'gomlab.svg', slug: 'gom-lab-affiliate-program' },
+  { brand: 'Airwallex', logo: 'airwallex.webp', slug: 'airwallex-affiliate-program' },
+  { brand: 'Preply', logo: 'preply.png', slug: 'preply-affiliate-program' },
+  { brand: 'Ninja WiFi', logo: 'ninja-wifi.webp', slug: 'ninja-wifi-affiliate-program' },
+  { brand: 'PakaiDulu by DirectD', logo: 'pakaidulu.png', slug: 'pakaidulu-directd-malaysia-affiliate-program' },
 ];
-function BcOffers() {
+function BcOffers({ c }) {
+  const offers = BC_OFFERS.map((o, i) => ({ ...o, ...c.items[i] }));
   return (
     <section id="bc-offers" className="bco-sec">
       <div className="wrap">
-        <h2 className="bco-title" data-reveal>Bonus campaign offers for May 2026</h2>
-        <p className="bco-sub" data-reveal data-reveal-delay="1">Pick one offer to start earning your bonus.</p>
+        <h2 className="bco-title" data-reveal>{c.title}</h2>
+        <p className="bco-sub" data-reveal data-reveal-delay="1">{c.sub}</p>
         <div className="offer-grid bco-grid" data-reveal data-reveal-delay="1">
-          {BC_OFFERS.map((o) => (
-            <a key={o.brand} href={`https://app.involve.asia/publisher/browse/${o.slug}${BC_UTM}`} className="offer-card" aria-label={`${o.brand}, ${o.up ? o.up + ' ' : ''}${o.num}${o.rem ? ' ' + o.rem : ''}. Promote offer`}>
+          {offers.map((o) => (
+            <a key={o.brand} href={`https://app.involve.asia/publisher/browse/${o.slug}${BC_UTM}`} className="offer-card" aria-label={c.aria.replace('{brand}', o.brand).replace('{rate}', `${o.up ? o.up + ' ' : ''}${o.num}${o.rem ? ' ' + o.rem : ''}`)}>
               <div className="offer-card-head">
-                <div className="offer-logo"><img src={`media/bonus-campaign/${o.logo}`} alt={`${o.brand} logo`} loading="lazy" /></div>
+                <div className="offer-logo"><img src={`media/bonus-campaign/${o.logo}`} alt={c.logoAlt.replace('{brand}', o.brand)} loading="lazy" /></div>
                 <span className="offer-arrow" aria-hidden="true">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M17 7H8.5M17 7v8.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 </span>
@@ -118,31 +114,15 @@ function BcOffers() {
 }
 
 /* ---------- Section 4 — Terms & Conditions (Terms page text block) ---------- */
-const BC_TERMS = [
-  'Campaign runs from 1 May to 31 May 2026 (inclusive). Only conversions with a Conversion Date Created within this period are eligible.',
-  'Publishers must generate 5 validated conversions on a single participating brand (Preply, GOM Lab, Ninja WiFi, PakaiDulu by DirectD, or Airwallex) to qualify.',
-  'A one-time bonus is awarded per brand upon meeting the requirement, on top of regular commissions.',
-  'Each brand can only be qualified once per publisher.',
-  'Publishers may qualify across multiple brands by meeting the requirement for each.',
-  'Each brand is limited to 5 publisher slots only.',
-  'Qualification is on a first-come, first-served basis, determined by the timestamp of the 5th validated conversion.',
-  'Once all slots for a brand are filled, that brand will no longer be eligible.',
-  'All conversions must be validated before bonus eligibility is confirmed.',
-  'Bonus payout will be processed after validation and may take up to 3 months after the campaign period ends.',
-  'Bonus will be credited to the publisher’s payment account.',
-  'Publishers can track performance via Dashboard > Conversion Report using the Conversion Date Created field.',
-  'This campaign is run by Involve Asia and participating brands are not involved in campaign mechanics.',
-  <React.Fragment>These terms should be read together with the <a className="bct-link" href="terms-conditions">Involve Asia Terms and Conditions</a>.</React.Fragment>,
-];
-function BcTerms() {
+function BcTerms({ c }) {
   return (
     <section id="bc-terms" className="bct-sec">
       <div className="wrap bct-wrap" data-reveal>
-        <h2 className="bct-h">Terms and conditions</h2>
+        <h2 className="bct-h">{c.title}</h2>
         <ul className="bct-list">
-          {BC_TERMS.map((t, i) => <li key={i}>{t}</li>)}
+          {c.items.map((t, i) => <li key={i}>{rich(t, 'bct-link')}</li>)}
         </ul>
-        <p className="bct-p">By participating, you acknowledge that you have read and agreed to the applicable terms and conditions. Any invalid, rejected, or fraudulent conversions will not be counted towards the campaign requirement.</p>
+        <p className="bct-p">{c.outro}</p>
       </div>
       <style>{`
         .bct-sec{ background:var(--warm-50); padding:clamp(28px,4vh,52px) 0 clamp(40px,7vh,88px); }
@@ -162,15 +142,16 @@ function BcTerms() {
 function BonusCampaignApp() {
   useSmoothScroll();
   useScrollReveal();
+  const c = useCopy('bonus-campaign');
   return (
     <React.Fragment>
       <Nav getStartedTone="pub" />
       <main>
-        <BcHero />
-        <NumberedSteps id="bc-how" title="How to unlock your exclusive bonus" sub="Bonus payout limited to the first five publishers for each advertiser." steps={BC_STEPS} cols={3} />
-        <BcOffers />
-        <BcTerms />
-        <FinalCta title="Ready to unlock your bonus?" href="#bc-offers" label="View Offers" />
+        <BcHero c={c.hero} login={c.links.login} />
+        <NumberedSteps id="bc-how" title={c.steps.title} sub={c.steps.sub} steps={c.steps.items} cols={3} />
+        <BcOffers c={c.offers} />
+        <BcTerms c={c.terms} />
+        <FinalCta title={c.cta.title} href="#bc-offers" label={c.cta.label} />
       </main>
       <Footer />
       <AppDownload />

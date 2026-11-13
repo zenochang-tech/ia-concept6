@@ -3,7 +3,8 @@
    Loaded AFTER ia-shared.jsx and BEFORE the page script; everything here is
    exposed on window at the bottom, so a page pulls what it needs with
    `const { PlatformTabs, ... } = window;` exactly like Nav/Footer.
-   Per-page copy, items and layout CSS come in as props.
+   Per-page copy, items and layout CSS come in as props. Default text inside these
+   sections goes through tr(), so content/shared/<lang>.json can translate it.
    ============================================================================ */
 
 /* ---------- Platform tab slider (pf-*) --------------------------------------
@@ -205,7 +206,7 @@ const PC_CSS_COMPACT = `
         .pc-title{ font-size:clamp(24px,3vw,34px); line-height:1.15; letter-spacing:-.03em; color:var(--warm-900); max-width:900px; }
         @media (max-width:700px){ .pc-sec{ padding:clamp(60px,9vh,84px) 0 clamp(68px,10vh,96px); } }
       `;
-function FinalCta({ title, sub, href = 'https://app.involve.asia/v2/create-account', tone = 'primary', label = 'Start Earning', css = PC_CSS_COMPACT }) {
+function FinalCta({ title, sub, href = 'https://app.involve.asia/v2/create-account', tone = 'primary', label = tr('Start Earning'), css = PC_CSS_COMPACT }) {
   return (
     <section id="pub-cta" className="pc-sec">
       <CtaHexField />
@@ -314,8 +315,8 @@ function Testimonials({ items = PUB_VOICES, css = '' }) {
   return (
     <section id="pub-voices" className="tv-sec">
       <div className="tv-panel">
-        <h2 className="tv-title" data-reveal>Hear from publishers like you.</h2>
-        <p className="tv-sub" data-reveal data-reveal-delay="1">Real people earning on the platform, in their own words.</p>
+        <h2 className="tv-title" data-reveal>{tr('Hear from publishers like you.')}</h2>
+        <p className="tv-sub" data-reveal data-reveal-delay="1">{tr('Real people earning on the platform, in their own words.')}</p>
         <div className="tv-stage" data-reveal data-reveal-delay="1">
           {/* every card is positioned by its offset from the active index; changing `i` slides them all */}
           {items.map((v, j) => {
@@ -331,8 +332,8 @@ function Testimonials({ items = PUB_VOICES, css = '' }) {
             };
             return (
               <article key={j} className={'tv-card' + (d === 0 ? ' is-active' : '')} style={style} aria-hidden={d !== 0}>
-                <p className="tv-quote">&ldquo;{v.quote}&rdquo;</p>
-                <p className="tv-body">{v.body}</p>
+                <p className="tv-quote">&ldquo;{tr(v.quote)}&rdquo;</p>
+                <p className="tv-body">{tr(v.body)}</p>
                 <div className="tv-author">
                   {v.avatar
                     ? <img className="tv-avatar" src={`media/figma/${v.avatar}`} alt="" />
@@ -344,10 +345,10 @@ function Testimonials({ items = PUB_VOICES, css = '' }) {
           })}
         </div>
         <div className="tv-nav" data-reveal data-reveal-delay="1">
-          <button type="button" className="tv-arrow" onClick={() => go(-1)} aria-label="Previous testimonial">
+          <button type="button" className="tv-arrow" onClick={() => go(-1)} aria-label={tr('Previous testimonial')}>
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5M11 18l-6-6 6-6" /></svg>
           </button>
-          <button type="button" className="tv-arrow" onClick={() => go(1)} aria-label="Next testimonial">
+          <button type="button" className="tv-arrow" onClick={() => go(1)} aria-label={tr('Next testimonial')}>
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
           </button>
         </div>
@@ -378,7 +379,7 @@ const FQ_CSS = `
         .fq-a a{ color:var(--ember); font-weight:600; text-decoration:underline; text-underline-offset:2px; }
         .fq-a a:hover{ opacity:.82; }
       `;
-function Faq({ items, title = 'Questions, answered.', after, css = '' }) {
+function Faq({ items, title = tr('Questions, answered.'), after, css = '' }) {
   const [open, setOpen] = React.useState(() => new Set([0]));
   const toggle = (i) => setOpen((prev) => { const n = new Set(prev); n.has(i) ? n.delete(i) : n.add(i); return n; });
   return (
@@ -498,7 +499,7 @@ function PayoutPill() {
               )
               : <span className="be2-dot" />}
           </span>
-          <em className="be2-label">{st.label}</em>
+          <em className="be2-label">{tr(st.label)}</em>
         </span>
       </span>
     </div>
@@ -530,7 +531,7 @@ function TierPill() {
         <span className={'tr-ico' + ph} key={t.key} style={{ background: t.bg }}>
           <img className="tr-crown" src={`media/figma/${t.crown}`} alt="" />
         </span>
-        <em className={'tr-label' + ph} key={t.key + '-l'}>{t.label}</em>
+        <em className={'tr-label' + ph} key={t.key + '-l'}>{tr(t.label)}</em>
       </span>
     </div>
   );
@@ -616,7 +617,7 @@ const BE_CSS = `
         @media (max-width:900px){ .be-grid{ grid-template-columns:repeat(2,1fr); gap:28px 24px; } .be-card-clip{ justify-content:center; } .be-tier{ margin-right:0; } }
         @media (max-width:540px){ .be-grid{ grid-template-columns:1fr; gap:48px; max-width:420px; margin-inline:auto; } }
       `;
-function EarnFeatures({ title, brandsCopy = 'Promote Shopee, Lazada, Zalora, Nike and more across retail, travel, beauty and finance. One account, 500+ brands, so you earn more in one place instead of chasing programs one by one.', tileAlts = BE_TILE_BRANDS, css = '' }) {
+function EarnFeatures({ title, brandsCopy = tr('Promote Shopee, Lazada, Zalora, Nike and more across retail, travel, beauty and finance. One account, 500+ brands, so you earn more in one place instead of chasing programs one by one.'), tileAlts = BE_TILE_BRANDS, css = '' }) {
   return (
     <section id="pub-built" className="be-sec">
       <div className="wrap">
@@ -625,8 +626,8 @@ function EarnFeatures({ title, brandsCopy = 'Promote Shopee, Lazada, Zalora, Nik
           {/* 1 — Payout status pill (cycles Validating → Processing → Commission Paid) */}
           <div className="be-col" data-reveal>
             <PayoutPill />
-            <h3 className="be-col-t">Get paid<br />easier and faster</h3>
-            <p className="be-col-d">We confirm earnings every day, and with Express Withdrawal you can withdraw a portion of your earnings before your conversions are even validated. Less waiting, more earning.</p>
+            <h3 className="be-col-t">{rich(tr('Get paid\neasier and faster'))}</h3>
+            <p className="be-col-d">{tr('We confirm earnings every day, and with Express Withdrawal you can withdraw a portion of your earnings before your conversions are even validated. Less waiting, more earning.')}</p>
           </div>
           {/* 2 — Brand logos */}
           <div className="be-col" data-reveal data-reveal-delay="1">
@@ -637,7 +638,7 @@ function EarnFeatures({ title, brandsCopy = 'Promote Shopee, Lazada, Zalora, Nik
                 ))}
               </div>
             </div>
-            <h3 className="be-col-t">Brands your audience already knows</h3>
+            <h3 className="be-col-t">{tr('Brands your audience already knows')}</h3>
             <p className="be-col-d">{brandsCopy}</p>
           </div>
           {/* 3 — Live stats chart */}
@@ -648,18 +649,18 @@ function EarnFeatures({ title, brandsCopy = 'Promote Shopee, Lazada, Zalora, Nik
                   <path d="M0,86 C28,80 40,58 66,62 C92,66 104,96 130,92 C156,88 168,54 194,50 C220,46 236,64 250,58" fill="none" stroke="#cfd6cf" strokeWidth="2.5" strokeLinecap="round" />
                   <path d="M0,64 C26,66 42,40 68,44 C94,48 106,26 132,30 C158,34 172,52 196,40 C220,28 236,20 250,16" fill="none" stroke="#047857" strokeWidth="2.5" strokeLinecap="round" />
                 </svg>
-                <span className="be-stat be-stat-clicks"><small>Total clicks</small><b>21,086</b></span>
-                <span className="be-stat be-stat-conv"><small>Conversion Rate</small><b className="be-up">+38.1<span>%</span></b></span>
+                <span className="be-stat be-stat-clicks"><small>{tr('Total clicks')}</small><b>21,086</b></span>
+                <span className="be-stat be-stat-conv"><small>{tr('Conversion Rate')}</small><b className="be-up">+38.1<span>%</span></b></span>
               </div>
             </div>
-            <h3 className="be-col-t">Know exactly what's working</h3>
-            <p className="be-col-d">Generate trackable links in bulk, follow every click and sale in live reports, and find clear guides whenever you need them.</p>
+            <h3 className="be-col-t">{tr("Know exactly what's working")}</h3>
+            <p className="be-col-d">{tr('Generate trackable links in bulk, follow every click and sale in live reports, and find clear guides whenever you need them.')}</p>
           </div>
           {/* 4 — Tier pill (cycles Silver → Gold → Platinum) */}
           <div className="be-col" data-reveal data-reveal-delay="3">
             <TierPill />
-            <h3 className="be-col-t">Unlock more as you grow</h3>
-            <p className="be-col-d">As you earn more, you get access to upsized commissions, exclusive promotions, and member bonuses that reward your growth.</p>
+            <h3 className="be-col-t">{tr('Unlock more as you grow')}</h3>
+            <p className="be-col-d">{tr('As you earn more, you get access to upsized commissions, exclusive promotions, and member bonuses that reward your growth.')}</p>
           </div>
         </div>
       </div>
@@ -886,7 +887,7 @@ function LogoMarquee({ caption, fill = true }) {
       <div className="pl-marquee" ref={marqRef} data-reveal data-reveal-delay="1">
         <div ref={trackRef} className="pl-track">
           {dup.map(([name, file, h], i) => (
-            <img key={i} className="pl-logo" src={`media/figma/${file}`} alt={`${name} logo`} style={{ height: h }} draggable="false" />
+            <img key={i} className="pl-logo" src={`media/figma/${file}`} alt={tr('{name} logo', { name })} style={{ height: h }} draggable="false" />
           ))}
         </div>
       </div>

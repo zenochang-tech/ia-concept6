@@ -1,0 +1,153 @@
+{
+  "meta": {
+    "title": "Involve Asia | Grow your revenue through affiliate marketing",
+    "description": "Involve Asia is the affiliate marketing platform connecting advertisers with 1,000,000+ creators and publishers across Asia — so brands reach new customers and partners earn more."
+  },
+  "hero": {
+    "title": "The affiliate platform that keeps everyone moving, faster.",
+    "sub": "Brands grow with the right publishers, and publishers earn from the brands they love. Daily validation and faster payouts mean less waiting, for everyone.",
+    "for": "For ",
+    "publishers": "Publishers",
+    "advertisers": "Advertisers",
+    "pubCta": "Start Earning",
+    "advCta": "Grow My Brand",
+    "imageAlt": "A creator and a brand partner growing together on Involve Asia",
+    "payoutStatus": "Payout Completed",
+    "payoutPrefix": "+ $",
+    "salesLabel": "Sales Driven",
+    "salesSub": "last 30 days"
+  },
+  "trust": {
+    "title": "Trusted by brands you already know",
+    "logoAlt": "{name} logo"
+  },
+  "live": {
+    "eyebrow": "Live Brand Directory",
+    "title": "See what's live right now.",
+    "sub": "Real brands, ready to promote. See what each one pays and how many publishers are already on board.",
+    "cats": ["All", "Marketplace", "Fashion", "Travel", "Digital Services", "Electronics", "Health & Beauty"],
+    "explore": "Explore all offers",
+    "badge": "New",
+    "logoAlt": "{name} logo",
+    "upTo": "Up to",
+    "commission": "{rate}% commission",
+    "publishers": "{count} publishers promoting this"
+  },
+  "start": {
+    "title": "Simple enough to start today.",
+    "sub": "Whether you're here to earn or to grow, you're four steps from your first payout.",
+    "imageAlt": "{title} step",
+    "steps": [
+      {
+        "n": "Step 1",
+        "title": "Match",
+        "desc": "We match you with the right brands, or the right publishers. No cold outreach.",
+        "quote": "“Found 40 brands to promote in a day, the filter and category makes the process much easier.”",
+        "name": "John Doe",
+        "role": "Publisher · Food Blogger"
+      },
+      {
+        "n": "Step 2",
+        "title": "Go live",
+        "desc": "Then you go live, your way. Share a link, drop a coupon, add a banner, or launch a full campaign.",
+        "quote": "“Involve Asia did a great job in guiding us on what info needed and launched our campaign in an afternoon.”",
+        "name": "Brand Name",
+        "role": "Advertiser · Brand Category"
+      },
+      {
+        "n": "Step 3",
+        "title": "Track",
+        "desc": "Watch every click, sale, and payout in one dashboard.",
+        "quote": "“Found 40 brands to promote in a day, the filter and category makes the process much easier.”",
+        "name": "Jane Doe",
+        "role": "Publisher · Lifestyle Content Creator"
+      },
+      {
+        "n": "Step 4",
+        "title": "Grow and get paid",
+        "desc": "Publishers get paid for every sale they drive. Brands grow from those sales, and only pay when they're real and verified.",
+        "quote": "“The data provided is clear which makes the validation process easier, and we only pay when it actually converts.”",
+        "name": "Brand Name",
+        "role": "Advertiser · Brand Category"
+      }
+    ],
+    "overlay": {
+      "recommended": "Recommended",
+      "logoAlt": "{name} logo",
+      "upTo": "Up to",
+      "commission": "{rate}% commission",
+      "deepLink": "invl.me/yourDeepLink",
+      "conversionRate": "Conversion Rate",
+      "rateValue": "12",
+      "rateUnit": "%",
+      "rateDelta": "↑21%",
+      "payoutReceived": "Payout Received",
+      "payoutAmount": "+ $48"
+    }
+  },
+  "support": {
+    "title": "Real human support, at every step.",
+    "desc": "Not bots, not dead-end FAQs. Real people who know the platform and are ready to help, whether you're a creator setting up your first link or a brand launching your biggest campaign.",
+    "badge": "95% of users rate our support as excellent.",
+    "quote": "“It's easy to reach customer service, and they fix things quickly.”",
+    "verified": "Verified Publisher",
+    "imageAlt": "An Involve Asia support specialist",
+    "hello": "Hello.",
+    "answer": "How can we help today?"
+  },
+  "results": {
+    "title": "Real results. Real growth.",
+    "sub": "From the people and brands growing with Involve.",
+    "seeAll": "See all success stories",
+    "prevStories": "Previous stories",
+    "nextStories": "Next stories",
+    "for": "For ",
+    "publishers": "Publishers",
+    "advertisers": "Advertisers",
+    "tabsLabel": "Success stories audience",
+    "tabPub": "Publisher",
+    "tabAdv": "Advertiser",
+    "prevStory": "Previous story",
+    "nextStory": "Next story",
+    "pubStories": [
+      { "big": "3", "unit": " properties", "head": "Bought from her affiliate earnings", "tag": "Facebook creator, Philippines", "desc": "How a mother of four built a new life from Facebook content with Involve." },
+      { "big": "$220K", "unit": "+", "head": "In sales driven for one travel brand, Q4 2023", "tag": "Affiliate network, AI content", "desc": "How Flickstree scaled travel sales through Involve." },
+      { "big": "$250", "unit": " earned", "head": "From just 10.5k followers, part-time", "tag": "Travel and food creator", "desc": "Proof you don't need to be big to earn with Involve." }
+    ],
+    "advStories": [
+      { "big": "796", "unit": "%", "head": "Increase in sales", "tag": "E-commerce", "desc": "How Big Bang Sales scaled through affiliate partnerships." },
+      { "big": "4.3", "unit": "x", "head": "Increase in sales", "tag": "Telco", "desc": "How Involve partners drove growth for TIME Internet." },
+      { "big": "$160K", "unit": "", "head": "In sales · 4,912 conversions", "tag": "Health & Wellness", "desc": "How a global health and wellness brand launched a CPS programme on Involve." }
+    ]
+  },
+  "stats": {
+    "caption": "This is what growing together looks like, since 2014.",
+    "labels": ["Publishers", "Commissions Paid", "Sales Generated", "Brands"]
+  },
+  "blog": {
+    "title": "From the Involve blog.",
+    "sub": "Fresh tips, playbooks, and insights, whichever side you're on.",
+    "readAll": "Read the Blog",
+    "tabsLabel": "Blog audience",
+    "tabPub": "Publisher",
+    "tabAdv": "Advertiser",
+    "readMore": "Read more",
+    "pubPosts": ["How to promote affiliate links on TikTok", "Express Withdrawal, explained", "What is EPC in affiliate marketing?"],
+    "advPosts": ["How to launch your first affiliate program", "Choosing the right commission structure", "Measuring ROI across your publisher network"]
+  },
+  "finale": {
+    "title": "Pick your side and grow with us.",
+    "pubKicker": "Creators. Affiliates. Technology Partners.",
+    "advKicker": "Brands. Retailers. Enterprises.",
+    "pubImageAlt": "A publisher creating content",
+    "advImageAlt": "An advertiser growing their brand",
+    "pubTitle": "I'm a \nPublisher",
+    "pubDesc": "Promote brands you love. ",
+    "pubDescMore": "Turn your audience or traffic into income.",
+    "pubCta": "Start Earning",
+    "advTitle": "I'm an \nAdvertiser",
+    "advDesc": "Grow your sales with the right publishers. ",
+    "advDescMore": "Pay only for results.",
+    "advCta": "Grow My Brand"
+  }
+}

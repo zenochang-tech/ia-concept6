@@ -1,0 +1,102 @@
+{
+  "meta": {
+    "title": "Express Withdrawal | Involve Asia",
+    "description": "Promote 4,000+ brands, turn your audience or traffic into income, and get fast local-currency payouts. Free to join — grow with Involve Asia."
+  },
+  "hero": {
+    "title": "Get paid faster, with Express Withdrawal.",
+    "sub": "Withdraw a portion of your earnings before your conversions are even validated, in as little as 5 to 7 working days after approval. Your money, sooner.",
+    "cta": "Start Earning",
+    "imageAlt": "A publisher checking their Involve app payouts on their phone",
+    "payLabel": "Payout Received",
+    "payAmount": "+ $48"
+  },
+  "faq": {
+    "items": [
+      [
+        "How fast will I get paid?",
+        "In as little as 5 to 7 working days after your request is approved. Standard withdrawal takes 7 to 10 working days after your request, plus each offer's validation period."
+      ],
+      [
+        "Am I eligible?",
+        "You need at least MYR 200 in pending validation and conversions from at least one offer older than 5 days. Requests are then subject to approval."
+      ],
+      [
+        "How much can I withdraw early?",
+        "A portion of your eligible pending conversions. The exact amount is calculated for you and shown before you confirm, and it may be lower than the amount you request."
+      ],
+      [
+        "Is there a fee?",
+        "Yes, a processing fee applies to the amount you take early, shown up front before you confirm. The fee is reduced by your membership tier: Silver 0%, Gold 10%, Platinum 15%, Black 20%."
+      ],
+      [
+        "What if a conversion is later rejected?",
+        "The amount is reconciled against your future or available earnings, and we explain this clearly in the terms."
+      ]
+    ]
+  },
+  "cta": {
+    "title": "Get your earnings sooner."
+  },
+  "what": {
+    "title": "What is Express Withdrawal?",
+    "p": "Express Withdrawal is the fastest way to get paid on the platform. Instead of waiting through the full validation period before you are paid, you can take a portion of your pending earnings up front, so your money can reach you in as little as 5 to 7 working days after your request is approved.",
+    "card": {
+      "label": "Pending Advertiser Collection",
+      "currency": "$",
+      "button": "Request Express Withdrawal"
+    },
+    "howLabel": "How it works",
+    "steps": [
+      [
+        "Request",
+        "Apply for Express Withdrawal from your dashboard."
+      ],
+      [
+        "Approve",
+        "We review and approve your request, then calculate the amount from your pending conversions."
+      ],
+      [
+        "Get paid",
+        "You receive it fast, in your preferred currency, converted at the platform rate."
+      ],
+      [
+        "Reconcile",
+        "It is reconciled automatically once the advertiser validates the sales."
+      ]
+    ]
+  },
+  "compare": {
+    "title": "Two ways to get paid",
+    "sub": "Both withdrawal methods are open to every publisher. Standard withdrawal is available to anyone who meets the minimum amount. Express Withdrawal is available to any publisher who meets the eligibility criteria, and each request is subject to a quick approval.",
+    "stdTitle": "Standard withdrawal",
+    "expTitle": "Express withdrawal",
+    "rows": [
+      [
+        "When you can withdraw",
+        "After the advertiser validates the sale",
+        "Before validation, on a portion of your pending earnings"
+      ],
+      [
+        "Time to get paid",
+        "7 to 10 working days after your request, plus each offer's validation period",
+        "As little as 5 to 7 working days after approval"
+      ],
+      [
+        "How much",
+        "Your full validated earnings",
+        "A portion of your eligible pending conversions"
+      ],
+      [
+        "Fee",
+        "Free up to a specific limit per month",
+        "A processing fee applies to the amount taken early, shown before you confirm"
+      ],
+      [
+        "Best for",
+        "Publishers who can wait for the full cycle",
+        "Publishers who want their money sooner"
+      ]
+    ]
+  }
+}

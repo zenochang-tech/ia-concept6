@@ -1,0 +1,48 @@
+{
+  "meta": {
+    "title": "How we track | Involve Asia",
+    "description": "Promote 4,000+ brands, turn your audience or traffic into income, and get fast local-currency payouts. Free to join — grow with Involve Asia."
+  },
+  "hero": {
+    "title": "See exactly what every partner drives.",
+    "sub": "Track every click and conversion in one dashboard, attribute each sale to the publisher who drove it, and pay only for the sales that are real.",
+    "cta": "See Plans and Pricing",
+    "imageAlt": "An Involve advertiser dashboard tracking every partner's clicks and conversions",
+    "added": "815 deeplinks created"
+  },
+  "view": {
+    "title": "One consolidated, verified view.",
+    "old": {
+      "imageAlt": "Scattered reports spread across separate partner dashboards",
+      "eyebrow": "The Old Way",
+      "title": "Scattered reports, blind optimisation",
+      "desc": "Running partners across the open internet makes it hard to see what is really working, and managing separate reports and payouts for each one is harder still.",
+      "points": ["A separate report for every partner", "You rely on each partner's own numbers", "ROI you can't compare like for like"]
+    },
+    "new": {
+      "imageAlt": "Every partnership consolidated into one Involve dashboard",
+      "eyebrow": "With Involve Asia",
+      "title": "Consolidated, verified transparency",
+      "desc": "Involve brings every partnership into one dashboard, so you can compare performance like for like and see your true ROI.",
+      "points": ["Every partner in one dashboard", "Sales tracked to the partner who drove them", "ROI you can compare like for like"]
+    }
+  },
+  "how": {
+    "title": "How tracking works.",
+    "items": [
+      ["01", "Your publisher shares their trackable link", "Every partner gets a unique link for your offer."],
+      ["02", "Every click is recorded", "The moment someone clicks, it is tracked."],
+      ["03", "The sale is attributed automatically", "When a click leads to a sale, it is tied back to the publisher who drove it."]
+    ]
+  },
+  "verified": {
+    "title": "Verified, \nnot just reported",
+    "body": "Every conversion is yours to validate before payout. Approve the real ones, and your budget goes to genuine sales, not a partner’s inflated report.",
+    "checks": ["Every conversion verified before payout", "You reject anything that isn't genuine", "Every sale tracked to the publisher who drove it"],
+    "imageAlt": "A conversion approvals table showing each order verified or rejected before payout"
+  },
+  "cta": {
+    "title": "Know what every partner is really driving and grow your brand today.",
+    "label": "Grow My Brand"
+  }
+}

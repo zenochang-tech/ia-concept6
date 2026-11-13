@@ -1,0 +1,52 @@
+{
+  "meta": {
+    "title": "Automation | Involve Asia",
+    "description": "Promote 4,000+ brands, turn your audience or traffic into income, and get fast local-currency payouts. Free to join — grow with Involve Asia."
+  },
+  "hero": {
+    "title": "Automate the busywork, scale the program.",
+    "sub": "Run the repetitive parts of your program automatically, so you spend your time on growth, not admin.",
+    "cta": "See Plans and Pricing",
+    "imageAlt": "An advertiser dashboard running an affiliate program automatically",
+    "pillLabel": "Active publishers",
+    "pillNum": "622",
+    "pillUnit": " publishers"
+  },
+  "setup": {
+    "title": "Set it up once, let it run.",
+    "steps": [
+      {
+        "t": "Onboard publishers automatically.",
+        "d": "Once approved, publishers are set up and ready to promote."
+      },
+      {
+        "t": "Set commission rules once.",
+        "d": "Set your commission on each offer, with multi-tier rates on Growth and above, so your payouts follow performance."
+      },
+      {
+        "t": "Centralise your payments.",
+        "d": "Pay every partner from one place, with variable payouts handled for you."
+      }
+    ]
+  },
+  "platform": {
+    "title": "Part of one platform",
+    "sub": "Automation works alongside the rest of the platform. For tracking and attribution, see How We Track. To find and recruit publishers, see Partner Discovery.",
+    "cards": [
+      {
+        "t": "How We Track",
+        "link": "Explore tracking systems",
+        "d": "Reliable tracking and attribution that credits every sale to the publisher who drove it, so your reporting and payouts stay accurate."
+      },
+      {
+        "t": "Partner Discovery",
+        "link": "Find verified partners",
+        "d": "Search over 1,000,000 publishers by category, channel, and audience, and invite the ones that fit, or have our team recruit them for you."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Scale your program without scaling the work.",
+    "label": "Grow My Brand"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "title": "USDT Withdrawal | Involve Asia",
+    "description": "Withdraw your USD affiliate earnings in USDT instead of Bank Transfer or PayPal. Set up in about 2 minutes in Payment Settings."
+  },
+  "hero": {
+    "eyebrow": "New Payout Option",
+    "title": "Get paid your way with USDT withdrawal",
+    "sub": "Withdraw your USD affiliate earnings in USDT instead of Bank Transfer or PayPal. Available now on Involve Asia.",
+    "chips": ["2-Minute Setup", "Switch Anytime", "No Bank Delays"],
+    "cta": "Set Up USDT Withdrawal",
+    "more": "Learn More",
+    "imageAlt": "USDT coins"
+  },
+  "why": {
+    "title": "More control over how you get paid",
+    "sub": "Three reasons publishers are adding USDT to their payout options.",
+    "items": [
+      ["1", "No more bank delays", "Blockchain settlement is near-instant once you claim, unlike multi-day bank transfer windows."],
+      ["2", "Fiat or digital, your call", "USD withdrawals now support both traditional transfer and USDT, an efficient, seamless payment experience built for cross-border publishers."],
+      ["3", "Your choice, anytime", "Switch between Bank Transfer, PayPal, or USDT whenever it suits you, with no long-term commitment."]
+    ]
+  },
+  "setup": {
+    "title": "How setup works",
+    "sub": "Five steps in Payment Settings. It takes about 2 minutes.",
+    "items": [
+      ["1", "Open Payment Settings", "Go to Settings > Payment > Payment Details, then select Edit."],
+      ["2", "Add your address and payout type", "Enter your address, then set Payout Type to Stablecoins. Your payout currency is fixed to USD automatically."],
+      ["3", "Complete your account details", "Enter your Name, Account Type, Nationality, Contact Number, and the Recipient Email Address where you’ll receive your payout claim link."],
+      ["4", "Send a test email (optional)", "Confirm your recipient email is correct and active before your first real payout link is sent there."],
+      ["5", "Save", "That’s it. Future eligible payouts will be ready to claim in USDT."]
+    ]
+  },
+  "know": {
+    "title": "Good to know",
+    "sub": "A few things worth knowing before you set up USDT withdrawal.",
+    "items": [
+      ["No wallet needed yet", "You’ll enter your wallet address securely each time you claim a payout, not during setup."],
+      ["1% processing fee", "Deducted automatically from your gross payout and itemized on your Involve withdrawal invoice."],
+      ["Backed by a regulated partner", "Payouts are processed via Triple A, licensed by the Monetary Authority of Singapore."],
+      ["One-time ID check", "First payouts above USD 1,500 may require a quick identity check, per standard regulations."],
+      ["Switch back anytime", "You can change back to Bank Transfer or PayPal anytime in Payment Settings."]
+    ]
+  },
+  "warn": {
+    "title": "Double-check before you continue",
+    "items": [
+      ["Make sure your email address is correct.", "Your USDT payout claim link is sent only to the email you set during setup. An incorrect or outdated address can mean permanent, unrecoverable loss of your funds."],
+      ["Double-check your wallet address and network every time you claim a payout.", "Blockchain transactions can’t be reversed once submitted, not by you and not by us."]
+    ]
+  },
+  "cta": {
+    "title": "Ready to get paid in USDT?",
+    "label": "Set Up USDT Withdrawal"
+  }
+}

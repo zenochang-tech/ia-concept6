@@ -1,35 +1,37 @@
 /* ============================================================================
-   publishers.jsx — "For Publishers" overview page.
+   express-withdrawal.jsx — "Express Withdrawal" page.
    Loaded AFTER ia-shared.jsx (which defines Nav/Footer/etc. and exposes them on
    window). Sections are built one at a time from the Figma frame (node 1260:46678),
-   same flow as the homepage. Motion/animation is a final pass.
+   same flow as the homepage. Motion/animation is a final pass. All copy lives in
+   content/pages/express-withdrawal/<lang>.json and arrives through useCopy — this
+   file only holds the layout, links, images and the card's count-up demo.
    ============================================================================ */
 
 // Shared UI comes from ia-shared.jsx (pulled off window so this works regardless
 // of how Babel-standalone scopes each script tag).
-const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, FinalCta, Faq, AppDownload, HeroHexGrid, HERO_HEXGRID_CSS } = window;
+const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, FinalCta, Faq, AppDownload, HeroHexGrid, HERO_HEXGRID_CSS, useCopy } = window;
 
 /* ---------- Section 1 — Hero ---------------------------------------------- */
-function PubHero() {
+function PubHero({ c }) {
   return (
     <section id="pub-hero" className="ph-sec">
       <span className="ph-basefade" aria-hidden="true" />
       <div className="wrap ph-wrap">
         <HeroHexGrid />
         <div className="ph-copy">
-          <h1 className="ph-title" data-reveal>Get paid faster, with Express Withdrawal.</h1>
-          <p className="ph-sub" data-reveal data-reveal-delay="1">Withdraw a portion of your earnings before your conversions are even validated, in as little as 5 to 7 working days after approval. Your money, sooner.</p>
+          <h1 className="ph-title" data-reveal>{c.title}</h1>
+          <p className="ph-sub" data-reveal data-reveal-delay="1">{c.sub}</p>
           <div className="ph-actions" data-reveal data-reveal-delay="2">
-            <a href="/partners/" className="btn btn-primary btn-lg">Start Earning <Arrow /></a>
+            <a href="/partners/" className="btn btn-primary btn-lg">{c.cta} <Arrow /></a>
           </div>
         </div>
 
         <div className="ph-visual" data-reveal data-reveal-delay="1">
           <span className="ph-hexglow" aria-hidden="true" />
           <span className="ph-hexplate" aria-hidden="true" />
-          <div className="ph-photo"><img src="media/figma/express-hero.png" alt="A publisher checking their Involve app payouts on their phone" loading="eager" /></div>
+          <div className="ph-photo"><img src="media/figma/express-hero.png" alt={c.imageAlt} loading="eager" /></div>
           <div className="ph-static-ui" data-reveal data-reveal-delay="2">
-            <div className="ph-glass ph-g-pay-a"><div className="ph-pay"><span>Payout Received</span><b>+ $48</b></div></div>
+            <div className="ph-glass ph-g-pay-a"><div className="ph-pay"><span>{c.payLabel}</span><b>{c.payAmount}</b></div></div>
           </div>
         </div>
       </div>
@@ -125,32 +127,18 @@ function PubHero() {
 }
 
 /* ---------- Section 8 — "Questions, answered." (FAQ accordion) ------------
-   Copy supplied by the client. Two answers carry links (beginner guide, Express
-   Withdrawal) — hrefs are placeholders pending the real URLs. Example figures
-   (4.2% commission, 10 working days) are illustrative — confirm before launch. */
-const PUB_FAQ = [
-  ['How fast will I get paid?',
-    "In as little as 5 to 7 working days after your request is approved. Standard withdrawal takes 7 to 10 working days after your request, plus each offer's validation period."],
-  ['Am I eligible?',
-    'You need at least MYR 200 in pending validation and conversions from at least one offer older than 5 days. Requests are then subject to approval.'],
-  ['How much can I withdraw early?',
-    'A portion of your eligible pending conversions. The exact amount is calculated for you and shown before you confirm, and it may be lower than the amount you request.'],
-  ['Is there a fee?',
-    'Yes, a processing fee applies to the amount you take early, shown up front before you confirm. The fee is reduced by your membership tier: Silver 0%, Gold 10%, Platinum 15%, Black 20%.'],
-  ['What if a conversion is later rejected?',
-    'The amount is reconciled against your future or available earnings, and we explain this clearly in the terms.'],
-];
-function PubFAQ() {
-  return <Faq items={PUB_FAQ} />;
+   Copy supplied by the client; questions and answers come from c.items. */
+function PubFAQ({ c }) {
+  return <Faq items={c.items} />;
 }
 
 /* ---------- Final CTA (shared FinalCta, ia-sections.jsx) ----------------- */
-function PubCTA() {
-  return <FinalCta title="Get your earnings sooner." />;
+function PubCTA({ c }) {
+  return <FinalCta title={c.title} />;
 }
 
 /* ---------- Express Withdrawal §2 — "What is Express Withdrawal?" ---------- */
-function ExwCard() {
+function ExwCard({ c }) {
   const [amount, setAmount] = React.useState(0);
   const [pressed, setPressed] = React.useState(false);
   const [active, setActive] = React.useState(false);   // button turns from grey to gradient once at $481
@@ -193,33 +181,27 @@ function ExwCard() {
   }, []);
   return (
     <div className="exw-card" data-reveal data-reveal-delay="1">
-      <span className="exw-card-lbl">Pending Advertiser Collection</span>
-      <div className="exw-amt"><span className="exw-cur">$</span><span className="exw-num">{amount}</span></div>
-      <button type="button" className={'exw-btn' + (active ? ' is-active' : '') + (pressed ? ' is-pressed' : '')} tabIndex={-1} aria-hidden="true">Request Express Withdrawal</button>
+      <span className="exw-card-lbl">{c.label}</span>
+      <div className="exw-amt"><span className="exw-cur">{c.currency}</span><span className="exw-num">{amount}</span></div>
+      <button type="button" className={'exw-btn' + (active ? ' is-active' : '') + (pressed ? ' is-pressed' : '')} tabIndex={-1} aria-hidden="true">{c.button}</button>
     </div>
   );
 }
-const EXW_STEPS = [
-  ['Request', 'Apply for Express Withdrawal from your dashboard.'],
-  ['Approve', 'We review and approve your request, then calculate the amount from your pending conversions.'],
-  ['Get paid', 'You receive it fast, in your preferred currency, converted at the platform rate.'],
-  ['Reconcile', 'It is reconciled automatically once the advertiser validates the sales.'],
-];
-function ExwWhat() {
+function ExwWhat({ c }) {
   return (
     <section id="exw-what" className="exw-sec">
       <div className="wrap">
         <div className="exw-top">
           <div className="exw-intro">
-            <h2 className="exw-h" data-reveal>What is Express Withdrawal?</h2>
-            <p className="exw-p" data-reveal data-reveal-delay="1">Express Withdrawal is the fastest way to get paid on the platform. Instead of waiting through the full validation period before you are paid, you can take a portion of your pending earnings up front, so your money can reach you in as little as 5 to 7 working days after your request is approved.</p>
+            <h2 className="exw-h" data-reveal>{c.title}</h2>
+            <p className="exw-p" data-reveal data-reveal-delay="1">{c.p}</p>
           </div>
-          <ExwCard />
+          <ExwCard c={c.card} />
         </div>
         <div className="exw-how" data-reveal>
-          <p className="exw-how-lbl">How it works</p>
+          <p className="exw-how-lbl">{c.howLabel}</p>
           <div className="exw-steps">
-            {EXW_STEPS.map(([t, d]) => (
+            {c.steps.map(([t, d]) => (
               <div className="exw-step" key={t}>
                 <h3 className="exw-step-t">{t}</h3>
                 <p className="exw-step-d">{d}</p>
@@ -256,20 +238,13 @@ function ExwWhat() {
   );
 }
 /* ---------- Express Withdrawal §3 — "Two ways to get paid" comparison ------ */
-const TW_ROWS = [
-  ['When you can withdraw', 'After the advertiser validates the sale', 'Before validation, on a portion of your pending earnings'],
-  ['Time to get paid', "7 to 10 working days after your request, plus each offer's validation period", 'As little as 5 to 7 working days after approval'],
-  ['How much', 'Your full validated earnings', 'A portion of your eligible pending conversions'],
-  ['Fee', 'Free up to a specific limit per month', 'A processing fee applies to the amount taken early, shown before you confirm'],
-  ['Best for', 'Publishers who can wait for the full cycle', 'Publishers who want their money sooner'],
-];
-function ExwCompare() {
+function ExwCompare({ c }) {
   return (
     <section id="exw-compare" className="tw-sec">
       <div className="wrap">
         <div className="tw-head" data-reveal>
-          <h2 className="tw-title">Two ways to get paid</h2>
-          <p className="tw-sub">Both withdrawal methods are open to every publisher. Standard withdrawal is available to anyone who meets the minimum amount. Express Withdrawal is available to any publisher who meets the eligibility criteria, and each request is subject to a quick approval.</p>
+          <h2 className="tw-title">{c.title}</h2>
+          <p className="tw-sub">{c.sub}</p>
         </div>
         <div className="tw-scroll" data-reveal data-reveal-delay="1">
           <div className="tw-table">
@@ -277,14 +252,14 @@ function ExwCompare() {
               <div className="tw-c tw-label-h" aria-hidden="true" />
               <div className="tw-c tw-col tw-col-std">
                 <span className="tw-ic tw-ic-std"><img src="media/figma/exw-icon-standard.svg" alt="" /></span>
-                <span className="tw-col-t">Standard withdrawal</span>
+                <span className="tw-col-t">{c.stdTitle}</span>
               </div>
               <div className="tw-c tw-col tw-col-exp">
                 <span className="tw-ic tw-ic-exp"><img src="media/figma/exw-icon-express.svg" alt="" /></span>
-                <span className="tw-col-t">Express withdrawal</span>
+                <span className="tw-col-t">{c.expTitle}</span>
               </div>
             </div>
-            {TW_ROWS.map((r, i) => (
+            {c.rows.map((r, i) => (
               <div className="tw-row" key={i}>
                 <div className="tw-c tw-label">{r[0]}</div>
                 <div className="tw-c tw-std">{r[1]}</div>
@@ -347,15 +322,16 @@ function ExwCompare() {
 function PublisherApp() {
   useSmoothScroll();
   useScrollReveal();
+  const c = useCopy('express-withdrawal');
   return (
     <React.Fragment>
       <Nav getStartedTone="pub" />
       <main>
-        <PubHero />
-        <ExwWhat />
-        <ExwCompare />
-        <PubFAQ />
-        <PubCTA />
+        <PubHero c={c.hero} />
+        <ExwWhat c={c.what} />
+        <ExwCompare c={c.compare} />
+        <PubFAQ c={c.faq} />
+        <PubCTA c={c.cta} />
       </main>
       <Footer />
       <AppDownload />

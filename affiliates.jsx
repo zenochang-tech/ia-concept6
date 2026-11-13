@@ -1,5 +1,7 @@
 /* ============================================================================
-   publishers.jsx — "For Publishers" overview page.
+   affiliates.jsx — "For Affiliate Partners" page.
+   All copy lives in content/pages/affiliates/<lang>.json and arrives through
+   useCopy — this file only holds the layout.
    Loaded AFTER ia-shared.jsx (which defines Nav/Footer/etc. and exposes them on
    window). Sections are built one at a time from the Figma frame (node 1260:46678),
    same flow as the homepage. Motion/animation is a final pass.
@@ -7,29 +9,29 @@
 
 // Shared UI comes from ia-shared.jsx (pulled off window so this works regardless
 // of how Babel-standalone scopes each script tag).
-const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, PlatformTabs, FinalCta, Testimonials, PUB_VOICES, Faq, AppDownload, HeroHexGrid, HERO_HEXGRID_CSS, IconColumns } = window;
+const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, PlatformTabs, FinalCta, Testimonials, PUB_VOICES, Faq, AppDownload, HeroHexGrid, HERO_HEXGRID_CSS, IconColumns, useCopy, rich } = window;
 
 /* ---------- Section 1 — Hero ---------------------------------------------- */
-function PubHero() {
+function PubHero({ c }) {
   return (
     <section id="pub-hero" className="ph-sec">
       <span className="ph-basefade" aria-hidden="true" />
       <div className="wrap ph-wrap">
         <HeroHexGrid />
         <div className="ph-copy">
-          <span className="ph-eyebrow" data-reveal>For Affiliate Partners</span>
-          <h1 className="ph-title" data-reveal data-reveal-delay="1">Turn the site you already run into income.</h1>
-          <p className="ph-sub" data-reveal data-reveal-delay="2">From a blog with a few links to a cashback site running at volume. Earn on what your readers and members buy, with the offers, feeds, and tools to match.</p>
+          <span className="ph-eyebrow" data-reveal>{c.eyebrow}</span>
+          <h1 className="ph-title" data-reveal data-reveal-delay="1">{c.title}</h1>
+          <p className="ph-sub" data-reveal data-reveal-delay="2">{c.sub}</p>
           <div className="ph-actions" data-reveal data-reveal-delay="3">
-            <a href="/partners/" className="btn btn-primary btn-lg">Start Earning <Arrow /></a>
+            <a href="/partners/" className="btn btn-primary btn-lg">{c.cta} <Arrow /></a>
           </div>
-          <span className="ph-free" data-reveal data-reveal-delay="3">Free to join. Start earning today.</span>
+          <span className="ph-free" data-reveal data-reveal-delay="3">{c.free}</span>
         </div>
 
         <div className="ph-visual" data-reveal data-reveal-delay="1">
           <span className="ph-hexglow" aria-hidden="true" />
           <span className="ph-hexplate" aria-hidden="true" />
-          <div className="ph-photo ph-photo-fill"><img src="media/figma/aff-hero-img.png" alt="An affiliate site dashboard shown on a laptop" loading="eager" /></div>
+          <div className="ph-photo ph-photo-fill"><img src="media/figma/aff-hero-img.png" alt={c.imageAlt} loading="eager" /></div>
         </div>
       </div>
 
@@ -127,36 +129,22 @@ function PubHero() {
 
 /* ---------- Testimonials (shared Testimonials, ia-sections.jsx) --------- */
 // Shared list, but this page punctuates the Siakap Keli pull-quote without the dash.
-const VOICES = PUB_VOICES.map((v) => (v.name === 'Siakap Keli' ? { ...v, quote: 'Such a good overall experience with IA, very friendly & professional.' } : v));
-function PubVoices() {
-  return <Testimonials items={VOICES} />;
+function PubVoices({ c }) {
+  const voices = PUB_VOICES.map((v) => (v.name === 'Siakap Keli' ? { ...v, quote: c.siakapKeliQuote } : v));
+  return <Testimonials items={voices} />;
 }
 
 /* ---------- Section 8 — "Questions, answered." (FAQ accordion) ------------
    Copy supplied by the client. Two answers carry links (beginner guide, Express
    Withdrawal) — hrefs are placeholders pending the real URLs. Example figures
    (4.2% commission, 10 working days) are illustrative — confirm before launch. */
-const PUB_FAQ = [
-  ['Will affiliate links change how my site looks?',
-    'No. You choose where links go. There are no forced ads or banners.'],
-  ['Do old articles still earn?',
-    'Yes. Any post with a live link keeps earning on every sale it drives.'],
-  ['What kinds of sites qualify?',
-    'Blogs, niche sites, news and media, plus cashback, coupon, comparison, loyalty and deal sites.'],
-  ['Can I get a product datafeed?',
-    'Yes. Pull live product data per advertiser and add your own tracking to the links. Feeds vary by advertiser.'],
-  ['Do you support cashback and coupon models?',
-    'Yes. Cashback, coupon, comparison, loyalty, and deal sites all run on the platform.'],
-  ['Is there an API?',
-    <>Yes. Generate deep links and pull conversions and offers programmatically. See the <a href="api-overview">Developer API</a>.</>],
-];
-function PubFAQ() {
-  return <Faq items={PUB_FAQ} />;
+function PubFAQ({ c }) {
+  return <Faq items={c.items.map(([q, a]) => [q, rich(a)])} />;
 }
 
 /* ---------- Final CTA (shared FinalCta, ia-sections.jsx) ----------------- */
-function PubCTA() {
-  return <FinalCta title="Grow the site you already run." />;
+function PubCTA({ c }) {
+  return <FinalCta title={c.title} />;
 }
 
 /* ---------- Affiliates §2 — "Built for every kind of affiliate site." (3 cards) ---------- */
@@ -167,12 +155,12 @@ function PubCTA() {
    with prev/next peeking at 40% opacity. Parallels the creator phone coverflow.
    Placeholder browser chrome until real site mockups (aff-site-1..4.png) land. */
 const AFF_SITES = [
-  { key: 'blog', label: 'Blog', img: 'aff-site-1.png', tint: 'linear-gradient(135deg,#f1ece6,#e4ddd2)' },
-  { key: 'cashback', label: 'Cashback', img: 'aff-site-2.png', tint: 'linear-gradient(135deg,#e8f0ea,#d6e5db)' },
-  { key: 'coupon', label: 'Coupon', img: 'aff-site-3.png', tint: 'linear-gradient(135deg,#f4ece7,#ecd9cd)' },
-  { key: 'compare', label: 'Comparison', img: 'aff-site-4.png', tint: 'linear-gradient(135deg,#e9ebf3,#d6dcec)' },
+  { key: 'blog', img: 'aff-site-1.png', tint: 'linear-gradient(135deg,#f1ece6,#e4ddd2)' },
+  { key: 'cashback', img: 'aff-site-2.png', tint: 'linear-gradient(135deg,#e8f0ea,#d6e5db)' },
+  { key: 'coupon', img: 'aff-site-3.png', tint: 'linear-gradient(135deg,#f4ece7,#ecd9cd)' },
+  { key: 'compare', img: 'aff-site-4.png', tint: 'linear-gradient(135deg,#e9ebf3,#d6dcec)' },
 ];
-function AffFlow() {
+function AffFlow({ c }) {   // c = { flowLabel, sites: [{ url, alt }] } by index
   const N = AFF_SITES.length;
   const reduced = prefersReduced();
   const [active, setActive] = React.useState(0);
@@ -204,14 +192,14 @@ function AffFlow() {
     }
   }, [active, reduced, N]);
   return (
-    <div className="afc" role="group" aria-label="Affiliate site types: blog, cashback, coupon and comparison">
+    <div className="afc" role="group" aria-label={c.flowLabel}>
       {AFF_SITES.map((s, i) => (
         <div key={s.key} ref={(el) => (refs.current[i] = el)} className="afc-item" aria-hidden={((i - active + N) % N) !== 0}>
           <div className="afc-win">
-            <div className="afc-bar"><span className="afc-dots"><i /><i /><i /></span><span className="afc-url">{s.label} Site</span></div>
+            <div className="afc-bar"><span className="afc-dots"><i /><i /><i /></span><span className="afc-url">{c.sites[i].url}</span></div>
             <div className="afc-body">
               {s.img
-                ? <img className="afc-shot" src={`media/figma/${s.img}`} alt={`${s.label} affiliate site`} loading="lazy" />
+                ? <img className="afc-shot" src={`media/figma/${s.img}`} alt={c.sites[i].alt} loading="lazy" />
                 : <div className="afc-ph" style={{ background: s.tint }}><span className="afc-hero" /><span className="afc-line w1" /><span className="afc-line w2" /><span className="afc-line w3" /></div>}
             </div>
           </div>
@@ -220,27 +208,25 @@ function AffFlow() {
     </div>
   );
 }
-function BuiltKinds() {
+function BuiltKinds({ c }) {
   return (
     <section id="aff-kinds" className="mf-sec">
       <div className="wrap">
         <div className="mf-grid">
           <div className="mf-left">
-            <h2 className="mf-title" data-reveal>Built for every kind of affiliate site.</h2>
-            <p className="mf-sub" data-reveal data-reveal-delay="1">Whatever you run and however big it is, there's a way to earn.</p>
+            <h2 className="mf-title" data-reveal>{c.title}</h2>
+            <p className="mf-sub" data-reveal data-reveal-delay="1">{c.sub}</p>
             <div className="mf-points" data-reveal data-reveal-delay="1">
-              <div className="mf-point">
-                <h3 className="mf-pt">Whatever kind of site you run.</h3>
-                <p className="mf-pd">Blogs, news, cashback, coupon, and comparison sites all earn here. If it has content and an audience, you can turn it into income.</p>
-              </div>
-              <div className="mf-point">
-                <h3 className="mf-pt">Light touch, or high volume.</h3>
-                <p className="mf-pd">Add a few links to your posts, or run datafeeds and the API at scale. The tools work either way, and grow as you do.</p>
-              </div>
+              {c.points.map(([t, d]) => (
+                <div className="mf-point" key={t}>
+                  <h3 className="mf-pt">{t}</h3>
+                  <p className="mf-pd">{d}</p>
+                </div>
+              ))}
             </div>
           </div>
           <div className="mf-visual" data-reveal>
-            <AffFlow />
+            <AffFlow c={c} />
           </div>
         </div>
       </div>
@@ -278,33 +264,27 @@ function BuiltKinds() {
   );
 }
 /* ---------- Affiliates §3 — "Why affiliate sites choose Involve." (4 icon columns) ---------- */
+// Icons by index; the column text comes from c.items.
 const AFF_WHY = [
-  { t: 'Links that fit your site.', d: 'Place contextual links yourself, with no forced ads or banners cluttering your pages.',
-    ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" /><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></svg> },
-  { t: 'Your content keeps earning.', d: 'A review you wrote last year still earns today, every time it drives a sale.',
-    ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" /><path d="M14 3v5h5" /><path d="M8 13h6M8 17h4" /></svg> },
-  { t: 'Built for volume.', d: 'Datafeeds and API link generation to run at the scale your site needs.',
-    ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="12" cy="6" rx="7.5" ry="3" /><path d="M4.5 6v6c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3V6" /><path d="M4.5 12v6c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-6" /></svg> },
-  { t: 'Reliable tracking and payouts.', d: 'Every sale is validated, with reporting you can check yourself, plus Express Withdrawal when you want paying sooner.',
-    ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" /><path d="M14 3v5h5" /><path d="M9 14.5l2 2 4-4" /></svg> },
+  { ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" /><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></svg> },
+  { ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" /><path d="M14 3v5h5" /><path d="M8 13h6M8 17h4" /></svg> },
+  { ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="12" cy="6" rx="7.5" ry="3" /><path d="M4.5 6v6c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3V6" /><path d="M4.5 12v6c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-6" /></svg> },
+  { ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" /><path d="M14 3v5h5" /><path d="M9 14.5l2 2 4-4" /></svg> },
 ];
 const WHY_CSS = `
         .wy-grid{ margin-top:clamp(34px,5vh,54px); display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:clamp(24px,3vw,40px); }
         @media (max-width:960px){ .wy-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(28px,4vw,40px); } }
       `;
-function WhyChoose() {
+function WhyChoose({ c }) {
+  const items = AFF_WHY.map((w, i) => ({ ...w, t: c.items[i][0], d: c.items[i][1] }));
   return (
-    <IconColumns id="aff-why" title="Why affiliate sites earn with Involve." items={AFF_WHY}
-      proof="Content, cashback, coupon, and comparison sites across the region run on Involve Asia." css={WHY_CSS} />
+    <IconColumns id="aff-why" title={c.title} items={items}
+      proof={c.proof} css={WHY_CSS} />
   );
 }
 /* ---------- Affiliates §4b — "How it works" (3 numbered steps) — Figma 2546:45012 ---------- */
-const HIW_STEPS = [
-  { t: 'Find offers', d: 'Browse 4,000+ offers across 500+ brands, with the rates and terms up front.', img: 'general-hye-01.png' },
-  { t: 'Add links, or pull the datafeed', d: 'Drop trackable links into your content in a couple of clicks, or feed live product data into your site to run at scale.', img: 'affp-hye-02.png' },
-  { t: 'Earn on every sale', d: 'When someone buys through your link, the sale is credited to you.', img: 'general-hye-03.png' },
-  { t: 'Get paid', d: 'Withdraw in your local currency once sales are validated, or sooner with Express Withdrawal.', img: 'general-hye-04.png' },
-];
+// Step images by index; the step text comes from c.steps.
+const HIW_IMG = ['general-hye-01.png', 'affp-hye-02.png', 'general-hye-03.png', 'general-hye-04.png'];
 // Card 1 (Pick a brand): a 4x2 grid of brand logos where one logo is "active" at
 // a time; a single timer advances the playhead row by row (0..7) and loops.
 const BG_COUNT = 8;
@@ -383,17 +363,17 @@ function GetPaidPill() {
     </span>
   );
 }
-function HowItWorks() {
+function HowItWorks({ c }) {
   return (
     <section id="af-how" className="hiw-sec">
       <div className="wrap">
-        <h2 className="hiw-title" data-reveal>How you earn.</h2>
+        <h2 className="hiw-title" data-reveal>{c.title}</h2>
         <div className="hiw-grid">
-          {HIW_STEPS.map((s, i) => (
-            <div className="hiw-step" key={s.t} data-reveal data-reveal-delay={i + 1}>
-              <div className="hiw-card"><img src={`media/figma/${s.img}`} alt="" loading="lazy" onError={(e) => { e.currentTarget.style.visibility = 'hidden'; }} /></div>
-              <h3 className="hiw-ct">{i + 1}. {s.t}</h3>
-              <p className="hiw-cd">{s.d}</p>
+          {c.steps.map(([t, d], i) => (
+            <div className="hiw-step" key={t} data-reveal data-reveal-delay={i + 1}>
+              <div className="hiw-card"><img src={`media/figma/${HIW_IMG[i]}`} alt="" loading="lazy" onError={(e) => { e.currentTarget.style.visibility = 'hidden'; }} /></div>
+              <h3 className="hiw-ct">{i + 1}. {t}</h3>
+              <p className="hiw-cd">{d}</p>
             </div>
           ))}
         </div>
@@ -437,12 +417,13 @@ function HowItWorks() {
 }
 /* ---------- Affiliates §4 — "Built to run at any scale." (tab view, reused from the
    Creator Partners tools section — pf-* pattern). Datafeed Manager / API / Creative Hub. ---------- */
+// Keys, images and icons by index; the tab text comes from c.items.
 const AFF_TOOLS = [
-  { key: 'datafeed', t: 'Datafeed Manager', d: 'Feed live product data like prices, offers, and stock straight into your site, and keep it current automatically.', img: 'aff-partner-slide1.png?v=2',
+  { key: 'datafeed', img: 'aff-partner-slide1.png?v=2',
     ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3" /><path d="M4 5v6c0 1.66 3.58 3 8 3s8-1.34 8-3V5" /><path d="M4 11v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6" /></svg> },
-  { key: 'api', t: 'API', d: 'Pull offers and conversions and generate tracking links programmatically, so affiliate data and links live inside your own systems.', img: 'aff-partner-slide2.png?v=2',
+  { key: 'api', img: 'aff-partner-slide2.png?v=2',
     ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M8 8l-4 4 4 4" /><path d="M16 8l4 4-4 4" /><path d="M13 6l-2 12" /></svg> },
-  { key: 'creative', t: 'Creative Hub', d: 'Grab ready-made banners and campaign coupon codes from top brands to promote.', img: 'creator-partner-slide3.png?v=2',
+  { key: 'creative', img: 'creator-partner-slide3.png?v=2',
     ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="8.5" cy="8.5" r="1.5" /><path d="M21 15l-5-5L5 21" /></svg> },
 ];
 const AFF_TOOLS_CSS = `
@@ -481,28 +462,30 @@ const AFF_TOOLS_CSS = `
             margin:18px 0 0; border-radius:var(--r-xl);
             background:var(--warm-150); }
         }`;
-function AffTools() {
+function AffTools({ c }) {
+  const items = AFF_TOOLS.map((tool, i) => ({ ...tool, t: c.items[i][0], d: c.items[i][1] }));
   return (
-    <PlatformTabs id="aff-tools" items={AFF_TOOLS} mobileCards figClass="pf-step-fig-img" css={AFF_TOOLS_CSS}
-      title="Built to run at any scale."
-      sub="The tools that grow with your site." />
+    <PlatformTabs id="aff-tools" items={items} mobileCards figClass="pf-step-fig-img" css={AFF_TOOLS_CSS}
+      title={c.title}
+      sub={c.sub} />
   );
 }
 function PublisherApp() {
   useSmoothScroll();
   useScrollReveal();
+  const c = useCopy('affiliates');
   return (
     <React.Fragment>
       <Nav getStartedTone="pub" />
       <main>
-        <PubHero />
-        <BuiltKinds />
-        <HowItWorks />
-        <AffTools />
-        <WhyChoose />
-        <PubVoices />
-        <PubFAQ />
-        <PubCTA />
+        <PubHero c={c.hero} />
+        <BuiltKinds c={c.kinds} />
+        <HowItWorks c={c.how} />
+        <AffTools c={c.tools} />
+        <WhyChoose c={c.why} />
+        <PubVoices c={c.voices} />
+        <PubFAQ c={c.faq} />
+        <PubCTA c={c.cta} />
       </main>
       <Footer />
       <AppDownload />

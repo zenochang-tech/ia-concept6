@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "title": "Affiliate marketing for media buyers | Involve Asia",
+    "description": "Turn paid traffic into profit. Run campaigns across 500+ brands with the tracking, attribution, and reporting to protect your margins."
+  },
+  "hero": {
+    "eyebrow": "For Media Buyers",
+    "title": "Run paid traffic across hundreds of brands, with tracking built in.",
+    "sub": "Turn ad spend into profit, with the attribution, reporting, and payouts to run it at scale.",
+    "cta": "Start Earning",
+    "free": "Free to join. Start earning today.",
+    "imageAlt": "A media buyer's campaign dashboard"
+  },
+  "how": {
+    "title": "How you earn.",
+    "items": [
+      ["01", "Pick high-converting offers", "Browse 4,000+ offers with rates and terms up front, so you can model your margins."],
+      ["02", "Drive paid traffic", "Send search, social, and native traffic through your trackable links."],
+      ["03", "Track every conversion", "See clicks, sales, and EPC in real time, and fire postbacks to your own tracker."],
+      ["04", "Get paid", "Withdraw in your local currency once conversions are validated, or sooner with Express Withdrawal."]
+    ]
+  },
+  "run": {
+    "title": "Built for how you run.",
+    "items": [
+      ["Know your margin before you spend.", "See the payout and EPC on every offer up front, so you can work out your numbers before you buy a single click. Payout, minus your traffic cost, is your profit. We show you the first two, you control the third."],
+      ["Plug into your own tracker.", "Fire server-to-server postbacks into Voluum, RedTrack, Binom, or your own stack. Pass your click IDs and sub IDs through the link and get them back on conversion, so your reporting matches ours to the cent."],
+      ["Know the rules before you run.", "Every offer lists its allowed traffic sources and brand-bidding rules up front, so you know what you can run before you spend, and you keep every commission you earn."]
+    ]
+  },
+  "why": {
+    "title": "Why media buyers run on Involve.",
+    "items": [
+      ["Rates and terms up front.", "See commissions before you spend, so you can protect your margin."],
+      ["Reliable attribution.", "Last-click tracking and server-to-server postback to match your own systems."],
+      ["Real-time performance.", "EPC, conversion, and payout data as it happens, not days later."]
+    ]
+  },
+  "faq": [
+    ["Can I use server-to-server postback?", "Yes. Fire postbacks to your own tracker so your data matches ours."],
+    ["How fast is tracking?", "Real time within 10 to 30 minutes for most conversions, plus manual tracking where needed."],
+    ["Which traffic sources are allowed?", "Check each offer's terms. Some brands restrict paid search or brand bidding."]
+  ],
+  "cta": {
+    "title": "Turn ad spend into profit."
+  }
+}

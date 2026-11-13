@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "title": "Partner discovery | Involve Asia",
+    "description": "Promote 4,000+ brands, turn your audience or traffic into income, and get fast local-currency payouts. Free to join — grow with Involve Asia."
+  },
+  "hero": {
+    "title": "Find the right publishers, or let us find them for you.",
+    "sub": "Search over 1,000,000 publishers and invite the ones that fit your brand.",
+    "cta": "See Plans and Pricing",
+    "imageAlt": "A dashboard listing over a million publishers to invite to your brand"
+  },
+  "discover": {
+    "title": "Discover publishers that fit.",
+    "points": [
+      ["Filter to the right fit.", "Narrow by category, channel, and membership tier, or search by name, ID, or keyword."],
+      ["See the numbers first.", "Check each publisher’s audience countries, clicks, and conversions before you invite them."]
+    ],
+    "imageAlt": "A publisher profile card showing membership tier, clicks and conversions with an Invite Publisher button"
+  },
+  "recruit": {
+    "title": "Publisher recruitment",
+    "items": [
+      ["Bring your partners on with one link.", "Share your referral link, and any publisher who signs up through it is auto-approved for your offer, so you can onboard your existing partners in a single step."],
+      ["We recruit publishers for you.", "On Growth and above, our team runs recruitment campaigns and introduces publishers that fit your brand, real people who know your vertical. **Only the partners you choose come on board, so you stay in control.**"]
+    ]
+  },
+  "cta": {
+    "title": "Put the right partners to work for your brand.",
+    "label": "Grow My Brand"
+  }
+}

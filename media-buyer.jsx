@@ -1,35 +1,36 @@
 /* ============================================================================
-   publishers.jsx — "For Publishers" overview page.
-   Loaded AFTER ia-shared.jsx (which defines Nav/Footer/etc. and exposes them on
+   media-buyer.jsx — "For Media Buyers" page (key: media-buyer).
+   All visible copy lives in content/pages/media-buyer/en.json and arrives through
+   useCopy — this file only holds the layout, icons and images. Loaded AFTER ia-shared.jsx (which defines Nav/Footer/etc. and exposes them on
    window). Sections are built one at a time from the Figma frame (node 1260:46678),
    same flow as the homepage. Motion/animation is a final pass.
    ============================================================================ */
 
 // Shared UI comes from ia-shared.jsx (pulled off window so this works regardless
 // of how Babel-standalone scopes each script tag).
-const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, FinalCta, Testimonials, Faq, AppDownload, HeroHexGrid, HERO_HEXGRID_CSS, NumberedSteps, IconColumns } = window;
+const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, FinalCta, Testimonials, Faq, AppDownload, HeroHexGrid, HERO_HEXGRID_CSS, NumberedSteps, IconColumns, useCopy, rich } = window;
 
 /* ---------- Section 1 — Hero ---------------------------------------------- */
-function PubHero() {
+function PubHero({ c }) {
   return (
     <section id="pub-hero" className="ph-sec">
       <span className="ph-basefade" aria-hidden="true" />
       <div className="wrap ph-wrap">
         <HeroHexGrid />
         <div className="ph-copy">
-          <span className="ph-eyebrow" data-reveal>For Media Buyers</span>
-          <h1 className="ph-title" data-reveal data-reveal-delay="1">Run paid traffic across hundreds of brands, with tracking built in.</h1>
-          <p className="ph-sub" data-reveal data-reveal-delay="2">Turn ad spend into profit, with the attribution, reporting, and payouts to run it at scale.</p>
+          <span className="ph-eyebrow" data-reveal>{c.eyebrow}</span>
+          <h1 className="ph-title" data-reveal data-reveal-delay="1">{c.title}</h1>
+          <p className="ph-sub" data-reveal data-reveal-delay="2">{c.sub}</p>
           <div className="ph-actions" data-reveal data-reveal-delay="3">
-            <a href="/partners/" className="btn btn-primary btn-lg">Start Earning <Arrow /></a>
+            <a href="/partners/" className="btn btn-primary btn-lg">{c.cta} <Arrow /></a>
           </div>
-          <span className="ph-free" data-reveal data-reveal-delay="3">Free to join. Start earning today.</span>
+          <span className="ph-free" data-reveal data-reveal-delay="3">{c.free}</span>
         </div>
 
         <div className="ph-visual" data-reveal data-reveal-delay="1">
           <span className="ph-hexglow" aria-hidden="true" />
           <span className="ph-hexplate" aria-hidden="true" />
-          <div className="ph-photo ph-photo-fill"><img src="media/figma/mb-hero.png" alt="A media buyer's campaign dashboard" loading="eager" /></div>
+          <div className="ph-photo ph-photo-fill"><img src="media/figma/mb-hero.png" alt={c.imageAlt} loading="eager" /></div>
         </div>
       </div>
 
@@ -134,63 +135,44 @@ function PubVoices() {
    Copy supplied by the client. Two answers carry links (beginner guide, Express
    Withdrawal) — hrefs are placeholders pending the real URLs. Example figures
    (4.2% commission, 10 working days) are illustrative — confirm before launch. */
-const PUB_FAQ = [
-  ['Can I use server-to-server postback?',
-    'Yes. Fire postbacks to your own tracker so your data matches ours.'],
-  ['How fast is tracking?',
-    'Real time within 10 to 30 minutes for most conversions, plus manual tracking where needed.'],
-  ['Which traffic sources are allowed?',
-    'Check each offer\'s terms. Some brands restrict paid search or brand bidding.'],
-];
-function PubFAQ() {
-  return <Faq items={PUB_FAQ} />;
+function PubFAQ({ items }) {
+  return <Faq items={items} />;
 }
 
 /* ---------- Final CTA (shared FinalCta, ia-sections.jsx) ----------------- */
-function PubCTA() {
-  return <FinalCta title="Turn ad spend into profit." />;
+function PubCTA({ c }) {
+  return <FinalCta title={c.title} />;
 }
 
 /* ---------- Website §2 — "Monetise your content, without disrupting it." (4 icon columns) ---------- */
 const AFF_WHY = [
-  { t: 'Rates and terms up front.', d: 'See commissions before you spend, so you can protect your margin.',
-    ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3.5-6.5 10-6.5S22 12 22 12s-3.5 6.5-10 6.5S2 12 2 12z" /><circle cx="12" cy="12" r="2.6" /></svg> },
-  { t: 'Reliable attribution.', d: 'Last-click tracking and server-to-server postback to match your own systems.',
-    ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="4.2" /><path d="M12 1v3M12 20v3M1 12h3M20 12h3" /></svg> },
-  { t: 'Real-time performance.', d: 'EPC, conversion, and payout data as it happens, not days later.',
-    ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12h4l2.5-7 4 14 2.5-7H21" /></svg> },
+  { ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3.5-6.5 10-6.5S22 12 22 12s-3.5 6.5-10 6.5S2 12 2 12z" /><circle cx="12" cy="12" r="2.6" /></svg> },
+  { ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="4.2" /><path d="M12 1v3M12 20v3M1 12h3M20 12h3" /></svg> },
+  { ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12h4l2.5-7 4 14 2.5-7H21" /></svg> },
 ];
-function WhyChoose() {
+function WhyChoose({ c }) {
+  const items = c.items.map(([t, d], i) => ({ t, d, ic: AFF_WHY[i].ic }));
   return (
-    <IconColumns id="aff-why" title="Why media buyers run on Involve." items={AFF_WHY} />
+    <IconColumns id="aff-why" title={c.title} items={items} />
   );
 }
 /* ---------- Website §1b — "How it works" (3 numbered steps) — Figma 2546:45038 ---------- */
-const HIW_STEPS = [
-  ['01', 'Pick high-converting offers', 'Browse 4,000+ offers with rates and terms up front, so you can model your margins.'],
-  ['02', 'Drive paid traffic', 'Send search, social, and native traffic through your trackable links.'],
-  ['03', 'Track every conversion', 'See clicks, sales, and EPC in real time, and fire postbacks to your own tracker.'],
-  ['04', 'Get paid', 'Withdraw in your local currency once conversions are validated, or sooner with Express Withdrawal.'],
-];
-function HowItWorks() {
-  return <NumberedSteps id="web-how" title="How you earn." steps={HIW_STEPS} />;
+function HowItWorks({ c }) {
+  return <NumberedSteps id="web-how" title={c.title} steps={c.items} />;
 }
 /* ---------- Media-buyer signature section — "Built for how you run." (3 image cards, same
    design as "Earn from what your users already do."; images to be supplied) ---------- */
-const BUILT_RUN = [
-  ['mb-run-1.png', 'Know your margin before you spend.', 'See the payout and EPC on every offer up front, so you can work out your numbers before you buy a single click. Payout, minus your traffic cost, is your profit. We show you the first two, you control the third.'],
-  ['mb-run-2.png', 'Plug into your own tracker.', 'Fire server-to-server postbacks into Voluum, RedTrack, Binom, or your own stack. Pass your click IDs and sub IDs through the link and get them back on conversion, so your reporting matches ours to the cent.'],
-  ['mb-run-3.png', 'Know the rules before you run.', 'Every offer lists its allowed traffic sources and brand-bidding rules up front, so you know what you can run before you spend, and you keep every commission you earn.'],
-];
-function BuiltRun() {
+/* card text comes from c.items, zipped by index with these images */
+const BUILT_RUN = ['mb-run-1.png', 'mb-run-2.png', 'mb-run-3.png'];
+function BuiltRun({ c }) {
   return (
     <section id="mb-run" className="mr-sec">
       <div className="wrap">
-        <h2 className="mr-title" data-reveal>Built for how you run.</h2>
+        <h2 className="mr-title" data-reveal>{c.title}</h2>
         <div className="mr-grid">
-          {BUILT_RUN.map(([img, t, d], i) => (
+          {c.items.map(([t, d], i) => (
             <div className="mr-card" key={t} data-reveal data-reveal-delay={i + 1}>
-              <div className="mr-visual"><img src={`media/figma/${img}`} alt="" loading="lazy" /></div>
+              <div className="mr-visual"><img src={`media/figma/${BUILT_RUN[i]}`} alt="" loading="lazy" /></div>
               <h3 className="mr-ct">{t}</h3>
               <p className="mr-cd">{d}</p>
             </div>
@@ -215,17 +197,18 @@ function BuiltRun() {
 function PublisherApp() {
   useSmoothScroll();
   useScrollReveal();
+  const c = useCopy('media-buyer');
   return (
     <React.Fragment>
       <Nav getStartedTone="pub" />
       <main>
-        <PubHero />
-        <HowItWorks />
-        <BuiltRun />
-        <WhyChoose />
+        <PubHero c={c.hero} />
+        <HowItWorks c={c.how} />
+        <BuiltRun c={c.run} />
+        <WhyChoose c={c.why} />
         <PubVoices />
-        <PubFAQ />
-        <PubCTA />
+        <PubFAQ items={c.faq} />
+        <PubCTA c={c.cta} />
       </main>
       <Footer />
       <AppDownload />

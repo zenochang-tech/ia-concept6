@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "title": "Affiliate marketing for blogs, niche, and news sites | Involve Asia",
+    "description": "Turn the traffic you already have into income. Add trackable links to your articles and earn on every sale, long after you publish."
+  },
+  "hero": {
+    "eyebrow": "For Content Sites",
+    "title": "Add income to the content you already publish.",
+    "sub": "Blogs, niche sites, and news. Earn on the content you already publish, without changing how you write.",
+    "cta": "Start Earning",
+    "free": "Free to join. Start earning today.",
+    "imageAlt": "A content website shown on a laptop"
+  },
+  "how": {
+    "title": "How you earn.",
+    "items": [
+      ["01", "Find offers", "Browse 500+ brands and pick the ones your readers already care about."],
+      ["02", "Add links to your content", "Drop trackable links into new or existing articles and reviews, in a couple of clicks."],
+      ["03", "Earn after you publish", "Older posts keep earning every time a reader clicks and buys."],
+      ["04", "Get paid", "Withdraw in your local currency once sales are validated, or sooner with Express Withdrawal."]
+    ]
+  },
+  "kinds": {
+    "title": "Made for content that already has an audience.",
+    "items": [
+      ["Blogs", "Add relevant links to the posts you already write, and earn from content you were making anyway."],
+      ["Niche sites", "Run a specialist blog or site your niche follows. Add links to the reviews and guides you already write, and earn on what your readers buy."],
+      ["News and media sites", "Turn your articles into income that keeps earning long after you publish."]
+    ]
+  },
+  "why": {
+    "title": "Why content sites earn with Involve.",
+    "items": [
+      ["Links that fit your content.", "You place contextual links yourself. No forced ads or banners cluttering your site."],
+      ["Your best content keeps earning.", "A review you wrote last year still earns today."],
+      ["Reporting that guides what to write.", "See which posts and links drive sales, so you know what to publish next."]
+    ]
+  },
+  "faq": [
+    ["Will affiliate links change how my site looks?", "No. You choose where links go. There are no forced ads or banners."],
+    ["Do old articles still earn?", "Yes. Any post with a live link keeps earning on every sale it drives."],
+    ["What kinds of sites qualify?", "Blogs, niche sites, news and media. Any site with content and readers."]
+  ],
+  "cta": {
+    "title": "Start earning from your website."
+  }
+}

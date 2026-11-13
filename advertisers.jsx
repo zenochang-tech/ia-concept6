@@ -1,16 +1,18 @@
 /* ============================================================================
-   publishers.jsx — "For Publishers" overview page.
+   advertisers.jsx — "For Advertisers" overview page.
    Loaded AFTER ia-shared.jsx (which defines Nav/Footer/etc. and exposes them on
    window). Sections are built one at a time from the Figma frame (node 1260:46678),
    same flow as the homepage. Motion/animation is a final pass.
+   All copy lives in content/pages/for-advertisers/<lang>.json and arrives through
+   useCopy — this file only holds the layout, icons, images and animation.
    ============================================================================ */
 
 // Shared UI comes from ia-shared.jsx (pulled off window so this works regardless
 // of how Babel-standalone scopes each script tag).
-const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, PlatformTabs, FinalCta, HeroHexGrid, HERO_HEXGRID_CSS, LogoMarquee } = window;
+const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, PlatformTabs, FinalCta, HeroHexGrid, HERO_HEXGRID_CSS, LogoMarquee, useCopy, rich } = window;
 
 /* ---------- Section 1 — Hero ---------------------------------------------- */
-function PubHero() {
+function PubHero({ c }) {
   // Right-hand visual is a 4-slide fade slider: each slide's photo + its floating UI
   // cross-fade in/out together every 1.5s. Reduced-motion holds slide 1.
   const [slide, setSlide] = React.useState(0);
@@ -27,47 +29,47 @@ function PubHero() {
       <div className="wrap ph-wrap">
         <HeroHexGrid />
         <div className="ph-copy">
-          <span className="ph-eyebrow" data-reveal>Affiliate Marketing for Advertisers</span>
-          <h1 className="ph-title" data-reveal data-reveal-delay="1">Grow your sales with the right publishers.</h1>
-          <p className="ph-sub" data-reveal data-reveal-delay="2">Reach 1,000,000+ publishers, pay only for verified sales, and see results sooner. Launch in days, not months, whatever you sell.</p>
+          <span className="ph-eyebrow" data-reveal>{c.eyebrow}</span>
+          <h1 className="ph-title" data-reveal data-reveal-delay="1">{c.title}</h1>
+          <p className="ph-sub" data-reveal data-reveal-delay="2">{c.sub}</p>
           <div className="ph-actions" data-reveal data-reveal-delay="3">
-            <a href="/advertisers/" className="btn btn-advertiser btn-lg">See Plans and Pricing <Arrow /></a>
+            <a href="/advertisers/" className="btn btn-advertiser btn-lg">{c.cta} <Arrow /></a>
           </div>
-          <span className="ph-free" data-reveal data-reveal-delay="3">Our team helps you launch, and you only pay when a sale is real.</span>
+          <span className="ph-free" data-reveal data-reveal-delay="3">{c.free}</span>
         </div>
 
         <div className="ph-visual" data-reveal data-reveal-delay="1">
           <span className="ph-hexbg" aria-hidden="true" />
           {/* Slide 0 — dashboard */}
           <div className={on(0)} aria-hidden={slide !== 0}>
-            <img className="ph-hexart" src="media/figma/slider-adv-new1.png" alt="Advertiser dashboard with gross sales, commission paid and performance trends" loading="eager" />
+            <img className="ph-hexart" src="media/figma/slider-adv-new1.png" alt={c.slideAlts[0]} loading="eager" />
             <div className="ph-slide-ui">
-              <div className="ph-glass ph-ga-conv"><div className="ph-av-stat"><span className="ph-av-lbl"><span className="ph-av-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18" /><path d="m7 14 4-4 3 3 5-6" /></svg></span>Conversion Rate</span><span className="ph-av-row"><b>10%</b><em>&uarr;9%</em></span></div></div>
+              <div className="ph-glass ph-ga-conv"><div className="ph-av-stat"><span className="ph-av-lbl"><span className="ph-av-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18" /><path d="m7 14 4-4 3 3 5-6" /></svg></span>{c.convLabel}</span><span className="ph-av-row"><b>{c.convValue}</b><em>{c.convDelta}</em></span></div></div>
             </div>
           </div>
 
           {/* Slide 1 — find & invite publishers */}
           <div className={on(1)} aria-hidden={slide !== 1}>
-            <img className="ph-hexart" src="media/figma/slider-adv-new2.png" alt="1,428 active publishers found — Clarke, Fernandez, Michelle, Jeanne" loading="eager" />
+            <img className="ph-hexart" src="media/figma/slider-adv-new2.png" alt={c.slideAlts[1]} loading="eager" />
             <div className="ph-slide-ui">
-              <div className="ph-glass ph-ga-cat"><div className="ph-cat"><small>Publishers for</small>Fashion category</div></div>
+              <div className="ph-glass ph-ga-cat"><div className="ph-cat"><small>{c.catLabel}</small>{c.catValue}</div></div>
             </div>
           </div>
 
           {/* Slide 2 — my campaigns (11.11) */}
           <div className={on(2)} aria-hidden={slide !== 2}>
-            <img className="ph-hexart" src="media/figma/slider-adv-new3.png" alt="My Campaigns: 11.11 and 2026 Black Friday campaigns with coupon codes" loading="eager" />
+            <img className="ph-hexart" src="media/figma/slider-adv-new3.png" alt={c.slideAlts[2]} loading="eager" />
             <div className="ph-slide-ui">
-              <div className="ph-glass ph-ga-live"><div className="ph-live">11.11 Campaign is live!</div></div>
-              <div className="ph-glass ph-ga-appl"><div className="ph-cat"><small>Applicants</small>428 publishers</div></div>
+              <div className="ph-glass ph-ga-live"><div className="ph-live">{c.live}</div></div>
+              <div className="ph-glass ph-ga-appl"><div className="ph-cat"><small>{c.applLabel}</small>{c.applValue}</div></div>
             </div>
           </div>
 
           {/* Slide 3 — validated conversions */}
           <div className={on(3)} aria-hidden={slide !== 3}>
-            <img className="ph-hexart" src="media/figma/slider-adv-new4.png" alt="918 conversions found for 11.11 campaign" loading="eager" />
+            <img className="ph-hexart" src="media/figma/slider-adv-new4.png" alt={c.slideAlts[3]} loading="eager" />
             <div className="ph-slide-ui">
-              <div className="ph-glass ph-ga-vc"><div className="ph-cat"><small>Validated Conversion</small>316</div></div>
+              <div className="ph-glass ph-ga-vc"><div className="ph-cat"><small>{c.vcLabel}</small>{c.vcValue}</div></div>
             </div>
           </div>
         </div>
@@ -215,45 +217,43 @@ function PubHero() {
 }
 
 /* ---------- Section 2 — Logo strip ---------------------------------------- */
-function PubLogos() {
-  return <LogoMarquee caption="Trusted by brands your customers already know, across retail, travel, beauty, and finance." />;
+function PubLogos({ c }) {
+  return <LogoMarquee caption={c.caption} />;
 }
 
 /* ---------- Final CTA (shared FinalCta, ia-sections.jsx) ----------------- */
-function PubCTA() {
-  return <FinalCta title="Start growing your business with the right plan today." href="/advertisers/" tone="advertiser" label="See Plans and Pricing" />;
+function PubCTA({ c }) {
+  return <FinalCta title={c.title} href="/advertisers/" tone="advertiser" label={c.label} />;
 }
 
-/* ---------- Advertiser Section 3 — "Whatever your goal, grow it here." ------ */
+/* ---------- Advertiser Section 3 — "Whatever your goal, grow it here." ------
+   Icons here; each goal's title + description come from c.items (same order). */
 const ADV_GOALS = [
   {
-    key: 'awareness', title: 'Build awareness',
-    desc: 'Get your brand in front of new audiences through creators, content sites, and comparison sites.',
+    key: 'awareness',
     icon: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>),
   },
   {
-    key: 'customers', title: 'Win customers',
-    desc: 'Turn attention into action with promotions that reach new buyers and bring existing ones back.',
+    key: 'customers',
     icon: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="8" r="3.2" /><path d="M3.4 20a6 6 0 0 1 11.2 0" /><path d="M18.6 6.1c1.2-1.3 3.4-.4 3.4 1.3 0 1.5-2.2 3-3.4 3.9-1.2-.9-3.4-2.4-3.4-3.9 0-1.7 2.2-2.6 3.4-1.3Z" /></svg>),
   },
   {
-    key: 'revenue', title: 'Grow revenue',
-    desc: 'Drive measurable growth with publishers who are paid to perform, tracked down to every conversion.',
+    key: 'revenue',
     icon: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17" /><polyline points="16 7 22 7 22 13" /></svg>),
   },
 ];
-function AdvGoals() {
+function AdvGoals({ c }) {
   return (
     <section id="adv-goals" className="ag-sec">
       <div className="wrap">
-        <h2 className="ag-title" data-reveal>Whatever your goal, grow it here.</h2>
-        <p className="ag-sub" data-reveal data-reveal-delay="1">There's a publisher and a strategy for every objective, awareness, customers, or revenue.</p>
+        <h2 className="ag-title" data-reveal>{c.title}</h2>
+        <p className="ag-sub" data-reveal data-reveal-delay="1">{c.sub}</p>
         <div className="ag-grid">
           {ADV_GOALS.map((g, i) => (
             <div className="ag-item" key={g.key} data-reveal data-reveal-delay={i + 1}>
               <span className="ag-ico" aria-hidden="true">{g.icon}</span>
-              <h3 className="ag-item-t">{g.title}</h3>
-              <p className="ag-item-d">{g.desc}</p>
+              <h3 className="ag-item-t">{c.items[i].title}</h3>
+              <p className="ag-item-d">{c.items[i].desc}</p>
             </div>
           ))}
         </div>
@@ -275,26 +275,23 @@ function AdvGoals() {
 }
 /* ---------- Advertiser Section 4 — "One platform…" (auto-advancing stepper) --
    4 steps; the active one expands (header + description) with a top→bottom fill
-   bar that takes 5s, then advances to the next. Right image swaps per step. */
+   bar that takes 5s, then advances to the next. Right image swaps per step.
+   Keys/images here; each step's t (title) + d (description) come from c.items. */
 const ADV_PLATFORM = [
   {
-    key: 'find', t: 'Find and choose your publishers',
-    d: 'Search publishers by audience, channel, and membership tier, then approve who represents your brand. You stay in full control of who promotes you.',
+    key: 'find',
     img: 'Adv-feature-slide01.png',
   },
   {
-    key: 'reward', t: 'Request publisher recruitment',
-    d: 'Prefer a hand? Our team runs recruitment campaigns and introduces publishers that fit your brand, and you approve who joins.',
+    key: 'reward',
     img: 'Adv-feature-slide02.png',
   },
   {
-    key: 'launch', t: 'Launch offers and share your creatives',
-    d: 'Set your commission, launch an offer, and upload your campaigns for publishers to pick up, then see who is promoting them.',
+    key: 'launch',
     img: 'Adv-feature-slide03.png',
   },
   {
-    key: 'track', t: 'Track every result',
-    d: 'Watch clicks, conversions, and payouts in one dashboard, with conversion-level detail and exports whenever you need them.',
+    key: 'track',
     img: 'Adv-feature-slide04.png',
   },
 ];
@@ -336,11 +333,12 @@ const ADV_PLATFORM_CSS = `
             margin:18px 0 0; border-radius:var(--r-xl);
             background:var(--warm-150); }
         }`;
-function AdvPlatform() {
+function AdvPlatform({ c }) {
+  const items = ADV_PLATFORM.map((s, i) => ({ ...s, ...c.items[i] }));
   return (
-    <PlatformTabs id="adv-platform" items={ADV_PLATFORM} mobileCards figClass="pf-step-fig-img" css={ADV_PLATFORM_CSS}
-      title="One platform, everything you need to run your program"
-      sub="Find publishers, launch offers, share your creatives, and track every sale, all in one place." />
+    <PlatformTabs id="adv-platform" items={items} mobileCards figClass="pf-step-fig-img" css={ADV_PLATFORM_CSS}
+      title={c.title}
+      sub={c.sub} />
   );
 }
 /* ---------- "Traffic Validation" animated graphic (canvas) -----------------
@@ -498,7 +496,7 @@ function initTrafficViz(canvas, chip, userConfig) {
   else enter();
   return function destroy() { stop(); window.removeEventListener('resize', onResize); if (io) io.disconnect(); };
 }
-function TrafficViz() {
+function TrafficViz({ chip }) {
   const ref = React.useRef(null), chipRef = React.useRef(null);
   React.useEffect(() => { if (!ref.current) return; return initTrafficViz(ref.current, chipRef.current); }, []);
   return (
@@ -506,27 +504,23 @@ function TrafficViz() {
       <canvas ref={ref} className="rl-canvas" aria-hidden="true" />
       <div ref={chipRef} className="tv-chip" aria-hidden="true">
         <span className="tv-chip-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg></span>
-        <span className="tv-chip-txt"><span className="tv-chip-l">Validated sales</span><b data-tv-num>1,284</b></span>
+        <span className="tv-chip-txt"><span className="tv-chip-l">{chip}</span><b data-tv-num>1,284</b></span>
       </div>
     </>
   );
 }
 /* ---------- Advertiser Section 5 — "You only pay for sales that are real" ---- */
-const ADV_REAL_POINTS = [
-  'Every conversion verified before payout',
-  'Every sale tracked to the publisher who drove it',
-];
-function AdvReal() {
+function AdvReal({ c }) {
   return (
     <section id="adv-real" className="rl-sec">
       <div className="wrap">
         <div className="rl-card" data-reveal>
-          <div className="rl-viz" aria-hidden="true"><TrafficViz /></div>
+          <div className="rl-viz" aria-hidden="true"><TrafficViz chip={c.chip} /></div>
           <div className="rl-body">
-            <h2 className="rl-title">You only pay for <br />sales that are real</h2>
-            <p className="rl-desc">Every conversion is checked and validated before you pay, so your budget only ever goes to genuine results, never wasted spend. You approve what counts.</p>
+            <h2 className="rl-title">{rich(c.title)}</h2>
+            <p className="rl-desc">{c.desc}</p>
             <ul className="rl-list">
-              {ADV_REAL_POINTS.map((t) => (
+              {c.points.map((t) => (
                 <li key={t}>
                   <span className="rl-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg></span>
                   {t}
@@ -599,7 +593,7 @@ function CountStat({ prefix = '', value, decimals = 0, suffix = '', comma = fals
   }, []);
   return <b ref={ref}>{txt}</b>;
 }
-function AdvStats() {
+function AdvStats({ c }) {
   return (
     <section id="adv-stats" className="as-sec">
       <div className="as-stage" data-reveal>
@@ -608,10 +602,10 @@ function AdvStats() {
             <svg className="as-heximg" viewBox="0 0 347.854 395.886" preserveAspectRatio="none" aria-hidden="true"><path d="M164.586 2.50294C170.366 -0.834312 177.488 -0.834312 183.268 2.50294L338.513 92.1335C344.293 95.4707 347.854 101.638 347.854 108.313V287.574C347.854 294.248 344.293 300.416 338.513 303.753L183.268 393.384C177.488 396.721 170.366 396.721 164.586 393.384L9.34109 303.753C3.5608 300.416 0 294.248 0 287.574V108.313C0 101.638 3.5608 95.4707 9.34109 92.1335L164.586 2.50294Z" fill="var(--warm-100)" /></svg>
           </span>
         ))}
-        <h2 className="as-heading">This is what real sales <br />add up to.</h2>
-        <div className="as-stat as-s500"><CountStat value={500} suffix="+" /><span>Brands</span></div>
-        <div className="as-stat as-s11m"><CountStat value={1000000} comma suffix="+" /><span>Publishers</span></div>
-        <div className="as-stat as-s32b"><CountStat prefix="$" value={3.2} decimals={1} suffix="B+" /><span>Sales Driven for Brands</span></div>
+        <h2 className="as-heading">{rich(c.title)}</h2>
+        <div className="as-stat as-s500"><CountStat value={500} suffix="+" /><span>{c.brands}</span></div>
+        <div className="as-stat as-s11m"><CountStat value={1000000} comma suffix="+" /><span>{c.publishers}</span></div>
+        <div className="as-stat as-s32b"><CountStat prefix="$" value={3.2} decimals={1} suffix="B+" /><span>{c.sales}</span></div>
       </div>
       <style>{`
         /* pulled up/down into the neighbouring sections so the hexagons overlap them (neighbours are z-above → their card/heading stay on top) */
@@ -642,34 +636,23 @@ function AdvStats() {
 }
 /* ---------- Advertiser Section 7 — "Proven results across every industry." --
    Case-study carousel: big photo cards (dark overlay) with a stat headline,
-   quote, attribution and brand logo. Active card centred; sides peek faded. */
+   quote, attribution and brand logo. Active card centred; sides peek faded.
+   Images/logos here; each card's head, quote and who come from c.cases (same order). */
 const ADV_CASES = [
   {
     key: 'shopee', bg: 'adv-case-shopee-bg.png', logo: 'adv-case-shopee-logo.png', logoAlt: 'Shopee',
-    head: "Involve increased Shopee’s partnerships from 2,000 to 20,000 partners within 2 years",
-    quote: "Our growth would not have been possible without Involve’s support. Involve has been one of our biggest affiliate partners from the start, and a benchmark & role model to our other partners.",
-    who: 'Shopee Malaysia',
   },
   {
     key: 'decathlon', bg: 'adv-case-decathlon-bg.png', logo: 'adv-case-decathlon-logo.png', logoAlt: 'Decathlon',
-    head: 'Involve saves time onboarding new partnerships and optimises your existing ones',
-    quote: "Involve saves us so much time by not having to reach out to new partners one by one. Involve also optimized our existing partnerships, where we saw a 3.4% growth despite implementing a commission cut.",
-    who: 'DECATHLON',
   },
   {
     key: 'limitless', bg: 'adv-case-limitless-bg.png', logo: 'adv-case-limitless-logo.svg', logoAlt: 'Limitless Technology',
-    head: 'A remarkable 8% increase in orders within a short period of time.',
-    quote: 'Through their expansive network of publisher and influencer channels, which have become instrumental marketing avenues for us, we have achieved significant milestones. The growth we have experienced across our diverse range of brands has been nothing short of extraordinary, with a remarkable 8% increase in orders within a short period of time.',
-    who: 'Limitless Technology',
   },
   {
     key: 'alibaba', bg: 'adv-case-alibaba-bg.png', logo: 'adv-case-alibaba-logo.png', logoAlt: 'Alibaba Group',
-    head: 'Involve Asia focuses on a variety of traffic and development.',
-    quote: 'Involve Asia focuses on a variety of traffic and development, and looks forward to common progress in the future!',
-    who: 'Alibaba Group',
   },
 ];
-function AdvResults() {
+function AdvResults({ c: copy }) {
   const [active, setActive] = React.useState(0);
   const [dx, setDx] = React.useState(1060);
   const stageRef = React.useRef(null);
@@ -688,20 +671,21 @@ function AdvResults() {
       <div className="wrap">
         <div className="rs-head">
           <div>
-            <h2 className="rs-title" data-reveal>Proven results across every industry.</h2>
-            <p className="rs-sub" data-reveal data-reveal-delay="1">Real brands growing on the platform, in their own words.</p>
+            <h2 className="rs-title" data-reveal>{copy.title}</h2>
+            <p className="rs-sub" data-reveal data-reveal-delay="1">{copy.sub}</p>
           </div>
           <div className="rs-nav" data-reveal data-reveal-delay="1">
-            <button type="button" className="rs-arrow" onClick={() => go(-1)} aria-label="Previous case study">
+            <button type="button" className="rs-arrow" onClick={() => go(-1)} aria-label={copy.prev}>
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5M11 18l-6-6 6-6" /></svg>
             </button>
-            <button type="button" className="rs-arrow" onClick={() => go(1)} aria-label="Next case study">
+            <button type="button" className="rs-arrow" onClick={() => go(1)} aria-label={copy.next}>
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
             </button>
           </div>
         </div>
         <div className="rs-stage" ref={stageRef} data-reveal data-reveal-delay="1">
           {ADV_CASES.map((c, j) => {
+            const t = copy.cases[j];
             let d = (j - active + N) % N; if (d > N / 2) d -= N;
             const on = d === 0;
             const style = {
@@ -714,9 +698,9 @@ function AdvResults() {
                 <span className="rs-scrim" aria-hidden="true" />
                 <div className="rs-body">
                   <div className="rs-copy">
-                    <h3 className="rs-cardhead">{c.head}</h3>
-                    <p className="rs-quote">&ldquo;{c.quote}&rdquo;</p>
-                    <p className="rs-who">{c.who}</p>
+                    <h3 className="rs-cardhead">{t.head}</h3>
+                    <p className="rs-quote">{t.quote}</p>
+                    <p className="rs-who">{t.who}</p>
                   </div>
                   <img className="rs-logo" src={`media/figma/${c.logo}`} alt={c.logoAlt} loading="lazy" />
                 </div>
@@ -758,20 +742,16 @@ function AdvResults() {
   );
 }
 /* ---------- Advertiser Section 8 — "Recognised, and built on trust" (awards) */
-const ADV_AWARDS = [
-  ['adv-award-bcorp.png', 'Certified B Corporation'],
-  ['adv-award-deloitte.png', 'Deloitte Technology Fast 500'],
-  ['adv-award-msc.png', 'MSC Malaysia Status Company'],
-  ['adv-award-forbes.png', 'Forbes Asia 100 To Watch'],
-];
-function AdvAwards() {
+// badge images here; their alt text comes from c.alts (same order)
+const ADV_AWARDS = ['adv-award-bcorp.png', 'adv-award-deloitte.png', 'adv-award-msc.png', 'adv-award-forbes.png'];
+function AdvAwards({ c }) {
   return (
     <section id="adv-awards" className="aw-sec">
       <div className="wrap">
-        <p className="aw-head" data-reveal>Recognised, and built on trust</p>
+        <p className="aw-head" data-reveal>{c.title}</p>
         <div className="aw-row" data-reveal data-reveal-delay="1">
-          {ADV_AWARDS.map(([file, alt]) => (
-            <img className="aw-badge" key={file} src={`media/figma/${file}`} alt={alt} loading="lazy" />
+          {ADV_AWARDS.map((file, i) => (
+            <img className="aw-badge" key={file} src={`media/figma/${file}`} alt={c.alts[i]} loading="lazy" />
           ))}
         </div>
       </div>
@@ -792,19 +772,20 @@ function AdvAwards() {
 function AdvertiserApp() {
   useSmoothScroll();
   useScrollReveal();
+  const c = useCopy('for-advertisers');
   return (
     <React.Fragment>
       <Nav getStartedTone="pub" />
       <main>
-        <PubHero />
-        <PubLogos />
-        <AdvGoals />
-        <AdvPlatform />
-        <AdvReal />
-        <AdvStats />
-        <AdvResults />
-        <AdvAwards />
-        <PubCTA />
+        <PubHero c={c.hero} />
+        <PubLogos c={c.logos} />
+        <AdvGoals c={c.goals} />
+        <AdvPlatform c={c.platform} />
+        <AdvReal c={c.real} />
+        <AdvStats c={c.stats} />
+        <AdvResults c={c.results} />
+        <AdvAwards c={c.awards} />
+        <PubCTA c={c.cta} />
       </main>
       <Footer />
       <BackToTop />
