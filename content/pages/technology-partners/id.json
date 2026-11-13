@@ -1,0 +1,77 @@
+{
+  "meta": {
+    "title": "Monetisasi pengguna produk Anda dengan API afiliasi kami | Involve Asia",
+    "description": "Untuk partner teknologi: aplikasi, web app, dan software dengan pengguna sendiri. Integrasikan offer, pelacakan, dan cashback lewat API, postback, dan datafeed."
+  },
+  "hero": {
+    "eyebrow": "Untuk Partner Teknologi",
+    "title": "Ubah produk yang Anda bangun menjadi pendapatan.",
+    "sub": "Baik Anda menjalankan aplikasi, platform web, atau software sendiri, cukup integrasi sekali dan dapatkan penghasilan saat pengguna Anda memanfaatkan offer dan cashback yang Anda tampilkan, semuanya lewat API kami.",
+    "cta": "Mulai Menghasilkan",
+    "free": "Gratis bergabung. Mulai menghasilkan hari ini.",
+    "imageAlt": "Partner teknologi mengintegrasikan offer Involve ke dalam produknya sendiri"
+  },
+  "made": {
+    "title": "Dibuat untuk tim yang membangun.",
+    "sub": "Jika Anda punya produk sendiri dan engineer untuk integrasi, Anda bisa langsung menghubungkan Involve.",
+    "points": [
+      ["Berjalan di dalam produk Anda.", "Satu integrasi API menempatkan offer, link, dan pelacakan di dalam aplikasi, platform web, atau software Anda, semuanya di UI Anda sendiri dan sesuai aturan Anda."],
+      ["Real-time, tanpa repot.", "Postback mengirim setiap konversi ke server Anda saat itu juga, jadi sistem Anda selalu sinkron tanpa perlu ada yang masuk untuk mengecek."]
+    ],
+    "viz": {
+      "phoneAlt": "Aplikasi toko fashion dengan offer dan pelacakan Involve di dalamnya",
+      "feedTitle": "Datafeed live",
+      "feed": [
+        ["N°04 Silk Satin Shirt", "$780"],
+        ["N°22 Calfskin Frame Bag", "$2.400"],
+        ["N°11 Wool Crepe Blazer", "$1.600"]
+      ],
+      "postTitle": "URL Postback",
+      "postStatus": "200 · terkirim",
+      "convTitle": "Konversi terlacak",
+      "convAgo": "0,4 dtk lalu",
+      "convProduct": "Wool Crepe Blazer",
+      "convCommission": "Komisi (8%) · $128,00"
+    }
+  },
+  "how": {
+    "title": "Cara Anda menghasilkan.",
+    "items": [
+      ["Hubungkan API", "Integrasi sekali, lalu bawa data produk, link pelacakan, dan konversi real-time ke dalam produk Anda."],
+      ["Tampilkan offer yang relevan", "Tampilkan cashback dan promo yang benar-benar diinginkan pengguna, di dalam UI Anda sendiri."],
+      ["Dapatkan komisi dari setiap penjualan", "Saat pengguna membeli lewat produk Anda, penjualannya dikreditkan kepada Anda."],
+      ["Terima pembayaran", "Tarik dana dalam mata uang lokal Anda setelah penjualan tervalidasi, atau lebih cepat dengan Express Withdrawal."]
+    ]
+  },
+  "create": {
+    "title": "Dibuat untuk integrasi.",
+    "sub": "Tiga tool yang akan dipakai engineer Anda.",
+    "items": [
+      ["API", "Autentikasi dengan key dan secret Anda, tarik offer dan konversi, lalu buat link pelacakan secara terprogram, tanpa kerja manual di dashboard."],
+      ["Postback", "Terima konversi yang dikirim ke server Anda secara real-time (server-to-server), jadi Anda tidak perlu masuk dan mengecek laporan. Anda mengelola datanya di sistem Anda sendiri."],
+      ["Datafeed Manager", "Tarik data produk live seperti harga, offer, dan stok untuk menampilkan katalog di dalam produk Anda."]
+    ]
+  },
+  "why": {
+    "title": "Mengapa partner teknologi membangun dengan Involve.",
+    "items": [
+      ["Produk Anda, pengalaman Anda.", "Offer tampil di dalam UI Anda sendiri. Anda yang mengatur tampilan dan posisinya."],
+      ["Satu integrasi, ratusan brand.", "Hubungkan sekali untuk mengakses 500+ brand dan 4.000+ offer."],
+      ["Real-time dan tanpa repot.", "Postback dan API menjaga offer tetap terbaru dan konversi terus mengalir, jadi tidak perlu ada yang mengecek dashboard."],
+      ["Dibuat untuk developer.", "Dokumentasi API yang jelas, pelacakan per item, dan pembayaran yang andal."]
+    ]
+  },
+  "voices": {
+    "siakapQuote": "Such a good overall experience with IA, very friendly & professional."
+  },
+  "faq": [
+    ["Apa saja yang bisa dilakukan API?", "Membuat deeplink, menarik offer dan data produk, serta melacak penjualan per item. Pembuatan deeplink dibatasi 1.000 per 30 hari bergulir."],
+    ["Bagaimana cara kerja postback?", "Saat konversi dibuat atau diperbarui, kami mengirim datanya ke URL yang Anda atur, jadi sistem Anda langsung mendapat notifikasi secara real-time. Anda mengelola data yang diterima di server Anda sendiri."],
+    ["Bisakah saya menarik datafeed produk?", "Bisa. Tarik data produk live per advertiser untuk ditampilkan di produk Anda. Isi feed berbeda-beda tiap advertiser."],
+    ["Seberapa teknis integrasinya?", "Anda butuh developer untuk menyiapkan API dan postback, tetapi dokumentasinya jelas dan endpoint-nya sederhana."],
+    ["Produk seperti apa yang memenuhi syarat?", "Aplikasi, web app, software, dan platform yang punya pengguna sendiri."]
+  ],
+  "cta": {
+    "title": "Ubah produk Anda menjadi pendapatan."
+  }
+}

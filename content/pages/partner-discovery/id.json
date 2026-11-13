@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "title": "Partner Discovery | Involve Asia",
+    "description": "Cari di antara lebih dari 1.000.000 publisher, lihat performanya, dan undang yang paling cocok untuk brand Anda. Atau biarkan tim kami merekrutnya untuk Anda."
+  },
+  "hero": {
+    "title": "Temukan publisher yang tepat, atau biarkan kami mencarikannya untuk Anda.",
+    "sub": "Cari di antara lebih dari 1.000.000 publisher dan undang yang cocok dengan brand Anda.",
+    "cta": "Lihat Paket dan Harga",
+    "imageAlt": "Dashboard yang menampilkan lebih dari satu juta publisher untuk diundang ke brand Anda"
+  },
+  "discover": {
+    "title": "Temukan publisher yang cocok.",
+    "points": [
+      ["Saring sesuai kebutuhan.", "Persempit berdasarkan kategori, channel, dan tingkat membership, atau cari berdasarkan nama, ID, atau kata kunci."],
+      ["Lihat angkanya lebih dulu.", "Periksa negara audiens, klik, dan konversi setiap publisher sebelum Anda mengundang mereka."]
+    ],
+    "imageAlt": "Kartu profil publisher yang menampilkan tingkat membership, klik, dan konversi dengan tombol Invite Publisher"
+  },
+  "recruit": {
+    "title": "Rekrutmen publisher",
+    "items": [
+      ["Ajak partner Anda bergabung dengan satu link.", "Bagikan link referral Anda, dan setiap publisher yang mendaftar melalui link tersebut otomatis disetujui untuk offer Anda, jadi Anda bisa mengajak partner yang sudah ada dalam satu langkah."],
+      ["Kami merekrut publisher untuk Anda.", "Mulai dari paket Growth, tim kami menjalankan kampanye rekrutmen dan memperkenalkan publisher yang cocok dengan brand Anda, orang-orang nyata yang memahami bidang Anda. **Hanya partner yang Anda pilih yang bergabung, jadi kendali tetap di tangan Anda.**"]
+    ]
+  },
+  "cta": {
+    "title": "Libatkan partner yang tepat untuk brand Anda.",
+    "label": "Kembangkan Brand"
+  }
+}

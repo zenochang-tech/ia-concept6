@@ -1,0 +1,52 @@
+{
+  "meta": {
+    "title": "Otomatisasi | Involve Asia",
+    "description": "Promosikan 4.000+ brand, ubah audiens atau traffic Anda menjadi penghasilan, dan terima pembayaran cepat dalam mata uang lokal. Gratis bergabung."
+  },
+  "hero": {
+    "title": "Otomatiskan pekerjaan rutin, kembangkan program Anda.",
+    "sub": "Jalankan bagian program yang berulang secara otomatis, sehingga waktu Anda bisa dipakai untuk pertumbuhan, bukan urusan administrasi.",
+    "cta": "Lihat Paket dan Harga",
+    "imageAlt": "Dashboard advertiser yang menjalankan program afiliasi secara otomatis",
+    "pillLabel": "Publisher aktif",
+    "pillNum": "622",
+    "pillUnit": " publisher"
+  },
+  "setup": {
+    "title": "Atur sekali, biarkan berjalan.",
+    "steps": [
+      {
+        "t": "Onboarding publisher otomatis.",
+        "d": "Setelah disetujui, publisher langsung siap dan bisa mulai promosi."
+      },
+      {
+        "t": "Atur aturan komisi sekali saja.",
+        "d": "Tetapkan komisi untuk setiap offer, dengan tarif multi-tier mulai paket Growth, sehingga pembayaran Anda mengikuti performa."
+      },
+      {
+        "t": "Pusatkan pembayaran Anda.",
+        "d": "Bayar semua partner dari satu tempat, dengan pembayaran variabel yang diurus untuk Anda."
+      }
+    ]
+  },
+  "platform": {
+    "title": "Bagian dari satu platform",
+    "sub": "Otomatisasi bekerja bersama fitur platform lainnya. Untuk pelacakan dan atribusi, lihat Cara Kami Melacak. Untuk menemukan dan merekrut publisher, lihat Partner Discovery.",
+    "cards": [
+      {
+        "t": "Cara Kami Melacak",
+        "link": "Jelajahi sistem pelacakan",
+        "d": "Pelacakan dan atribusi andal yang mencatat setiap penjualan ke publisher yang menghasilkannya, sehingga laporan dan pembayaran Anda tetap akurat."
+      },
+      {
+        "t": "Partner Discovery",
+        "link": "Temukan partner terverifikasi",
+        "d": "Cari di antara 1.000.000+ publisher berdasarkan kategori, channel, dan audiens, lalu undang yang cocok, atau biarkan tim kami merekrut mereka untuk Anda."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Kembangkan program Anda tanpa menambah pekerjaan.",
+    "label": "Kembangkan Brand"
+  }
+}

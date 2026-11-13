@@ -59,9 +59,10 @@ function AboutHero({ c }) {
 }
 
 /* ---------- Section 2 — Stat band (count-up) --------------------------------- */
-function CountStat({ prefix = '', value, decimals = 0, suffix = '', comma = false }) {
+function CountStat({ prefix = '', value, decimals = 0, suffix = '', comma = false, locale = 'en-US' }) {
   const ref = React.useRef(null);
-  const fmt = (n) => prefix + (comma ? Math.round(n).toLocaleString() : n.toFixed(decimals)) + suffix;
+  // prefix/suffix/locale come from copy (stats.prefixes / suffixes / numberLocale) so each language formats its own way
+  const fmt = (n) => prefix + (comma ? Math.round(n).toLocaleString(locale) : n.toLocaleString(locale, { minimumFractionDigits: decimals, maximumFractionDigits: decimals, useGrouping: false })) + suffix;
   const [txt, setTxt] = React.useState(fmt(0));
   React.useEffect(() => {
     const el = ref.current; if (!el) return;
@@ -88,20 +89,21 @@ function CountStat({ prefix = '', value, decimals = 0, suffix = '', comma = fals
 }
 // Figures reconciled with the homepage STAT_BAND (ia-bundle.jsx): $3.2B+ sales,
 // 1,000,000+ partners, 500+ brands, $270M+ commissions paid. Labels come from c.labels (same order).
+// Prefixes/suffixes ($, B+, M+, +) and the number locale come from c.prefixes / c.suffixes / c.numberLocale.
 const ABOUT_STATS = [
-  <CountStat prefix="$" value={3.2} decimals={1} suffix="B+" />,
-  <CountStat value={1000000} comma suffix="+" />,
-  <CountStat value={500} suffix="+" />,
-  <CountStat prefix="$" value={270} suffix="M+" />,
+  { value: 3.2, decimals: 1 },
+  { value: 1000000, comma: true },
+  { value: 500 },
+  { value: 270 },
 ];
 function AboutStats({ c }) {
   return (
     <section id="about-stats" className="abs-sec">
       <div className="wrap">
         <div className="abs-grid">
-          {ABOUT_STATS.map((el, i) => (
+          {ABOUT_STATS.map((st, i) => (
             <div className="abs-stat" key={i} data-reveal data-reveal-delay={i + 1}>
-              {el}
+              <CountStat {...st} prefix={(c.prefixes || [])[i] || ''} suffix={(c.suffixes || [])[i] || ''} locale={c.numberLocale || 'en-US'} />
               <span>{c.labels[i]}</span>
             </div>
           ))}

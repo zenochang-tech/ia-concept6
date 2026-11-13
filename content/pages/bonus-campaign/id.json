@@ -1,0 +1,63 @@
+{
+  "meta": {
+    "title": "Bonus Campaign | Involve Asia",
+    "description": "Dapatkan bonus $40 untuk setiap advertiser peserta saat Anda menghasilkan lima konversi tervalidasi. Terbatas untuk lima Publisher pertama per advertiser."
+  },
+  "links": {
+    "login": "https://invl.me/clmpu6y"
+  },
+  "hero": {
+    "eyebrow": "Bonus Campaign",
+    "title": "Dapatkan ekstra $40 hanya dengan lima konversi",
+    "sub": "Kami bekerja sama dengan advertiser pilihan untuk membantu Anda menambah penghasilan dengan usaha minimal.",
+    "chips": ["Komisi tinggi", "Target mudah", "Bonus pembayaran"],
+    "cta": "Lihat Offer",
+    "login": "Masuk ke Dashboard Anda"
+  },
+  "steps": {
+    "title": "Cara mendapatkan bonus eksklusif Anda",
+    "sub": "Bonus pembayaran terbatas untuk lima Publisher pertama di setiap advertiser.",
+    "items": [
+      ["1", "Pilih advertiser Anda", "Pilih satu atau beberapa offer peserta di bawah dan tentukan fokus promosi Anda."],
+      ["2", "Hasilkan lima konversi per advertiser", "Promosikan link Anda dan hasilkan lima konversi tervalidasi untuk setiap advertiser yang ingin Anda ikuti."],
+      ["3", "Dapatkan bonus $40 Anda", "Dapatkan bonus untuk setiap advertiser setelah lima konversi tervalidasi."]
+    ]
+  },
+  "offers": {
+    "title": "Offer Bonus Campaign untuk Mei 2026",
+    "sub": "Pilih satu offer untuk mulai mendapatkan bonus Anda.",
+    "aria": "{brand}, {rate}. Promosikan offer",
+    "logoAlt": "Logo {brand}",
+    "items": [
+      { "num": "28%", "rem": "komisi", "desc": "Software pemutar video dan utilitas" },
+      { "num": "USD 210", "rem": "komisi", "desc": "Platform pembayaran dan keuangan bisnis global" },
+      { "up": "Hingga", "num": "USD 70", "desc": "Marketplace belajar bahasa online" },
+      { "num": "7%", "rem": "komisi", "desc": "Sewa WiFi travel untuk pengguna internasional" },
+      { "up": "Hingga", "num": "MYR 225", "desc": "Coba dulu sebelum beli gadget dan elektronik" }
+    ]
+  },
+  "terms": {
+    "title": "Syarat dan ketentuan",
+    "items": [
+      "Kampanye berlangsung dari 1 Mei hingga 31 Mei 2026 (inklusif). Hanya konversi dengan Conversion Date Created dalam periode ini yang memenuhi syarat.",
+      "Publisher harus menghasilkan 5 konversi tervalidasi pada satu brand peserta (Preply, GOM Lab, Ninja WiFi, PakaiDulu by DirectD, atau Airwallex) agar memenuhi syarat.",
+      "Bonus satu kali diberikan per brand setelah syarat terpenuhi, di luar komisi reguler.",
+      "Setiap brand hanya bisa dikualifikasi satu kali per Publisher.",
+      "Publisher bisa memenuhi syarat di beberapa brand dengan memenuhi syarat di masing-masing brand.",
+      "Setiap brand hanya memiliki 5 slot Publisher.",
+      "Kualifikasi berlaku dengan sistem siapa cepat dia dapat, ditentukan oleh waktu konversi tervalidasi ke-5.",
+      "Setelah semua slot untuk sebuah brand terisi, brand tersebut tidak lagi memenuhi syarat.",
+      "Semua konversi harus tervalidasi sebelum kelayakan bonus dikonfirmasi.",
+      "Pembayaran bonus diproses setelah validasi dan bisa memakan waktu hingga 3 bulan setelah periode kampanye berakhir.",
+      "Bonus akan dikreditkan ke akun pembayaran Publisher.",
+      "Publisher bisa melacak performa melalui Dashboard > Laporan Konversi menggunakan kolom Conversion Date Created.",
+      "Kampanye ini dijalankan oleh Involve Asia, dan brand peserta tidak terlibat dalam mekanisme kampanye.",
+      "Syarat ini harus dibaca bersama dengan [Syarat dan Ketentuan Involve Asia](terms-conditions)."
+    ],
+    "outro": "Dengan berpartisipasi, Anda menyatakan telah membaca dan menyetujui syarat dan ketentuan yang berlaku. Konversi yang tidak valid, ditolak, atau curang tidak akan dihitung dalam syarat kampanye."
+  },
+  "cta": {
+    "title": "Siap mendapatkan bonus Anda?",
+    "label": "Lihat Offer"
+  }
+}

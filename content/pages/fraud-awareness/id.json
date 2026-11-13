@@ -1,0 +1,54 @@
+{
+  "meta": {
+    "title": "Waspada Penipuan | Involve Asia",
+    "description": "Waspadai pihak yang mengaku mewakili Involve Asia. Kenali tandanya, cara melindungi diri, dan cara memverifikasinya langsung dengan kami."
+  },
+  "hero": {
+    "eyebrow": "Untuk Publisher & Partner",
+    "title": "Waspada penipuan"
+  },
+  "intro": [
+    "Kami ingin mengingatkan semua Publisher dan partner tentang laporan dugaan aktivitas penipuan oleh individu atau organisasi yang mungkin mengaku mewakili Involve Asia atau berwenang bertindak atas nama kami.",
+    "Meskipun pengaturan semacam ini dibuat tanpa keterlibatan Involve Asia, kami merasa penting untuk meningkatkan kewaspadaan agar komunitas kami bisa mengambil keputusan dengan bijak dan terhindar dari potensi sengketa, masalah pembayaran, atau kerugian finansial."
+  ],
+  "sections": [
+    {
+      "title": "Hal yang perlu diwaspadai",
+      "lead": "Kami menerima laporan tentang situasi di mana individu atau organisasi mungkin:",
+      "items": [
+        "Mengaku sebagai penyedia anggaran, perwakilan, atau partner strategis Involve Asia.",
+        "Menampilkan platform Involve Asia sebagai alat pelacakan yang mereka kendalikan atau kelola.",
+        "Meminta Publisher menjalankan kampanye atau traffic melalui akun yang bukan milik mereka.",
+        "Menjanjikan pembayaran di luar Involve Asia dan mengatur penyelesaian langsung dengan Publisher.",
+        "Mengaku memiliki wewenang, akses, atau persetujuan khusus dari Involve Asia.",
+        "Menggunakan nama, platform, atau reputasi Involve Asia untuk mendapatkan kepercayaan dan kredibilitas."
+      ],
+      "after": "Pengaturan semacam ini bisa membuat Publisher tidak memiliki akses langsung ke laporan kampanye, catatan pembayaran, atau pembayaran komisi melalui akun Involve Asia mereka sendiri."
+    },
+    {
+      "title": "Cara melindungi diri Anda",
+      "lead": "Kami sangat menyarankan langkah-langkah berikut:",
+      "items": [
+        "Bekerja langsung dengan Involve Asia untuk semua urusan kampanye, offer, dan pembayaran.",
+        "Hanya jalankan kampanye melalui akun Publisher milik Anda sendiri yang pembayarannya bisa Anda akses langsung.",
+        "Verifikasi setiap klaim kemitraan, perwakilan, atau pengaturan khusus yang melibatkan Involve Asia sebelum melanjutkan.",
+        "Libatkan Involve Asia dalam diskusi setiap kali platform, offer, atau brand kami disebutkan.",
+        "Berhati-hatilah jika ada tawaran pengaturan pembayaran di luar proses pembayaran standar Involve Asia."
+      ]
+    },
+    {
+      "title": "Hal yang tidak kami izinkan",
+      "lead": "Untuk menghindari kesalahpahaman, kami ingin menegaskan hal-hal berikut:",
+      "items": [
+        "Involve Asia tidak memberi wewenang kepada pihak ketiga mana pun untuk mewakili kami, menjanjikan anggaran, menegosiasikan kesepakatan, atau menagih pembayaran atas nama kami tanpa konfirmasi tertulis yang jelas.",
+        "Setiap kemitraan, perjanjian, atau pengaturan pembayaran yang dibuat tanpa keterlibatan langsung Involve Asia sepenuhnya menjadi urusan pihak-pihak yang terlibat.",
+        "Involve Asia tidak bertanggung jawab atas sengketa, keterlambatan pembayaran, kerugian finansial, atau kerusakan apa pun yang timbul dari pengaturan tersebut.",
+        "Kami tidak akan menengahi atau ikut campur dalam sengketa yang sejak awal tidak melibatkan Involve Asia."
+      ]
+    }
+  ],
+  "verify": {
+    "title": "Cara memverifikasi",
+    "text": "Jika Anda menemukan aktivitas mencurigakan atau ingin memverifikasi keabsahan individu, organisasi, atau pengaturan yang melibatkan Involve Asia, silakan hubungi kami melalui email di [wecare@involve.asia](mailto:wecare@involve.asia)."
+  }
+}

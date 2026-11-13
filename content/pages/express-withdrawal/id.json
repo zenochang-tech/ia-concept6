@@ -1,0 +1,102 @@
+{
+  "meta": {
+    "title": "Express Withdrawal | Involve Asia",
+    "description": "Promosikan 4.000+ brand, ubah audiens atau traffic Anda menjadi penghasilan, dan terima pembayaran cepat dalam mata uang lokal. Gratis bergabung."
+  },
+  "hero": {
+    "title": "Dibayar lebih cepat dengan Express Withdrawal.",
+    "sub": "Tarik sebagian penghasilan Anda bahkan sebelum konversi divalidasi, paling cepat 5 sampai 7 hari kerja setelah disetujui. Uang Anda, lebih cepat.",
+    "cta": "Mulai Menghasilkan",
+    "imageAlt": "Seorang publisher memeriksa pembayaran di aplikasi Involve di ponselnya",
+    "payLabel": "Pembayaran Diterima",
+    "payAmount": "+ $48"
+  },
+  "faq": {
+    "items": [
+      [
+        "Seberapa cepat saya akan dibayar?",
+        "Paling cepat 5 sampai 7 hari kerja setelah permintaan Anda disetujui. Penarikan dana standar membutuhkan 7 sampai 10 hari kerja setelah permintaan, ditambah masa validasi setiap offer."
+      ],
+      [
+        "Apakah saya memenuhi syarat?",
+        "Anda membutuhkan minimal MYR 200 dalam validasi tertunda, dan konversi dari minimal satu offer yang berusia lebih dari 5 hari. Setiap permintaan kemudian akan ditinjau untuk persetujuan."
+      ],
+      [
+        "Berapa banyak yang bisa saya tarik lebih awal?",
+        "Sebagian dari konversi tertunda Anda yang memenuhi syarat. Jumlah pastinya kami hitungkan untuk Anda dan ditampilkan sebelum Anda mengonfirmasi, dan bisa lebih kecil dari jumlah yang Anda minta."
+      ],
+      [
+        "Apakah ada biaya?",
+        "Ya, ada biaya pemrosesan untuk jumlah yang Anda tarik lebih awal, yang ditampilkan di awal sebelum Anda mengonfirmasi. Biaya ini dikurangi sesuai tier membership Anda: Silver 0%, Gold 10%, Platinum 15%, Black 20%."
+      ],
+      [
+        "Bagaimana jika sebuah konversi kemudian ditolak?",
+        "Jumlahnya akan diperhitungkan dengan penghasilan Anda yang akan datang atau yang tersedia, dan kami menjelaskannya dengan jelas di syarat dan ketentuan."
+      ]
+    ]
+  },
+  "cta": {
+    "title": "Terima penghasilan Anda lebih cepat."
+  },
+  "what": {
+    "title": "Apa itu Express Withdrawal?",
+    "p": "Express Withdrawal adalah cara tercepat untuk dibayar di platform kami. Daripada menunggu seluruh masa validasi selesai, Anda bisa mengambil sebagian penghasilan tertunda di awal, sehingga uang Anda bisa diterima paling cepat 5 sampai 7 hari kerja setelah permintaan disetujui.",
+    "card": {
+      "label": "Penagihan Advertiser Tertunda",
+      "currency": "$",
+      "button": "Ajukan Express Withdrawal"
+    },
+    "howLabel": "Cara kerjanya",
+    "steps": [
+      [
+        "Ajukan",
+        "Ajukan Express Withdrawal dari dashboard Anda."
+      ],
+      [
+        "Disetujui",
+        "Kami meninjau dan menyetujui permintaan Anda, lalu menghitung jumlahnya dari konversi tertunda Anda."
+      ],
+      [
+        "Terima dana",
+        "Anda menerimanya dengan cepat, dalam mata uang pilihan Anda, dikonversi dengan kurs platform."
+      ],
+      [
+        "Rekonsiliasi",
+        "Semuanya direkonsiliasi otomatis setelah advertiser memvalidasi penjualan."
+      ]
+    ]
+  },
+  "compare": {
+    "title": "Dua cara untuk dibayar",
+    "sub": "Kedua metode penarikan dana terbuka untuk semua publisher. Penarikan standar tersedia bagi siapa pun yang memenuhi jumlah minimum. Express Withdrawal tersedia bagi publisher yang memenuhi kriteria, dan setiap permintaan melalui proses persetujuan singkat.",
+    "stdTitle": "Penarikan standar",
+    "expTitle": "Express Withdrawal",
+    "rows": [
+      [
+        "Kapan Anda bisa menarik dana",
+        "Setelah advertiser memvalidasi penjualan",
+        "Sebelum validasi, untuk sebagian penghasilan tertunda Anda"
+      ],
+      [
+        "Waktu hingga dibayar",
+        "7 sampai 10 hari kerja setelah permintaan, ditambah masa validasi setiap offer",
+        "Paling cepat 5 sampai 7 hari kerja setelah disetujui"
+      ],
+      [
+        "Jumlah",
+        "Seluruh penghasilan Anda yang sudah tervalidasi",
+        "Sebagian dari konversi tertunda Anda yang memenuhi syarat"
+      ],
+      [
+        "Biaya",
+        "Gratis hingga batas tertentu per bulan",
+        "Biaya pemrosesan berlaku untuk jumlah yang ditarik lebih awal, ditampilkan sebelum Anda mengonfirmasi"
+      ],
+      [
+        "Cocok untuk",
+        "Publisher yang bisa menunggu siklus penuh",
+        "Publisher yang ingin menerima uangnya lebih cepat"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "meta": {
+    "title": "Blog Affiliate Marketing | Involve Asia",
+    "description": "Tips afiliasi terbaik, kisah sukses, dan program pilihan di Involve Asia. Dapatkan wawasan yang Anda butuhkan untuk berkembang di affiliate marketing."
+  },
+  "hero": {
+    "title": "Blog Involve Asia",
+    "sub": "Temukan tips afiliasi terbaik, kisah sukses, dan program terbaik untuk diikuti di Involve Asia. Dapatkan wawasan yang Anda butuhkan untuk berkembang di affiliate marketing.",
+    "pubImageAlt": "Seorang publisher sedang membaca di ponselnya",
+    "advImageAlt": "Seorang advertiser sedang membaca di tabletnya",
+    "doors": [
+      {
+        "kick": "Kreator. Afiliasi. Partner Teknologi.",
+        "title": "Saya ingin menghasilkan sebagai kreator atau afiliasi",
+        "d": "Tips, offer, dan panduan untuk menambah penghasilan afiliasi Anda.",
+        "cta": "Jelajahi Blog Publisher"
+      },
+      {
+        "kick": "Brand. Retailer. Perusahaan.",
+        "title": "Saya ingin mengembangkan brand saya dengan afiliasi",
+        "d": "Studi kasus, tips kampanye, dan wawasan performa.",
+        "cta": "Jelajahi Blog Advertiser"
+      }
+    ]
+  },
+  "catBar": {
+    "ariaLabel": "Kategori blog"
+  },
+  "row": {
+    "seeAll": "Lihat Semua",
+    "readMore": "Baca selengkapnya",
+    "prev": "Postingan {label} sebelumnya",
+    "next": "Postingan {label} berikutnya"
+  },
+  "cats": [
+    {
+      "label": "Program Afiliasi",
+      "tag": "Untuk Publisher",
+      "title": "Program afiliasi terbaik untuk Anda ikuti sebagai publisher kami",
+      "posts": [
+        "Program Afiliasi CHAGEE di Involve Asia: Pickup atau Delivery",
+        "Program Afiliasi Coursera di Involve Asia: Promosikan Kursus Online",
+        "Program Afiliasi Skylum di Involve Asia: Promosikan Luminar Neo",
+        "Program Afiliasi Lancome di Involve Asia: Hasilkan dari Skincare Mewah",
+        "Program Afiliasi Miravia di Involve Asia: Promosikan Marketplace Gaya Hidup Online",
+        "Program Afiliasi Emergent AI di Involve Asia: Promosikan Pembuatan Aplikasi dengan AI",
+        "Program Afiliasi TREVO di Involve Asia: Hasilkan dari Sewa Mobil",
+        "Program Afiliasi Shopee Brazil di Involve Asia: Promosikan Platform yang Menghasilkan Konversi"
+      ]
+    },
+    {
+      "label": "Panduan Awal",
+      "tag": "Untuk Publisher",
+      "title": "Panduan untuk memulai sebagai publisher kami",
+      "posts": [
+        "Apa Itu Komisi Afiliasi? (Panduan Pemula bersama Involve Asia)",
+        "Apa Itu Program Afiliasi? (Panduan Pemula bersama Involve Asia)",
+        "Apa Itu Penghasilan Afiliasi? (Panduan Pemula bersama Involve Asia)",
+        "Apa Itu Kreator Afiliasi? (Panduan Pemula bersama Involve Asia)",
+        "Metode Pembayaran Affiliate Marketing: Panduan Lengkap",
+        "Apa Itu EPC dalam Affiliate Marketing? Panduan Sederhana untuk Pemula",
+        "Apa Itu Affiliate Marketer? Semua yang Perlu Anda Ketahui Sebelum Memulai",
+        "Apa Itu Jaringan Afiliasi? (Panduan Pemula bersama Involve Asia)"
+      ]
+    },
+    {
+      "label": "Kisah Publisher",
+      "tag": "Untuk Publisher",
+      "title": "Kisah sukses dari para publisher kami",
+      "posts": [
+        "Good Foodie: Monetisasi Konten melalui Involve",
+        "Raiz Invest: Menjembatani Keuangan dan Marketplace E-Commerce",
+        "SuperMom, Wanita Karier & Ibu: Bagaimana Ia Mengubah Hidupnya bersama Involve",
+        "Weng Honn: Mengedukasi Orang tentang Cara Menghasilkan Uang Online",
+        "Kisah Sukses Partner: Kesuksesan Affiliate Marketing GetPlus",
+        "Perjalanan Afiliasi Terence Ooi bersama Involve Asia",
+        "Jourimanzky: Gaya yang Menginspirasi",
+        "Flickstree: Jalan Menuju Keunggulan Afiliasi",
+        "Media Terkini: Tetap Sederhana dengan Rekomendasi Produk Harian",
+        "My Weekend Plan: Buat Setiap Hari Terasa Seperti Sabtu"
+      ]
+    },
+    {
+      "label": "Kisah Advertiser",
+      "tag": "Untuk Advertiser",
+      "title": "Kisah sukses dari para advertiser kami",
+      "posts": [
+        "Bagaimana Involve Social Partners Meningkatkan Penjualan TIME Internet hingga 4,3x",
+        "Bagaimana Lotus’s Meningkatkan Penjualan 29x dalam 6 Bulan melalui Optimasi",
+        "Bagaimana Big Bang Sales Meningkatkan Penjualan hingga 796%",
+        "Bagaimana Influencer Mencapai Engagement Rate 6% dengan Konten Instagram Easybook",
+        "Bagaimana Brand Gaming Meningkatkan Pendapatan dengan Affiliate Marketing di 2026",
+        "Bagaimana Program Afiliasi Kesehatan & Wellness Menghasilkan Penjualan MYR 723 rb dan 4.912 Konversi bersama Involve Asia",
+        "Studi Kasus: Bagaimana Program Afiliasi Layanan Digital Berkembang dengan Model Affiliate Marketing yang Fleksibel",
+        "Bagaimana Brand Keuangan Filipina Berkembang dengan Affiliate Marketing di Involve Asia",
+        "Bagaimana Brand Fashion Filipina Berkembang dengan Affiliate Marketing di Involve Asia",
+        "Bagaimana RinggitPlus Meningkatkan Pendaftaran Pinjaman Pribadi hingga 52%"
+      ]
+    }
+  ],
+  "finale": {
+    "title": "Pilih peran Anda dan tumbuh bersama kami.",
+    "pubImageAlt": "Seorang publisher sedang membuat konten",
+    "advImageAlt": "Seorang advertiser sedang mengembangkan brand-nya",
+    "pub": {
+      "kick": "Kreator. Afiliasi. Partner Teknologi.",
+      "titleA": "Saya seorang ",
+      "titleB": "Publisher",
+      "d": "Promosikan brand yang Anda sukai. ",
+      "dMore": "Ubah audiens atau traffic Anda menjadi penghasilan.",
+      "cta": "Mulai Menghasilkan"
+    },
+    "adv": {
+      "kick": "Brand. Retailer. Perusahaan.",
+      "titleA": "Saya seorang ",
+      "titleB": "Advertiser",
+      "d": "Tingkatkan penjualan dengan publisher yang tepat. ",
+      "dMore": "Bayar hanya untuk hasil.",
+      "cta": "Kembangkan Brand"
+    }
+  }
+}

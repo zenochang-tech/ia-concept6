@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "title": "Membership Program | Involve Asia",
+    "description": "Hasilkan lebih banyak sebagai partner Involve: komisi lebih besar, biaya Early Withdrawal lebih rendah, dan lebih banyak penarikan gratis dari Silver hingga Black."
+  },
+  "hero": {
+    "eyebrow": "Membership Program",
+    "title": "Hasilkan lebih banyak dengan Membership Program Involve",
+    "sub": "Dapatkan lebih banyak keuntungan sebagai partner Involve. Mulai dari komisi lebih besar hingga pembayaran lebih cepat!",
+    "cta": "Daftar",
+    "more": "Pelajari Lebih Lanjut",
+    "imageAlt": "Tangan memegang kartu membership silver, gold, abu-abu, dan hitam"
+  },
+  "benefits": {
+    "title": "Keuntungan membership Involve Anda",
+    "items": [
+      ["Komisi lebih besar", "Bonus hingga 10% dari pembayaran yang Anda hasilkan*"],
+      ["Dibayar lebih cepat dan hemat", "Biaya Early Withdrawal lebih rendah hingga 20%"],
+      ["Tarik dana lebih sering", "Dibayar sesering yang Anda mau"],
+      ["Keuntungan lain segera hadir", "Nantikan keuntungan baru yang lebih menarik!"]
+    ]
+  },
+  "levels": {
+    "title": "Level membership Involve",
+    "sub": "Tingkatkan membership Anda untuk menikmati keuntungan yang lebih baik.",
+    "labelHead": "Keuntungan membership",
+    "levelLabel": "Level {n}",
+    "notIncluded": "Tidak termasuk",
+    "levels": ["Silver", "Gold", "Platinum", "Black"],
+    "rows": [
+      ["Bonus dari pembayaran yang dihasilkan*", false, "5%", "8%", "10%"],
+      ["Diskon biaya Early Withdrawal", false, "10%", "15%", "20%"],
+      ["Penarikan gratis per bulan", "Hingga 2", "Hingga 3", "Hingga 5", "Tanpa batas"]
+    ],
+    "note": "*Bonus dari pembayaran yang dihasilkan hanya berlaku untuk konversi pada offer tertentu."
+  },
+  "how": {
+    "title": "Bagaimana cara kerja Membership Program Involve?",
+    "sub": "Anda bisa menaikkan level membership dengan salah satu cara berikut:",
+    "items": [
+      ["Hasilkan lebih banyak komisi afiliasi", "Hasilkan lebih banyak komisi afiliasi bersama Involve."],
+      ["Kumpulkan lebih banyak poin membership", "Kumpulkan lebih banyak poin membership Involve."]
+    ]
+  },
+  "cta": {
+    "title": "Daftar sebagai partner Involve hari ini!",
+    "label": "Daftar"
+  }
+}

@@ -375,7 +375,7 @@ function initTrafficViz(canvas, chip, userConfig) {
   const numEl = chip && chip.querySelector('[data-tv-num]');
   let W = 0, H = 0, dpr = 1, gx = 0, chipX = 0, chipY = 0, src = [], lanes = [], dots = [], rings = [];
   let count = C.startCount, intro = reduce ? 1 : 0, spawnAcc = 0, warmed = false;
-  const setCount = () => { if (numEl) numEl.textContent = count.toLocaleString('en-US'); };
+  const setCount = () => { if (numEl) numEl.textContent = count.toLocaleString(C.numberLocale || 'en-US'); };
   function layout() {
     dpr = Math.min(window.devicePixelRatio || 1, 2);
     const r = canvas.getBoundingClientRect();
@@ -496,26 +496,26 @@ function initTrafficViz(canvas, chip, userConfig) {
   else enter();
   return function destroy() { stop(); window.removeEventListener('resize', onResize); if (io) io.disconnect(); };
 }
-function TrafficViz({ chip }) {
+function TrafficViz({ chip, locale = 'en-US' }) {
   const ref = React.useRef(null), chipRef = React.useRef(null);
-  React.useEffect(() => { if (!ref.current) return; return initTrafficViz(ref.current, chipRef.current); }, []);
+  React.useEffect(() => { if (!ref.current) return; return initTrafficViz(ref.current, chipRef.current, { numberLocale: locale }); }, []);
   return (
     <>
       <canvas ref={ref} className="rl-canvas" aria-hidden="true" />
       <div ref={chipRef} className="tv-chip" aria-hidden="true">
         <span className="tv-chip-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg></span>
-        <span className="tv-chip-txt"><span className="tv-chip-l">{chip}</span><b data-tv-num>1,284</b></span>
+        <span className="tv-chip-txt"><span className="tv-chip-l">{chip}</span><b data-tv-num>{(1284).toLocaleString(locale)}</b></span>
       </div>
     </>
   );
 }
 /* ---------- Advertiser Section 5 — "You only pay for sales that are real" ---- */
-function AdvReal({ c }) {
+function AdvReal({ c, locale }) {
   return (
     <section id="adv-real" className="rl-sec">
       <div className="wrap">
         <div className="rl-card" data-reveal>
-          <div className="rl-viz" aria-hidden="true"><TrafficViz chip={c.chip} /></div>
+          <div className="rl-viz" aria-hidden="true"><TrafficViz chip={c.chip} locale={locale} /></div>
           <div className="rl-body">
             <h2 className="rl-title">{rich(c.title)}</h2>
             <p className="rl-desc">{c.desc}</p>
@@ -569,9 +569,10 @@ const ADV_STAT_HEX = [
   { x: 87.64, y: 65.72 }, { x: 87.64, y: 33.88 }, { x: 65.21, y: 16.98 }, { x: 87.29, y: 0 },
 ];
 // number that counts up 0 → value the first time it scrolls into view
-function CountStat({ prefix = '', value, decimals = 0, suffix = '', comma = false }) {
+function CountStat({ prefix = '', value, decimals = 0, suffix = '', comma = false, locale = 'en-US' }) {
   const ref = React.useRef(null);
-  const fmt = (n) => prefix + (comma ? Math.round(n).toLocaleString() : n.toFixed(decimals)) + suffix;
+  // prefix/suffix/locale come from copy (stats.*Prefix / *Suffix and top-level numberLocale) so each language formats its own way
+  const fmt = (n) => prefix + (comma ? Math.round(n).toLocaleString(locale) : n.toLocaleString(locale, { minimumFractionDigits: decimals, maximumFractionDigits: decimals, useGrouping: false })) + suffix;
   const [txt, setTxt] = React.useState(fmt(0));
   React.useEffect(() => {
     const el = ref.current; if (!el) return;
@@ -593,7 +594,7 @@ function CountStat({ prefix = '', value, decimals = 0, suffix = '', comma = fals
   }, []);
   return <b ref={ref}>{txt}</b>;
 }
-function AdvStats({ c }) {
+function AdvStats({ c, locale }) {
   return (
     <section id="adv-stats" className="as-sec">
       <div className="as-stage" data-reveal>
@@ -603,9 +604,9 @@ function AdvStats({ c }) {
           </span>
         ))}
         <h2 className="as-heading">{rich(c.title)}</h2>
-        <div className="as-stat as-s500"><CountStat value={500} suffix="+" /><span>{c.brands}</span></div>
-        <div className="as-stat as-s11m"><CountStat value={1000000} comma suffix="+" /><span>{c.publishers}</span></div>
-        <div className="as-stat as-s32b"><CountStat prefix="$" value={3.2} decimals={1} suffix="B+" /><span>{c.sales}</span></div>
+        <div className="as-stat as-s500"><CountStat value={500} suffix={c.brandsSuffix} locale={locale} /><span>{c.brands}</span></div>
+        <div className="as-stat as-s11m"><CountStat value={1000000} comma suffix={c.publishersSuffix} locale={locale} /><span>{c.publishers}</span></div>
+        <div className="as-stat as-s32b"><CountStat prefix={c.salesPrefix} value={3.2} decimals={1} suffix={c.salesSuffix} locale={locale} /><span>{c.sales}</span></div>
       </div>
       <style>{`
         /* pulled up/down into the neighbouring sections so the hexagons overlap them (neighbours are z-above → their card/heading stay on top) */
@@ -781,8 +782,8 @@ function AdvertiserApp() {
         <PubLogos c={c.logos} />
         <AdvGoals c={c.goals} />
         <AdvPlatform c={c.platform} />
-        <AdvReal c={c.real} />
-        <AdvStats c={c.stats} />
+        <AdvReal c={c.real} locale={c.numberLocale} />
+        <AdvStats c={c.stats} locale={c.numberLocale} />
         <AdvResults c={c.results} />
         <AdvAwards c={c.awards} />
         <PubCTA c={c.cta} />

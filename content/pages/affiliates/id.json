@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "title": "Affiliate marketing untuk situs konten, cashback, kupon & perbandingan | Involve Asia",
+    "description": "Ubah traffic website Anda menjadi penghasilan afiliasi: blog, situs niche, berita, cashback, kupon, dan perbandingan. Offer, datafeed, API, dan materi kreatif."
+  },
+  "hero": {
+    "eyebrow": "Untuk Partner Afiliasi",
+    "title": "Ubah situs yang Anda kelola menjadi penghasilan.",
+    "sub": "Dari blog dengan beberapa link hingga situs cashback bervolume tinggi. Dapatkan komisi dari apa yang dibeli pembaca dan member Anda, dengan offer, feed, dan alat yang sesuai.",
+    "cta": "Mulai Menghasilkan",
+    "free": "Gratis bergabung. Mulai menghasilkan hari ini.",
+    "imageAlt": "Dashboard situs afiliasi yang ditampilkan di laptop"
+  },
+  "kinds": {
+    "title": "Dibuat untuk semua jenis situs afiliasi.",
+    "sub": "Apa pun situs Anda dan seberapa besar pun, selalu ada cara untuk menghasilkan.",
+    "points": [
+      ["Apa pun jenis situs Anda.", "Blog, berita, cashback, kupon, dan situs perbandingan semuanya bisa menghasilkan di sini. Jika ada konten dan audiens, Anda bisa mengubahnya menjadi penghasilan."],
+      ["Sederhana, atau volume tinggi.", "Tambahkan beberapa link ke postingan Anda, atau jalankan datafeed dan API dalam skala besar. Alatnya bekerja untuk keduanya, dan berkembang bersama Anda."]
+    ],
+    "flowLabel": "Jenis situs afiliasi: blog, cashback, kupon, dan perbandingan",
+    "sites": [
+      { "url": "Situs Blog", "alt": "Situs afiliasi blog" },
+      { "url": "Situs Cashback", "alt": "Situs afiliasi cashback" },
+      { "url": "Situs Kupon", "alt": "Situs afiliasi kupon" },
+      { "url": "Situs Perbandingan", "alt": "Situs afiliasi perbandingan" }
+    ]
+  },
+  "how": {
+    "title": "Cara Anda menghasilkan.",
+    "steps": [
+      ["Temukan offer", "Jelajahi 4.000+ offer dari 500+ brand, dengan komisi dan ketentuan yang jelas sejak awal."],
+      ["Tambahkan link, atau gunakan datafeed", "Pasang link pelacakan di konten Anda hanya dengan beberapa klik, atau alirkan data produk real-time ke situs Anda untuk berjalan dalam skala besar."],
+      ["Dapatkan komisi dari setiap penjualan", "Saat seseorang membeli melalui link Anda, penjualan tersebut tercatat untuk Anda."],
+      ["Terima pembayaran", "Tarik dana dalam mata uang lokal Anda setelah penjualan tervalidasi, atau lebih cepat dengan Express Withdrawal."]
+    ]
+  },
+  "tools": {
+    "title": "Siap berjalan dalam skala apa pun.",
+    "sub": "Alat yang berkembang bersama situs Anda.",
+    "items": [
+      ["Datafeed Manager", "Alirkan data produk real-time seperti harga, offer, dan stok langsung ke situs Anda, dan selalu terbarui secara otomatis."],
+      ["API", "Ambil offer dan konversi serta buat link pelacakan secara terprogram, sehingga data dan link afiliasi ada di dalam sistem Anda sendiri."],
+      ["Creative Hub", "Dapatkan banner siap pakai dan kode kupon kampanye dari brand ternama untuk dipromosikan."]
+    ]
+  },
+  "why": {
+    "title": "Mengapa situs afiliasi menghasilkan bersama Involve.",
+    "proof": "Situs konten, cashback, kupon, dan perbandingan di seluruh kawasan menggunakan Involve Asia.",
+    "items": [
+      ["Link yang sesuai dengan situs Anda.", "Tempatkan link kontekstual sendiri, tanpa iklan atau banner paksaan yang memenuhi halaman Anda."],
+      ["Konten Anda terus menghasilkan.", "Ulasan yang Anda tulis tahun lalu masih menghasilkan hari ini, setiap kali mendatangkan penjualan."],
+      ["Dibuat untuk volume.", "Datafeed dan pembuatan link via API untuk berjalan dalam skala yang dibutuhkan situs Anda."],
+      ["Pelacakan dan pembayaran yang andal.", "Setiap penjualan divalidasi, dengan laporan yang bisa Anda periksa sendiri, plus Express Withdrawal saat Anda ingin dibayar lebih cepat."]
+    ]
+  },
+  "voices": {
+    "siakapKeliQuote": "Such a good overall experience with IA, very friendly & professional."
+  },
+  "faq": {
+    "items": [
+      ["Apakah link afiliasi akan mengubah tampilan situs saya?", "Tidak. Anda yang memilih di mana link ditempatkan. Tidak ada iklan atau banner paksaan."],
+      ["Apakah artikel lama saya masih bisa menghasilkan?", "Ya. Setiap postingan dengan link aktif akan terus menghasilkan dari setiap penjualan yang didatangkannya."],
+      ["Situs jenis apa saja yang memenuhi syarat?", "Blog, situs niche, berita dan media, serta situs cashback, kupon, perbandingan, loyalitas, dan promo."],
+      ["Bisakah saya mendapatkan datafeed produk?", "Ya. Ambil data produk real-time per advertiser dan tambahkan pelacakan Anda sendiri ke link-nya. Feed berbeda-beda untuk setiap advertiser."],
+      ["Apakah model cashback dan kupon didukung?", "Ya. Situs cashback, kupon, perbandingan, loyalitas, dan promo semuanya berjalan di platform ini."],
+      ["Apakah ada API?", "Ya. Buat deep link serta ambil data konversi dan offer secara terprogram. Lihat [API Developer](api-overview)."]
+    ]
+  },
+  "cta": {
+    "title": "Kembangkan situs yang sudah Anda kelola."
+  }
+}

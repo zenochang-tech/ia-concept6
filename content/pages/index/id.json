@@ -1,0 +1,159 @@
+{
+  "meta": {
+    "title": "Involve Asia | Tingkatkan pendapatan Anda lewat affiliate marketing",
+    "description": "Platform affiliate marketing penghubung advertiser dengan 1.000.000+ kreator dan publisher di Asia. Brand meraih pelanggan baru, partner menghasilkan lebih."
+  },
+  "hero": {
+    "title": "Platform afiliasi yang membuat semua bergerak lebih cepat.",
+    "sub": "Brand tumbuh bersama publisher yang tepat, dan publisher menghasilkan dari brand yang mereka sukai. Validasi harian dan pembayaran yang lebih cepat berarti lebih sedikit menunggu, untuk semua.",
+    "for": "Untuk ",
+    "publishers": "Publisher",
+    "advertisers": "Advertiser",
+    "pubCta": "Mulai Menghasilkan",
+    "advCta": "Kembangkan Brand",
+    "imageAlt": "Seorang kreator dan partner brand tumbuh bersama di Involve Asia",
+    "payoutStatus": "Pembayaran Selesai",
+    "payoutPrefix": "+ $",
+    "salesLabel": "Penjualan Dihasilkan",
+    "salesSub": "30 hari terakhir",
+    "salesPrefix": "$",
+    "numberLocale": "id-ID"
+  },
+  "trust": {
+    "title": "Dipercaya oleh brand yang sudah Anda kenal",
+    "logoAlt": "Logo {name}"
+  },
+  "live": {
+    "eyebrow": "Direktori Brand Live",
+    "title": "Lihat yang sedang live saat ini.",
+    "sub": "Brand nyata, siap dipromosikan. Lihat berapa komisi setiap brand dan berapa banyak publisher yang sudah bergabung.",
+    "cats": ["Semua", "Marketplace", "Fashion", "Travel", "Layanan Digital", "Elektronik", "Kesehatan & Kecantikan"],
+    "explore": "Jelajahi semua offer",
+    "badge": "Baru",
+    "logoAlt": "Logo {name}",
+    "upTo": "Hingga",
+    "commission": "Komisi {rate}%",
+    "publishers": "{count} publisher mempromosikan ini",
+    "numberLocale": "id-ID"
+  },
+  "start": {
+    "title": "Cukup mudah untuk mulai hari ini.",
+    "sub": "Baik Anda ingin menghasilkan atau mengembangkan bisnis, Anda hanya empat langkah dari pembayaran pertama.",
+    "imageAlt": "Langkah {title}",
+    "steps": [
+      {
+        "n": "Langkah 1",
+        "title": "Cocokkan",
+        "desc": "Kami mencocokkan Anda dengan brand yang tepat, atau publisher yang tepat. Tanpa perlu menghubungi satu per satu.",
+        "quote": "“Found 40 brands to promote in a day, the filter and category makes the process much easier.”",
+        "name": "John Doe",
+        "role": "Publisher · Blogger Kuliner"
+      },
+      {
+        "n": "Langkah 2",
+        "title": "Mulai tayang",
+        "desc": "Lalu Anda mulai tayang, dengan cara Anda. Bagikan link, pasang kupon, tambahkan banner, atau luncurkan kampanye lengkap.",
+        "quote": "“Involve Asia did a great job in guiding us on what info needed and launched our campaign in an afternoon.”",
+        "name": "Nama Brand",
+        "role": "Advertiser · Kategori Brand"
+      },
+      {
+        "n": "Langkah 3",
+        "title": "Lacak",
+        "desc": "Pantau setiap klik, penjualan, dan pembayaran dalam satu dashboard.",
+        "quote": "“Found 40 brands to promote in a day, the filter and category makes the process much easier.”",
+        "name": "Jane Doe",
+        "role": "Publisher · Kreator Konten Lifestyle"
+      },
+      {
+        "n": "Langkah 4",
+        "title": "Tumbuh dan dibayar",
+        "desc": "Publisher dibayar untuk setiap penjualan yang mereka hasilkan. Brand tumbuh dari penjualan tersebut, dan hanya membayar jika penjualannya nyata dan terverifikasi.",
+        "quote": "“The data provided is clear which makes the validation process easier, and we only pay when it actually converts.”",
+        "name": "Nama Brand",
+        "role": "Advertiser · Kategori Brand"
+      }
+    ],
+    "overlay": {
+      "recommended": "Rekomendasi",
+      "logoAlt": "Logo {name}",
+      "upTo": "Hingga",
+      "commission": "Komisi {rate}%",
+      "deepLink": "invl.me/yourDeepLink",
+      "conversionRate": "Conversion Rate",
+      "rateValue": "12",
+      "rateUnit": "%",
+      "rateDelta": "↑21%",
+      "payoutReceived": "Pembayaran Diterima",
+      "payoutAmount": "+ $48",
+      "numberLocale": "id-ID"
+    }
+  },
+  "support": {
+    "title": "Dukungan dari manusia sungguhan, di setiap langkah.",
+    "desc": "Bukan bot, bukan FAQ yang buntu. Orang-orang nyata yang memahami platform kami dan siap membantu, baik Anda kreator yang menyiapkan link pertama maupun brand yang meluncurkan kampanye terbesar.",
+    "badge": "95% pengguna menilai dukungan kami sangat baik.",
+    "quote": "“It's easy to reach customer service, and they fix things quickly.”",
+    "verified": "Publisher Terverifikasi",
+    "imageAlt": "Spesialis dukungan Involve Asia",
+    "hello": "Halo.",
+    "answer": "Ada yang bisa kami bantu hari ini?"
+  },
+  "results": {
+    "title": "Hasil nyata. Pertumbuhan nyata.",
+    "sub": "Dari orang-orang dan brand yang tumbuh bersama Involve.",
+    "seeAll": "Lihat semua kisah sukses",
+    "prevStories": "Kisah sebelumnya",
+    "nextStories": "Kisah berikutnya",
+    "for": "Untuk ",
+    "publishers": "Publisher",
+    "advertisers": "Advertiser",
+    "tabsLabel": "Audiens kisah sukses",
+    "tabPub": "Publisher",
+    "tabAdv": "Advertiser",
+    "prevStory": "Kisah sebelumnya",
+    "nextStory": "Kisah berikutnya",
+    "pubStories": [
+      { "big": "3", "unit": " properti", "head": "Dibeli dari penghasilan afiliasinya", "tag": "Kreator Facebook, Filipina", "desc": "Bagaimana seorang ibu empat anak membangun hidup baru dari konten Facebook bersama Involve." },
+      { "big": "$220 rb", "unit": "+", "head": "Penjualan untuk satu brand travel, Q4 2023", "tag": "Jaringan afiliasi, konten AI", "desc": "Bagaimana Flickstree meningkatkan penjualan travel lewat Involve." },
+      { "big": "$250", "unit": " didapat", "head": "Hanya dari 10,5 rb pengikut, paruh waktu", "tag": "Kreator travel dan kuliner", "desc": "Bukti bahwa Anda tidak perlu menjadi besar untuk menghasilkan dengan Involve." }
+    ],
+    "advStories": [
+      { "big": "796", "unit": "%", "head": "Peningkatan penjualan", "tag": "E-commerce", "desc": "Bagaimana Big Bang Sales berkembang lewat kemitraan afiliasi." },
+      { "big": "4,3", "unit": "x", "head": "Peningkatan penjualan", "tag": "Telekomunikasi", "desc": "Bagaimana partner Involve mendorong pertumbuhan TIME Internet." },
+      { "big": "$160 rb", "unit": "", "head": "Penjualan · 4.912 konversi", "tag": "Kesehatan & Kebugaran", "desc": "Bagaimana brand kesehatan dan kebugaran global meluncurkan program CPS di Involve." }
+    ]
+  },
+  "stats": {
+    "caption": "Seperti inilah tumbuh bersama, sejak 2014.",
+    "labels": ["Publisher", "Komisi Dibayarkan", "Penjualan Dihasilkan", "Brand"],
+    "formats": ["{n}+", "${n} jt+", "${n} M+", "{n}+"],
+    "numberLocale": "id-ID"
+  },
+  "blog": {
+    "title": "Dari blog Involve.",
+    "sub": "Tips, panduan, dan wawasan terbaru, apa pun peran Anda.",
+    "readAll": "Baca Blog",
+    "tabsLabel": "Audiens blog",
+    "tabPub": "Publisher",
+    "tabAdv": "Advertiser",
+    "readMore": "Baca selengkapnya",
+    "pubPosts": ["Cara mempromosikan link afiliasi di TikTok", "Penjelasan Express Withdrawal", "Apa itu EPC dalam affiliate marketing?"],
+    "advPosts": ["Cara meluncurkan program afiliasi pertama Anda", "Memilih struktur komisi yang tepat", "Mengukur ROI di seluruh jaringan publisher Anda"]
+  },
+  "finale": {
+    "title": "Pilih peran Anda dan tumbuh bersama kami.",
+    "pubKicker": "Kreator. Afiliasi. Partner Teknologi.",
+    "advKicker": "Brand. Retailer. Perusahaan.",
+    "pubImageAlt": "Seorang publisher sedang membuat konten",
+    "advImageAlt": "Seorang advertiser mengembangkan brand-nya",
+    "pubTitle": "Saya seorang \nPublisher",
+    "pubDesc": "Promosikan brand yang Anda sukai. ",
+    "pubDescMore": "Ubah audiens atau traffic Anda menjadi penghasilan.",
+    "pubCta": "Mulai Menghasilkan",
+    "advTitle": "Saya seorang \nAdvertiser",
+    "advDesc": "Tingkatkan penjualan dengan publisher yang tepat. ",
+    "advDescMore": "Bayar hanya untuk hasil.",
+    "advCta": "Kembangkan Brand"
+  }
+}
