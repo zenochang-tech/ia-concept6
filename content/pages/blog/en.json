@@ -1,0 +1,122 @@
+{
+  "meta": {
+    "title": "Affiliate Marketing Blog | Involve Asia",
+    "description": "Discover top affiliate tips, success stories, and the best programs to join on Involve Asia. Get the insights you need to grow in affiliate marketing."
+  },
+  "hero": {
+    "title": "Involve Asia Blog",
+    "sub": "Discover top affiliate tips, success stories, and the best programs to join on Involve Asia. Get the insights you need to grow in affiliate marketing.",
+    "pubImageAlt": "A publisher reading on her phone",
+    "advImageAlt": "An advertiser reading on his tablet",
+    "doors": [
+      {
+        "kick": "Creators. Affiliates. Technology Partners.",
+        "title": "I want to earn as a creator or affiliate",
+        "d": "Tips, offers and guides to grow your affiliate income.",
+        "cta": "Explore Publisher Blogs"
+      },
+      {
+        "kick": "Brands. Retailers. Enterprises.",
+        "title": "I want to grow my brand with affiliates",
+        "d": "Case studies, campaign tips and performance insights.",
+        "cta": "Explore Advertiser Blogs"
+      }
+    ]
+  },
+  "catBar": {
+    "ariaLabel": "Blog categories"
+  },
+  "row": {
+    "seeAll": "See All",
+    "readMore": "Read more",
+    "prev": "Previous {label} posts",
+    "next": "Next {label} posts"
+  },
+  "cats": [
+    {
+      "label": "Affiliate Programs",
+      "tag": "For Publishers",
+      "title": "Best affiliate programs to join as our publisher",
+      "posts": [
+        "CHAGEE Affiliate Program on Involve Asia: Pickup or Delivery",
+        "Coursera Affiliate Program on Involve Asia: Promote Online Courses",
+        "Skylum Affiliate Program on Involve Asia: Promote Luminar Neo",
+        "Lancome Affiliate Program on Involve Asia: Earn with Luxury Skincare",
+        "Miravia Affiliate Program on Involve Asia: Promote Online Lifestyle Marketplace",
+        "Emergent AI Affiliate Program on Involve Asia: Promote AI App-Building",
+        "TREVO Affiliate Program on Involve Asia: Earn with Car Rental",
+        "Shopee Brazil Affiliate Program on Involve Asia: Promote a Platform that Converts"
+      ]
+    },
+    {
+      "label": "Getting Started",
+      "tag": "For Publishers",
+      "title": "Guides to get you started as our publisher",
+      "posts": [
+        "What Are Affiliate Commissions? (Beginner Guide with Involve Asia)",
+        "What Are Affiliate Programs? (Beginner Guide with Involve Asia)",
+        "What Are Affiliate Earnings? (Beginner Guide with Involve Asia)",
+        "What Is an Affiliate Creator? (Beginner Guide with Involve Asia)",
+        "Affiliate Marketing Payment Methods: A Complete Guide",
+        "What Is EPC in Affiliate Marketing? A Simple Guide for Beginners",
+        "What Are Affiliate Marketers? Everything You Need to Know Before Getting Started",
+        "What Are Affiliate Networks? (Beginner Guide with Involve Asia)"
+      ]
+    },
+    {
+      "label": "Publisher Stories",
+      "tag": "For Publishers",
+      "title": "Success stories from our publishers",
+      "posts": [
+        "Good Foodie: Monetise Content Through Involve",
+        "Raiz Invest: Bridging The Gap Between Finance & E-Commerce Marketplace",
+        "SuperMom, Career Woman & Mother: How She Turned Her Life Around with Involve",
+        "Weng Honn: Educating People on How to Earn Money Online",
+        "Partner Success Story: GetPlus’s Affiliate Marketing Success",
+        "Terence Ooi’s Affiliate Journey with Involve Asia",
+        "Jourimanzky: Style to Inspire",
+        "Flickstree: Path to Affiliate Excellence",
+        "Media Terkini: Keep It Simple With Daily Product Recommendations",
+        "My Weekend Plan: Make Everyday Feel Like Saturday"
+      ]
+    },
+    {
+      "label": "Advertiser Stories",
+      "tag": "For Advertisers",
+      "title": "Success stories from our advertisers",
+      "posts": [
+        "How Involve Social Partners Drove 4.3x in Sales for TIME Internet",
+        "How Lotus’s Drove 29x in Sales in 6 Months Through Optimisation",
+        "How Big Bang Sales Drove a 796% Increase in Sales",
+        "How Influencers Drove 6% Engagement Rate with Easybook Instagram Content",
+        "How Gaming Brands Boost Revenue With Affiliate Marketing in 2026",
+        "How a Health & Wellness Affiliate Program Generated MYR 723K in Sales and 4,912 Conversions with Involve Asia",
+        "Case Study: How Digital Service Affiliate Programs Grow with Flexible Affiliate Marketing Models",
+        "How Philippine Finance Brands Grow With Affiliate Marketing on Involve Asia",
+        "How Philippine Fashion Brands Grow With Affiliate Marketing on Involve Asia",
+        "How RinggitPlus Garnered 52% Increase in Sign-Ups for Personal Loans"
+      ]
+    }
+  ],
+  "finale": {
+    "title": "Pick your side and grow with us.",
+    "pubImageAlt": "A publisher creating content",
+    "advImageAlt": "An advertiser growing their brand",
+    "pub": {
+      "kick": "Creators. Affiliates. Technology Partners.",
+      "titleA": "I'm a ",
+      "titleB": "Publisher",
+      "d": "Promote brands you love. ",
+      "dMore": "Turn your audience or traffic into income.",
+      "cta": "Start Earning"
+    },
+    "adv": {
+      "kick": "Brands. Retailers. Enterprises.",
+      "titleA": "I'm an ",
+      "titleB": "Advertiser",
+      "d": "Grow your sales with the right publishers. ",
+      "dMore": "Pay only for results.",
+      "cta": "Grow My Brand"
+    }
+  }
+}

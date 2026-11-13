@@ -1,35 +1,37 @@
 /* ============================================================================
-   publishers.jsx — "For Publishers" overview page.
-   Loaded AFTER ia-shared.jsx (which defines Nav/Footer/etc. and exposes them on
+   technology-partners.jsx — "For Technology Partners" page (key: technology-partners).
+   All visible copy lives in content/pages/technology-partners/en.json and arrives
+   through useCopy — this file only holds the layout, icons, images and animation
+   logic. Loaded AFTER ia-shared.jsx (which defines Nav/Footer/etc. and exposes them on
    window). Sections are built one at a time from the Figma frame (node 1260:46678),
    same flow as the homepage. Motion/animation is a final pass.
    ============================================================================ */
 
 // Shared UI comes from ia-shared.jsx (pulled off window so this works regardless
 // of how Babel-standalone scopes each script tag).
-const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, PlatformTabs, FinalCta, Testimonials, PUB_VOICES, Faq, AppDownload, HeroHexGrid, HERO_HEXGRID_CSS } = window;
+const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, PlatformTabs, FinalCta, Testimonials, PUB_VOICES, Faq, AppDownload, HeroHexGrid, HERO_HEXGRID_CSS, useCopy, rich } = window;
 
 /* ---------- Section 1 — Hero ---------------------------------------------- */
-function PubHero() {
+function PubHero({ c }) {
   return (
     <section id="pub-hero" className="ph-sec">
       <span className="ph-basefade" aria-hidden="true" />
       <div className="wrap ph-wrap">
         <HeroHexGrid />
         <div className="ph-copy">
-          <span className="ph-eyebrow" data-reveal>For Technology Partners</span>
-          <h1 className="ph-title" data-reveal data-reveal-delay="1">Turn the product you've built into revenue.</h1>
-          <p className="ph-sub" data-reveal data-reveal-delay="2">Whether you run an app, a web platform, or your own software, integrate once and earn when your users act on the offers and cashback you surface, all through our API.</p>
+          <span className="ph-eyebrow" data-reveal>{c.eyebrow}</span>
+          <h1 className="ph-title" data-reveal data-reveal-delay="1">{c.title}</h1>
+          <p className="ph-sub" data-reveal data-reveal-delay="2">{c.sub}</p>
           <div className="ph-actions" data-reveal data-reveal-delay="3">
-            <a href="/partners/" className="btn btn-primary btn-lg">Start Earning <Arrow /></a>
+            <a href="/partners/" className="btn btn-primary btn-lg">{c.cta} <Arrow /></a>
           </div>
-          <span className="ph-free" data-reveal data-reveal-delay="3">Free to join. Start earning today.</span>
+          <span className="ph-free" data-reveal data-reveal-delay="3">{c.free}</span>
         </div>
 
         <div className="ph-visual" data-reveal data-reveal-delay="1">
           <span className="ph-hexglow" aria-hidden="true" />
           <span className="ph-hexplate" aria-hidden="true" />
-          <div className="ph-photo ph-photo-fill"><img src="media/figma/tech-partner-hero-img.png?v=2" alt="A technology partner integrating Involve offers into their own product" loading="eager" /></div>
+          <div className="ph-photo ph-photo-fill"><img src="media/figma/tech-partner-hero-img.png?v=2" alt={c.imageAlt} loading="eager" /></div>
         </div>
       </div>
 
@@ -128,41 +130,25 @@ function PubHero() {
 
 /* ---------- Testimonials (shared Testimonials, ia-sections.jsx) --------- */
 // Shared list, but this page punctuates the Siakap Keli pull-quote without the dash.
-const VOICES = PUB_VOICES.map((v) => (v.name === 'Siakap Keli' ? { ...v, quote: 'Such a good overall experience with IA, very friendly & professional.' } : v));
-function PubVoices() {
-  return <Testimonials items={VOICES} />;
+function PubVoices({ c }) {
+  const voices = PUB_VOICES.map((v) => (v.name === 'Siakap Keli' ? { ...v, quote: c.siakapQuote } : v));
+  return <Testimonials items={voices} />;
 }
 
 /* ---------- Section 8 — "Questions, answered." (FAQ accordion) ------------
    Copy supplied by the client. Two answers carry links (beginner guide, Express
    Withdrawal) — hrefs are placeholders pending the real URLs. Example figures
    (4.2% commission, 10 working days) are illustrative — confirm before launch. */
-const PUB_FAQ = [
-  ['What can the API do?',
-    'Generate deeplinks, pull offers and product data, and track sales at item level. Deeplink generation is capped at 1,000 per rolling 30 days.'],
-  ['How does postback work?',
-    'When a conversion is created or updated, we send the data to a URL you configure, so your system is notified in real time. You handle the received data on your own server.'],
-  ['Can I pull a product datafeed?',
-    'Yes. Pull live product data per advertiser to surface in your product. Feeds vary by advertiser.'],
-  ['How technical is the integration?',
-    "You'll need a developer to set up the API and postback, but the docs are clear and the endpoints are simple."],
-  ['What kind of products qualify?',
-    'Apps, web apps, software, and platforms with their own users.'],
-];
-function PubFAQ() {
-  return <Faq items={PUB_FAQ} />;
+function PubFAQ({ items }) {
+  return <Faq items={items} />;
 }
 
 /* ---------- Final CTA (shared FinalCta, ia-sections.jsx) ----------------- */
-function PubCTA() {
-  return <FinalCta title="Turn your product into revenue." />;
+function PubCTA({ c }) {
+  return <FinalCta title={c.title} />;
 }
 
 /* ---------- CC §2 — "Made for TikTok, YouTube, Instagram, and more." ---------- */
-const MADE_POINTS = [
-  ['Runs inside your own product.', 'One API integration puts offers, links, and tracking inside your app, web platform, or software, all in your own UI and on your own terms.'],
-  ['Real-time, hands-off.', 'Postback pushes every conversion to your server the moment it happens, so your systems stay in sync without anyone logging in to check.'],
-];
 /* Animated "Built for teams that build" visual (from the Figma storyboard): the
    partner app phone sits centred in a tinted square (same box as the creator page),
    and coded cards reveal in a looping sequence.
@@ -170,12 +156,9 @@ const MADE_POINTS = [
    Phase B: Postback URL card, then the conversion card (check + title first, then
    the details expand). Reduced motion shows a static resting state. */
 const BV_CODE = 'GET /v2/offers\n200 OK {\n  "commission": 8.0,\n  "status": "active"\n}';
-const BV_FEED = [
-  { img: 'df-prod-1.png', n: 'N°04 Silk Satin Shirt', p: '$780' },
-  { img: 'df-prod-2.png', n: 'N°22 Calfskin Frame Bag', p: '$2,400' },
-  { img: 'df-prod-3.png', n: 'N°11 Wool Crepe Blazer', p: '$1,600' },
-];
-function BuiltViz() {
+/* feed text (name, price) comes from c.feed, zipped by index with these thumbnails */
+const BV_FEED = ['df-prod-1.png', 'df-prod-2.png', 'df-prod-3.png'];
+function BuiltViz({ c }) {
   const reduced = prefersReduced();
   const [s, setS] = React.useState({ api: false, type: 0, feed: false, post: false, convT: false, convD: false });
   React.useEffect(() => {
@@ -219,50 +202,50 @@ function BuiltViz() {
       </div>
 
       {/* Phone — always on, in front of the API card */}
-      <div className="bv-phone"><img src="media/figma/ready-to-wear-mockup.png" alt="A fashion store app with Involve offers and tracking built in" loading="lazy" /></div>
+      <div className="bv-phone"><img src="media/figma/ready-to-wear-mockup.png" alt={c.phoneAlt} loading="lazy" /></div>
 
       {/* Datafeed card (bottom-right) */}
       <div className={'bv-card bv-feed' + (s.feed ? ' in' : '')}>
-        <div className="bv-feed-h">Live datafeed</div>
-        {BV_FEED.map((it) => (
-          <div className="bv-row" key={it.n}><span className="bv-thumb"><img src={`media/figma/${it.img}`} alt="" loading="lazy" /></span><span className="bv-row-n">{it.n}</span><span className="bv-row-p">{it.p}</span></div>
+        <div className="bv-feed-h">{c.feedTitle}</div>
+        {c.feed.map(([n, p], i) => (
+          <div className="bv-row" key={n}><span className="bv-thumb"><img src={`media/figma/${BV_FEED[i]}`} alt="" loading="lazy" /></span><span className="bv-row-n">{n}</span><span className="bv-row-p">{p}</span></div>
         ))}
       </div>
 
       {/* Postback card (top-right) */}
       <div className={'bv-card bv-post' + (s.post ? ' in' : '')}>
-        <div className="bv-post-h">Postback URL</div>
+        <div className="bv-post-h">{c.postTitle}</div>
         <code className="bv-url">https://maison.com/pb?order={'{id}'}&amp;amt={'{total}'}</code>
-        <div className="bv-post-s"><span className="bv-dot-ok" /> 200 &middot; delivered</div>
+        <div className="bv-post-s"><span className="bv-dot-ok" /> {c.postStatus}</div>
       </div>
 
       {/* Conversion card (bottom-left) — check + title first, details expand after */}
       <div className={'bv-card bv-conv' + (s.convT ? ' in' : '')}>
         <div className="bv-conv-top">
           <span className="bv-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg></span>
-          <span className="bv-conv-t">Conversion tracked</span>
-          <span className="bv-conv-ago">0.4s ago</span>
+          <span className="bv-conv-t">{c.convTitle}</span>
+          <span className="bv-conv-ago">{c.convAgo}</span>
         </div>
         <div className={'bv-conv-dw' + (s.convD ? ' in' : '')}>
           <div className="bv-conv-d">
-            <div className="bv-conv-prod"><b>Wool Crepe Blazer</b> <span className="bv-conv-id">#525546348</span></div>
-            <div className="bv-conv-com">Commission (8%) &middot; $128.00</div>
+            <div className="bv-conv-prod"><b>{c.convProduct}</b> <span className="bv-conv-id">#525546348</span></div>
+            <div className="bv-conv-com">{c.convCommission}</div>
           </div>
         </div>
       </div>
     </div>
   );
 }
-function MadeFor() {
+function MadeFor({ c }) {
   return (
     <section id="cc-made" className="mf-sec">
       <div className="wrap">
         <div className="mf-grid">
           <div className="mf-left">
-            <h2 className="mf-title" data-reveal>Built for teams that build.</h2>
-            <p className="mf-sub" data-reveal data-reveal-delay="1">If you run your own product and have the engineers to integrate, you can plug Involve straight in.</p>
+            <h2 className="mf-title" data-reveal>{c.title}</h2>
+            <p className="mf-sub" data-reveal data-reveal-delay="1">{c.sub}</p>
             <div className="mf-points" data-reveal data-reveal-delay="1">
-              {MADE_POINTS.map(([t, d]) => (
+              {c.points.map(([t, d]) => (
                 <div className="mf-point" key={t}>
                   <h3 className="mf-pt">{t}</h3>
                   <p className="mf-pd">{d}</p>
@@ -271,7 +254,7 @@ function MadeFor() {
             </div>
           </div>
           <div className="mf-visual" data-reveal>
-            <BuiltViz />
+            <BuiltViz c={c.viz} />
           </div>
         </div>
       </div>
@@ -339,11 +322,11 @@ function MadeFor() {
 /* ---------- CC §3 — "Built for the way you create." (tab view, reused from the
    publisher overview's platform stepper — pf-* pattern). One tab per tool. ---------- */
 const CREATE_TABS = [
-  { key: 'api', t: 'API', d: 'Authenticate with your key and secret, pull offers and conversions, and generate tracking links programmatically, with no manual dashboard work.', img: 'tech-api-tool-card.png?v=2',
+  { key: 'api', img: 'tech-api-tool-card.png?v=2',
     ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M8 8l-4 4 4 4" /><path d="M16 8l4 4-4 4" /><path d="M13 6l-2 12" /></svg> },
-  { key: 'postback', t: 'Postback', d: 'Get conversions pushed to your server in real time (server-to-server), so you never have to log in and check reports. You handle the data on your own system.', img: 'postback-tool-slide.png?v=2',
+  { key: 'postback', img: 'postback-tool-slide.png?v=2',
     ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M4 9h11a4 4 0 0 1 0 8h-2" /><path d="M7 20l-3-3 3-3" /><path d="M20 5v4h-4" /></svg> },
-  { key: 'datafeed', t: 'Datafeed Manager', d: 'Pull live product data like prices, offers, and stock to surface catalogues inside your product.', img: 'aff-partner-slide1.png?v=2',
+  { key: 'datafeed', img: 'aff-partner-slide1.png?v=2',
     ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3" /><path d="M4 5v6c0 1.66 3.58 3 8 3s8-1.34 8-3V5" /><path d="M4 11v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6" /></svg> },
 ];
 const CREATE_TABS_CSS = `
@@ -382,11 +365,12 @@ const CREATE_TABS_CSS = `
             margin:18px 0 0; border-radius:var(--r-xl);
             background:var(--warm-150); }
         }`;
-function BuiltCreate() {
+function BuiltCreate({ c }) {
+  const items = c.items.map(([t, d], i) => ({ ...CREATE_TABS[i], t, d }));
   return (
-    <PlatformTabs id="cc-create" className="cct-sec" items={CREATE_TABS} mobileCards figClass="pf-step-fig-img" css={CREATE_TABS_CSS}
-      title="Built to integrate."
-      sub="The three tools your engineers will use." />
+    <PlatformTabs id="cc-create" className="cct-sec" items={items} mobileCards figClass="pf-step-fig-img" css={CREATE_TABS_CSS}
+      title={c.title}
+      sub={c.sub} />
   );
 }
 /* ---------- CC §3b — "Why creators earn with Involve." (3 icon columns) — Figma 2667:17675 ---------- */
@@ -399,21 +383,17 @@ const WE_ICONS = {
   bolt: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" /></svg>,
   code: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M8 8l-4 4 4 4" /><path d="M16 8l4 4-4 4" /><path d="M13 6l-2 12" /></svg>,
 };
-const WHY_EARN = [
-  ['ui', 'Your product, your experience.', 'Offers live inside your own UI. You control how they look and where they appear.'],
-  ['grid', 'One integration, hundreds of brands.', 'Connect once to access 500+ brands and 4,000+ offers.'],
-  ['bolt', 'Real-time and hands-off.', 'Postback and the API keep offers current and conversions flowing, so no one has to check a dashboard.'],
-  ['code', 'Built for developers.', 'Clear API docs, item-level tracking, and reliable payouts.'],
-];
-function WhyEarn() {
+/* item text comes from c.items, zipped by index with these icon keys */
+const WHY_EARN = ['ui', 'grid', 'bolt', 'code'];
+function WhyEarn({ c }) {
   return (
     <section id="cc-why" className="we-sec">
       <div className="wrap">
-        <h2 className="we-title" data-reveal>Why technology partners build on Involve.</h2>
+        <h2 className="we-title" data-reveal>{c.title}</h2>
         <div className="we-grid">
-          {WHY_EARN.map(([ic, t, d], i) => (
+          {c.items.map(([t, d], i) => (
             <div className="we-item" key={t} data-reveal data-reveal-delay={i + 1}>
-              <span className="we-icon">{WE_ICONS[ic]}</span>
+              <span className="we-icon">{WE_ICONS[WHY_EARN[i]]}</span>
               <h3 className="we-ct">{t}</h3>
               <p className="we-cd">{d}</p>
             </div>
@@ -436,12 +416,8 @@ function WhyEarn() {
   );
 }
 /* ---------- CC §2b — "How it works" (3 numbered steps) — Figma 2546:45011 ---------- */
-const HIW_STEPS = [
-  { t: 'Connect the API', d: 'Integrate once, and bring product data, trackable links, and real-time conversions into your own product.', img: 'general-hye-01.png' },
-  { t: 'Surface relevant offers', d: 'Show cashback and deals your users actually want, inside your own UI.', img: 'tp-hye-02.png' },
-  { t: 'Earn on every sale', d: 'When a user buys through your product, the sale is credited to you.', img: 'general-hye-03.png' },
-  { t: 'Get paid', d: 'Withdraw in your local currency once sales are validated, or sooner with Express Withdrawal.', img: 'general-hye-04.png' },
-];
+/* step text comes from c.items, zipped by index with these images */
+const HIW_STEPS = ['general-hye-01.png', 'tp-hye-02.png', 'general-hye-03.png', 'general-hye-04.png'];
 // Card 1 (Connect the API): a code editor card that bleeds off the right & bottom
 // of the frame (cropped), with the request lines typing in then a JSON response
 // section revealing, on a loop. All values are placeholders, not real credentials.
@@ -512,17 +488,17 @@ function GetPaidPill() {
     </span>
   );
 }
-function HowItWorks() {
+function HowItWorks({ c }) {
   return (
     <section id="cc-how" className="hiw-sec">
       <div className="wrap">
-        <h2 className="hiw-title" data-reveal>How you earn.</h2>
+        <h2 className="hiw-title" data-reveal>{c.title}</h2>
         <div className="hiw-grid">
-          {HIW_STEPS.map((s, i) => (
-            <div className="hiw-step" key={s.t} data-reveal data-reveal-delay={i + 1}>
-              <div className="hiw-card"><img src={`media/figma/${s.img}`} alt="" loading="lazy" onError={(e) => { e.currentTarget.style.visibility = 'hidden'; }} /></div>
-              <h3 className="hiw-ct">{i + 1}. {s.t}</h3>
-              <p className="hiw-cd">{s.d}</p>
+          {c.items.map(([t, d], i) => (
+            <div className="hiw-step" key={t} data-reveal data-reveal-delay={i + 1}>
+              <div className="hiw-card"><img src={`media/figma/${HIW_STEPS[i]}`} alt="" loading="lazy" onError={(e) => { e.currentTarget.style.visibility = 'hidden'; }} /></div>
+              <h3 className="hiw-ct">{i + 1}. {t}</h3>
+              <p className="hiw-cd">{d}</p>
             </div>
           ))}
         </div>
@@ -577,18 +553,19 @@ function HowItWorks() {
 function PublisherApp() {
   useSmoothScroll();
   useScrollReveal();
+  const c = useCopy('technology-partners');
   return (
     <React.Fragment>
       <Nav getStartedTone="pub" />
       <main>
-        <PubHero />
-        <MadeFor />
-        <HowItWorks />
-        <BuiltCreate />
-        <WhyEarn />
-        <PubVoices />
-        <PubFAQ />
-        <PubCTA />
+        <PubHero c={c.hero} />
+        <MadeFor c={c.made} />
+        <HowItWorks c={c.how} />
+        <BuiltCreate c={c.create} />
+        <WhyEarn c={c.why} />
+        <PubVoices c={c.voices} />
+        <PubFAQ items={c.faq} />
+        <PubCTA c={c.cta} />
       </main>
       <Footer />
       <AppDownload />

@@ -1,38 +1,40 @@
 /* ============================================================================
-   publishers.jsx — "For Publishers" overview page.
+   automation.jsx — "Automation" page.
    Loaded AFTER ia-shared.jsx (which defines Nav/Footer/etc. and exposes them on
    window). Sections are built one at a time from the Figma frame (node 1260:46678),
-   same flow as the homepage. Motion/animation is a final pass.
+   same flow as the homepage. Motion/animation is a final pass. All copy lives in
+   content/pages/automation/<lang>.json and arrives through useCopy — this file only
+   holds the layout, links, images and icons.
    ============================================================================ */
 
 // Shared UI comes from ia-shared.jsx (pulled off window so this works regardless
 // of how Babel-standalone scopes each script tag).
-const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, FinalCta, HeroHexGrid, HERO_HEXGRID_CSS } = window;
+const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, FinalCta, HeroHexGrid, HERO_HEXGRID_CSS, useCopy } = window;
 
 /* ---------- Section 1 — Hero ---------------------------------------------- */
-function PubHero() {
+function PubHero({ c }) {
   return (
     <section id="pub-hero" className="ph-sec">
       <span className="ph-basefade" aria-hidden="true" />
       <div className="wrap ph-wrap">
         <HeroHexGrid />
         <div className="ph-copy">
-          <h1 className="ph-title" data-reveal data-reveal-delay="1">Automate the busywork, scale the program.</h1>
-          <p className="ph-sub" data-reveal data-reveal-delay="1">Run the repetitive parts of your program automatically, so you spend your time on growth, not admin.</p>
+          <h1 className="ph-title" data-reveal data-reveal-delay="1">{c.title}</h1>
+          <p className="ph-sub" data-reveal data-reveal-delay="1">{c.sub}</p>
           <div className="ph-actions" data-reveal data-reveal-delay="2">
-            <a href="/advertisers/" className="btn btn-advertiser btn-lg">See Plans and Pricing <Arrow /></a>
+            <a href="/advertisers/" className="btn btn-advertiser btn-lg">{c.cta} <Arrow /></a>
           </div>
         </div>
 
         <div className="ph-visual" data-reveal data-reveal-delay="1">
           <span className="ph-hexglow" aria-hidden="true" />
           <span className="ph-hexplate" aria-hidden="true" />
-          <div className="ph-photo ph-photo-df"><img src="media/figma/auto-hero.png" alt="An advertiser dashboard running an affiliate program automatically" loading="eager" /></div>
+          <div className="ph-photo ph-photo-df"><img src="media/figma/auto-hero.png" alt={c.imageAlt} loading="eager" /></div>
           <div className="ph-static-ui" data-reveal data-reveal-delay="2">
             <div className="ph-glass ph-g-ap">
               <div className="ph-ap">
-                <small>Active publishers</small>
-                <b><em>622</em> publishers</b>
+                <small>{c.pillLabel}</small>
+                <b><em>{c.pillNum}</em>{c.pillUnit}</b>
               </div>
             </div>
           </div>
@@ -142,25 +144,22 @@ function PubHero() {
 }
 
 /* ---------- Final CTA (shared FinalCta, ia-sections.jsx) ----------------- */
-function PubCTA() {
-  return <FinalCta title="Scale your program without scaling the work." href="/advertisers/" tone="advertiser" label="Grow My Brand" />;
+function PubCTA({ c }) {
+  return <FinalCta title={c.title} href="/advertisers/" tone="advertiser" label={c.label} />;
 }
 
 /* ---------- Automation §2 — "Set it up once, let it run." (3 image columns) ---------- */
-const SU_STEPS = [
-  { img: 'auto-step-1.png', t: 'Onboard publishers automatically.', d: 'Once approved, publishers are set up and ready to promote.' },
-  { img: 'auto-step-2.png', t: 'Set commission rules once.', d: 'Set your commission on each offer, with multi-tier rates on Growth and above, so your payouts follow performance.' },
-  { img: 'auto-step-3.png', t: 'Centralise your payments.', d: 'Pay every partner from one place, with variable payouts handled for you.' },
-];
-function ConsolidatedView() {
+// image per column; t/d come from c.steps, zipped by index
+const SU_STEPS = ['auto-step-1.png', 'auto-step-2.png', 'auto-step-3.png'];
+function ConsolidatedView({ c }) {
   return (
     <section id="auto-setup" className="su-sec">
       <div className="wrap">
-        <h2 className="su-title" data-reveal>Set it up once, let it run.</h2>
+        <h2 className="su-title" data-reveal>{c.title}</h2>
         <div className="su-grid">
-          {SU_STEPS.map((s, i) => (
+          {c.steps.map((s, i) => (
             <div className="su-col" key={i} data-reveal data-reveal-delay={i + 1}>
-              <div className="su-fig"><img src={`media/figma/${s.img}`} alt="" loading="lazy" /></div>
+              <div className="su-fig"><img src={`media/figma/${SU_STEPS[i]}`} alt="" loading="lazy" /></div>
               <h3 className="su-ct">{s.t}</h3>
               <p className="su-cd">{s.d}</p>
             </div>
@@ -181,26 +180,27 @@ function ConsolidatedView() {
   );
 }
 /* ---------- Automation §3 — "Part of one platform" (2 link cards) ---------- */
+// link + icon per card; t/link/d come from c.cards, zipped by index
 const OP_CARDS = [
-  { t: 'How We Track', href: 'how-we-track', link: 'Explore tracking systems',
+  { href: 'how-we-track',
     ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12h4l2.5-7 5 14 2.5-7H21" /></svg>,
-    d: 'Reliable tracking and attribution that credits every sale to the publisher who drove it, so your reporting and payouts stay accurate.' },
-  { t: 'Partner Discovery', href: 'partner-discovery', link: 'Find verified partners',
+  },
+  { href: 'partner-discovery',
     ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="7" /><path d="M21 21l-4.3-4.3" /></svg>,
-    d: 'Search over 1,000,000 publishers by category, channel, and audience, and invite the ones that fit, or have our team recruit them for you.' },
+  },
 ];
-function HowItWorks() {
+function HowItWorks({ c }) {
   return (
     <section id="auto-platform" className="op-sec">
       <div className="wrap">
-        <h2 className="op-title" data-reveal>Part of one platform</h2>
-        <p className="op-sub" data-reveal data-reveal-delay="1">Automation works alongside the rest of the platform. For tracking and attribution, see How We Track. To find and recruit publishers, see Partner Discovery.</p>
+        <h2 className="op-title" data-reveal>{c.title}</h2>
+        <p className="op-sub" data-reveal data-reveal-delay="1">{c.sub}</p>
         <div className="op-grid">
-          {OP_CARDS.map((c, i) => (
-            <a className="op-card" href={c.href} key={i} data-reveal data-reveal-delay={i + 1}>
-              <div className="op-head"><h3 className="op-ct">{c.t}</h3><span className="op-ic" aria-hidden="true">{c.ic}</span></div>
-              <p className="op-cd">{c.d}</p>
-              <span className="op-link">{c.link} <Arrow /></span>
+          {c.cards.map((x, i) => (
+            <a className="op-card" href={OP_CARDS[i].href} key={i} data-reveal data-reveal-delay={i + 1}>
+              <div className="op-head"><h3 className="op-ct">{x.t}</h3><span className="op-ic" aria-hidden="true">{OP_CARDS[i].ic}</span></div>
+              <p className="op-cd">{x.d}</p>
+              <span className="op-link">{x.link} <Arrow /></span>
             </a>
           ))}
         </div>
@@ -228,14 +228,15 @@ function HowItWorks() {
 function PublisherApp() {
   useSmoothScroll();
   useScrollReveal();
+  const c = useCopy('automation');
   return (
     <React.Fragment>
       <Nav getStartedTone="pub" />
       <main>
-        <PubHero />
-        <ConsolidatedView />
-        <HowItWorks />
-        <PubCTA />
+        <PubHero c={c.hero} />
+        <ConsolidatedView c={c.setup} />
+        <HowItWorks c={c.platform} />
+        <PubCTA c={c.cta} />
       </main>
       <Footer />
       <BackToTop />

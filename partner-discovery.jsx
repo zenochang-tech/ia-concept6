@@ -1,33 +1,35 @@
 /* ============================================================================
-   publishers.jsx — "For Publishers" overview page.
+   partner-discovery.jsx — "Partner discovery" page (advertisers).
    Loaded AFTER ia-shared.jsx (which defines Nav/Footer/etc. and exposes them on
    window). Sections are built one at a time from the Figma frame (node 1260:46678),
    same flow as the homepage. Motion/animation is a final pass.
+   All copy lives in content/pages/partner-discovery/<lang>.json and arrives through
+   useCopy — this file only holds the layout.
    ============================================================================ */
 
 // Shared UI comes from ia-shared.jsx (pulled off window so this works regardless
 // of how Babel-standalone scopes each script tag).
-const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, FinalCta, HeroHexGrid, HERO_HEXGRID_CSS } = window;
+const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, FinalCta, HeroHexGrid, HERO_HEXGRID_CSS, useCopy, rich } = window;
 
 /* ---------- Section 1 — Hero ---------------------------------------------- */
-function PubHero() {
+function PubHero({ c }) {
   return (
     <section id="pub-hero" className="ph-sec">
       <span className="ph-basefade" aria-hidden="true" />
       <div className="wrap ph-wrap">
         <HeroHexGrid />
         <div className="ph-copy">
-          <h1 className="ph-title" data-reveal data-reveal-delay="1">Find the right publishers, or let us find them for you.</h1>
-          <p className="ph-sub" data-reveal data-reveal-delay="1">Search over 1,000,000 publishers and invite the ones that fit your brand.</p>
+          <h1 className="ph-title" data-reveal data-reveal-delay="1">{c.title}</h1>
+          <p className="ph-sub" data-reveal data-reveal-delay="1">{c.sub}</p>
           <div className="ph-actions" data-reveal data-reveal-delay="2">
-            <a href="/advertisers/" className="btn btn-advertiser btn-lg">See Plans and Pricing <Arrow /></a>
+            <a href="/advertisers/" className="btn btn-advertiser btn-lg">{c.cta} <Arrow /></a>
           </div>
         </div>
 
         <div className="ph-visual" data-reveal data-reveal-delay="1">
           <span className="ph-hexglow" aria-hidden="true" />
           <span className="ph-hexplate" aria-hidden="true" />
-          <div className="ph-photo ph-photo-df"><img src="media/figma/pd-hero.png" alt="A dashboard listing over a million publishers to invite to your brand" loading="eager" /></div>
+          <div className="ph-photo ph-photo-df"><img src="media/figma/pd-hero.png" alt={c.imageAlt} loading="eager" /></div>
           <div className="ph-static-ui" data-reveal data-reveal-delay="2">
             <img className="ph-hero-el" src="media/figma/pd-hero-element.png" alt="" aria-hidden="true" />
           </div>
@@ -133,29 +135,27 @@ function PubHero() {
 }
 
 /* ---------- Final CTA (shared FinalCta, ia-sections.jsx) ----------------- */
-function PubCTA() {
-  return <FinalCta title="Put the right partners to work for your brand." href="/advertisers/" tone="advertiser" label="Grow My Brand" />;
+function PubCTA({ c }) {
+  return <FinalCta title={c.title} href="/advertisers/" tone="advertiser" label={c.label} />;
 }
 
 /* ---------- How-We-Track §2 — "One consolidated, verified view" ---------- */
-function ConsolidatedView() {
+function ConsolidatedView({ c }) {
   return (
     <section id="pd-discover" className="dv-sec">
       <div className="wrap dv-grid">
         <div className="dv-copy" data-reveal>
-          <h2 className="dv-title">Discover publishers that fit.</h2>
-          <div className="dv-point">
-            <h3 className="dv-pt">Filter to the right fit.</h3>
-            <p className="dv-pd">Narrow by category, channel, and membership tier, or search by name, ID, or keyword.</p>
-          </div>
-          <div className="dv-point">
-            <h3 className="dv-pt">See the numbers first.</h3>
-            <p className="dv-pd">Check each publisher&rsquo;s audience countries, clicks, and conversions before you invite them.</p>
-          </div>
+          <h2 className="dv-title">{c.title}</h2>
+          {c.points.map(([t, d], i) => (
+            <div className="dv-point" key={i}>
+              <h3 className="dv-pt">{t}</h3>
+              <p className="dv-pd">{d}</p>
+            </div>
+          ))}
         </div>
         <div className="dv-visual" data-reveal data-reveal-delay="1">
           <span className="dv-glow" aria-hidden="true" />
-          <img src="media/figma/pd-discover.png" alt="A publisher profile card showing membership tier, clicks and conversions with an Invite Publisher button" loading="lazy" />
+          <img src="media/figma/pd-discover.png" alt={c.imageAlt} loading="lazy" />
         </div>
       </div>
       <style>{`
@@ -174,17 +174,15 @@ function ConsolidatedView() {
   );
 }
 /* ---------- Partner Discovery §3 — "Publisher recruitment" (2 image cards) ---------- */
-const PR_CARDS = [
-  { img: 'pd-recruit-1.png', t: 'Bring your partners on with one link.', d: <>Share your referral link, and any publisher who signs up through it is auto-approved for your offer, so you can onboard your existing partners in a single step.</> },
-  { img: 'pd-recruit-2.png', t: 'We recruit publishers for you.', d: <>On Growth and above, our team runs recruitment campaigns and introduces publishers that fit your brand, real people who know your vertical. <b>Only the partners you choose come on board, so you stay in control.</b></> },
-];
-function HowItWorks() {
+// card images, zipped by index with c.recruit.items ([title, description])
+const PR_IMGS = ['pd-recruit-1.png', 'pd-recruit-2.png'];
+function HowItWorks({ c: copy }) {
   return (
     <section id="pd-recruit" className="pr-sec">
       <div className="wrap">
-        <h2 className="pr-title" data-reveal>Publisher recruitment</h2>
+        <h2 className="pr-title" data-reveal>{copy.title}</h2>
         <div className="pr-grid">
-          {PR_CARDS.map((c, i) => (
+          {copy.items.map(([t, d], i) => ({ img: PR_IMGS[i], t, d: rich(d) })).map((c, i) => (
             <div className="pr-card" key={i} data-reveal data-reveal-delay={i + 1}>
               <div className="pr-fig"><img src={`media/figma/${c.img}`} alt="" loading="lazy" /></div>
               <h3 className="pr-ct">{c.t}</h3>
@@ -210,14 +208,15 @@ function HowItWorks() {
 function PublisherApp() {
   useSmoothScroll();
   useScrollReveal();
+  const c = useCopy('partner-discovery');
   return (
     <React.Fragment>
       <Nav getStartedTone="pub" />
       <main>
-        <PubHero />
-        <ConsolidatedView />
-        <HowItWorks />
-        <PubCTA />
+        <PubHero c={c.hero} />
+        <ConsolidatedView c={c.discover} />
+        <HowItWorks c={c.recruit} />
+        <PubCTA c={c.cta} />
       </main>
       <Footer />
       <BackToTop />

@@ -4,34 +4,35 @@
    parts: the Express Withdrawal hero (HeroHexGrid + hex photo), the
    shared IconColumns / FinalCta sections, and the Pricing page's compare-table layout
    for the four membership levels. Copy is from the live page; headings in sentence case.
-   Loaded AFTER ia-shared.jsx + ia-sections.jsx.
+   All copy lives in content/pages/membership-program/<lang>.json and arrives through
+   useCopy. Loaded AFTER ia-shared.jsx + ia-sections.jsx.
    ============================================================================ */
 
-const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, FinalCta, AppDownload, IconColumns, HeroHexGrid, HERO_HEXGRID_CSS } = window;
+const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, FinalCta, AppDownload, IconColumns, HeroHexGrid, HERO_HEXGRID_CSS, useCopy } = window;
 
 // The live page's only CTA ("Sign Up") goes to publisher registration.
 const MB_SIGNUP = 'https://app.involve.asia/v2/create-account';
 
 /* ---------- Section 1 — Hero (same layout as the Express Withdrawal hero) ---------- */
-function MbHero() {
+function MbHero({ c }) {
   return (
     <section id="pub-hero" className="ph-sec">
       <span className="ph-basefade" aria-hidden="true" />
       <div className="wrap ph-wrap">
         <HeroHexGrid />
         <div className="ph-copy">
-          <span className="ph-eyebrow" data-reveal>Membership Program</span>
-          <h1 className="ph-title" data-reveal data-reveal-delay="1">Earn more with the Involve Membership Program</h1>
-          <p className="ph-sub" data-reveal data-reveal-delay="1">You’ll get more benefits as a partner with Involve. From upsized commissions to faster payouts!</p>
+          <span className="ph-eyebrow" data-reveal>{c.eyebrow}</span>
+          <h1 className="ph-title" data-reveal data-reveal-delay="1">{c.title}</h1>
+          <p className="ph-sub" data-reveal data-reveal-delay="1">{c.sub}</p>
           <div className="ph-actions" data-reveal data-reveal-delay="2">
-            <a href={MB_SIGNUP} className="btn btn-primary btn-lg">Sign Up <Arrow /></a>
-            <a href="#mb-benefits" className="btn btn-secondary btn-lg">Learn More</a>
+            <a href={MB_SIGNUP} className="btn btn-primary btn-lg">{c.cta} <Arrow /></a>
+            <a href="#mb-benefits" className="btn btn-secondary btn-lg">{c.more}</a>
           </div>
         </div>
 
         <div className="ph-visual" data-reveal data-reveal-delay="1">
           <span className="ph-hexplate" aria-hidden="true" />
-          <div className="ph-photo"><img src="media/figma/membership-card-hero-image.png" alt="A hand holding silver, gold, grey and black membership cards" loading="eager" /></div>
+          <div className="ph-photo"><img src="media/figma/membership-card-hero-image.png" alt={c.imageAlt} loading="eager" /></div>
         </div>
       </div>
 
@@ -71,55 +72,47 @@ function MbHero() {
 
 /* ---------- Section 2 — "Your Involve membership benefits" (shared IconColumns, 4 across) ---------- */
 const mbIcon = (children) => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{children}</svg>;
-const MB_BENEFITS = [
-  { t: 'Upsized commissions', d: 'Up to 10% bonuses on your earned payouts*',
-    ic: mbIcon(<><path d="M19 5 5 19" /><circle cx="6.5" cy="6.5" r="2.5" /><circle cx="17.5" cy="17.5" r="2.5" /></>) },
-  { t: 'Get paid faster and cheaper', d: 'Lower Early Withdrawal fees by up to 20%',
-    ic: mbIcon(<path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" />) },
-  { t: 'Withdraw more frequently', d: 'Get paid as frequently as you’d like',
-    ic: mbIcon(<><path d="M21 12a9 9 0 0 1-15.5 6.2L3 16" /><path d="M3 21v-5h5" /><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8" /><path d="M21 3v5h-5" /></>) },
-  { t: 'More benefits soon', d: 'Check back for more exciting new benefits!',
-    ic: mbIcon(<><circle cx="12" cy="8" r="6" /><path d="M15.5 13.2 17 22l-5-3-5 3 1.5-8.8" /></>) },
+// icons by index; the title/text pairs come from c.benefits.items
+const MB_BENEFITS_ICONS = [
+  mbIcon(<><path d="M19 5 5 19" /><circle cx="6.5" cy="6.5" r="2.5" /><circle cx="17.5" cy="17.5" r="2.5" /></>),
+  mbIcon(<path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" />),
+  mbIcon(<><path d="M21 12a9 9 0 0 1-15.5 6.2L3 16" /><path d="M3 21v-5h5" /><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8" /><path d="M21 3v5h-5" /></>),
+  mbIcon(<><circle cx="12" cy="8" r="6" /><path d="M15.5 13.2 17 22l-5-3-5 3 1.5-8.8" /></>),
 ];
+const mbItems = (texts, icons) => texts.map(([t, d], i) => ({ t, d, ic: icons[i] }));
 const MB_BENEFITS_CSS = `
         #mb-benefits .wy-grid{ grid-template-columns:repeat(4,minmax(0,1fr)); gap:clamp(24px,3vw,40px); }
         @media (max-width:1024px){ #mb-benefits .wy-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }`;
 
 /* ---------- Section 3 — "Involve membership levels" (Pricing compare-table layout) ---------- */
-// cell value: false = not included, string = text
-const MB_LEVELS = ['Silver', 'Gold', 'Platinum', 'Black'];
-const MB_ROWS = [
-  ['Bonus on earned payouts*', false, '5%', '8%', '10%'],
-  ['Early Withdrawal Fee discount', false, '10%', '15%', '20%'],
-  ['Free withdrawals a month', 'Up to 2', 'Up to 3', 'Up to 5', 'Unlimited'],
-];
-function MbLevels() {
-  const cell = (v) => v === false ? <span className="mbl-dash" aria-label="Not included">×</span> : v;
+// c.rows cell value: false = not included, string = text
+function MbLevels({ c }) {
+  const cell = (v) => v === false ? <span className="mbl-dash" aria-label={c.notIncluded}>×</span> : v;
   return (
     <section id="mb-levels" className="mbl-sec">
       <div className="wrap">
         <div className="mbl-head" data-reveal>
-          <h2 className="mbl-title">Involve membership levels</h2>
-          <p className="mbl-sub">Upgrade your membership to gain access to improved benefits.</p>
+          <h2 className="mbl-title">{c.title}</h2>
+          <p className="mbl-sub">{c.sub}</p>
         </div>
         <div className="mbl-table" data-reveal data-reveal-delay="1">
           <div className="mbl-row mbl-hrow">
-            <div className="mbl-c mbl-label-h">Membership benefits</div>
-            {MB_LEVELS.map((l, i) => (
+            <div className="mbl-c mbl-label-h">{c.labelHead}</div>
+            {c.levels.map((l, i) => (
               <div className="mbl-c mbl-lvl" key={l}>
-                <span className="mbl-step">Level {i + 1}</span>
+                <span className="mbl-step">{c.levelLabel.replace('{n}', i + 1)}</span>
                 <span className="mbl-name">{l}</span>
               </div>
             ))}
           </div>
-          {MB_ROWS.map((r) => (
+          {c.rows.map((r) => (
             <div className="mbl-row" key={r[0]}>
               <div className="mbl-c mbl-label">{r[0]}</div>
               {r.slice(1).map((v, i) => <div className="mbl-c mbl-val" key={i}>{cell(v)}</div>)}
             </div>
           ))}
         </div>
-        <p className="mbl-note" data-reveal>*Bonuses on earned payouts only apply to conversions on selected offers.</p>
+        <p className="mbl-note" data-reveal>{c.note}</p>
       </div>
       <style>{`
         .mbl-sec{ background:var(--warm-50); padding:clamp(56px,9vh,110px) 0; }
@@ -159,11 +152,9 @@ function MbLevels() {
 }
 
 /* ---------- Section 4 — "How does the program work?" (shared IconColumns, 2 across) ---------- */
-const MB_HOW = [
-  { t: 'Earn more affiliate commissions', d: 'Earn more affiliate commissions with Involve.',
-    ic: mbIcon(<><circle cx="8" cy="8" r="6" /><path d="M18.09 10.37A6 6 0 1 1 10.34 18" /><path d="M7 6h1v4" /><path d="m16.71 13.88.7.71-2.82 2.82" /></>) },
-  { t: 'Earn more membership points', d: 'Earn more Involve membership points.',
-    ic: mbIcon(<path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />) },
+const MB_HOW_ICONS = [
+  mbIcon(<><circle cx="8" cy="8" r="6" /><path d="M18.09 10.37A6 6 0 1 1 10.34 18" /><path d="M7 6h1v4" /><path d="m16.71 13.88.7.71-2.82 2.82" /></>),
+  mbIcon(<path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />),
 ];
 const MB_HOW_CSS = `
         #mb-how .wy-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); max-width:760px; margin-inline:auto; }`;
@@ -171,15 +162,16 @@ const MB_HOW_CSS = `
 function MembershipApp() {
   useSmoothScroll();
   useScrollReveal();
+  const c = useCopy('membership-program');
   return (
     <React.Fragment>
       <Nav getStartedTone="pub" />
       <main>
-        <MbHero />
-        <IconColumns id="mb-benefits" title="Your Involve membership benefits" items={MB_BENEFITS} css={MB_BENEFITS_CSS} />
-        <MbLevels />
-        <IconColumns id="mb-how" title="How does the Involve Membership Program work?" sub="You can improve your membership level by doing one of the following:" items={MB_HOW} css={MB_HOW_CSS} />
-        <FinalCta title="Register as an Involve partner today!" href={MB_SIGNUP} label="Sign Up" />
+        <MbHero c={c.hero} />
+        <IconColumns id="mb-benefits" title={c.benefits.title} items={mbItems(c.benefits.items, MB_BENEFITS_ICONS)} css={MB_BENEFITS_CSS} />
+        <MbLevels c={c.levels} />
+        <IconColumns id="mb-how" title={c.how.title} sub={c.how.sub} items={mbItems(c.how.items, MB_HOW_ICONS)} css={MB_HOW_CSS} />
+        <FinalCta title={c.cta.title} href={MB_SIGNUP} label={c.cta.label} />
       </main>
       <Footer />
       <AppDownload />

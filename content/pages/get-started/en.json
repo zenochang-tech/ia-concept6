@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "title": "Get Started | Involve Asia",
+    "description": "Tell us about your business and reach 1,000,000+ publishers across Asia — creators, content sites, affiliate marketers, coupon and loyalty sites, and more."
+  },
+  "hero": {
+    "eyebrow": "For Advertisers",
+    "title": "Get started with Involve Asia.",
+    "titlePlan": "Get started with the {plan} plan.",
+    "sub": "Tell us about your business and our team will help you set up your affiliate program.",
+    "stats": [
+      ["1,000,000+", "Global Publishers"],
+      ["$270M+", "Paid to Publishers"],
+      ["$3.2B+", "Sales Generated"]
+    ]
+  },
+  "form": {
+    "selected": "You selected: ",
+    "selectedPlan": "{plan} plan",
+    "change": "Change",
+    "title": "How can we help you?",
+    "business": "Tell us about your business",
+    "website": "Website URL",
+    "websitePh": "https://yourbrand.com",
+    "country": "Country",
+    "countryPh": "Select country",
+    "countries": ["Malaysia", "Singapore", "Indonesia", "Thailand", "Philippines", "Vietnam", "Taiwan", "Hong Kong", "Other"],
+    "industry": "Industry",
+    "industryPh": "Select industry",
+    "industries": ["E-commerce & Retail", "Fashion & Apparel", "Beauty & Personal Care", "Electronics", "Travel & Hospitality", "Financial Services", "Food & Beverage", "Health & Wellness", "Gaming", "Other"],
+    "aov": "Average Order Value",
+    "aovCurrency": "USD",
+    "aovPh": "50",
+    "budget": "Monthly Marketing Spending Budget",
+    "budgetPh": "Select budget",
+    "budgets": ["Under $1,000", "$1,000 – $5,000", "$5,000 – $20,000", "$20,000 – $50,000", "$50,000+"],
+    "contact": "How can we get in touch?",
+    "name": "Your Name",
+    "namePh": "Your name",
+    "phone": "Phone No.",
+    "phonePh": "+60 12 345 6789",
+    "email": "Company Email",
+    "emailPh": "you@company.com",
+    "submit": "I'm Interested",
+    "note": "We'll be in touch within 1–2 business days."
+  },
+  "logos": {
+    "caption": "Trusted by brands your customers already know, across retail, travel, beauty, and finance."
+  }
+}

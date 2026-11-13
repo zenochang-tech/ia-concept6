@@ -5,10 +5,11 @@
    shared NumberedSteps / FinalCta sections, a top-down stepper built from the
    NumberedSteps number circles, Pricing-style essentials cards for "Good to know",
    and a warning callout. Copy is from the live page; headings in
-   sentence case. Loaded AFTER ia-shared.jsx + ia-sections.jsx.
+   sentence case. All copy lives in content/pages/stablecoin-payout/<lang>.json and
+   arrives through useCopy. Loaded AFTER ia-shared.jsx + ia-sections.jsx.
    ============================================================================ */
 
-const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, FinalCta, AppDownload, NumberedSteps, HeroHexGrid, HERO_HEXGRID_CSS } = window;
+const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, FinalCta, AppDownload, NumberedSteps, HeroHexGrid, HERO_HEXGRID_CSS, useCopy } = window;
 
 // Every CTA on the live page goes to the dashboard's Payment Settings.
 const SP_SETUP = 'https://app.involve.asia/v2/settings/payment';
@@ -18,29 +19,28 @@ function SpCheck() {
 }
 
 /* ---------- Section 1 — Hero (same layout as the Express Withdrawal hero) ---------- */
-const SP_CHIPS = ['2-Minute Setup', 'Switch Anytime', 'No Bank Delays'];
-function SpHero() {
+function SpHero({ c }) {
   return (
     <section id="pub-hero" className="ph-sec">
       <span className="ph-basefade" aria-hidden="true" />
       <div className="wrap ph-wrap">
         <HeroHexGrid />
         <div className="ph-copy">
-          <span className="ph-eyebrow" data-reveal>New Payout Option</span>
-          <h1 className="ph-title" data-reveal data-reveal-delay="1">Get paid your way with USDT withdrawal</h1>
-          <p className="ph-sub" data-reveal data-reveal-delay="1">Withdraw your USD affiliate earnings in USDT instead of Bank Transfer or PayPal. Available now on Involve Asia.</p>
+          <span className="ph-eyebrow" data-reveal>{c.eyebrow}</span>
+          <h1 className="ph-title" data-reveal data-reveal-delay="1">{c.title}</h1>
+          <p className="ph-sub" data-reveal data-reveal-delay="1">{c.sub}</p>
           <ul className="ph-chips" data-reveal data-reveal-delay="1">
-            {SP_CHIPS.map((c) => <li key={c}><span className="ph-chip-ic" aria-hidden="true"><SpCheck /></span>{c}</li>)}
+            {c.chips.map((t) => <li key={t}><span className="ph-chip-ic" aria-hidden="true"><SpCheck /></span>{t}</li>)}
           </ul>
           <div className="ph-actions" data-reveal data-reveal-delay="2">
-            <a href={SP_SETUP} className="btn btn-primary btn-lg">Set Up USDT Withdrawal <Arrow /></a>
-            <a href="#sp-why" className="btn btn-secondary btn-lg">Learn More</a>
+            <a href={SP_SETUP} className="btn btn-primary btn-lg">{c.cta} <Arrow /></a>
+            <a href="#sp-why" className="btn btn-secondary btn-lg">{c.more}</a>
           </div>
         </div>
 
         <div className="ph-visual" data-reveal data-reveal-delay="1">
           <span className="ph-hexplate" aria-hidden="true" />
-          <div className="ph-photo"><img src="media/figma/stablecoin-hero-image.png" alt="USDT coins" loading="eager" /></div>
+          <div className="ph-photo"><img src="media/figma/stablecoin-hero-image.png" alt={c.imageAlt} loading="eager" /></div>
         </div>
       </div>
 
@@ -80,31 +80,19 @@ function SpHero() {
   );
 }
 
-/* ---------- Section 2 — "Why USDT" (shared NumberedSteps) ---------- */
-const SP_WHY = [
-  ['1', 'No more bank delays', 'Blockchain settlement is near-instant once you claim, unlike multi-day bank transfer windows.'],
-  ['2', 'Fiat or digital, your call', 'USD withdrawals now support both traditional transfer and USDT, an efficient, seamless payment experience built for cross-border publishers.'],
-  ['3', 'Your choice, anytime', 'Switch between Bank Transfer, PayPal, or USDT whenever it suits you, with no long-term commitment.'],
-];
+/* ---------- Section 2 — "Why USDT" (shared NumberedSteps, fed from c.why) ---------- */
 
 /* ---------- Section 3 — "How setup works" (top-down stepper, NumberedSteps number circles) ---------- */
-const SP_SETUP_STEPS = [
-  ['1', 'Open Payment Settings', 'Go to Settings > Payment > Payment Details, then select Edit.'],
-  ['2', 'Add your address and payout type', 'Enter your address, then set Payout Type to Stablecoins. Your payout currency is fixed to USD automatically.'],
-  ['3', 'Complete your account details', 'Enter your Name, Account Type, Nationality, Contact Number, and the Recipient Email Address where you’ll receive your payout claim link.'],
-  ['4', 'Send a test email (optional)', 'Confirm your recipient email is correct and active before your first real payout link is sent there.'],
-  ['5', 'Save', 'That’s it. Future eligible payouts will be ready to claim in USDT.'],
-];
-function SpSetup() {
+function SpSetup({ c }) {
   return (
     <section id="sp-setup" className="vs-sec">
       <div className="wrap vs-grid">
         <div className="vs-head" data-reveal>
-          <h2 className="vs-title">How setup works</h2>
-          <p className="vs-sub">Five steps in Payment Settings. It takes about 2 minutes.</p>
+          <h2 className="vs-title">{c.title}</h2>
+          <p className="vs-sub">{c.sub}</p>
         </div>
         <ol className="vs-list">
-          {SP_SETUP_STEPS.map(([n, t, d], i) => (
+          {c.items.map(([n, t, d], i) => (
             <li className="vs-step" key={n} data-reveal data-reveal-delay={Math.min(i + 1, 3)}>
               <span className="vs-num" aria-hidden="true">{n}</span>
               <div className="vs-body">
@@ -138,21 +126,14 @@ function SpSetup() {
 }
 
 /* ---------- Section 4 — "Good to know" (five white cards in one row) ---------- */
-const SP_KNOW = [
-  ['No wallet needed yet', 'You’ll enter your wallet address securely each time you claim a payout, not during setup.'],
-  ['1% processing fee', 'Deducted automatically from your gross payout and itemized on your Involve withdrawal invoice.'],
-  ['Backed by a regulated partner', 'Payouts are processed via Triple A, licensed by the Monetary Authority of Singapore.'],
-  ['One-time ID check', 'First payouts above USD 1,500 may require a quick identity check, per standard regulations.'],
-  ['Switch back anytime', 'You can change back to Bank Transfer or PayPal anytime in Payment Settings.'],
-];
-function SpKnow() {
+function SpKnow({ c }) {
   return (
     <section id="sp-know" className="gk-sec">
       <div className="wrap">
-        <h2 className="gk-title" data-reveal>Good to know</h2>
-        <p className="gk-sub" data-reveal data-reveal-delay="1">A few things worth knowing before you set up USDT withdrawal.</p>
+        <h2 className="gk-title" data-reveal>{c.title}</h2>
+        <p className="gk-sub" data-reveal data-reveal-delay="1">{c.sub}</p>
         <div className="gk-grid" data-reveal data-reveal-delay="1">
-          {SP_KNOW.map(([t, d]) => (
+          {c.items.map(([t, d]) => (
             <div className="gk-card" key={t}>
               <h3 className="gk-ct">{t}</h3>
               <p className="gk-cd">{d}</p>
@@ -177,20 +158,16 @@ function SpKnow() {
 }
 
 /* ---------- Section 5 — "Double-check before you continue" (design-system warning banner, two columns) ---------- */
-const SP_WARN = [
-  ['Make sure your email address is correct.', 'Your USDT payout claim link is sent only to the email you set during setup. An incorrect or outdated address can mean permanent, unrecoverable loss of your funds.'],
-  ['Double-check your wallet address and network every time you claim a payout.', 'Blockchain transactions can’t be reversed once submitted, not by you and not by us.'],
-];
-function SpWarn() {
+function SpWarn({ c }) {
   return (
     <section id="sp-warn" className="dw-sec">
       <div className="wrap">
         <div className="dw-card" role="note" data-reveal>
           <h2 className="dw-t"><span className="dw-ic" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z" /><path d="M12 9v4" /><path d="M12 17h.01" /></svg>
-          </span>Double-check before you continue</h2>
+          </span>{c.title}</h2>
           <div className="dw-cols">
-            {SP_WARN.map(([b, t]) => <p className="dw-p" key={b}><b>{b}</b>{t}</p>)}
+            {c.items.map(([b, t]) => <p className="dw-p" key={b}><b>{b}</b>{t}</p>)}
           </div>
         </div>
       </div>
@@ -215,16 +192,17 @@ function SpWarn() {
 function StablecoinApp() {
   useSmoothScroll();
   useScrollReveal();
+  const c = useCopy('stablecoin-payout');
   return (
     <React.Fragment>
       <Nav getStartedTone="pub" />
       <main>
-        <SpHero />
-        <NumberedSteps id="sp-why" title="More control over how you get paid" sub="Three reasons publishers are adding USDT to their payout options." steps={SP_WHY} cols={3} />
-        <SpSetup />
-        <SpKnow />
-        <SpWarn />
-        <FinalCta title="Ready to get paid in USDT?" href={SP_SETUP} label="Set Up USDT Withdrawal" />
+        <SpHero c={c.hero} />
+        <NumberedSteps id="sp-why" title={c.why.title} sub={c.why.sub} steps={c.why.items} cols={3} />
+        <SpSetup c={c.setup} />
+        <SpKnow c={c.know} />
+        <SpWarn c={c.warn} />
+        <FinalCta title={c.cta.title} href={SP_SETUP} label={c.cta.label} />
       </main>
       <Footer />
       <AppDownload />

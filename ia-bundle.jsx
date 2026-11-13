@@ -1,3 +1,8 @@
+/* ia-bundle.jsx — the homepage (index.html). All homepage copy lives in content/pages/index/en.json
+   and arrives through useCopy('index') in App; the footer's menu wording goes through tr()
+   (content/shared/<lang>.json), like ia-shared.jsx's Footer. Unused sections kept below for
+   revival (KeepsMoving, OffersSection, HowItWorks, StatsSection, CaseStudies, FinalCTA, …)
+   still hold their own English text. */
 
 /* ===== tweaks-panel.jsx ===== */
 // @ds-adherence-ignore -- omelette starter scaffold (raw elements/hex/px by design)
@@ -767,7 +772,9 @@ Object.assign(window, { Hexagon, HexBadge, HexHeroField, HexTexture, useScrollPr
 /* ===== ia-nav.jsx ===== */
 // Nav (with its NAV / LANGS data), Arrow, BackToTop and prefersReduced come from
 // ia-shared.jsx, which index.html loads first — the same copies every other page uses.
-const { Nav, Arrow, BackToTop, prefersReduced, GlobeIcon } = window;
+const { Nav, Arrow, BackToTop, prefersReduced, GlobeIcon, useCopy, rich, tr, localHref, IA_I18N, currentLang } = window;
+// "{name} logo" → "Shopee logo": fills {placeholders} in a copy string.
+const fillCopy = (str, vars) => str.replace(/\{(\w+)\}/g, (m, k) => (k in vars ? vars[k] : m));
 
 
 /* ===== ia-sections1.jsx ===== */
@@ -1006,7 +1013,7 @@ function HeroHexField() {
   );
 }
 
-function Hero({ dark = false, hex = 3, emphasis = 'equal' }) {
+function Hero({ c, dark = false, hex = 3, emphasis = 'equal' }) {
   const payIdx = React.useRef(0);
   const [pay, setPay] = React.useState(HERO_PAYOUTS[0]);
   const [payVis, setPayVis] = React.useState(true);
@@ -1037,16 +1044,16 @@ function Hero({ dark = false, hex = 3, emphasis = 'equal' }) {
       <div className="wrap hero2" style={{ position: 'relative', zIndex: 1 }}>
         <div className="hero2-grid">
           <div className="hero2-copy">
-            <h1 className="hero2-title" data-reveal>The affiliate platform that keeps everyone moving, faster.</h1>
-            <p className="hero2-sub" data-reveal data-reveal-delay="1">Brands grow with the right publishers, and publishers earn from the brands they love. Daily validation and faster payouts mean less waiting, for everyone.</p>
+            <h1 className="hero2-title" data-reveal>{c.title}</h1>
+            <p className="hero2-sub" data-reveal data-reveal-delay="1">{c.sub}</p>
             <div className="hero2-ctas" data-reveal data-reveal-delay="2">
               <div className="hero2-cta">
-                <span className="hero2-kicker">For <i>Publishers</i></span>
-                <a href="/partners/" className="btn btn-primary btn-lg">Start Earning <Arrow /></a>
+                <span className="hero2-kicker">{c.for}<i>{c.publishers}</i></span>
+                <a href="/partners/" className="btn btn-primary btn-lg">{c.pubCta} <Arrow /></a>
               </div>
               <div className="hero2-cta">
-                <span className="hero2-kicker adv">For <i>Advertisers</i></span>
-                <a href="/advertisers/" className="btn btn-advertiser btn-lg">Grow My Brand <Arrow /></a>
+                <span className="hero2-kicker adv">{c.for}<i>{c.advertisers}</i></span>
+                <a href="/advertisers/" className="btn btn-advertiser btn-lg">{c.advCta} <Arrow /></a>
               </div>
             </div>
           </div>
@@ -1054,19 +1061,19 @@ function Hero({ dark = false, hex = 3, emphasis = 'equal' }) {
           <div className="hero2-figure" data-reveal data-reveal-delay="1">
             {/* interactive honeycomb, anchored to the figures image */}
             <HeroHexField />
-            <img src="media/figma/hero-figures-2026.png" alt="A creator and a brand partner growing together on Involve Asia" loading="eager" />
+            <img src="media/figma/hero-figures-2026.png" alt={c.imageAlt} loading="eager" />
             {/* single payout notification, top-left of the figure — swaps brand/amount on a random cadence */}
             <div className="hero2-payouts" aria-hidden="true">
               <div className={'pcard' + (payVis ? '' : ' is-swapping')}>
-                <span className="pcard-status">Payout Completed</span>
+                <span className="pcard-status">{c.payoutStatus}</span>
                 <span className="pcard-brand">{pay.brand}</span>
-                <span className="pcard-amt">+ $<strong>{pay.amt}</strong></span>
+                <span className="pcard-amt">{c.payoutPrefix}<strong>{pay.amt}</strong></span>
               </div>
             </div>
             {/* total-sales card */}
             <div className="hero2-sales" aria-hidden="true">
-              <span className="hs-label">Sales Driven</span>
-              <span className="hs-sub">last 30 days</span>
+              <span className="hs-label">{c.salesLabel}</span>
+              <span className="hs-sub">{c.salesSub}</span>
               <HeroSales />
             </div>
           </div>
@@ -1183,7 +1190,7 @@ const LOGOS = [
   ['Udemy', 'udemy@3x.webp'], ['BaskBear', 'baskbear@3x.webp'], ['Pet Wonderland', 'pet wonderland@3x.webp'], ['CIMB', 'cimb@3x.webp'],
 ];
 const LOGO_ROWS = 1;
-function TrustStrip() {
+function TrustStrip({ c }) {
   const secRef = React.useRef(null);
   const tracksRef = React.useRef([]);
   const [reps, setReps] = React.useState(1);
@@ -1256,7 +1263,7 @@ function TrustStrip() {
   return (
     <section ref={secRef} id="trust" className="trust-handoff" style={{ background: 'var(--warm-50)', padding: 'clamp(32px,4vh,52px) 0 96px', marginTop: 0, position: 'relative', zIndex: 2, willChange: 'transform, opacity', transformOrigin: 'center top' }}>
       <p data-reveal style={{ textAlign: 'center', font: '600 12px/1 var(--font-body)', color: 'var(--warm-400)', marginBottom: 36 }}>
-        Trusted by brands you already know
+        {c.title}
       </p>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 30 }}>
         {rows.map((row, ri) => {
@@ -1266,7 +1273,7 @@ function TrustStrip() {
           return (
             <div className="marquee" key={ri}>
               <div ref={(el) => { tracksRef.current[ri] = el; }} className="marquee-track">
-                {dup.map(([name, file], i) => <img key={i} className="trust-logo" src={encodeURI(LOGO_DIR + file)} alt={`${name} logo`} draggable="false" />)}
+                {dup.map(([name, file], i) => <img key={i} className="trust-logo" src={encodeURI(LOGO_DIR + file)} alt={fillCopy(c.logoAlt, { name })} draggable="false" />)}
               </div>
             </div>
           );
@@ -1423,7 +1430,7 @@ function KeepsMoving() {
 /* ---------------- Section 4 — "See what's live right now." ----------------
    Live Brand Directory: category filter rail + grid of photo-background brand
    cards (scrim + brand mark + commission chip + publisher count). Static (Phase 1). */
-const LIVE_CATS = ['All', 'Marketplace', 'Fashion', 'Travel', 'Digital Services', 'Electronics', 'Health & Beauty'];
+// category labels (en.json live.cats) — the index picks the seeded subset below
 // comm rates are PLACEHOLDERS — wire to the live directory data at dev time (varied, not a flat rate).
 const LIVE_BRANDS = [
   { name: 'Shopee', comm: '4.0', pub: '6,302' },
@@ -1433,7 +1440,7 @@ const LIVE_BRANDS = [
   { name: 'Watsons', comm: '4.5', pub: '3,901' },
   { name: 'Puma', comm: '2.1', pub: '1,466' },
 ];
-function LiveDirectory() {
+function LiveDirectory({ c }) {
   const slug = (n) => n.toLowerCase();
   const [cat, setCat] = React.useState(0);  // active category (instant swap, no motion)
   // Mockup: each category maps to a randomized-but-stable subset of the brand
@@ -1457,31 +1464,31 @@ function LiveDirectory() {
       <div className="wrap">
         <div className="lb-layout" data-reveal>
           <div className="lb-aside">
-            <span className="lb-eyebrow"><i />Live Brand Directory</span>
-            <h2 className="lb-title">See what's live right now.</h2>
-            <p className="lb-sub">Real brands, ready to promote. See what each one pays and how many publishers are already on board.</p>
+            <span className="lb-eyebrow"><i />{c.eyebrow}</span>
+            <h2 className="lb-title">{c.title}</h2>
+            <p className="lb-sub">{c.sub}</p>
             <div className="lb-rail">
-              {LIVE_CATS.map((c, i) => (
-                <button key={c} type="button" className={'lb-cat' + (i === cat ? ' on' : '')} aria-pressed={i === cat} onClick={() => setCat(i)}>{c}</button>
+              {c.cats.map((label, i) => (
+                <button key={label} type="button" className={'lb-cat' + (i === cat ? ' on' : '')} aria-pressed={i === cat} onClick={() => setCat(i)}>{label}</button>
               ))}
             </div>
-            <a href="/advertisers/" className="lb-explore">Explore all offers <Arrow /></a>
+            <a href="/advertisers/" className="lb-explore">{c.explore} <Arrow /></a>
           </div>
           <div className="lb-grid" key={cat}>
             {displayed.map((b, i) => (
               <a key={b.name} href="/advertisers/" className="lb-card">
                 <img className="lb-bg" src={`media/figma/s4-bg-${slug(b.name)}.png`} alt="" loading="lazy" />
                 <span className="lb-scrim" aria-hidden="true" />
-                {i < 3 && <span className="lb-badge">New</span>}
+                {i < 3 && <span className="lb-badge">{c.badge}</span>}
                 <span className="lb-logowrap">
                   <span className="lb-logotile">
-                    <img className={b.boxed ? 'lb-logo-fill' : 'lb-logo-contain'} src={`media/figma/s4-logo2-${slug(b.name)}.png`} alt={`${b.name} logo`} />
+                    <img className={b.boxed ? 'lb-logo-fill' : 'lb-logo-contain'} src={`media/figma/s4-logo2-${slug(b.name)}.png`} alt={fillCopy(c.logoAlt, { name: b.name })} />
                   </span>
                 </span>
                 <span className="lb-info">
                   <span className="lb-name">{b.name}</span>
-                  <span className="lb-comm"><small>Up to</small><b>{b.comm}% commission</b></span>
-                  <span className="lb-pub">{b.pub} publishers promoting this</span>
+                  <span className="lb-comm"><small>{c.upTo}</small><b>{fillCopy(c.commission, { rate: b.comm })}</b></span>
+                  <span className="lb-pub">{fillCopy(c.publishers, { count: b.pub })}</span>
                 </span>
               </a>
             ))}
@@ -1711,34 +1718,24 @@ function OffersSection() {
    Four steps (Match → Go live → Track → Grow and get paid). Each row: masked photo
    with floating live-UI cards (left) + step copy and a testimonial (right).
    Static (Phase 1); overlay cards rebuilt in CSS for crispness. */
-const START_STEPS = [
-  { n: 'Step 1', title: 'Match', img: 'home-start-img-01.png', overlay: 'match',
-    desc: 'We match you with the right brands, or the right publishers. No cold outreach.',
-    quote: '“Found 40 brands to promote in a day, the filter and category makes the process much easier.”',
-    name: 'John Doe', role: 'Publisher · Food Blogger', avatar: 's5-avatar-1.png' },
-  { n: 'Step 2', title: 'Go live', img: 'home-start-img-02.png', overlay: 'golive',
-    desc: 'Then you go live, your way. Share a link, drop a coupon, add a banner, or launch a full campaign.',
-    quote: '“Involve Asia did a great job in guiding us on what info needed and launched our campaign in an afternoon.”',
-    name: 'Brand Name', role: 'Advertiser · Brand Category', avatar: 's5-avatar-3.png' },
-  { n: 'Step 3', title: 'Track', img: 'home-start-img-03.png', overlay: 'track',
-    desc: 'Watch every click, sale, and payout in one dashboard.',
-    quote: '“Found 40 brands to promote in a day, the filter and category makes the process much easier.”',
-    name: 'Jane Doe', role: 'Publisher · Lifestyle Content Creator', avatar: 's5-avatar-2.png' },
-  { n: 'Step 4', title: 'Grow and get paid', img: 'home-start-img-04.png', overlay: 'payout',
-    desc: "Publishers get paid for every sale they drive. Brands grow from those sales, and only pay when they're real and verified.",
-    quote: '“The data provided is clear which makes the validation process easier, and we only pay when it actually converts.”',
-    name: 'Brand Name', role: 'Advertiser · Brand Category', avatar: 's5-avatar-3.png' },
+// Images and overlay type per step; the step copy (en.json start.steps) is zipped in by index.
+const START_STEP_ART = [
+  { img: 'home-start-img-01.png', overlay: 'match', avatar: 's5-avatar-1.png' },
+  { img: 'home-start-img-02.png', overlay: 'golive', avatar: 's5-avatar-3.png' },
+  { img: 'home-start-img-03.png', overlay: 'track', avatar: 's5-avatar-2.png' },
+  { img: 'home-start-img-04.png', overlay: 'payout', avatar: 's5-avatar-3.png' },
 ];
-function StartOverlay({ type }) {
+const startSteps = (c) => START_STEP_ART.map((art, i) => ({ ...art, ...c.steps[i] }));
+function StartOverlay({ type, c }) {
   if (type === 'match') return (
     <div className="st-ov st-ov-center" aria-hidden="true">
       <div className="st-glass st-match-g">
-        <span className="st-ov-lbl">Recommended</span>
+        <span className="st-ov-lbl">{c.recommended}</span>
         <div className="st-picks">
-          {[['JD Sports', '3.5', '#0F1C2E', 'JD-ft-img.png'], ['PUMA', '2.1', '#1A2E47', 'PUMA-ft-img.png']].map(([b, c, bg, logo]) => (
+          {[['JD Sports', '3.5', '#0F1C2E', 'JD-ft-img.png'], ['PUMA', '2.1', '#1A2E47', 'PUMA-ft-img.png']].map(([b, rate, bg, logo]) => (
             <div className="st-pick" key={b}>
-              <span className="st-pick-th" style={{ background: bg }}><img src={`media/figma/${logo}`} alt={`${b} logo`} /></span>
-              <span className="st-pick-t"><b className="st-pick-name">{b}</b><span className="st-pick-comm"><small>Up to</small>{c}% commission</span></span>
+              <span className="st-pick-th" style={{ background: bg }}><img src={`media/figma/${logo}`} alt={fillCopy(c.logoAlt, { name: b })} /></span>
+              <span className="st-pick-t"><b className="st-pick-name">{b}</b><span className="st-pick-comm"><small>{c.upTo}</small>{fillCopy(c.commission, { rate })}</span></span>
             </div>
           ))}
         </div>
@@ -1747,36 +1744,36 @@ function StartOverlay({ type }) {
   );
   if (type === 'golive') return (
     <div className="st-ov st-ov-center" aria-hidden="true">
-      <div className="st-glass st-pill-g"><div className="st-deeplink"><span className="st-link-ic">🔗</span>invl.me/yourDeepLink</div></div>
+      <div className="st-glass st-pill-g"><div className="st-deeplink"><span className="st-link-ic">🔗</span>{c.deepLink}</div></div>
     </div>
   );
   if (type === 'track') return (
     <div className="st-ov st-ov-center" aria-hidden="true">
-      <div className="st-glass st-pill-g"><div className="st-stat"><span className="st-stat-lbl"><em className="st-stat-ic">↗</em> Conversion Rate</span><span className="st-stat-row"><b>12<small>%</small></b><em>↑21%</em></span></div></div>
+      <div className="st-glass st-pill-g"><div className="st-stat"><span className="st-stat-lbl"><em className="st-stat-ic">↗</em> {c.conversionRate}</span><span className="st-stat-row"><b>{c.rateValue}<small>{c.rateUnit}</small></b><em>{c.rateDelta}</em></span></div></div>
     </div>
   );
   if (type === 'payout') return (
     <div className="st-ov st-ov-center" aria-hidden="true">
-      <div className="st-glass st-pill-g"><div className="st-payout"><span className="st-payout-l">Payout Received</span><span className="st-payout-n">+ $48</span></div></div>
+      <div className="st-glass st-pill-g"><div className="st-payout"><span className="st-payout-l">{c.payoutReceived}</span><span className="st-payout-n">{c.payoutAmount}</span></div></div>
     </div>
   );
   return null;
 }
 /* Static fallback (reduced-motion / mobile / no-GSAP): the original vertical step list. */
-function StartStatic() {
+function StartStatic({ c }) {
   return (
     <section id="how" className="st-sec sec-pad">
       <div className="wrap">
         <div className="st-head" data-reveal>
-          <h2 className="st-title">Simple enough to start today.</h2>
-          <p className="st-sub">Whether you're here to earn or to grow, you're four steps from your first payout.</p>
+          <h2 className="st-title">{c.title}</h2>
+          <p className="st-sub">{c.sub}</p>
         </div>
         <div className="st-steps">
-          {START_STEPS.map((s) => (
+          {startSteps(c).map((s) => (
             <div className="st-step" key={s.n} data-reveal>
               <div className="st-figure">
-                <img className="st-photo" src={`media/figma/${s.img}`} alt={`${s.title} step`} loading="lazy" />
-                <StartOverlay type={s.overlay} />
+                <img className="st-photo" src={`media/figma/${s.img}`} alt={fillCopy(c.imageAlt, { title: s.title })} loading="lazy" />
+                <StartOverlay type={s.overlay} c={c.overlay} />
               </div>
               <div className="st-body">
                 <span className="st-n">{s.n}</span>
@@ -1800,7 +1797,7 @@ function StartStatic() {
    slides up from below and stacks over the previous (which peeks at the top). The right
    column shows ONE step's text at a time — the whole block cross-fades to the next as
    you scroll. Scrubbed to the scroll position. */
-function StartAnimated() {
+function StartAnimated({ c }) {
   const stageRef = React.useRef(null);
   const cardsRef = React.useRef([]);
   const textsRef = React.useRef([]);
@@ -1843,20 +1840,20 @@ function StartAnimated() {
       <div className="st2-stage" ref={stageRef}>
         <div className="wrap">
           <div className="st2-head">
-            <h2 className="st-title">Simple enough to start today.</h2>
-            <p className="st-sub">Whether you're here to earn or to grow, you're four steps from your first payout.</p>
+            <h2 className="st-title">{c.title}</h2>
+            <p className="st-sub">{c.sub}</p>
           </div>
           <div className="st2-cols">
             <div className="st2-stack">
-              {START_STEPS.map((s, i) => (
+              {startSteps(c).map((s, i) => (
                 <div className="st2-card" key={s.n} ref={(el) => (cardsRef.current[i] = el)}>
-                  <img className="st-photo" src={`media/figma/${s.img}`} alt={`${s.title} step`} loading="lazy" />
-                  <StartOverlay type={s.overlay} />
+                  <img className="st-photo" src={`media/figma/${s.img}`} alt={fillCopy(c.imageAlt, { title: s.title })} loading="lazy" />
+                  <StartOverlay type={s.overlay} c={c.overlay} />
                 </div>
               ))}
             </div>
             <div className="st2-textwrap">
-              {START_STEPS.map((s, i) => (
+              {startSteps(c).map((s, i) => (
                 <div className="st2-text" key={s.n} ref={(el) => (textsRef.current[i] = el)} aria-hidden={i !== 0}>
                   <span className="st-n">{s.n}</span>
                   <h3 className="st-h">{s.title}</h3>
@@ -1876,20 +1873,20 @@ function StartAnimated() {
   );
 }
 
-function StartToday() {
+function StartToday({ c }) {
   return (
     <section id="how" className="st-sec sec-pad">
       <div className="wrap">
         <div className="st-head" data-reveal>
-          <h2 className="st-title">Simple enough to start today.</h2>
-          <p className="st-sub">Whether you're here to earn or to grow, you're four steps from your first payout.</p>
+          <h2 className="st-title">{c.title}</h2>
+          <p className="st-sub">{c.sub}</p>
         </div>
         <div className="st-grid">
-          {START_STEPS.map((s, i) => (
+          {startSteps(c).map((s, i) => (
             <div className="st-col" key={s.title} data-reveal data-reveal-delay={i + 1}>
               <div className="st-figure">
-                <img className="st-photo" src={`media/figma/${s.img}`} alt={`${s.title} step`} loading="lazy" />
-                <StartOverlay type={s.overlay} />
+                <img className="st-photo" src={`media/figma/${s.img}`} alt={fillCopy(c.imageAlt, { title: s.title })} loading="lazy" />
+                <StartOverlay type={s.overlay} c={c.overlay} />
               </div>
               <h3 className="st-h">{s.title}</h3>
               <p className="st-desc">{s.desc}</p>
@@ -1960,7 +1957,7 @@ function StartToday() {
    photo blur-reveals; then title+copy fade in, and the 95% figure + testimonial land
    last. Sizes use container units so the composition scales with the banner width.
    Reduced-motion / mobile fall back to the static final composition. */
-function SupportBanner() {
+function SupportBanner({ c }) {
   const secRef = React.useRef(null);
 
   // Chat-pill motion (concept-8): typing dots → morph wider → reveal "How can we help today?",
@@ -1999,22 +1996,22 @@ function SupportBanner() {
     <section id="support" className="sup-sec sec-pad" ref={secRef}>
       <div className="wrap sup-grid">
         <div className="sup-left">
-          <h2 className="sup-title" data-reveal>Real human support, at every step.</h2>
-          <p className="sup-desc" data-reveal data-reveal-delay="1">Not bots, not dead-end FAQs. Real people who know the platform and are ready to help, whether you're a creator setting up your first link or a brand launching your biggest campaign.</p>
+          <h2 className="sup-title" data-reveal>{c.title}</h2>
+          <p className="sup-desc" data-reveal data-reveal-delay="1">{c.desc}</p>
           <div className="sup-badge" data-reveal data-reveal-delay="2">
-            <p className="sup-badge-lbl">95% of users rate our support as excellent.</p>
+            <p className="sup-badge-lbl">{c.badge}</p>
             <div className="sup-quote-card">
-              <p className="sup-quote">“It's easy to reach customer service, and they fix things quickly.”</p>
-              <p className="sup-verified">Verified Publisher</p>
+              <p className="sup-quote">{c.quote}</p>
+              <p className="sup-verified">{c.verified}</p>
             </div>
           </div>
         </div>
         <div className="sup-figure" data-reveal data-reveal-delay="1">
-          <div className="sup-photo"><img src="media/figma/s6-support-2026.png" alt="An Involve Asia support specialist" loading="lazy" /></div>
-          <div className="sup-hello" aria-hidden="true">Hello.</div>
+          <div className="sup-photo"><img src="media/figma/s6-support-2026.png" alt={c.imageAlt} loading="lazy" /></div>
+          <div className="sup-hello" aria-hidden="true">{c.hello}</div>
           <div className="sup-pill" aria-hidden="true">
             <span className="sup-pill-dots"><i /><i /><i /></span>
-            <span className="sup-pill-answer">How can we help today?</span>
+            <span className="sup-pill-answer">{c.answer}</span>
           </div>
         </div>
       </div>
@@ -2061,16 +2058,10 @@ function SupportBanner() {
    Dual-audience success-story slider. Publisher stories anchored left, Advertiser
    anchored right; upcoming cards peek toward the centre. Arrows advance BOTH stacks
    at once — the left stack slides left, the right stack slides right. */
-const PUB_STORIES = [
-  { photo: 's7-pub.png', big: '3', unit: ' properties', head: 'Bought from her affiliate earnings', tag: 'Facebook creator, Philippines', desc: 'How a mother of four built a new life from Facebook content with Involve.' },
-  { photo: 's7-pub-travel.png', big: '$220K', unit: '+', head: 'In sales driven for one travel brand, Q4 2023', tag: 'Affiliate network, AI content', desc: 'How Flickstree scaled travel sales through Involve.' },
-  { photo: 's7-pub-food.png', big: '$250', unit: ' earned', head: 'From just 10.5k followers, part-time', tag: 'Travel and food creator', desc: "Proof you don't need to be big to earn with Involve." },
-];
-const ADV_STORIES = [
-  { photo: 's7-adv.png', big: '796', unit: '%', head: 'Increase in sales', tag: 'E-commerce', desc: 'How Big Bang Sales scaled through affiliate partnerships.' },
-  { photo: 's7-adv-telco.png', big: '4.3', unit: 'x', head: 'Increase in sales', tag: 'Telco', desc: 'How Involve partners drove growth for TIME Internet.' },
-  { photo: 's7-adv-health.png', big: '$160K', unit: '', head: 'In sales · 4,912 conversions', tag: 'Health & Wellness', desc: 'How a global health and wellness brand launched a CPS programme on Involve.' },
-];
+// Card photos per story; the story copy (en.json results.pubStories / advStories) is zipped in by index.
+const PUB_STORY_PHOTOS = ['s7-pub.png', 's7-pub-travel.png', 's7-pub-food.png'];
+const ADV_STORY_PHOTOS = ['s7-adv.png', 's7-adv-telco.png', 's7-adv-health.png'];
+const withPhotos = (stories, photos) => stories.map((st, i) => ({ photo: photos[i], ...st }));
 function RRChevron({ dir }) {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
@@ -2133,7 +2124,9 @@ function rrSlot(r, side) {
   else { tx = 13; sc = 0.5; op = 0; z = 1; }
   return { transform: `translate(-50%,-50%) translateX(${sgn * tx}cqw) scale(${sc})`, opacity: op, zIndex: z };
 }
-function SuccessSlider() {
+function SuccessSlider({ c }) {
+  const PUB_STORIES = React.useMemo(() => withPhotos(c.pubStories, PUB_STORY_PHOTOS), [c]);
+  const ADV_STORIES = React.useMemo(() => withPhotos(c.advStories, ADV_STORY_PHOTOS), [c]);
   // Two unbounded indices, one per deck. Desktop moves both together (arrows / card-click);
   // mobile drives each independently. Slot positions are circular, so both loop forever.
   const [pi, setPi] = React.useState(0);
@@ -2209,21 +2202,21 @@ function SuccessSlider() {
       <div className="wrap">
         <div className="rr-head" data-reveal>
           <div>
-            <h2 className="rr-title">Real results. Real growth.</h2>
-            <p className="rr-sub">From the people and brands growing with Involve.</p>
+            <h2 className="rr-title">{c.title}</h2>
+            <p className="rr-sub">{c.sub}</p>
           </div>
           <div className="rr-controls">
-            <a href="/success-stories/" className="rr-seeall">See all success stories <Arrow /></a>
+            <a href="/success-stories/" className="rr-seeall">{c.seeAll} <Arrow /></a>
             <div className="rr-arrows">
-              <button type="button" className="rr-arrow" onClick={() => advanceBoth(-1)} aria-label="Previous stories"><RRChevron dir="l" /></button>
-              <button type="button" className="rr-arrow rr-next" onClick={() => advanceBoth(1)} aria-label="Next stories"><RRChevron dir="r" /></button>
+              <button type="button" className="rr-arrow" onClick={() => advanceBoth(-1)} aria-label={c.prevStories}><RRChevron dir="l" /></button>
+              <button type="button" className="rr-arrow rr-next" onClick={() => advanceBoth(1)} aria-label={c.nextStories}><RRChevron dir="r" /></button>
             </div>
           </div>
         </div>
         {/* desktop: side labels above the shared deck */}
         <div className="rr-labels" data-reveal>
-          <span className="rr-label">For <i>Publishers</i></span>
-          <span className="rr-label adv">For <i>Advertisers</i></span>
+          <span className="rr-label">{c.for}<i>{c.publishers}</i></span>
+          <span className="rr-label adv">{c.for}<i>{c.advertisers}</i></span>
         </div>
         <div className="rr-stage" data-reveal ref={stageRef}>
           {PUB_STORIES.map((st, idx) => {
@@ -2242,17 +2235,17 @@ function SuccessSlider() {
         {/* mobile: Publisher / Advertiser tabs (+ arrows), then a stacked deck (front + 2 peeking) */}
         <div className="rr-mobile">
           <div className="rr-mtabrow">
-            <div className="rr-tabs" role="tablist" aria-label="Success stories audience">
-              <button type="button" role="tab" aria-selected={mtab === 0} className={'rr-tab' + (mtab === 0 ? ' on' : '')} onClick={() => setMtab(0)}>Publisher</button>
-              <button type="button" role="tab" aria-selected={mtab === 1} className={'rr-tab' + (mtab === 1 ? ' on' : '')} onClick={() => setMtab(1)}>Advertiser</button>
+            <div className="rr-tabs" role="tablist" aria-label={c.tabsLabel}>
+              <button type="button" role="tab" aria-selected={mtab === 0} className={'rr-tab' + (mtab === 0 ? ' on' : '')} onClick={() => setMtab(0)}>{c.tabPub}</button>
+              <button type="button" role="tab" aria-selected={mtab === 1} className={'rr-tab' + (mtab === 1 ? ' on' : '')} onClick={() => setMtab(1)}>{c.tabAdv}</button>
             </div>
             <div className="rr-arrows rr-marrows2">
-              <button type="button" className="rr-arrow" onClick={mPrev} aria-label="Previous story"><RRChevron dir="l" /></button>
-              <button type="button" className="rr-arrow" onClick={mNext} aria-label="Next story"><RRChevron dir="r" /></button>
+              <button type="button" className="rr-arrow" onClick={mPrev} aria-label={c.prevStory}><RRChevron dir="l" /></button>
+              <button type="button" className="rr-arrow" onClick={mNext} aria-label={c.nextStory}><RRChevron dir="r" /></button>
             </div>
           </div>
           <MobileDeck stories={mtab === 0 ? PUB_STORIES : ADV_STORIES} idx={mtab === 0 ? pi : ai} onPrev={mPrev} onNext={mNext} tabKey={mtab} />
-          <a href="/success-stories/" className="rr-seeall rr-seeall-m">See all success stories <Arrow /></a>
+          <a href="/success-stories/" className="rr-seeall rr-seeall-m">{c.seeAll} <Arrow /></a>
         </div>
       </div>
       <style>{`
@@ -2330,32 +2323,34 @@ function SuccessSlider() {
    audience. Cards are PLACEHOLDERS: at dev time the homepage auto-surfaces the newest posts from the CMS
    (per audience, most recent first). Each card = background image + title + "Read more".
    Mobile mirrors the "Real results" section: tabs above the scroller, "Read the blog" CTA below it. */
+// Card image + link per post; the titles (en.json blog.pubPosts / advPosts) are zipped in by index.
 const BLOG_PUB = [
-  { title: 'How to promote affiliate links on TikTok', img: 'home-blog-pub-1.jpg', href: 'blog' },
-  { title: 'Express Withdrawal, explained', img: 'home-blog-pub-2.jpg', href: 'blog' },
-  { title: 'What is EPC in affiliate marketing?', img: 'home-blog-pub-3.jpg', href: 'blog' },
+  { img: 'home-blog-pub-1.jpg', href: 'blog' },
+  { img: 'home-blog-pub-2.jpg', href: 'blog' },
+  { img: 'home-blog-pub-3.jpg', href: 'blog' },
 ];
 const BLOG_ADV = [
-  { title: 'How to launch your first affiliate program', img: 'home-blog-adv-1.jpg', href: 'blog' },
-  { title: 'Choosing the right commission structure', img: 'home-blog-adv-2.jpg', href: 'blog' },
-  { title: 'Measuring ROI across your publisher network', img: 'home-blog-adv-3.jpg', href: 'blog' },
+  { img: 'home-blog-adv-1.jpg', href: 'blog' },
+  { img: 'home-blog-adv-2.jpg', href: 'blog' },
+  { img: 'home-blog-adv-3.jpg', href: 'blog' },
 ];
-function BlogSection() {
+function BlogSection({ c }) {
   const [btab, setBtab] = React.useState(0); // 0 = Publisher, 1 = Advertiser
-  const posts = btab === 0 ? BLOG_PUB : BLOG_ADV;
+  const titles = btab === 0 ? c.pubPosts : c.advPosts;
+  const posts = (btab === 0 ? BLOG_PUB : BLOG_ADV).map((p, i) => ({ ...p, title: titles[i] }));
   return (
     <section id="blog" className="bg-sec sec-pad">
       <div className="wrap">
         <div className="bg-head" data-reveal>
           <div className="bg-headtext">
-            <h2 className="bg-title">From the Involve blog.</h2>
-            <p className="bg-sub">Fresh tips, playbooks, and insights, whichever side you're on.</p>
+            <h2 className="bg-title">{c.title}</h2>
+            <p className="bg-sub">{c.sub}</p>
           </div>
           <div className="bg-controls">
-            <a href="blog" className="bg-readall">Read the Blog <Arrow /></a>
-            <div className="bg-tabs" role="tablist" aria-label="Blog audience">
-              <button type="button" role="tab" aria-selected={btab === 0} className={'bg-tab' + (btab === 0 ? ' on' : '')} onClick={() => setBtab(0)}>Publisher</button>
-              <button type="button" role="tab" aria-selected={btab === 1} className={'bg-tab' + (btab === 1 ? ' on' : '')} onClick={() => setBtab(1)}>Advertiser</button>
+            <a href="blog" className="bg-readall">{c.readAll} <Arrow /></a>
+            <div className="bg-tabs" role="tablist" aria-label={c.tabsLabel}>
+              <button type="button" role="tab" aria-selected={btab === 0} className={'bg-tab' + (btab === 0 ? ' on' : '')} onClick={() => setBtab(0)}>{c.tabPub}</button>
+              <button type="button" role="tab" aria-selected={btab === 1} className={'bg-tab' + (btab === 1 ? ' on' : '')} onClick={() => setBtab(1)}>{c.tabAdv}</button>
             </div>
           </div>
         </div>
@@ -2365,11 +2360,11 @@ function BlogSection() {
               <img className="bg-card-img" src={'media/figma/' + p.img} alt="" loading="lazy" />
               <span className="bg-card-scrim" aria-hidden="true" />
               <h3 className="bg-card-title">{p.title}</h3>
-              <span className="bg-card-more">Read more <Arrow s={15} /></span>
+              <span className="bg-card-more">{c.readMore} <Arrow s={15} /></span>
             </a>
           ))}
         </div>
-        <a href="blog" className="bg-readall-m">Read the Blog <Arrow /></a>
+        <a href="blog" className="bg-readall-m">{c.readAll} <Arrow /></a>
       </div>
       <style>{`
         .bg-sec{ background:var(--warm-50); }
@@ -2426,11 +2421,12 @@ function BlogSection() {
 
 /* ---------------- Stat band (concept-8) — standalone section ----------------
    Centered caption + a 4-up row of headline stats that count up when scrolled into view. */
+// counter target + format per stat; the labels are en.json stats.labels (same order)
 const STAT_BAND = [
-  { to: 1000000, fmt: (v) => Math.round(v).toLocaleString() + '+', label: 'Publishers' },
-  { to: 270, fmt: (v) => '$' + Math.round(v) + 'M+', label: 'Commissions Paid' }, // confirmed: $270M+
-  { to: 3.2, fmt: (v) => '$' + v.toFixed(1) + 'B+', label: 'Sales Generated' },
-  { to: 500, fmt: (v) => Math.round(v) + '+', label: 'Brands' },
+  { to: 1000000, fmt: (v) => Math.round(v).toLocaleString() + '+' },
+  { to: 270, fmt: (v) => '$' + Math.round(v) + 'M+' }, // confirmed: $270M+
+  { to: 3.2, fmt: (v) => '$' + v.toFixed(1) + 'B+' },
+  { to: 500, fmt: (v) => Math.round(v) + '+' },
 ];
 function StatCount({ to, fmt }) {
   const ref = React.useRef(null);
@@ -2458,16 +2454,16 @@ function StatCount({ to, fmt }) {
   }, [to, fmt]);
   return <span ref={ref} className="sb-num">{fmt(0)}</span>;
 }
-function StatBand() {
+function StatBand({ c }) {
   return (
     <section id="impact" className="sb-sec">
       <div className="wrap">
-        <p className="sb-cap" data-reveal>This is what growing together looks like, since 2014.</p>
+        <p className="sb-cap" data-reveal>{c.caption}</p>
         <div className="sb-row">
           {STAT_BAND.map((s, i) => (
-            <div className="sb-item" key={s.label} data-reveal data-reveal-delay={i + 1}>
+            <div className="sb-item" key={i} data-reveal data-reveal-delay={i + 1}>
               <StatCount to={s.to} fmt={s.fmt} />
-              <span className="sb-lbl">{s.label}</span>
+              <span className="sb-lbl">{c.labels[i]}</span>
             </div>
           ))}
         </div>
@@ -2669,7 +2665,7 @@ function StatBig({ to, fmt, size }) {
   useCounter(ref, to, fmt);
   return <span className="hf-num" ref={ref} style={{ fontSize: size }}>{fmt(0)}</span>;
 }
-function HexFinaleStatic({ emphasis = 'equal', hex = 3 }) {
+function HexFinaleStatic({ c, emphasis = 'equal', hex = 3 }) {
   // Honeycomb decoration around the two photo hexes: [column, row] on the .hf-scene grid
   // (publisher photo = col 0 row 0, advertiser = col 1 row 0; odd rows shift half a column).
   const HF_HONEY = [[0, -1], [1, -1], [-2, 1], [-1, 1], [0, 1], [2, 1]];
@@ -2677,7 +2673,7 @@ function HexFinaleStatic({ emphasis = 'equal', hex = 3 }) {
     <section id="cta" className="hf">
       {/* ---- Hexagon "Pick your side" CTA ---- */}
       <div className="hf-cta">
-        <h2 className="hf-head" data-reveal>Pick your side and grow with us.</h2>
+        <h2 className="hf-head" data-reveal>{c.title}</h2>
         <div className="hf-scene">
           <div className="hf-honey" aria-hidden="true">
             {HF_HONEY.map(([c, r], i) => (
@@ -2685,21 +2681,21 @@ function HexFinaleStatic({ emphasis = 'equal', hex = 3 }) {
             ))}
           </div>
           {/* mobile-only kickers, placed ABOVE the photos (the desktop kickers stay inside the cards) */}
-          <span className="hf-kick hf-kick-m" aria-hidden="true">Creators. Affiliates. Technology Partners.</span>
-          <span className="hf-kick adv hf-kick-m" aria-hidden="true">Brands. Retailers. Enterprises.</span>
-          <img className="hf-photohex hf-ph-pub" src="media/figma/s9-hex-pub.webp" alt="A publisher creating content" style={{ '--i': 0 }} />
-          <img className="hf-photohex hf-ph-adv" src="media/figma/s9-hex-adv.webp" alt="An advertiser growing their brand" style={{ '--i': 1 }} />
+          <span className="hf-kick hf-kick-m" aria-hidden="true">{c.pubKicker}</span>
+          <span className="hf-kick adv hf-kick-m" aria-hidden="true">{c.advKicker}</span>
+          <img className="hf-photohex hf-ph-pub" src="media/figma/s9-hex-pub.webp" alt={c.pubImageAlt} style={{ '--i': 0 }} />
+          <img className="hf-photohex hf-ph-adv" src="media/figma/s9-hex-adv.webp" alt={c.advImageAlt} style={{ '--i': 1 }} />
           <div className="hf-card hf-card-pub">
-            <span className="hf-kick">Creators. Affiliates. Technology Partners.</span>
-            <h3 className="hf-ct">I'm a <br />Publisher</h3>
-            <p className="hf-cd">Promote brands you love. <span className="hf-cd-more">Turn your audience or traffic into income.</span></p>
-            <a href="/partners/" className="btn btn-primary">Start Earning <Arrow /></a>
+            <span className="hf-kick">{c.pubKicker}</span>
+            <h3 className="hf-ct">{rich(c.pubTitle)}</h3>
+            <p className="hf-cd">{c.pubDesc}<span className="hf-cd-more">{c.pubDescMore}</span></p>
+            <a href="/partners/" className="btn btn-primary">{c.pubCta} <Arrow /></a>
           </div>
           <div className="hf-card hf-card-adv hf-right">
-            <span className="hf-kick adv">Brands. Retailers. Enterprises.</span>
-            <h3 className="hf-ct">I'm an <br />Advertiser</h3>
-            <p className="hf-cd">Grow your sales with the right publishers. <span className="hf-cd-more">Pay only for results.</span></p>
-            <a href="/advertisers/" className="btn btn-advertiser">Grow My Brand <Arrow /></a>
+            <span className="hf-kick adv">{c.advKicker}</span>
+            <h3 className="hf-ct">{rich(c.advTitle)}</h3>
+            <p className="hf-cd">{c.advDesc}<span className="hf-cd-more">{c.advDescMore}</span></p>
+            <a href="/advertisers/" className="btn btn-advertiser">{c.advCta} <Arrow /></a>
           </div>
         </div>
       </div>
@@ -3713,6 +3709,7 @@ const FOOT = [
 const SOCIAL = [['Facebook','https://www.facebook.com/involveasia','facebook'],['Twitter','https://twitter.com/InvolveAsia','twitter'],['Instagram','https://www.instagram.com/involveasia/','instagram'],['LinkedIn','https://www.linkedin.com/company/involve-asia/','linkedin']];
 function Footer() {
   const year = new Date().getFullYear();
+  const footLang = IA_I18N.languages.find((l) => l.code === currentLang()) || IA_I18N.languages[0];
   return (
     <footer style={{ background: 'var(--midnight)', color: 'var(--warm-300)', paddingTop: 64 }}>
       <div className="wrap">
@@ -3721,11 +3718,11 @@ function Footer() {
           <div style={{ maxWidth: 280 }}>
             <img src={(window.__resources && window.__resources.logoWhite) || "media/brand/wordmark-white.png"} alt="Involve Asia" width="140" height="30" style={{ height: 30, width: 'auto' }} />
             <p style={{ marginTop: 16, fontSize: 14, color: 'var(--warm-300)', lineHeight: 1.6 }}>
-              The affiliate marketing platform connecting advertisers with creators and publishers across Asia.
+              {tr('The affiliate marketing platform connecting advertisers with creators and publishers across Asia.')}
             </p>
             <div style={{ display: 'flex', gap: 10, marginTop: 20 }}>
               {SOCIAL.map(([n, u, ic]) => (
-                <a key={n} href={u} target="_blank" rel="noopener noreferrer" aria-label={`Involve Asia on ${n} (opens in a new tab)`} style={{ width: 38, height: 38, borderRadius: 'var(--r-lg)', background: 'var(--midnight-mid)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--warm-300)', fontSize: 12, fontWeight: 600, transition: 'background .15s' }}
+                <a key={n} href={u} target="_blank" rel="noopener noreferrer" aria-label={tr('Involve Asia on {name} (opens in a new tab)', { name: n })} style={{ width: 38, height: 38, borderRadius: 'var(--r-lg)', background: 'var(--midnight-mid)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--warm-300)', fontSize: 12, fontWeight: 600, transition: 'background .15s' }}
                    onMouseEnter={e => e.currentTarget.style.background = 'var(--midnight-soft)'}
                    onMouseLeave={e => e.currentTarget.style.background = 'var(--midnight-mid)'}>
                   <img src={`media/figma/${ic}-Social%20Icon.svg`} alt="" width="18" height="18" style={{ display: 'block', width: 18, height: 18 }} />
@@ -3735,11 +3732,11 @@ function Footer() {
           </div>
           {FOOT.map(col => (
             <div key={col.h}>
-              <h4 style={{ fontSize: 13, color: '#fff', fontFamily: 'var(--font-body)', fontWeight: 700 }}>{col.h}</h4>
+              <h4 style={{ fontSize: 13, color: '#fff', fontFamily: 'var(--font-body)', fontWeight: 700 }}>{tr(col.h)}</h4>
               <ul style={{ marginTop: 16, display: 'flex', flexDirection: 'column', gap: 11 }}>
                 {col.links.map(([t, u]) => (
-                  <li key={t}><a href={u} style={{ fontSize: 14, color: 'var(--warm-300)', transition: 'color .15s' }}
-                    onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = 'var(--warm-300)'}>{t}</a></li>
+                  <li key={t}><a href={localHref(u)} style={{ fontSize: 14, color: 'var(--warm-300)', transition: 'color .15s' }}
+                    onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = 'var(--warm-300)'}>{tr(t)}</a></li>
                 ))}
               </ul>
             </div>
@@ -3748,7 +3745,7 @@ function Footer() {
         <div style={{ borderTop: '1px solid var(--midnight-mid)', padding: '24px 0 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
           <p style={{ fontSize: 13, color: 'var(--warm-300)' }}>© 2014–{year} Involve Asia Technologies Sdn Bhd · 201201032669 (1017157-V)</p>
           <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-            <button aria-label="Change language — English" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'var(--midnight-mid)', border: 'none', borderRadius: 'var(--r-md)', padding: '8px 14px', color: 'var(--warm-300)', font: '500 13px/1 var(--font-body)', cursor: 'pointer' }}><GlobeIcon />English</button>
+            <button aria-label={`${tr('Change language')} — ${footLang.label}`} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'var(--midnight-mid)', border: 'none', borderRadius: 'var(--r-md)', padding: '8px 14px', color: 'var(--warm-300)', font: '500 13px/1 var(--font-body)', cursor: 'pointer' }}><GlobeIcon />{footLang.label}</button>
           </div>
         </div>
       </div>
@@ -3773,6 +3770,7 @@ const EMPH_LABELS = { 'Equal': 'equal', 'Publisher': 'pub', 'Advertiser': 'adv' 
 const EMPH_REV = { equal: 'Equal', pub: 'Publisher', adv: 'Advertiser' };
 
 function App() {
+  const c = useCopy('index');
   const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
   const { emphasis, hex } = t;
 
@@ -3983,17 +3981,17 @@ function App() {
       <div className="app-surface" aria-hidden="true" />
       <Nav getStartedTone={gsTone} homeHref="#hero" />
       <main>
-        <Hero dark={t.heroDark} hex={hex} emphasis={emphasis} />
-        <TrustStrip />
+        <Hero c={c.hero} dark={t.heroDark} hex={hex} emphasis={emphasis} />
+        <TrustStrip c={c.trust} />
         {/* concept-8: "keeps everyone moving, faster." tagline promoted into the hero — section removed (component kept below for revival) */}
         {/* <KeepsMoving /> */}
-        <LiveDirectory />
-        <StartToday />
-        <SupportBanner />
-        <SuccessSlider />
-        <StatBand />
-        <BlogSection />
-        <HexFinale emphasis={emphasis} hex={hex} />
+        <LiveDirectory c={c.live} />
+        <StartToday c={c.start} />
+        <SupportBanner c={c.support} />
+        <SuccessSlider c={c.results} />
+        <StatBand c={c.stats} />
+        <BlogSection c={c.blog} />
+        <HexFinale c={c.finale} emphasis={emphasis} hex={hex} />
       </main>
       <Footer />
       <BackToTop />

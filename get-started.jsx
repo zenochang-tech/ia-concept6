@@ -1,5 +1,6 @@
 /* ============================================================================
-   publishers.jsx — "For Publishers" overview page.
+   get-started.jsx — "Get Started" advertiser lead-form page. All copy lives in
+   content/pages/get-started/<lang>.json and arrives through useCopy.
    Loaded AFTER ia-shared.jsx (which defines Nav/Footer/etc. and exposes them on
    window). Sections are built one at a time from the Figma frame (node 1260:46678),
    same flow as the homepage. Motion/animation is a final pass.
@@ -7,7 +8,7 @@
 
 // Shared UI comes from ia-shared.jsx (pulled off window so this works regardless
 // of how Babel-standalone scopes each script tag).
-const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, LogoMarquee } = window;
+const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, LogoMarquee, useCopy } = window;
 
 /* ---------- Section 1 — Hero ---------------------------------------------- */
 /* Decorative honeycomb backdrop (shared hero art, see useHeroDecoArt in ia-shared.jsx), rendered faint. */
@@ -25,65 +26,64 @@ function PricingHexField() {
   );
 }
 /* Get Started hero — advertiser lead form (copy + fields from app.involve.asia/v2/affiliate-advertiser).
-   Static: onSubmit is preventDefault (no backend wired yet). */
+   Static: onSubmit is preventDefault (no backend wired yet).
+   The option VALUES below stay English (form data); their labels come from the copy by index. */
 const GS_COUNTRIES = ['Malaysia', 'Singapore', 'Indonesia', 'Thailand', 'Philippines', 'Vietnam', 'Taiwan', 'Hong Kong', 'Other'];
 const GS_INDUSTRIES = ['E-commerce & Retail', 'Fashion & Apparel', 'Beauty & Personal Care', 'Electronics', 'Travel & Hospitality', 'Financial Services', 'Food & Beverage', 'Health & Wellness', 'Gaming', 'Other'];
 const GS_BUDGETS = ['Under $1,000', '$1,000 – $5,000', '$5,000 – $20,000', '$20,000 – $50,000', '$50,000+'];
-function PubHero() {
+function PubHero({ c, f }) {
   // Plan carried from the Pricing page via ?plan= (validated against known plans; nothing else from the URL is used).
   const VALID_PLANS = ['Startup', 'Growth', 'Enterprise'];
   const rawPlan = (typeof window !== 'undefined') ? new URLSearchParams(window.location.search).get('plan') : null;
   const plan = VALID_PLANS.includes(rawPlan) ? rawPlan : null;
-  const heading = plan ? `Get started with the ${plan} plan.` : 'Get started with Involve Asia.';
+  const heading = plan ? c.titlePlan.replace('{plan}', plan) : c.title;
   const interestedPlan = plan || 'Not specified';
   return (
     <section id="get-started-hero" className="prh-sec gs-sec">
       <div className="prh-honey" aria-hidden="true"><PricingHexField /></div>
       <div className="wrap gs-wrap">
         <div className="gs-copy">
-          <span className="prh-eyebrow" data-reveal>For Advertisers</span>
+          <span className="prh-eyebrow" data-reveal>{c.eyebrow}</span>
           <h1 className="gs-title" data-reveal data-reveal-delay="1">{heading}</h1>
-          <p className="gs-sub" data-reveal data-reveal-delay="2">Tell us about your business and our team will help you set up your affiliate program.</p>
+          <p className="gs-sub" data-reveal data-reveal-delay="2">{c.sub}</p>
           <div className="gs-stats" data-reveal data-reveal-delay="2">
-            <div className="gs-stat"><b>1,000,000+</b><span>Global Publishers</span></div>
-            <div className="gs-stat"><b>$270M+</b><span>Paid to Publishers</span></div>
-            <div className="gs-stat"><b>$3.2B+</b><span>Sales Generated</span></div>
+            {c.stats.map(([n, l]) => <div className="gs-stat" key={l}><b>{n}</b><span>{l}</span></div>)}
           </div>
         </div>
         <form className="gs-form" data-reveal data-reveal-delay="1" onSubmit={(e) => e.preventDefault()}>
-          {plan && <div className="gs-chip">You selected: <b>{plan} plan</b> <a href="pricing" className="gs-chip-change">Change</a></div>}
+          {plan && <div className="gs-chip">{f.selected}<b>{f.selectedPlan.replace('{plan}', plan)}</b> <a href="pricing" className="gs-chip-change">{f.change}</a></div>}
           <input type="hidden" name="interestedPlan" value={interestedPlan} />
-          <h2 className="gs-form-title">How can we help you?</h2>
+          <h2 className="gs-form-title">{f.title}</h2>
           <fieldset className="gs-fieldset">
-            <legend className="gs-legend">Tell us about your business</legend>
-            <label className="gs-field"><span className="gs-lbl">Website URL</span>
-              <input className="gs-input" type="url" name="websiteUrl" placeholder="https://yourbrand.com" /></label>
+            <legend className="gs-legend">{f.business}</legend>
+            <label className="gs-field"><span className="gs-lbl">{f.website}</span>
+              <input className="gs-input" type="url" name="websiteUrl" placeholder={f.websitePh} /></label>
             <div className="gs-2col">
-              <label className="gs-field"><span className="gs-lbl">Country</span>
-                <select className="gs-input gs-select" name="country" defaultValue=""><option value="" disabled>Select country</option>{GS_COUNTRIES.map((c) => <option key={c} value={c}>{c}</option>)}</select></label>
-              <label className="gs-field"><span className="gs-lbl">Industry</span>
-                <select className="gs-input gs-select" name="industry" defaultValue=""><option value="" disabled>Select industry</option>{GS_INDUSTRIES.map((c) => <option key={c} value={c}>{c}</option>)}</select></label>
+              <label className="gs-field"><span className="gs-lbl">{f.country}</span>
+                <select className="gs-input gs-select" name="country" defaultValue=""><option value="" disabled>{f.countryPh}</option>{GS_COUNTRIES.map((v, i) => <option key={v} value={v}>{f.countries[i]}</option>)}</select></label>
+              <label className="gs-field"><span className="gs-lbl">{f.industry}</span>
+                <select className="gs-input gs-select" name="industry" defaultValue=""><option value="" disabled>{f.industryPh}</option>{GS_INDUSTRIES.map((v, i) => <option key={v} value={v}>{f.industries[i]}</option>)}</select></label>
             </div>
             <div className="gs-2col">
-              <label className="gs-field"><span className="gs-lbl">Average Order Value</span>
-                <span className="gs-usd-wrap"><span className="gs-usd">USD</span><input className="gs-input gs-input-usd" type="number" name="aov" placeholder="50" min="0" /></span></label>
-              <label className="gs-field"><span className="gs-lbl">Monthly Marketing Spending Budget</span>
-                <select className="gs-input gs-select" name="budget" defaultValue=""><option value="" disabled>Select budget</option>{GS_BUDGETS.map((c) => <option key={c} value={c}>{c}</option>)}</select></label>
+              <label className="gs-field"><span className="gs-lbl">{f.aov}</span>
+                <span className="gs-usd-wrap"><span className="gs-usd">{f.aovCurrency}</span><input className="gs-input gs-input-usd" type="number" name="aov" placeholder={f.aovPh} min="0" /></span></label>
+              <label className="gs-field"><span className="gs-lbl">{f.budget}</span>
+                <select className="gs-input gs-select" name="budget" defaultValue=""><option value="" disabled>{f.budgetPh}</option>{GS_BUDGETS.map((v, i) => <option key={v} value={v}>{f.budgets[i]}</option>)}</select></label>
             </div>
           </fieldset>
           <fieldset className="gs-fieldset">
-            <legend className="gs-legend">How can we get in touch?</legend>
-            <label className="gs-field"><span className="gs-lbl">Your Name</span>
-              <input className="gs-input" type="text" name="name" placeholder="Your name" /></label>
+            <legend className="gs-legend">{f.contact}</legend>
+            <label className="gs-field"><span className="gs-lbl">{f.name}</span>
+              <input className="gs-input" type="text" name="name" placeholder={f.namePh} /></label>
             <div className="gs-2col">
-              <label className="gs-field"><span className="gs-lbl">Phone No.</span>
-                <input className="gs-input" type="tel" name="phone" placeholder="+60 12 345 6789" /></label>
-              <label className="gs-field"><span className="gs-lbl">Company Email</span>
-                <input className="gs-input" type="email" name="businessEmail" placeholder="you@company.com" /></label>
+              <label className="gs-field"><span className="gs-lbl">{f.phone}</span>
+                <input className="gs-input" type="tel" name="phone" placeholder={f.phonePh} /></label>
+              <label className="gs-field"><span className="gs-lbl">{f.email}</span>
+                <input className="gs-input" type="email" name="businessEmail" placeholder={f.emailPh} /></label>
             </div>
           </fieldset>
-          <button type="submit" className="btn btn-advertiser btn-lg gs-submit">I'm Interested <Arrow /></button>
-          <p className="gs-formnote">We'll be in touch within 1–2 business days.</p>
+          <button type="submit" className="btn btn-advertiser btn-lg gs-submit">{f.submit} <Arrow /></button>
+          <p className="gs-formnote">{f.note}</p>
         </form>
       </div>
       <style>{`
@@ -133,19 +133,20 @@ function PubHero() {
 }
 
 /* ---------- Section 2 — Logo strip ---------------------------------------- */
-function PubLogos() {
-  return <LogoMarquee caption="Trusted by brands your customers already know, across retail, travel, beauty, and finance." />;
+function PubLogos({ c }) {
+  return <LogoMarquee caption={c.caption} />;
 }
 
 function PricingApp() {
   useSmoothScroll();
   useScrollReveal();
+  const c = useCopy('get-started');
   return (
     <React.Fragment>
       <Nav getStartedTone="midnight" />
       <main>
-        <PubHero />
-        <PubLogos />
+        <PubHero c={c.hero} f={c.form} />
+        <PubLogos c={c.logos} />
       </main>
       <Footer />
       <BackToTop />

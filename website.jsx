@@ -1,35 +1,36 @@
 /* ============================================================================
-   publishers.jsx — "For Publishers" overview page.
-   Loaded AFTER ia-shared.jsx (which defines Nav/Footer/etc. and exposes them on
+   website.jsx — "For Content Sites" page (key: website).
+   All visible copy lives in content/pages/website/en.json and arrives through
+   useCopy — this file only holds the layout, icons and images. Loaded AFTER ia-shared.jsx (which defines Nav/Footer/etc. and exposes them on
    window). Sections are built one at a time from the Figma frame (node 1260:46678),
    same flow as the homepage. Motion/animation is a final pass.
    ============================================================================ */
 
 // Shared UI comes from ia-shared.jsx (pulled off window so this works regardless
 // of how Babel-standalone scopes each script tag).
-const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, FinalCta, Testimonials, Faq, AppDownload, HeroHexGrid, HERO_HEXGRID_CSS, NumberedSteps, IconColumns } = window;
+const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, FinalCta, Testimonials, Faq, AppDownload, HeroHexGrid, HERO_HEXGRID_CSS, NumberedSteps, IconColumns, useCopy, rich } = window;
 
 /* ---------- Section 1 — Hero ---------------------------------------------- */
-function PubHero() {
+function PubHero({ c }) {
   return (
     <section id="pub-hero" className="ph-sec">
       <span className="ph-basefade" aria-hidden="true" />
       <div className="wrap ph-wrap">
         <HeroHexGrid />
         <div className="ph-copy">
-          <span className="ph-eyebrow" data-reveal>For Content Sites</span>
-          <h1 className="ph-title" data-reveal data-reveal-delay="1">Add income to the content you already publish.</h1>
-          <p className="ph-sub" data-reveal data-reveal-delay="2">Blogs, niche sites, and news. Earn on the content you already publish, without changing how you write.</p>
+          <span className="ph-eyebrow" data-reveal>{c.eyebrow}</span>
+          <h1 className="ph-title" data-reveal data-reveal-delay="1">{c.title}</h1>
+          <p className="ph-sub" data-reveal data-reveal-delay="2">{c.sub}</p>
           <div className="ph-actions" data-reveal data-reveal-delay="3">
-            <a href="/partners/" className="btn btn-primary btn-lg">Start Earning <Arrow /></a>
+            <a href="/partners/" className="btn btn-primary btn-lg">{c.cta} <Arrow /></a>
           </div>
-          <span className="ph-free" data-reveal data-reveal-delay="3">Free to join. Start earning today.</span>
+          <span className="ph-free" data-reveal data-reveal-delay="3">{c.free}</span>
         </div>
 
         <div className="ph-visual" data-reveal data-reveal-delay="1">
           <span className="ph-hexglow" aria-hidden="true" />
           <span className="ph-hexplate" aria-hidden="true" />
-          <div className="ph-photo ph-photo-fill"><img src="media/figma/website-hero.png" alt="A content website shown on a laptop" loading="eager" /></div>
+          <div className="ph-photo ph-photo-fill"><img src="media/figma/website-hero.png" alt={c.imageAlt} loading="eager" /></div>
         </div>
       </div>
 
@@ -134,38 +135,27 @@ function PubVoices() {
    Copy supplied by the client. Two answers carry links (beginner guide, Express
    Withdrawal) — hrefs are placeholders pending the real URLs. Example figures
    (4.2% commission, 10 working days) are illustrative — confirm before launch. */
-const PUB_FAQ = [
-  ['Will affiliate links change how my site looks?',
-    'No. You choose where links go. There are no forced ads or banners.'],
-  ['Do old articles still earn?',
-    'Yes. Any post with a live link keeps earning on every sale it drives.'],
-  ['What kinds of sites qualify?',
-    'Blogs, niche sites, news and media. Any site with content and readers.'],
-];
-function PubFAQ() {
-  return <Faq items={PUB_FAQ} />;
+function PubFAQ({ items }) {
+  return <Faq items={items} />;
 }
 
 /* ---------- Final CTA (shared FinalCta, ia-sections.jsx) ----------------- */
-function PubCTA() {
-  return <FinalCta title="Start earning from your website." />;
+function PubCTA({ c }) {
+  return <FinalCta title={c.title} />;
 }
 
 /* ---------- Website §3 — "Made for content that already has an audience." (3 cards) ---------- */
-const AFF_KINDS = [
-  ['website-kind-1.png', 'Blogs', 'Add relevant links to the posts you already write, and earn from content you were making anyway.'],
-  ['website-kind-2(v2).png', 'Niche sites', 'Run a specialist blog or site your niche follows. Add links to the reviews and guides you already write, and earn on what your readers buy.'],
-  ['website-kind-3.png', 'News and media sites', 'Turn your articles into income that keeps earning long after you publish.'],
-];
-function BuiltKinds() {
+/* card text comes from c.items, zipped by index with these images */
+const AFF_KINDS = ['website-kind-1.png', 'website-kind-2(v2).png', 'website-kind-3.png'];
+function BuiltKinds({ c }) {
   return (
     <section id="aff-kinds" className="ak-sec">
       <div className="wrap">
-        <h2 className="ak-title" data-reveal>Made for content that already has an audience.</h2>
+        <h2 className="ak-title" data-reveal>{c.title}</h2>
         <div className="ak-grid">
-          {AFF_KINDS.map(([img, t, d, cross], i) => (
+          {c.items.map(([t, d, cross], i) => (
             <div className="ak-card" key={t} data-reveal data-reveal-delay={(i % 3) + 1}>
-              <img className="ak-mock" src={`media/figma/${img}`} alt="" loading="lazy" />
+              <img className="ak-mock" src={`media/figma/${AFF_KINDS[i]}`} alt="" loading="lazy" />
               <div className="ak-body">
                 <h3 className="ak-ct">{t}</h3>
                 <p className="ak-cd">{d}</p>
@@ -195,42 +185,35 @@ function BuiltKinds() {
 }
 /* ---------- Website §2 — "Monetise your content, without disrupting it." (4 icon columns) ---------- */
 const AFF_WHY = [
-  { t: 'Links that fit your content.', d: 'You place contextual links yourself. No forced ads or banners cluttering your site.',
-    ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M9.5 14.5l5-5" /><path d="M12 7l1.2-1.2a4 4 0 0 1 5.7 5.7L17.5 13" /><path d="M12 17l-1.2 1.2a4 4 0 0 1-5.7-5.7L6.5 11" /></svg> },
-  { t: 'Your best content keeps earning.', d: 'A review you wrote last year still earns today.',
-    ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8" /><path d="M20 4v4h-4" /><path d="M20 12a8 8 0 0 1-13.7 5.7L4 16" /><path d="M4 20v-4h4" /></svg> },
-  { t: 'Reporting that guides what to write.', d: 'See which posts and links drive sales, so you know what to publish next.',
-    ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18" /><rect x="5" y="11" width="3.4" height="7" rx="1" /><rect x="10.3" y="5" width="3.4" height="13" rx="1" /><rect x="15.6" y="8.5" width="3.4" height="9.5" rx="1" /></svg> },
+  { ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M9.5 14.5l5-5" /><path d="M12 7l1.2-1.2a4 4 0 0 1 5.7 5.7L17.5 13" /><path d="M12 17l-1.2 1.2a4 4 0 0 1-5.7-5.7L6.5 11" /></svg> },
+  { ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8" /><path d="M20 4v4h-4" /><path d="M20 12a8 8 0 0 1-13.7 5.7L4 16" /><path d="M4 20v-4h4" /></svg> },
+  { ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18" /><rect x="5" y="11" width="3.4" height="7" rx="1" /><rect x="10.3" y="5" width="3.4" height="13" rx="1" /><rect x="15.6" y="8.5" width="3.4" height="9.5" rx="1" /></svg> },
 ];
-function WhyChoose() {
+function WhyChoose({ c }) {
+  const items = c.items.map(([t, d], i) => ({ t, d, ic: AFF_WHY[i].ic }));
   return (
-    <IconColumns id="aff-why" title="Why content sites earn with Involve." items={AFF_WHY} />
+    <IconColumns id="aff-why" title={c.title} items={items} />
   );
 }
 /* ---------- Website §1b — "How it works" (3 numbered steps) — Figma 2546:45038 ---------- */
-const HIW_STEPS = [
-  ['01', 'Find offers', 'Browse 500+ brands and pick the ones your readers already care about.'],
-  ['02', 'Add links to your content', 'Drop trackable links into new or existing articles and reviews, in a couple of clicks.'],
-  ['03', 'Earn after you publish', 'Older posts keep earning every time a reader clicks and buys.'],
-  ['04', 'Get paid', 'Withdraw in your local currency once sales are validated, or sooner with Express Withdrawal.'],
-];
-function HowItWorks() {
-  return <NumberedSteps id="web-how" title="How you earn." steps={HIW_STEPS} />;
+function HowItWorks({ c }) {
+  return <NumberedSteps id="web-how" title={c.title} steps={c.items} />;
 }
 function PublisherApp() {
   useSmoothScroll();
   useScrollReveal();
+  const c = useCopy('website');
   return (
     <React.Fragment>
       <Nav getStartedTone="pub" />
       <main>
-        <PubHero />
-        <HowItWorks />
-        <BuiltKinds />
-        <WhyChoose />
+        <PubHero c={c.hero} />
+        <HowItWorks c={c.how} />
+        <BuiltKinds c={c.kinds} />
+        <WhyChoose c={c.why} />
         <PubVoices />
-        <PubFAQ />
-        <PubCTA />
+        <PubFAQ items={c.faq} />
+        <PubCTA c={c.cta} />
       </main>
       <Footer />
       <AppDownload />

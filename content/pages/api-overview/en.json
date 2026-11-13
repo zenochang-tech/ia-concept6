@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "title": "Developer API | Involve Asia",
+    "description": "Build and automate with the Involve Asia Developer API — pull offers and conversions, generate tracking links, and bring affiliate data into your own systems."
+  },
+  "links": {
+    "docs": "https://api.involve.asia/docs/"
+  },
+  "hero": {
+    "eyebrow": "Developer API",
+    "title": "Build and automate with the Involve Asia Developer API.",
+    "sub": "Pull promotions, generate tracking links, and get your reports, all without logging into the dashboard. Bring affiliate earning into your own app or workflow.",
+    "cta": "Apply for an API Key",
+    "docs": "Read the API Docs",
+    "imageAlt": "Involve Asia API code example: authenticate, list offers, and generate a deeplink"
+  },
+  "auto": {
+    "title": "Automate the work, scale your earnings.",
+    "items": [
+      ["Get the latest promotion data", "Commission rates and payout terms for every offer you have access to."],
+      ["Generate tracking links", "Turn product URLs into trackable deeplinks through the API, up to 1,000 unique links every 30 days."],
+      ["Pull performance reports", "Conversions and earnings, in your own format."],
+      ["Get campaign banners and vouchers", "Ready-made creatives and seasonal deals."]
+    ]
+  },
+  "shopee": {
+    "title": "Boosted commissions on Shopee, built in.",
+    "desc": "Some Shopee brands pay boosted rates through Commissions XTRA. Pull the full list through the API and refresh it automatically, so you always know which Shopee shops are paying more, and promote them first.",
+    "more": "Learn More",
+    "imageAlt": "Shopee Commissions XTRA"
+  },
+  "teams": {
+    "title": "Who builds with the API",
+    "sub": "For teams that run affiliate data and links inside their own systems, through automation.",
+    "items": [
+      ["Product & app teams", "Surface offers and cashback inside your own app or platform, and earn on what your users buy."],
+      ["High-volume publishers", "Generate tracking links and sync conversions programmatically, without touching the dashboard."],
+      ["Data-driven teams", "Pull offers, conversions, and product feeds into your own systems and reporting."]
+    ]
+  },
+  "start": {
+    "title": "Get started in three steps",
+    "cta": "Apply Here",
+    "items": [
+      ["Request your API key", "Request your API key from your dashboard."],
+      ["Add the key to your tool", "Add the key to your API tool (Postman, cURL, Insomnia, and more)."],
+      ["Follow documentation", "Follow the documentation to pull data, generate links, and build."]
+    ]
+  },
+  "faq": {
+    "items": [
+      ["What does the API do?", "Build an affiliate app, or add affiliate capabilities to your own platform, populate reports, generate links, access ready-made campaign banners and landing pages, and pull promotional content."],
+      ["Who can use it?", "Media buyers, KOL agencies, programmatic and affiliate networks, cashback, and content sites."],
+      ["How many links can I generate?", "Up to 1,000 unique links per rolling 30-day window."],
+      ["Which tools can I use?", "Postman, cURL, Insomnia, SoapUI, Paw, or any tool that fits your stack."],
+      ["How do I track performance?", "Pull the performance report through the API, including individual transactions and custom parameters."],
+      ["What do I need?", "A team member with programming experience to set it up."]
+    ]
+  },
+  "cta": {
+    "title": "Start building with the API.",
+    "label": "Apply for an API Key"
+  }
+}

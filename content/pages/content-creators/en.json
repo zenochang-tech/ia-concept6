@@ -1,0 +1,63 @@
+{
+  "meta": {
+    "title": "Affiliate marketing for creators and influencers | Involve Asia",
+    "description": "For creators and influencers: earn from the audience you already have. Share products you love, earn on every sale, and get paid faster. Free to join."
+  },
+  "hero": {
+    "eyebrow": "For Creator Partners",
+    "title": "Turn the content you already make into income.",
+    "sub": "Thousands of brands want to work with creators and influencers like you, whatever your follower count. Share what you love, earn on every sale.",
+    "cta": "Start Earning",
+    "free": "Free to join. Start earning today.",
+    "imageAlt": "A content creator sharing product recommendations with her audience"
+  },
+  "made": {
+    "title": "Made for TikTok, YouTube, Instagram, and more.",
+    "points": [
+      ["Earn on any platform.", "Involve works on any platform your followers are on. Your link works wherever you post, so you're never tied to one channel. Wherever you can share a link, you can earn."],
+      ["No website, no shop, no minimum following.", "You don't need a store or a big audience to start. Share your link wherever your followers are, and earn when they buy."]
+    ],
+    "carouselLabel": "The same creator sharing a product across TikTok, YouTube and Instagram",
+    "previews": ["TikTok preview", "YouTube preview", "Instagram preview"]
+  },
+  "how": {
+    "title": "How you earn.",
+    "steps": [
+      ["Pick a brand", "Browse 500+ brands and choose products that fit your audience."],
+      ["Share your link", "Drop a trackable link in your bio, stories, or captions, or share a promo code."],
+      ["Earn on every sale", "When a follower buys through your link, the sale is credited to you."],
+      ["Get paid", "Withdraw in your local currency once sales are validated, or sooner with Express Withdrawal."]
+    ]
+  },
+  "create": {
+    "title": "Built for the way you create.",
+    "sub": "Everything you need to turn your content into income, in one place.",
+    "items": [
+      ["Mobile app", "Generate links and grab codes on the go. Share to your socials in seconds, and check your clicks, conversions, and earnings from your phone."],
+      ["Code Generator", "Get a unique code to share where links don't work, like your Instagram captions. Your audience uses it at checkout and the sale tracks back to you."],
+      ["Creative Hub", "Grab ready-made banners and coupon codes from top brands and drop them straight into your content."]
+    ]
+  },
+  "why": {
+    "title": "Why creators earn with Involve.",
+    "items": [
+      ["You earn per sale, not per follower.", "A small, engaged audience can out-earn a big one. No minimum following to start."],
+      ["Promote what already fits.", "Keep making what you make. Add links to the products you would recommend anyway."],
+      ["Get paid faster.", "Earnings are validated daily, and Express Withdrawal lets you withdraw before validation finishes."]
+    ]
+  },
+  "voices": {
+    "siakapKeliQuote": "Such a good overall experience with IA, very friendly & professional."
+  },
+  "faq": {
+    "items": [
+      ["Do I need a big following?", "No. You earn on the sales you drive, not on follower count, so engagement matters more than size."],
+      ["Which platforms can I use?", "Instagram, TikTok, YouTube, and more. Anywhere you can share a link or a code."],
+      ["How and when do I get paid?", "Once your sales are validated you withdraw in your local currency, with Express Withdrawal for early access."],
+      ["I'm an influencer. Is this for me?", "Yes. Whether you call yourself a creator or an influencer, if you have an audience on any platform, you can earn, whatever your follower count."]
+    ]
+  },
+  "cta": {
+    "title": "Turn your audience into income."
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "meta": {
+    "title": "Bonus Campaign | Involve Asia",
+    "description": "Earn a $40 bonus for every participating advertiser where you drive five validated conversions. Limited to the first five publishers per advertiser."
+  },
+  "links": {
+    "login": "https://invl.me/clmpu6y"
+  },
+  "hero": {
+    "eyebrow": "Bonus Campaign",
+    "title": "Earn $40 extra with just five conversions",
+    "sub": "We’ve partnered with selected advertisers to help you unlock more earnings with minimal effort.",
+    "chips": ["High commissions", "Easy targets", "Bonus payouts"],
+    "cta": "View Offers",
+    "login": "Log In to Your Dashboard"
+  },
+  "steps": {
+    "title": "How to unlock your exclusive bonus",
+    "sub": "Bonus payout limited to the first five publishers for each advertiser.",
+    "items": [
+      ["1", "Choose your advertisers", "Pick one or more participating offers below and decide where to focus your efforts."],
+      ["2", "Drive five conversions per advertiser", "Promote your link and generate five validated conversions for each advertiser you want to qualify for."],
+      ["3", "Unlock your $40 bonus", "Earn a bonus for each advertiser once five conversions are validated."]
+    ]
+  },
+  "offers": {
+    "title": "Bonus campaign offers for May 2026",
+    "sub": "Pick one offer to start earning your bonus.",
+    "aria": "{brand}, {rate}. Promote offer",
+    "logoAlt": "{brand} logo",
+    "items": [
+      { "num": "28%", "rem": "commission", "desc": "Video player and utility software" },
+      { "num": "USD 210", "rem": "commission", "desc": "Global business payments and finance platform" },
+      { "up": "Up to", "num": "USD 70", "desc": "Online language learning marketplace" },
+      { "num": "7%", "rem": "commission", "desc": "Travel WiFi rental for international users" },
+      { "up": "Up to", "num": "MYR 225", "desc": "Try-before-you-buy gadgets and electronics" }
+    ]
+  },
+  "terms": {
+    "title": "Terms and conditions",
+    "items": [
+      "Campaign runs from 1 May to 31 May 2026 (inclusive). Only conversions with a Conversion Date Created within this period are eligible.",
+      "Publishers must generate 5 validated conversions on a single participating brand (Preply, GOM Lab, Ninja WiFi, PakaiDulu by DirectD, or Airwallex) to qualify.",
+      "A one-time bonus is awarded per brand upon meeting the requirement, on top of regular commissions.",
+      "Each brand can only be qualified once per publisher.",
+      "Publishers may qualify across multiple brands by meeting the requirement for each.",
+      "Each brand is limited to 5 publisher slots only.",
+      "Qualification is on a first-come, first-served basis, determined by the timestamp of the 5th validated conversion.",
+      "Once all slots for a brand are filled, that brand will no longer be eligible.",
+      "All conversions must be validated before bonus eligibility is confirmed.",
+      "Bonus payout will be processed after validation and may take up to 3 months after the campaign period ends.",
+      "Bonus will be credited to the publisher’s payment account.",
+      "Publishers can track performance via Dashboard > Conversion Report using the Conversion Date Created field.",
+      "This campaign is run by Involve Asia and participating brands are not involved in campaign mechanics.",
+      "These terms should be read together with the [Involve Asia Terms and Conditions](terms-conditions)."
+    ],
+    "outro": "By participating, you acknowledge that you have read and agreed to the applicable terms and conditions. Any invalid, rejected, or fraudulent conversions will not be counted towards the campaign requirement."
+  },
+  "cta": {
+    "title": "Ready to unlock your bonus?",
+    "label": "View Offers"
+  }
+}

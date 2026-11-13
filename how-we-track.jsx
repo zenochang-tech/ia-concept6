@@ -1,35 +1,37 @@
 /* ============================================================================
-   publishers.jsx — "For Publishers" overview page.
+   how-we-track.jsx — "How we track" page (advertisers).
    Loaded AFTER ia-shared.jsx (which defines Nav/Footer/etc. and exposes them on
    window). Sections are built one at a time from the Figma frame (node 1260:46678),
    same flow as the homepage. Motion/animation is a final pass.
+   All copy lives in content/pages/how-we-track/<lang>.json and arrives through
+   useCopy — this file only holds the layout.
    ============================================================================ */
 
 // Shared UI comes from ia-shared.jsx (pulled off window so this works regardless
 // of how Babel-standalone scopes each script tag).
-const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, FinalCta, HeroHexGrid, HERO_HEXGRID_CSS } = window;
+const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, FinalCta, HeroHexGrid, HERO_HEXGRID_CSS, useCopy, rich } = window;
 
 /* ---------- Section 1 — Hero ---------------------------------------------- */
-function PubHero() {
+function PubHero({ c }) {
   return (
     <section id="pub-hero" className="ph-sec">
       <span className="ph-basefade" aria-hidden="true" />
       <div className="wrap ph-wrap">
         <HeroHexGrid />
         <div className="ph-copy">
-          <h1 className="ph-title" data-reveal data-reveal-delay="1">See exactly what every partner drives.</h1>
-          <p className="ph-sub" data-reveal data-reveal-delay="1">Track every click and conversion in one dashboard, attribute each sale to the publisher who drove it, and pay only for the sales that are real.</p>
+          <h1 className="ph-title" data-reveal data-reveal-delay="1">{c.title}</h1>
+          <p className="ph-sub" data-reveal data-reveal-delay="1">{c.sub}</p>
           <div className="ph-actions" data-reveal data-reveal-delay="2">
-            <a href="/advertisers/" className="btn btn-advertiser btn-lg">See Plans and Pricing <Arrow /></a>
+            <a href="/advertisers/" className="btn btn-advertiser btn-lg">{c.cta} <Arrow /></a>
           </div>
         </div>
 
         <div className="ph-visual" data-reveal data-reveal-delay="1">
           <span className="ph-hexglow" aria-hidden="true" />
           <span className="ph-hexplate" aria-hidden="true" />
-          <div className="ph-photo ph-photo-df"><img src="media/figma/hwt-hero.png" alt="An Involve advertiser dashboard tracking every partner's clicks and conversions" loading="eager" /></div>
+          <div className="ph-photo ph-photo-df"><img src="media/figma/hwt-hero.png" alt={c.imageAlt} loading="eager" /></div>
           <div className="ph-static-ui" data-reveal data-reveal-delay="2">
-            <div className="ph-glass ph-g-added"><div className="ph-added">815 deeplinks created</div></div>
+            <div className="ph-glass ph-g-added"><div className="ph-added">{c.added}</div></div>
           </div>
         </div>
       </div>
@@ -131,35 +133,33 @@ function PubHero() {
 }
 
 /* ---------- Final CTA (shared FinalCta, ia-sections.jsx) ----------------- */
-function PubCTA() {
-  return <FinalCta title="Know what every partner is really driving and grow your brand today." href="/advertisers/" tone="advertiser" label="Grow My Brand" />;
+function PubCTA({ c }) {
+  return <FinalCta title={c.title} href="/advertisers/" tone="advertiser" label={c.label} />;
 }
 
 /* ---------- How-We-Track §2 — "One consolidated, verified view" ---------- */
-const CV_POINTS = ['Every partner in one dashboard', 'Sales tracked to the partner who drove them', 'ROI you can compare like for like'];
-const CV_POINTS_OLD = ['A separate report for every partner', "You rely on each partner's own numbers", "ROI you can't compare like for like"];
-function ConsolidatedView() {
+function ConsolidatedView({ c }) {
   return (
     <section id="hwt-view" className="cv-sec">
       <div className="wrap">
-        <h2 className="cv-title" data-reveal>One consolidated, verified view.</h2>
+        <h2 className="cv-title" data-reveal>{c.title}</h2>
         <div className="cv-cards">
           <div className="cv-card cv-card-old" data-reveal>
-            <div className="cv-diagram"><img src="media/figma/hwt-old-way.png" alt="Scattered reports spread across separate partner dashboards" loading="lazy" /></div>
-            <span className="cv-ey">The Old Way</span>
-            <h3 className="cv-ct">Scattered reports, blind optimisation</h3>
-            <p className="cv-cd">Running partners across the open internet makes it hard to see what is really working, and managing separate reports and payouts for each one is harder still.</p>
+            <div className="cv-diagram"><img src="media/figma/hwt-old-way.png" alt={c.old.imageAlt} loading="lazy" /></div>
+            <span className="cv-ey">{c.old.eyebrow}</span>
+            <h3 className="cv-ct">{c.old.title}</h3>
+            <p className="cv-cd">{c.old.desc}</p>
             <ul className="cv-list">
-              {CV_POINTS_OLD.map((t, i) => <li key={i}><span className="cv-mk cv-x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 7l10 10M17 7L7 17" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" /></svg></span>{t}</li>)}
+              {c.old.points.map((t, i) => <li key={i}><span className="cv-mk cv-x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 7l10 10M17 7L7 17" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" /></svg></span>{t}</li>)}
             </ul>
           </div>
           <div className="cv-card cv-card-new" data-reveal data-reveal-delay="1">
-            <div className="cv-diagram"><img src="media/figma/hwt-consolidated.png" alt="Every partnership consolidated into one Involve dashboard" loading="lazy" /></div>
-            <span className="cv-ey cv-ey-adv">With Involve Asia</span>
-            <h3 className="cv-ct">Consolidated, verified transparency</h3>
-            <p className="cv-cd">Involve brings every partnership into one dashboard, so you can compare performance like for like and see your true ROI.</p>
+            <div className="cv-diagram"><img src="media/figma/hwt-consolidated.png" alt={c.new.imageAlt} loading="lazy" /></div>
+            <span className="cv-ey cv-ey-adv">{c.new.eyebrow}</span>
+            <h3 className="cv-ct">{c.new.title}</h3>
+            <p className="cv-cd">{c.new.desc}</p>
             <ul className="cv-list">
-              {CV_POINTS.map((t, i) => <li key={i}><span className="cv-mk cv-ok" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 12.5l4 4 8-9" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" /></svg></span>{t}</li>)}
+              {c.new.points.map((t, i) => <li key={i}><span className="cv-mk cv-ok" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 12.5l4 4 8-9" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" /></svg></span>{t}</li>)}
             </ul>
           </div>
         </div>
@@ -187,18 +187,13 @@ function ConsolidatedView() {
   );
 }
 /* ---------- How-We-Track §3 — "How tracking works" (3 numbered steps) ---------- */
-const DF_STEPS = [
-  ['01', 'Your publisher shares their trackable link', 'Every partner gets a unique link for your offer.'],
-  ['02', 'Every click is recorded', 'The moment someone clicks, it is tracked.'],
-  ['03', 'The sale is attributed automatically', 'When a click leads to a sale, it is tied back to the publisher who drove it.'],
-];
-function HowItWorks() {
+function HowItWorks({ c }) {
   return (
     <section id="hwt-how" className="hw-sec">
       <div className="wrap">
-        <h2 className="hw-title" data-reveal>How tracking works.</h2>
+        <h2 className="hw-title" data-reveal>{c.title}</h2>
         <div className="hw-grid">
-          {DF_STEPS.map(([n, t, d], i) => (
+          {c.items.map(([n, t, d], i) => (
             <div className="hw-step" key={n} data-reveal data-reveal-delay={i + 1}>
               <span className="hw-num">{n}</span>
               <h3 className="hw-st">{t}</h3>
@@ -220,22 +215,21 @@ function HowItWorks() {
   );
 }
 /* ---------- How-We-Track §4 — "Verified, not just reported" (copy + status table) ---------- */
-const VF_CHECKS = ['Every conversion verified before payout', "You reject anything that isn't genuine", 'Every sale tracked to the publisher who drove it'];
-function Verified() {
+function Verified({ c }) {
   return (
     <section id="hwt-verified" className="vf-sec">
       <div className="wrap">
         <div className="vf-box" data-reveal>
           <div className="vf-grid">
             <div className="vf-left">
-              <h2 className="vf-title">Verified, <br />not just reported</h2>
-              <p className="vf-body">Every conversion is yours to validate before payout. Approve the real ones, and your budget goes to genuine sales, not a partner&rsquo;s inflated report.</p>
+              <h2 className="vf-title">{rich(c.title)}</h2>
+              <p className="vf-body">{c.body}</p>
               <ul className="vf-list">
-                {VF_CHECKS.map((t, i) => <li key={i}><span className="vf-ok" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 12.5l4 4 8-9" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" /></svg></span>{t}</li>)}
+                {c.checks.map((t, i) => <li key={i}><span className="vf-ok" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 12.5l4 4 8-9" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" /></svg></span>{t}</li>)}
               </ul>
             </div>
             <div className="vf-visual" data-reveal data-reveal-delay="1">
-              <img src="media/figma/hwt-verified-trans.png" alt="A conversion approvals table showing each order verified or rejected before payout" loading="eager" />
+              <img src="media/figma/hwt-verified-trans.png" alt={c.imageAlt} loading="eager" />
             </div>
           </div>
         </div>
@@ -273,15 +267,16 @@ function Verified() {
 function PublisherApp() {
   useSmoothScroll();
   useScrollReveal();
+  const c = useCopy('how-we-track');
   return (
     <React.Fragment>
       <Nav getStartedTone="pub" />
       <main>
-        <PubHero />
-        <ConsolidatedView />
-        <HowItWorks />
-        <Verified />
-        <PubCTA />
+        <PubHero c={c.hero} />
+        <ConsolidatedView c={c.view} />
+        <HowItWorks c={c.how} />
+        <Verified c={c.verified} />
+        <PubCTA c={c.cta} />
       </main>
       <Footer />
       <BackToTop />

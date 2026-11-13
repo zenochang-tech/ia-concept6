@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "title": "Membership Program | Involve Asia",
+    "description": "Earn more as an Involve partner: upsized commissions, lower Early Withdrawal fees and more free withdrawals as you level up from Silver to Black."
+  },
+  "hero": {
+    "eyebrow": "Membership Program",
+    "title": "Earn more with the Involve Membership Program",
+    "sub": "You’ll get more benefits as a partner with Involve. From upsized commissions to faster payouts!",
+    "cta": "Sign Up",
+    "more": "Learn More",
+    "imageAlt": "A hand holding silver, gold, grey and black membership cards"
+  },
+  "benefits": {
+    "title": "Your Involve membership benefits",
+    "items": [
+      ["Upsized commissions", "Up to 10% bonuses on your earned payouts*"],
+      ["Get paid faster and cheaper", "Lower Early Withdrawal fees by up to 20%"],
+      ["Withdraw more frequently", "Get paid as frequently as you’d like"],
+      ["More benefits soon", "Check back for more exciting new benefits!"]
+    ]
+  },
+  "levels": {
+    "title": "Involve membership levels",
+    "sub": "Upgrade your membership to gain access to improved benefits.",
+    "labelHead": "Membership benefits",
+    "levelLabel": "Level {n}",
+    "notIncluded": "Not included",
+    "levels": ["Silver", "Gold", "Platinum", "Black"],
+    "rows": [
+      ["Bonus on earned payouts*", false, "5%", "8%", "10%"],
+      ["Early Withdrawal Fee discount", false, "10%", "15%", "20%"],
+      ["Free withdrawals a month", "Up to 2", "Up to 3", "Up to 5", "Unlimited"]
+    ],
+    "note": "*Bonuses on earned payouts only apply to conversions on selected offers."
+  },
+  "how": {
+    "title": "How does the Involve Membership Program work?",
+    "sub": "You can improve your membership level by doing one of the following:",
+    "items": [
+      ["Earn more affiliate commissions", "Earn more affiliate commissions with Involve."],
+      ["Earn more membership points", "Earn more Involve membership points."]
+    ]
+  },
+  "cta": {
+    "title": "Register as an Involve partner today!",
+    "label": "Sign Up"
+  }
+}

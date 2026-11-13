@@ -2,8 +2,9 @@
    Fraud Awareness — the notice to publishers and partners about people falsely
    claiming to represent Involve Asia. Hero and body reuse the Terms & Conditions
    page components (Glossary-style hex hero + the plain legal text block). Copy is
-   verbatim from the live involve.asia/partners/fraud-awareness/ page.
-   Loads AFTER ia-shared.jsx (Nav/Footer/BackToTop/hooks).
+   verbatim from the live involve.asia/partners/fraud-awareness/ page and lives in
+   content/pages/fraud-awareness/<lang>.json (read through useCopy).
+   Loads AFTER ia-shared.jsx (Nav/Footer/BackToTop/hooks/useCopy/rich).
    ============================================================================ */
 
 /* ---------- Hero (same component as the Terms & Conditions page) ----------- */
@@ -19,13 +20,13 @@ function FaHexField() {
     </svg>
   );
 }
-function FaHero() {
+function FaHero({ c }) {
   return (
     <section id="fa-hero" className="gh-sec">
       <div className="gh-honey" aria-hidden="true"><FaHexField /></div>
       <div className="wrap gh-wrap">
-        <span className="gh-eyebrow" data-reveal>For Publishers &amp; Partners</span>
-        <h1 className="gh-title" data-reveal data-reveal-delay="1">Fraud awareness notice</h1>
+        <span className="gh-eyebrow" data-reveal>{c.eyebrow}</span>
+        <h1 className="gh-title" data-reveal data-reveal-delay="1">{c.title}</h1>
       </div>
       <style>{`
         .gh-sec{ position:relative; overflow:hidden; background:var(--warm-50); padding:clamp(44px,8vh,92px) 0 clamp(16px,2.4vh,30px); text-align:center; }
@@ -44,48 +45,16 @@ function FaHero() {
   );
 }
 
-/* ---------- Content data (verbatim from involve.asia/partners/fraud-awareness/) ----- */
-const FA_INTRO = [
-  `We would like to alert all publishers and partners to reports of suspected fraudulent activity involving individuals or organizations who may be falsely claiming to represent Involve Asia or have authority to act on our behalf.`,
-  `While these arrangements are made independently of Involve Asia, we believe it is important to raise awareness so that our community can make informed decisions and avoid potential disputes, payment issues, or financial losses.`,
-];
-
-const FA_SECTIONS = [
-  { h: 'What to watch out for', lead: 'We have been informed of situations where an individual or organization may:', items: [
-    'Claim to be a budget provider, representative, or strategic partner of Involve Asia.',
-    'Present Involve Asia’s platform as a tracking tool that they control or manage.',
-    'Request publishers to run campaigns or traffic through accounts that they do not own.',
-    'Promise payments outside of Involve Asia and arrange settlements directly with publishers.',
-    'Suggest they have special authority, access, or approval from Involve Asia.',
-    'Use Involve Asia’s name, platform, or reputation to gain trust and credibility.',
-  ], after: 'Such arrangements may result in publishers having no direct access to campaign reporting, payment records, or commission payouts through their own Involve Asia account.' },
-  { h: 'How to protect yourself', lead: 'We strongly recommend the following best practices:', items: [
-    'Work directly with Involve Asia for all campaign, offer, and payment-related matters.',
-    'Only run campaigns through publisher accounts that you own and have direct payment access to.',
-    'Verify any claims of partnership, representation, or special arrangements involving Involve Asia before proceeding.',
-    'Include Involve Asia in discussions whenever our platform, offers, or brand are being referenced.',
-    'Exercise caution when payment arrangements are proposed outside of Involve Asia’s standard payment process.',
-  ] },
-  { h: 'What we don’t authorize', lead: 'To avoid any misunderstanding, we would like to clarify the following:', items: [
-    'Involve Asia does not authorize any third party to represent us, commit budgets, negotiate deals, or collect payments on our behalf without explicit written confirmation.',
-    'Any partnership, agreement, or payment arrangement made without Involve Asia’s direct involvement is solely between the participating parties.',
-    'Involve Asia is not responsible for any disputes, delayed payments, financial losses, or damages arising from such arrangements.',
-    'We will not mediate or intervene in disputes where Involve Asia was not involved from the outset.',
-  ] },
-];
-
-const FA_EMAIL = 'wecare@involve.asia';
-
-function FaContent() {
+function FaContent({ c }) {
   return (
     <section id="fa-content" className="tc-sec">
       <div className="wrap tc-wrap">
         <div className="tc-preamble" data-reveal>
-          {FA_INTRO.map((t, i) => <p className="tc-p" key={i}>{t}</p>)}
+          {c.intro.map((t, i) => <p className="tc-p" key={i}>{t}</p>)}
         </div>
-        {FA_SECTIONS.map((sec) => (
-          <div className="tc-block" key={sec.h} data-reveal>
-            <h2 className="tc-h">{sec.h}</h2>
+        {c.sections.map((sec) => (
+          <div className="tc-block" key={sec.title} data-reveal>
+            <h2 className="tc-h">{sec.title}</h2>
             <p className="tc-p">{sec.lead}</p>
             <ul className="fa-list">
               {sec.items.map((t, i) => <li key={i}>{t}</li>)}
@@ -94,8 +63,8 @@ function FaContent() {
           </div>
         ))}
         <div className="tc-block" data-reveal>
-          <h2 className="tc-h">How to verify</h2>
-          <p className="tc-p">If you encounter any suspicious activity or would like to verify the legitimacy of an individual, organization, or arrangement involving Involve Asia, please contact us via email at <a className="fa-mail" href={`mailto:${FA_EMAIL}`}>{FA_EMAIL}</a>.</p>
+          <h2 className="tc-h">{c.verify.title}</h2>
+          <p className="tc-p">{rich(c.verify.text, 'fa-mail')}</p>
         </div>
       </div>
       <style>{`
@@ -120,12 +89,13 @@ function FaContent() {
 function FraudAwarenessApp() {
   useSmoothScroll();
   useScrollReveal();
+  const c = useCopy('fraud-awareness');
   return (
     <React.Fragment>
       <Nav getStartedTone="pub" />
       <main>
-        <FaHero />
-        <FaContent />
+        <FaHero c={c.hero} />
+        <FaContent c={c} />
       </main>
       <Footer />
       <BackToTop />

@@ -1,13 +1,15 @@
 /* ============================================================================
-   publishers.jsx — "For Publishers" overview page.
+   pricing.jsx — "Pricing" page (advertiser plans).
    Loaded AFTER ia-shared.jsx (which defines Nav/Footer/etc. and exposes them on
    window). Sections are built one at a time from the Figma frame (node 1260:46678),
-   same flow as the homepage. Motion/animation is a final pass.
+   same flow as the homepage. Motion/animation is a final pass. All copy lives in
+   content/pages/pricing/<lang>.json and arrives through useCopy — this file only
+   holds the layout, links and icons.
    ============================================================================ */
 
 // Shared UI comes from ia-shared.jsx (pulled off window so this works regardless
 // of how Babel-standalone scopes each script tag).
-const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, FinalCta, Faq, LogoMarquee } = window;
+const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, FinalCta, Faq, LogoMarquee, useCopy, rich } = window;
 
 /* ---------- Section 1 — Hero ---------------------------------------------- */
 /* Decorative honeycomb backdrop (shared hero art, see useHeroDecoArt in ia-shared.jsx), rendered faint. */
@@ -24,15 +26,15 @@ function PricingHexField() {
     </svg>
   );
 }
-function PubHero() {
+function PubHero({ c }) {
   return (
     <section id="pricing-hero" className="prh-sec">
       {/* honeycomb backdrop (same field as the final CTA) — spans the hero + plan cards */}
       <div className="prh-honey" aria-hidden="true"><PricingHexField /></div>
       <div className="wrap prh-wrap">
-        <span className="prh-eyebrow" data-reveal>Affiliate Marketing Pricing for Advertisers</span>
-        <h1 className="prh-title" data-reveal data-reveal-delay="1">The plan that fits your growth.</h1>
-        <p className="prh-sub" data-reveal data-reveal-delay="2">Whether you are launching your first program or scaling an established one,<br />pick the plan that matches your stage.</p>
+        <span className="prh-eyebrow" data-reveal>{c.eyebrow}</span>
+        <h1 className="prh-title" data-reveal data-reveal-delay="1">{c.title}</h1>
+        <p className="prh-sub" data-reveal data-reveal-delay="2">{rich(c.sub)}</p>
       </div>
       <style>{`
         .prh-sec{ position:relative; overflow:visible; background:var(--warm-50); padding:clamp(48px,7vh,100px) 0 clamp(36px,5.5vh,64px); }
@@ -52,30 +54,25 @@ function PubHero() {
 }
 
 /* ---------- Section 1b — Plan cards (Startup / Growth / Enterprise) -------- */
+// text (name/desc/price/unit/priceNote/plus/feats/cta) comes from c.items, zipped by index;
+// `plan` is the English plan name sent to get-started
 const PRICING_PLANS = [
-  { key: 'startup', name: 'Startup', desc: 'For brands launching their first affiliate program.',
-    price: '$99', unit: '/mo', cta: 'Get Started', href: '/advertisers/',
-    feats: ['Track up to 100,000 clicks a month', '1 offer setup', 'Single-tier commission', 'Access to the publisher marketplace', 'Dashboard access', 'Helpdesk support'] },
-  { key: 'growth', name: 'Growth', desc: 'For brands ready to make affiliates a core growth channel.',
-    price: '$499', unit: '/mo', cta: 'Get Started', href: '/advertisers/', recommended: true,
-    plus: 'Everything in Startup, plus:',
-    feats: ['Track up to 1,000,000 clicks a month', 'Up to 3 offer setups', 'Multi-tier commission', 'Up to 3 recruitment campaigns a month', 'Publisher introductions', 'A dedicated account manager', 'Quarterly performance review'] },
-  { key: 'enterprise', name: 'Enterprise', desc: 'For large brands with high volumes or custom requirements.',
-    price: 'Custom', priceNote: 'Volume-based pricing.', cta: 'Talk to Us', href: '/advertisers/',
-    plus: 'Everything in Growth, plus:',
-    feats: ['A dedicated account manager and priority support', 'Custom volumes, offers, and reporting built around your goals.'] },
+  { key: 'startup', plan: 'Startup', href: '/advertisers/' },
+  { key: 'growth', plan: 'Growth', href: '/advertisers/', recommended: true },
+  { key: 'enterprise', plan: 'Enterprise', href: '/advertisers/' },
 ];
 function PlanCheck() {
   return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>);
 }
-function PricingPlans() {
+function PricingPlans({ c }) {
+  const plans = PRICING_PLANS.map((x, i) => ({ ...x, ...c.items[i] }));
   return (
     <section id="pricing-plans" className="pp-sec">
       <div className="wrap">
         <div className="pp-grid" data-reveal>
-          {PRICING_PLANS.map((p) => (
+          {plans.map((p) => (
             <div className={'pp-card' + (p.recommended ? ' pp-rec' : '')} key={p.key}>
-              {p.recommended && <span className="pp-badge">Recommended</span>}
+              {p.recommended && <span className="pp-badge">{c.recommended}</span>}
               <h3 className="pp-name">{p.name}</h3>
               <p className="pp-desc">{p.desc}</p>
               <div className="pp-price"><span className="pp-amt">{p.price}</span>{p.unit && <span className="pp-unit">{p.unit}</span>}</div>
@@ -85,11 +82,11 @@ function PricingPlans() {
               <ul className="pp-feats">
                 {p.feats.map((f, i) => (<li key={i}><span className="pp-chk" aria-hidden="true"><PlanCheck /></span>{f}</li>))}
               </ul>
-              <a href={`get-started?plan=${encodeURIComponent(p.name)}`} className="btn btn-advertiser btn-lg pp-cta">{p.cta} <Arrow /></a>
+              <a href={`get-started?plan=${encodeURIComponent(p.plan)}`} className="btn btn-advertiser btn-lg pp-cta">{p.cta} <Arrow /></a>
             </div>
           ))}
         </div>
-        <p className="pp-terms" data-reveal>All plans include a one-time $1,000 setup and launch fee and a 3-month minimum term.</p>
+        <p className="pp-terms" data-reveal>{c.terms}</p>
       </div>
       <style>{`
         .pp-sec{ position:relative; background:transparent; padding:clamp(44px,7vh,80px) 0 clamp(56px,9vh,112px); }
@@ -126,62 +123,46 @@ function PricingPlans() {
 }
 
 /* ---------- Section 1c — "Compare our partnership levels" table ----------- */
-// cell value: true = check, false = dash, string = text
-const CMP_ROWS = [
-  ['Monthly price', '$99', '$499', 'Custom'],
-  ['Clicks tracked a month', 'Up to 100,000', 'Up to 1,000,000', 'Custom'],
-  ['Offer setups', '1', 'Up to 3', 'Custom'],
-  ['Commission structure', 'Single-tier', 'Multi-tier', 'Multi-tier'],
-  ['Recruitment campaigns a month', false, 'Up to 3', 'Custom'],
-  ['Publisher introductions', false, true, true],
-  ['Dedicated account manager', false, true, true],
-  ['Priority support', false, false, true],
-  ['Quarterly performance review', false, true, true],
-  ['Custom offers and reporting', false, false, true],
-  ['Publisher marketplace access', true, true, true],
-  ['Verified conversions and fraud protection', true, true, true],
-  ['Setup and launch fee', '$1,000 one-time', '$1,000 one-time', '$1,000 one-time'],
-  ['Minimum term', '3 months', '3 months', '3 months'],
-  ['Support', 'Helpdesk', 'Dedicated manager', 'Dedicated manager and priority'],
-];
-function PricingCompare() {
+// rows come from c.rows — cell value: true = check, false = dash, string = text
+function PricingCompare({ c }) {
   const cell = (v) => v === true
-    ? <span className="cmp-chk" aria-label="Included"><PlanCheck /></span>
-    : v === false ? <span className="cmp-dash" aria-label="Not included">×</span> : v;
+    ? <span className="cmp-chk" aria-label={c.included}><PlanCheck /></span>
+    : v === false ? <span className="cmp-dash" aria-label={c.notIncluded}>×</span> : v;
+  const [st, gr, en] = c.plans;
   return (
     <section id="pricing-compare" className="cmp-sec">
       <div className="wrap">
         <div className="cmp-head" data-reveal>
-          <span className="cmp-eyebrow">Pricing Plans</span>
-          <h2 className="cmp-title">Compare our partnership levels</h2>
-          <p className="cmp-sub">Simple, transparent pricing engineered to scale your affiliate channel.</p>
+          <span className="cmp-eyebrow">{c.eyebrow}</span>
+          <h2 className="cmp-title">{c.title}</h2>
+          <p className="cmp-sub">{c.sub}</p>
         </div>
         <div className="cmp-scroll" data-reveal data-reveal-delay="1">
           <div className="cmp-table">
             <div className="cmp-row cmp-hrow">
-              <div className="cmp-c cmp-label-h">Platform features</div>
+              <div className="cmp-c cmp-label-h">{c.labelHead}</div>
               <div className="cmp-c cmp-plan">
-                <span className="cmp-plan-name">Startup</span>
-                <span className="cmp-plan-price">$99<small>/mo</small></span>
-                <a href="/advertisers/" className="btn btn-secondary cmp-cta">Get Started</a>
+                <span className="cmp-plan-name">{st.name}</span>
+                <span className="cmp-plan-price">{st.price}<small>{st.unit}</small></span>
+                <a href="/advertisers/" className="btn btn-secondary cmp-cta">{st.cta}</a>
               </div>
               <div className="cmp-c cmp-plan cmp-rec">
-                <span className="cmp-recbadge">Recommended</span>
-                <span className="cmp-plan-name">Growth</span>
-                <span className="cmp-plan-price">$499<small>/mo</small></span>
-                <a href="/advertisers/" className="btn btn-advertiser cmp-cta">Get Started</a>
+                <span className="cmp-recbadge">{c.recommended}</span>
+                <span className="cmp-plan-name">{gr.name}</span>
+                <span className="cmp-plan-price">{gr.price}<small>{gr.unit}</small></span>
+                <a href="/advertisers/" className="btn btn-advertiser cmp-cta">{gr.cta}</a>
               </div>
               <div className="cmp-c cmp-plan">
-                <span className="cmp-plan-name">Enterprise</span>
-                <span className="cmp-plan-price cmp-custom">Custom</span>
-                <a href="/advertisers/" className="btn btn-secondary cmp-cta">Talk to Sales</a>
+                <span className="cmp-plan-name">{en.name}</span>
+                <span className="cmp-plan-price cmp-custom">{en.price}</span>
+                <a href="/advertisers/" className="btn btn-secondary cmp-cta">{en.cta}</a>
               </div>
             </div>
-            {CMP_ROWS.map((r, i) => (
+            {c.rows.map((r, i) => (
               <div className="cmp-row" key={i}>
                 <div className="cmp-c cmp-label">{r[0]}</div>
                 <div className="cmp-c">{cell(r[1])}</div>
-                <div className={'cmp-c cmp-rec' + (i === CMP_ROWS.length - 1 ? ' cmp-rec-last' : '')}>{i === CMP_ROWS.length - 1 ? <b>{cell(r[2])}</b> : cell(r[2])}</div>
+                <div className={'cmp-c cmp-rec' + (i === c.rows.length - 1 ? ' cmp-rec-last' : '')}>{i === c.rows.length - 1 ? <b>{cell(r[2])}</b> : cell(r[2])}</div>
                 <div className="cmp-c">{cell(r[3])}</div>
               </div>
             ))}
@@ -244,12 +225,8 @@ function PricingCompare() {
 }
 
 /* ---------- Section 1e — "Every plan comes with the essentials" ----------- */
-const PR_ESSENTIALS = [
-  { icon: 'users', title: '1,000,000+ publishers', desc: 'Access to over 1,000,000 publishers across retail, travel, beauty, finance, and more.' },
-  { icon: 'activity', title: 'Precision tracking', desc: 'Real tracking, down to every click and conversion, in one dashboard.' },
-  { icon: 'shield', title: 'Conversion verification', desc: 'Every conversion verified before you pay.' },
-  { icon: 'chat', title: 'Dedicated human support', desc: 'Real human support, from day one.' },
-];
+// icon per card; title/desc come from c.items, zipped by index
+const PR_ESSENTIALS = ['users', 'activity', 'shield', 'chat'];
 function EssIcon({ name }) {
   const p = {
     users: <><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></>,
@@ -259,15 +236,15 @@ function EssIcon({ name }) {
   }[name];
   return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">{p}</svg>;
 }
-function PricingEssentials() {
+function PricingEssentials({ c }) {
   return (
     <section id="pricing-essentials" className="ess-sec">
       <div className="wrap">
-        <h2 className="ess-title" data-reveal>Every plan comes with the essentials.</h2>
+        <h2 className="ess-title" data-reveal>{c.title}</h2>
         <div className="ess-grid" data-reveal data-reveal-delay="1">
-          {PR_ESSENTIALS.map((e) => (
-            <div className="ess-card" key={e.title}>
-              <span className="ess-ic" aria-hidden="true"><EssIcon name={e.icon} /></span>
+          {c.items.map((e, i) => (
+            <div className="ess-card" key={PR_ESSENTIALS[i]}>
+              <span className="ess-ic" aria-hidden="true"><EssIcon name={PR_ESSENTIALS[i]} /></span>
               <h3 className="ess-ct">{e.title}</h3>
               <p className="ess-cd">{e.desc}</p>
             </div>
@@ -294,28 +271,29 @@ function PricingEssentials() {
 function HowArrow() {
   return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></svg>);
 }
-function PricingHow() {
+function PricingHow({ c }) {
   return (
     <section id="pricing-how" className="how-sec">
       <div className="wrap">
-        <h2 className="how-title" data-reveal>How pricing works, in two clear parts.</h2>
+        <h2 className="how-title" data-reveal>{c.title}</h2>
         <div className="how-grid" data-reveal data-reveal-delay="1">
           <div className="how-col">
             <span className="how-num">1</span>
-            <h3 className="how-ct">Your platform plan.</h3>
-            <p className="how-cd">A monthly fee (Startup $99, Growth $499, or custom for Enterprise), a one-time $1,000 setup and launch fee, and a 3 month minimum term. This is what you pay Involve to run your program.</p>
+            <h3 className="how-ct">{c.plan.title}</h3>
+            <p className="how-cd">{c.plan.d}</p>
             <span className="how-divider" aria-hidden="true" />
             <ul className="how-notes">
-              <li><span className="how-arr" aria-hidden="true"><HowArrow /></span>The setup fee covers our team building and launching your program with you, so it goes live set up the right way, not on your own.</li>
-              <li><span className="how-arr" aria-hidden="true"><HowArrow /></span>The 3 month minimum gives a new program enough runway to recruit publishers and gather data before you decide what is next.</li>
+              {c.plan.notes.map((t, i) => (
+                <li key={i}><span className="how-arr" aria-hidden="true"><HowArrow /></span>{t}</li>
+              ))}
             </ul>
           </div>
           <div className="how-col">
             <span className="how-num">2</span>
-            <h3 className="how-ct">What you pay publishers.</h3>
-            <p className="how-cd">A commission you set on each offer, paid only when a publisher drives a real, verified sale. This is the pay-for-results part, so this spend always maps to revenue.</p>
+            <h3 className="how-ct">{c.pay.title}</h3>
+            <p className="how-cd">{c.pay.d}</p>
             <span className="how-divider" aria-hidden="true" />
-            <div className="how-callout">Affiliate marketing is pure performance. You are completely in control of the commission rates and only pay after validation.</div>
+            <div className="how-callout">{c.pay.callout}</div>
           </div>
         </div>
       </div>
@@ -338,35 +316,17 @@ function PricingHow() {
   );
 }
 /* ---------- Section 2 — Logo strip ---------------------------------------- */
-function PubLogos() {
-  return <LogoMarquee caption="Trusted by brands your customers already know, across retail, travel, beauty, and finance." />;
+function PubLogos({ c }) {
+  return <LogoMarquee caption={c.caption} />;
 }
 
 /* ---------- Section 8 — "Questions, answered." (FAQ accordion) ------------
-   Pricing FAQ. Bracketed answers are client placeholders to confirm before launch. */
-const PUB_FAQ = [
-  ['What do I actually pay publishers?',
-    'You set the commission for each offer. Publishers earn it only when they drive a real sale, so your spend maps to revenue.'],
-  ['What is the $1,000 setup fee for?',
-    'It covers building and launching your program with our team, so it is set up correctly and live quickly.'],
-  ['Why a 3 month minimum?',
-    'Affiliate programs need runway to recruit publishers and gather data. Three months is enough to see real results.'],
-  ['What happens after the three-month minimum?',
-    'Your plan continues on a rolling basis, and you can upgrade, downgrade, or cancel it as your program evolves.'],
-  ["What happens if I exceed my plan's tracking limit?",
-    'If your traffic grows beyond your plan, you can move up to one that fits, and our team will help you make the switch.'],
-  ['Can I change plans later?',
-    'Yes. Move from Startup to Growth, or up to Enterprise, as your program scales.'],
-  ['Which plan should I pick?',
-    'Most brands making affiliates a core channel choose Growth. Start with Startup to launch and test, and talk to us for Enterprise volumes. Or get a free growth audit.'],
-  ['How are results tracked?',
-    'Every click and conversion is tracked to the publisher who drove it, and verified before payout.'],
-];
+   Pricing FAQ; questions and answers come from c.items. */
 const PUB_FAQ_CSS = `
         .fq-a a{ color:var(--midnight-light); font-weight:600; text-decoration:underline; text-underline-offset:2px; }
       `;
-function PubFAQ() {
-  return <Faq items={PUB_FAQ} title="Pricing questions, answered." css={PUB_FAQ_CSS} />;
+function PubFAQ({ c }) {
+  return <Faq items={c.items} title={c.title} css={PUB_FAQ_CSS} />;
 }
 
 /* ---------- Final CTA (shared FinalCta, ia-sections.jsx) ----------------- */
@@ -376,27 +336,28 @@ const PUB_CTA_CSS = `
         .pc-sub{ margin-top:14px; font:400 16px/1.5 var(--font-body); color:var(--warm-600); max-width:620px; }
         @media (max-width:700px){ .pc-sec{ padding:clamp(60px,9vh,84px) 0 clamp(68px,10vh,96px); } }
       `;
-function PubCTA() {
-  return <FinalCta title="Not sure where to start? We'll help." sub="Book a quick call and our team will map out the fastest way to grow your brand with Involve." href="/advertisers/" tone="advertiser" label="Talk to Us" css={PUB_CTA_CSS} />;
+function PubCTA({ c }) {
+  return <FinalCta title={c.title} sub={c.sub} href="/advertisers/" tone="advertiser" label={c.label} css={PUB_CTA_CSS} />;
 }
 
 function PricingApp() {
   useSmoothScroll();
   useScrollReveal();
+  const c = useCopy('pricing');
   return (
     <React.Fragment>
       <Nav getStartedTone="midnight" />
       <main>
-        <PubHero />
-        <PricingPlans />
-        <PricingCompare />
+        <PubHero c={c.hero} />
+        <PricingPlans c={c.plans} />
+        <PricingCompare c={c.compare} />
         {/* <PricingAudit /> hidden per request */}
-        <PricingEssentials />
-        <PricingHow />
-        <PubFAQ />
+        <PricingEssentials c={c.essentials} />
+        <PricingHow c={c.how} />
+        <PubFAQ c={c.faq} />
         {/* pricing sections added section-by-section; advertiser-only sections retired */}
-        <PubLogos />
-        <PubCTA />
+        <PubLogos c={c.logos} />
+        <PubCTA c={c.cta} />
       </main>
       <Footer />
       <BackToTop />

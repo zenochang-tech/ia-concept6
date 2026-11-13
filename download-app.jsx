@@ -1,14 +1,9 @@
 /* ============================================================================
    download-app.jsx — "Download App" page. Single full-height hero built from
-   Figma 2618:7102. Loaded AFTER ia-shared.jsx (Nav/Footer/Arrow/BackToTop/hooks
-   on window / global scope).
+   Figma 2618:7102. All copy lives in content/pages/download-app/<lang>.json and
+   arrives through useCopy. Loaded AFTER ia-shared.jsx (Nav/Footer/Arrow/BackToTop/
+   hooks/useCopy on window / global scope).
    ============================================================================ */
-
-const DL_FEATURES = [
-  'Find brands your audience will love, and start promoting in a tap.',
-  'Create and share trackable links on the go, as many as you need.',
-  'Track your clicks, sales, and earnings in real time, wherever you are.',
-];
 
 const DlCheck = () => (
   <svg className="dl-check" viewBox="0 0 24 24" width="23" height="23" aria-hidden="true">
@@ -17,42 +12,42 @@ const DlCheck = () => (
   </svg>
 );
 
-function DownloadHero() {
+function DownloadHero({ c }) {
   return (
     <section id="dl-hero" className="dl-sec">
       <div className="wrap dl-wrap">
         <div className="dl-copy">
-          <h1 className="dl-title" data-reveal>Your affiliate earnings, in your pocket.</h1>
-          <p className="dl-sub" data-reveal data-reveal-delay="1">Find brands, create trackable links, and track your earnings, anywhere. The Involve Asia app puts your whole affiliate workflow on your phone.</p>
+          <h1 className="dl-title" data-reveal>{c.title}</h1>
+          <p className="dl-sub" data-reveal data-reveal-delay="1">{c.sub}</p>
           <ul className="dl-feats" data-reveal data-reveal-delay="1">
-            {DL_FEATURES.map((f) => (
+            {c.features.map((f) => (
               <li className="dl-feat" key={f}><DlCheck /><span>{f}</span></li>
             ))}
           </ul>
-          <p className="dl-more" data-reveal data-reveal-delay="2">More coming in future releases.</p>
+          <p className="dl-more" data-reveal data-reveal-delay="2">{c.more}</p>
           <div className="dl-qrcard" data-reveal data-reveal-delay="2">
-            <a className="dl-qr-link" href="https://app.involve.asia/v2/download-app" target="_blank" rel="noopener noreferrer" aria-label="Download the Involve Asia app">
-              <img className="dl-qr" src="media/figma/app-download-qr.png" alt="QR code to download the Involve Asia app" />
+            <a className="dl-qr-link" href="https://app.involve.asia/v2/download-app" target="_blank" rel="noopener noreferrer" aria-label={c.qrAria}>
+              <img className="dl-qr" src="media/figma/app-download-qr.png" alt={c.qrAlt} />
             </a>
             <p className="dl-qr-txt">
-              <span className="dl-txt-d">Scan to download Involve Asia app here</span>
-              <span className="dl-txt-m">Scan or press on the QR to download the Involve Asia app</span>
+              <span className="dl-txt-d">{c.qrText}</span>
+              <span className="dl-txt-m">{c.qrTextMobile}</span>
             </p>
             <div className="dl-stores">
-              <a className="dl-store" href="#" aria-label="Get it on Google Play">
+              <a className="dl-store" href="#" aria-label={c.googlePlay.aria}>
                 <img className="dl-store-ic" src="media/figma/store-googleplay-icon.svg" alt="" />
-                <span className="dl-store-txt"><small>GET IT ON</small><b>Google Play</b></span>
+                <span className="dl-store-txt"><small>{c.googlePlay.small}</small><b>{c.googlePlay.name}</b></span>
               </a>
-              <a className="dl-store" href="#" aria-label="Download on the App Store">
+              <a className="dl-store" href="#" aria-label={c.appStore.aria}>
                 <img className="dl-store-ic dl-store-ic-apple" src="media/figma/store-apple-icon.svg" alt="" />
-                <span className="dl-store-txt"><small>Download on the</small><b>App Store</b></span>
+                <span className="dl-store-txt"><small>{c.appStore.small}</small><b>{c.appStore.name}</b></span>
               </a>
             </div>
           </div>
         </div>
 
         <div className="dl-visual" data-reveal data-reveal-delay="1">
-          <img src="media/figma/app-download-phones.png" alt="The Involve Asia app shown on two phones" loading="eager" />
+          <img src="media/figma/app-download-phones.png" alt={c.imageAlt} loading="eager" />
         </div>
       </div>
 
@@ -120,10 +115,11 @@ function DownloadHero() {
 function DownloadAppPage() {
   useSmoothScroll();
   useScrollReveal();
+  const c = useCopy('download-app');
   return (
     <React.Fragment>
       <Nav getStartedTone="pub" />
-      <main><DownloadHero /></main>
+      <main><DownloadHero c={c.hero} /></main>
       <Footer />
       <BackToTop />
     </React.Fragment>

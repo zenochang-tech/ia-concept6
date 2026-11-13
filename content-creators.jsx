@@ -1,5 +1,7 @@
 /* ============================================================================
-   publishers.jsx — "For Publishers" overview page.
+   content-creators.jsx — "For Creator Partners" page.
+   All copy lives in content/pages/content-creators/<lang>.json and arrives through
+   useCopy — this file only holds the layout.
    Loaded AFTER ia-shared.jsx (which defines Nav/Footer/etc. and exposes them on
    window). Sections are built one at a time from the Figma frame (node 1260:46678),
    same flow as the homepage. Motion/animation is a final pass.
@@ -7,29 +9,29 @@
 
 // Shared UI comes from ia-shared.jsx (pulled off window so this works regardless
 // of how Babel-standalone scopes each script tag).
-const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, PlatformTabs, FinalCta, Testimonials, PUB_VOICES, Faq, AppDownload, HeroHexGrid, HERO_HEXGRID_CSS } = window;
+const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, PlatformTabs, FinalCta, Testimonials, PUB_VOICES, Faq, AppDownload, HeroHexGrid, HERO_HEXGRID_CSS, useCopy, rich } = window;
 
 /* ---------- Section 1 — Hero ---------------------------------------------- */
-function PubHero() {
+function PubHero({ c }) {
   return (
     <section id="pub-hero" className="ph-sec">
       <span className="ph-basefade" aria-hidden="true" />
       <div className="wrap ph-wrap">
         <HeroHexGrid />
         <div className="ph-copy">
-          <span className="ph-eyebrow" data-reveal>For Creator Partners</span>
-          <h1 className="ph-title" data-reveal data-reveal-delay="1">Turn the content you already make into income.</h1>
-          <p className="ph-sub" data-reveal data-reveal-delay="2">Thousands of brands want to work with creators and influencers like you, whatever your follower count. Share what you love, earn on every sale.</p>
+          <span className="ph-eyebrow" data-reveal>{c.eyebrow}</span>
+          <h1 className="ph-title" data-reveal data-reveal-delay="1">{c.title}</h1>
+          <p className="ph-sub" data-reveal data-reveal-delay="2">{c.sub}</p>
           <div className="ph-actions" data-reveal data-reveal-delay="3">
-            <a href="/partners/" className="btn btn-primary btn-lg">Start Earning <Arrow /></a>
+            <a href="/partners/" className="btn btn-primary btn-lg">{c.cta} <Arrow /></a>
           </div>
-          <span className="ph-free" data-reveal data-reveal-delay="3">Free to join. Start earning today.</span>
+          <span className="ph-free" data-reveal data-reveal-delay="3">{c.free}</span>
         </div>
 
         <div className="ph-visual" data-reveal data-reveal-delay="1">
           <span className="ph-hexglow" aria-hidden="true" />
           <span className="ph-hexplate" aria-hidden="true" />
-          <div className="ph-photo ph-photo-fill"><img src="media/figma/creator-partner-hero-image.png?v=2" alt="A content creator sharing product recommendations with her audience" loading="eager" /></div>
+          <div className="ph-photo ph-photo-fill"><img src="media/figma/creator-partner-hero-image.png?v=2" alt={c.imageAlt} loading="eager" /></div>
         </div>
       </div>
 
@@ -128,39 +130,25 @@ function PubHero() {
 
 /* ---------- Testimonials (shared Testimonials, ia-sections.jsx) --------- */
 // Shared list, but this page punctuates the Siakap Keli pull-quote without the dash.
-const VOICES = PUB_VOICES.map((v) => (v.name === 'Siakap Keli' ? { ...v, quote: 'Such a good overall experience with IA, very friendly & professional.' } : v));
-function PubVoices() {
-  return <Testimonials items={VOICES} />;
+function PubVoices({ c }) {
+  const voices = PUB_VOICES.map((v) => (v.name === 'Siakap Keli' ? { ...v, quote: c.siakapKeliQuote } : v));
+  return <Testimonials items={voices} />;
 }
 
 /* ---------- Section 8 — "Questions, answered." (FAQ accordion) ------------
    Copy supplied by the client. Two answers carry links (beginner guide, Express
    Withdrawal) — hrefs are placeholders pending the real URLs. Example figures
    (4.2% commission, 10 working days) are illustrative — confirm before launch. */
-const PUB_FAQ = [
-  ['Do I need a big following?',
-    'No. You earn on the sales you drive, not on follower count, so engagement matters more than size.'],
-  ['Which platforms can I use?',
-    'Instagram, TikTok, YouTube, and more. Anywhere you can share a link or a code.'],
-  ['How and when do I get paid?',
-    'Once your sales are validated you withdraw in your local currency, with Express Withdrawal for early access.'],
-  ["I'm an influencer. Is this for me?",
-    'Yes. Whether you call yourself a creator or an influencer, if you have an audience on any platform, you can earn, whatever your follower count.'],
-];
-function PubFAQ() {
-  return <Faq items={PUB_FAQ} />;
+function PubFAQ({ c }) {
+  return <Faq items={c.items.map(([q, a]) => [q, rich(a)])} />;
 }
 
 /* ---------- Final CTA (shared FinalCta, ia-sections.jsx) ----------------- */
-function PubCTA() {
-  return <FinalCta title="Turn your audience into income." />;
+function PubCTA({ c }) {
+  return <FinalCta title={c.title} />;
 }
 
 /* ---------- CC §2 — "Made for TikTok, YouTube, Instagram, and more." ---------- */
-const MADE_POINTS = [
-  ['Earn on any platform.', "Involve works on any platform your followers are on. Your link works wherever you post, so you're never tied to one channel. Wherever you can share a link, you can earn."],
-  ['No website, no shop, no minimum following.', "You don't need a store or a big audience to start. Share your link wherever your followers are, and earn when they buy."],
-];
 /* Auto-play peek carousel for the "Made for TikTok, YouTube, Instagram" visual.
    Coverflow-style: centre screen at full opacity, prev/next neighbours peek at 32%.
    Motion (per Figma node 3134:4169): each screen slides in from the right to centre,
@@ -173,7 +161,7 @@ const SOCIAL_SCREENS = [
   { key: 'instagram', label: 'Instagram', video: 'instagram-story-vid.mp4', img: 'creator-social-instagram-poster.webp', icon: 'creator-icon-2.svg', tint: 'linear-gradient(155deg,#feda75,#d62976 52%,#5b51d8)' },
 ];
 const MADEFOR_MS = 5000;   // matches the 5s clips so each video plays fully before advancing
-function MadeForCarousel() {
+function MadeForCarousel({ c }) {   // c = { carouselLabel, previews[] } (previews by index)
   const N = SOCIAL_SCREENS.length;
   const reduced = prefersReduced();
   const [active, setActive] = React.useState(0);
@@ -225,7 +213,7 @@ function MadeForCarousel() {
     }
   }, [active, reduced, N]);
   return (
-    <div className="mf-cv" role="group" aria-roledescription="carousel" aria-label="The same creator sharing a product across TikTok, YouTube and Instagram">
+    <div className="mf-cv" role="group" aria-roledescription="carousel" aria-label={c.carouselLabel}>
       {SOCIAL_SCREENS.map((s, i) => {
         const d = (i - active + N) % N;
         return (
@@ -236,9 +224,9 @@ function MadeForCarousel() {
                 ? <video ref={el => (videoRefs.current[i] = el)}
                          src={`media/video/${s.video}`}
                          poster={s.img ? `media/figma/${s.img}` : undefined}
-                         muted playsInline preload="auto" aria-label={`${s.label} preview`} />
+                         muted playsInline preload="auto" aria-label={c.previews[i]} />
                 : s.img
-                  ? <img src={`media/figma/${s.img}`} alt={`${s.label} preview`} loading="lazy" />
+                  ? <img src={`media/figma/${s.img}`} alt={c.previews[i]} loading="lazy" />
                   : <span className="mf-cv-ph">{s.label}</span>}
             </div>
             <div className="mf-cv-icon" aria-hidden="true">
@@ -252,15 +240,15 @@ function MadeForCarousel() {
     </div>
   );
 }
-function MadeFor() {
+function MadeFor({ c }) {
   return (
     <section id="cc-made" className="mf-sec">
       <div className="wrap">
         <div className="mf-grid">
           <div className="mf-left">
-            <h2 className="mf-title" data-reveal>Made for TikTok, YouTube, Instagram, and more.</h2>
+            <h2 className="mf-title" data-reveal>{c.title}</h2>
             <div className="mf-points" data-reveal data-reveal-delay="1">
-              {MADE_POINTS.map(([t, d]) => (
+              {c.points.map(([t, d]) => (
                 <div className="mf-point" key={t}>
                   <h3 className="mf-pt">{t}</h3>
                   <p className="mf-pd">{d}</p>
@@ -269,7 +257,7 @@ function MadeFor() {
             </div>
           </div>
           <div className="mf-visual" data-reveal>
-            <MadeForCarousel />
+            <MadeForCarousel c={c} />
           </div>
         </div>
       </div>
@@ -310,12 +298,13 @@ function MadeFor() {
 }
 /* ---------- CC §3 — "Built for the way you create." (tab view, reused from the
    publisher overview's platform stepper — pf-* pattern). One tab per tool. ---------- */
+// Keys, images and icons by index; the tab text comes from c.items.
 const CREATE_TABS = [
-  { key: 'app', t: 'Mobile app', d: 'Generate links and grab codes on the go. Share to your socials in seconds, and check your clicks, conversions, and earnings from your phone.', img: 'creator-partner-53-slide1.png?v=2',
+  { key: 'app', img: 'creator-partner-53-slide1.png?v=2',
     ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="6" y="2" width="12" height="20" rx="3" /><path d="M11 18h2" /></svg> },
-  { key: 'code', t: 'Code Generator', d: "Get a unique code to share where links don't work, like your Instagram captions. Your audience uses it at checkout and the sale tracks back to you.", img: 'creator-partner-slide2.png',
+  { key: 'code', img: 'creator-partner-slide2.png',
     ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0l-7.2-7.2a2 2 0 0 1-.6-1.4V4a1 1 0 0 1 1-1h7.8a2 2 0 0 1 1.4.6l7.6 7.6a2 2 0 0 1 0 2.6Z" /><path d="M7.5 7.5h.01" /></svg> },
-  { key: 'creative', t: 'Creative Hub', d: 'Grab ready-made banners and coupon codes from top brands and drop them straight into your content.', img: 'creator-partner-slide3.png?v=2',
+  { key: 'creative', img: 'creator-partner-slide3.png?v=2',
     ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="8.5" cy="8.5" r="1.5" /><path d="M21 15l-5-5L5 21" /></svg> },
 ];
 const CREATE_TABS_CSS = `
@@ -354,11 +343,12 @@ const CREATE_TABS_CSS = `
             margin:18px 0 0; border-radius:var(--r-xl);
             background:var(--warm-150); }
         }`;
-function BuiltCreate() {
+function BuiltCreate({ c }) {
+  const items = CREATE_TABS.map((tab, i) => ({ ...tab, t: c.items[i][0], d: c.items[i][1] }));
   return (
-    <PlatformTabs id="cc-create" className="cct-sec" items={CREATE_TABS} mobileCards figClass="pf-step-fig-img" css={CREATE_TABS_CSS}
-      title="Built for the way you create."
-      sub="Everything you need to turn your content into income, in one place." />
+    <PlatformTabs id="cc-create" className="cct-sec" items={items} mobileCards figClass="pf-step-fig-img" css={CREATE_TABS_CSS}
+      title={c.title}
+      sub={c.sub} />
   );
 }
 /* ---------- CC §3b — "Why creators earn with Involve." (3 icon columns) — Figma 2667:17675 ---------- */
@@ -367,20 +357,17 @@ const WE_ICONS = {
   heart: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 20.5S4.5 16 4.5 10.6A3.6 3.6 0 0 1 12 7.5a3.6 3.6 0 0 1 7.5 3.1C19.5 16 12 20.5 12 20.5Z" /></svg>,
   file: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z" /><path d="M14 3v5h5" /><path d="M9.3 14.4l1.9 1.9 3.5-3.7" /></svg>,
 };
-const WHY_EARN = [
-  ['bag', 'You earn per sale, not per follower.', 'A small, engaged audience can out-earn a big one. No minimum following to start.'],
-  ['heart', 'Promote what already fits.', 'Keep making what you make. Add links to the products you would recommend anyway.'],
-  ['file', 'Get paid faster.', 'Earnings are validated daily, and Express Withdrawal lets you withdraw before validation finishes.'],
-];
-function WhyEarn() {
+// Icon keys by index; the item text comes from c.items.
+const WHY_EARN_ICONS = ['bag', 'heart', 'file'];
+function WhyEarn({ c }) {
   return (
     <section id="cc-why" className="we-sec">
       <div className="wrap">
-        <h2 className="we-title" data-reveal>Why creators earn with Involve.</h2>
+        <h2 className="we-title" data-reveal>{c.title}</h2>
         <div className="we-grid">
-          {WHY_EARN.map(([ic, t, d], i) => (
+          {c.items.map(([t, d], i) => (
             <div className="we-item" key={t} data-reveal data-reveal-delay={i + 1}>
-              <span className="we-icon">{WE_ICONS[ic]}</span>
+              <span className="we-icon">{WE_ICONS[WHY_EARN_ICONS[i]]}</span>
               <h3 className="we-ct">{t}</h3>
               <p className="we-cd">{d}</p>
             </div>
@@ -402,12 +389,8 @@ function WhyEarn() {
   );
 }
 /* ---------- CC §2b — "How it works" (3 numbered steps) — Figma 2546:45011 ---------- */
-const HIW_STEPS = [
-  { t: 'Pick a brand', d: 'Browse 500+ brands and choose products that fit your audience.', img: 'general-hye-01.png' },
-  { t: 'Share your link', d: 'Drop a trackable link in your bio, stories, or captions, or share a promo code.', img: 'cc-hye-02.png' },
-  { t: 'Earn on every sale', d: 'When a follower buys through your link, the sale is credited to you.', img: 'general-hye-03.png' },
-  { t: 'Get paid', d: 'Withdraw in your local currency once sales are validated, or sooner with Express Withdrawal.', img: 'general-hye-04.png' },
-];
+// Step images by index; the step text comes from c.steps.
+const HIW_IMG = ['general-hye-01.png', 'cc-hye-02.png', 'general-hye-03.png', 'general-hye-04.png'];
 // Card 1 (Pick a brand): a 4x2 grid of brand logos where one logo is "active" at
 // a time; a single timer advances the playhead row by row (0..7) and loops.
 const BG_COUNT = 8;
@@ -486,17 +469,17 @@ function GetPaidPill() {
     </span>
   );
 }
-function HowItWorks() {
+function HowItWorks({ c }) {
   return (
     <section id="cc-how" className="hiw-sec">
       <div className="wrap">
-        <h2 className="hiw-title" data-reveal>How you earn.</h2>
+        <h2 className="hiw-title" data-reveal>{c.title}</h2>
         <div className="hiw-grid">
-          {HIW_STEPS.map((s, i) => (
-            <div className="hiw-step" key={s.t} data-reveal data-reveal-delay={i + 1}>
-              <div className="hiw-card"><img src={`media/figma/${s.img}`} alt="" loading="lazy" onError={(e) => { e.currentTarget.style.visibility = 'hidden'; }} /></div>
-              <h3 className="hiw-ct">{i + 1}. {s.t}</h3>
-              <p className="hiw-cd">{s.d}</p>
+          {c.steps.map(([t, d], i) => (
+            <div className="hiw-step" key={t} data-reveal data-reveal-delay={i + 1}>
+              <div className="hiw-card"><img src={`media/figma/${HIW_IMG[i]}`} alt="" loading="lazy" onError={(e) => { e.currentTarget.style.visibility = 'hidden'; }} /></div>
+              <h3 className="hiw-ct">{i + 1}. {t}</h3>
+              <p className="hiw-cd">{d}</p>
             </div>
           ))}
         </div>
@@ -541,18 +524,19 @@ function HowItWorks() {
 function PublisherApp() {
   useSmoothScroll();
   useScrollReveal();
+  const c = useCopy('content-creators');
   return (
     <React.Fragment>
       <Nav getStartedTone="pub" />
       <main>
-        <PubHero />
-        <MadeFor />
-        <HowItWorks />
-        <BuiltCreate />
-        <WhyEarn />
-        <PubVoices />
-        <PubFAQ />
-        <PubCTA />
+        <PubHero c={c.hero} />
+        <MadeFor c={c.made} />
+        <HowItWorks c={c.how} />
+        <BuiltCreate c={c.create} />
+        <WhyEarn c={c.why} />
+        <PubVoices c={c.voices} />
+        <PubFAQ c={c.faq} />
+        <PubCTA c={c.cta} />
       </main>
       <Footer />
       <AppDownload />

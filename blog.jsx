@@ -3,12 +3,15 @@
    page in our design system: same audience entry points (Publisher / Advertiser blogs)
    and the same four category sections, in the same order. Posts are PLACEHOLDERS copied
    from the live page (title, link, featured image); at dev time each row is fed by the
-   newest posts in its WordPress category. Loads AFTER ia-shared.jsx
-   (Nav/Footer/Arrow/BackToTop/hooks live on window / global scope).
+   newest posts in its WordPress category. All copy (including the placeholder post titles,
+   zipped with the slugs/images below by index) lives in content/pages/blog/<lang>.json and
+   arrives through useCopy — this file only holds the layout, links and images. Loads AFTER
+   ia-shared.jsx (Nav/Footer/Arrow/BackToTop/hooks live on window / global scope).
    ============================================================================ */
 
 const BLOG_BASE = 'https://involve.asia/blog/';
 const BLOG_IMG = 'https://involve.asia/wp-content/uploads/';
+const { useCopy } = window;
 
 /* ---------- Hero honeycomb (shared hero art, see useHeroDecoArt in ia-shared.jsx) ---------- */
 function BlogHexField() {
@@ -26,26 +29,26 @@ function BlogHexField() {
 
 /* ---------- Section 1 — Hero + the two audience entry points (as on the live page), laid out as the
    homepage "Pick your side" scene: two photo hexagons in the middle, one audience on each side ---------- */
+// text (kick/title/d/cta) comes from c.doors, zipped by index
 const BLOG_DOORS = [
-  { tone: 'pub', kick: 'Creators. Affiliates. Technology Partners.', title: 'I want to earn as a creator or affiliate', d: 'Tips, offers and guides to grow your affiliate income.',
-    cta: 'Explore Publisher Blogs', href: 'https://involve.asia/publisher-blog/' },
-  { tone: 'adv', kick: 'Brands. Retailers. Enterprises.', title: 'I want to grow my brand with affiliates', d: 'Case studies, campaign tips and performance insights.',
-    cta: 'Explore Advertiser Blogs', href: 'https://involve.asia/advertiser-blog/' },
+  { tone: 'pub', href: 'https://involve.asia/publisher-blog/' },
+  { tone: 'adv', href: 'https://involve.asia/advertiser-blog/' },
 ];
-function BlogHero() {
+function BlogHero({ c }) {
+  const doors = BLOG_DOORS.map((x, i) => ({ ...x, ...c.doors[i] }));
   return (
     <section id="blog-hero" className="bh-sec">
       <div className="bh-honey" aria-hidden="true"><BlogHexField /></div>
       <div className="wrap bh-wrap">
-        <h1 className="bh-title" data-reveal>Involve Asia Blog</h1>
-        <p className="bh-sub" data-reveal data-reveal-delay="1">Discover top affiliate tips, success stories, and the best programs to join on Involve Asia. Get the insights you need to grow in affiliate marketing.</p>
+        <h1 className="bh-title" data-reveal>{c.title}</h1>
+        <p className="bh-sub" data-reveal data-reveal-delay="1">{c.sub}</p>
       </div>
       <div className="hf-scene bh-scene">
-        <span className="hf-kick hf-kick-m" aria-hidden="true">{BLOG_DOORS[0].kick}</span>
-        <span className="hf-kick adv hf-kick-m" aria-hidden="true">{BLOG_DOORS[1].kick}</span>
-        <img className="hf-photohex hf-ph-pub" src="media/figma/publisher-blog-image.png" alt="A publisher reading on her phone" style={{ '--i': 0 }} />
-        <img className="hf-photohex hf-ph-adv" src="media/figma/advertiser-blog-image.png" alt="An advertiser reading on his tablet" style={{ '--i': 1 }} />
-        {BLOG_DOORS.map((x) => (
+        <span className="hf-kick hf-kick-m" aria-hidden="true">{doors[0].kick}</span>
+        <span className="hf-kick adv hf-kick-m" aria-hidden="true">{doors[1].kick}</span>
+        <img className="hf-photohex hf-ph-pub" src="media/figma/publisher-blog-image.png" alt={c.pubImageAlt} style={{ '--i': 0 }} />
+        <img className="hf-photohex hf-ph-adv" src="media/figma/advertiser-blog-image.png" alt={c.advImageAlt} style={{ '--i': 1 }} />
+        {doors.map((x) => (
           <div key={x.tone} className={`hf-card hf-card-${x.tone}`}>
             <span className={'hf-kick' + (x.tone === 'adv' ? ' adv' : '')}>{x.kick}</span>
             <h2 className="hf-ct">{x.title}</h2>
@@ -100,10 +103,10 @@ function BlogHero() {
 }
 
 /* ---------- Category bar — jumps to the four sections below ---------- */
-function BlogCatBar() {
-  const [on, setOn] = React.useState(BLOG_CATS[0].id);
+function BlogCatBar({ cats, c }) {
+  const [on, setOn] = React.useState(cats[0].id);
   React.useEffect(() => {
-    const els = BLOG_CATS.map((c) => document.getElementById(c.id)).filter(Boolean);
+    const els = cats.map((c) => document.getElementById(c.id)).filter(Boolean);
     const io = new IntersectionObserver((ents) => {
       const vis = ents.filter((e) => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
       if (vis[0]) setOn(vis[0].target.id);
@@ -119,10 +122,10 @@ function BlogCatBar() {
     wrap.scrollTo({ left: link.offsetLeft - (wrap.clientWidth - link.offsetWidth) / 2, behavior: 'smooth' });
   }, [on]);
   return (
-    <nav className="bc-bar" aria-label="Blog categories">
+    <nav className="bc-bar" aria-label={c.ariaLabel}>
       <div className="wrap bc-wrap" ref={wrapRef}>
-        {BLOG_CATS.map((c) => (
-          <a key={c.id} href={`#${c.id}`} className={'bc-link' + (on === c.id ? ' on' : '')} aria-current={on === c.id ? 'true' : undefined}>{c.label}</a>
+        {cats.map((x) => (
+          <a key={x.id} href={`#${x.id}`} className={'bc-link' + (on === x.id ? ' on' : '')} aria-current={on === x.id ? 'true' : undefined}>{x.label}</a>
         ))}
       </div>
       <style>{`
@@ -140,54 +143,56 @@ function BlogCatBar() {
 }
 
 /* ---------- Sections 2–5 — the live page's four categories, same order and "See All" targets ---------- */
+// slug + featured image per post; the category label/tag/title and the post titles come from
+// c.cats (same order), zipped by index in BlogApp
 const BLOG_CATS = [
-  { id: 'programs', label: 'Affiliate Programs', tag: 'For Publishers', tone: 'pub', title: 'Best affiliate programs to join as our publisher',
+  { id: 'programs', tone: 'pub',
     all: BLOG_BASE + 'category/partners/featured-offers/', posts: [
-      ['CHAGEE Affiliate Program on Involve Asia: Pickup or Delivery', 'chagee-affiliate-program', '2026/09/Wordpress-blog-post-11-768x512.jpg'],
-      ['Coursera Affiliate Program on Involve Asia: Promote Online Courses', 'coursera-affiliate-program', '2026/09/Wordpress-blog-post-5-768x512.jpg'],
-      ['Skylum Affiliate Program on Involve Asia: Promote Luminar Neo', 'skylum-affiliate-program', '2026/09/Wordpress-blog-post-4-768x512.jpg'],
-      ['Lancome Affiliate Program on Involve Asia: Earn with Luxury Skincare', 'lancome-affiliate-program', '2026/09/Wordpress-blog-post-2-768x512.jpg'],
-      ['Miravia Affiliate Program on Involve Asia: Promote Online Lifestyle Marketplace', 'miravia-affiliate-program', '2026/10/Wordpress-blog-post-768x512.jpg'],
-      ['Emergent AI Affiliate Program on Involve Asia: Promote AI App-Building', 'emergent-ai-affiliate-program', '2026/10/Wordpress-blog-post-14-768x512.jpg'],
-      ['TREVO Affiliate Program on Involve Asia: Earn with Car Rental', 'trevo-affiliate-program', '2026/09/Wordpress-blog-post-10-768x512.jpg'],
-      ['Shopee Brazil Affiliate Program on Involve Asia: Promote a Platform that Converts', 'shopee-brazil-affiliate-program', '2026/09/Wordpress-blog-post-9-768x512.jpg'],
+      ['chagee-affiliate-program', '2026/09/Wordpress-blog-post-11-768x512.jpg'],
+      ['coursera-affiliate-program', '2026/09/Wordpress-blog-post-5-768x512.jpg'],
+      ['skylum-affiliate-program', '2026/09/Wordpress-blog-post-4-768x512.jpg'],
+      ['lancome-affiliate-program', '2026/09/Wordpress-blog-post-2-768x512.jpg'],
+      ['miravia-affiliate-program', '2026/10/Wordpress-blog-post-768x512.jpg'],
+      ['emergent-ai-affiliate-program', '2026/10/Wordpress-blog-post-14-768x512.jpg'],
+      ['trevo-affiliate-program', '2026/09/Wordpress-blog-post-10-768x512.jpg'],
+      ['shopee-brazil-affiliate-program', '2026/09/Wordpress-blog-post-9-768x512.jpg'],
     ] },
-  { id: 'guides', label: 'Getting Started', tag: 'For Publishers', tone: 'pub', title: 'Guides to get you started as our publisher',
+  { id: 'guides', tone: 'pub',
     all: BLOG_BASE + 'category/partners/getting-started-publishers/', posts: [
-      ['What Are Affiliate Commissions? (Beginner Guide with Involve Asia)', 'what-are-affiliate-commissions', '2026/04/What-Are-Affiliate-Commissions-768x512.png'],
-      ['What Are Affiliate Programs? (Beginner Guide with Involve Asia)', 'what-are-affiliate-programs', '2026/04/What-Are-Affiliate-Programs-768x512.png'],
-      ['What Are Affiliate Earnings? (Beginner Guide with Involve Asia)', 'what-are-affiliate-earnings', '2026/04/What-Are-Affiliate-Earnings-Beginner-Guide-with-Involve-Asia-768x512.png'],
-      ['What Is an Affiliate Creator? (Beginner Guide with Involve Asia)', 'what-is-an-affiliate-creator', '2026/04/What-Is-an-Affiliate-Creator-Beginner-Guide-with-Involve-Asia-768x512.png'],
-      ['Affiliate Marketing Payment Methods: A Complete Guide', 'affiliate-marketing-payment-methods', '2026/09/Wordpress-blog-post-13-768x512.png'],
-      ['What Is EPC in Affiliate Marketing? A Simple Guide for Beginners', 'what-is-epc-in-affiliate-marketing', '2026/05/what-is-epc-in-affiliate-marketing-768x512.jpg'],
-      ['What Are Affiliate Marketers? Everything You Need to Know Before Getting Started', 'what-are-affiliate-marketers', '2026/05/affiliate-marketers-768x512.jpg'],
-      ['What Are Affiliate Networks? (Beginner Guide with Involve Asia)', 'what-are-affiliate-networks', '2026/04/What-Are-Affiliate-Networks-Beginner-Guide-with-Involve-Asia-768x512.png'],
+      ['what-are-affiliate-commissions', '2026/04/What-Are-Affiliate-Commissions-768x512.png'],
+      ['what-are-affiliate-programs', '2026/04/What-Are-Affiliate-Programs-768x512.png'],
+      ['what-are-affiliate-earnings', '2026/04/What-Are-Affiliate-Earnings-Beginner-Guide-with-Involve-Asia-768x512.png'],
+      ['what-is-an-affiliate-creator', '2026/04/What-Is-an-Affiliate-Creator-Beginner-Guide-with-Involve-Asia-768x512.png'],
+      ['affiliate-marketing-payment-methods', '2026/09/Wordpress-blog-post-13-768x512.png'],
+      ['what-is-epc-in-affiliate-marketing', '2026/05/what-is-epc-in-affiliate-marketing-768x512.jpg'],
+      ['what-are-affiliate-marketers', '2026/05/affiliate-marketers-768x512.jpg'],
+      ['what-are-affiliate-networks', '2026/04/What-Are-Affiliate-Networks-Beginner-Guide-with-Involve-Asia-768x512.png'],
     ] },
-  { id: 'publisher-stories', label: 'Publisher Stories', tag: 'For Publishers', tone: 'pub', title: 'Success stories from our publishers',
+  { id: 'publisher-stories', tone: 'pub',
     all: BLOG_BASE + 'category/partners/success-stories-partners/', posts: [
-      ['Good Foodie: Monetise Content Through Involve', 'good-foodie-monetise-content-through-involve', '2023/04/Featured-Image-Good-Foodie-768x512.png'],
-      ['Raiz Invest: Bridging The Gap Between Finance & E-Commerce Marketplace', 'raiz-invest-bridging-the-gap', '2022/12/Raiz-Invest-EN-Feature-Image-768x512.png'],
-      ['SuperMom, Career Woman & Mother: How She Turned Her Life Around with Involve', 'supermom-career-woman-mother', '2022/11/Supermom-Feature-Image-768x512.jpg'],
-      ['Weng Honn: Educating People on How to Earn Money Online', 'weng-honn-educating-making-money-online', '2021/12/20210527-Feature-Image-Success-Story-Weng-Honn-min-768x512.jpg'],
-      ['Partner Success Story: GetPlus’s Affiliate Marketing Success', 'partner-success-story-getplus', '2024/08/Featured-Image-Partner-Success-Story-GetPluss-Affiliate-Marketing-Success-768x512.png'],
-      ['Terence Ooi’s Affiliate Journey with Involve Asia', 'partner-success-story-terence-ooi', '2024/06/Terence-Ooi-Feature-Image-768x512.webp'],
-      ['Jourimanzky: Style to Inspire', 'partner-success-story-jourimanzky', '2024/06/Featured-Image-Jourimanzkys-Success-Story-768x512.png'],
-      ['Flickstree: Path to Affiliate Excellence', 'partner-success-story-flickstree', '2024/01/Featured-Image-Partner-Success-Story-Flickstree-1-768x512.png'],
-      ['Media Terkini: Keep It Simple With Daily Product Recommendations', 'media-terkini', '2023/08/Success-Story-MediaTerkini-768x512.jpg'],
-      ['My Weekend Plan: Make Everyday Feel Like Saturday', 'my-weekend-plan-make-everyday-feel-like-saturday', '2023/05/MyWeekendPlan_FI-D03-768x512.png'],
+      ['good-foodie-monetise-content-through-involve', '2023/04/Featured-Image-Good-Foodie-768x512.png'],
+      ['raiz-invest-bridging-the-gap', '2022/12/Raiz-Invest-EN-Feature-Image-768x512.png'],
+      ['supermom-career-woman-mother', '2022/11/Supermom-Feature-Image-768x512.jpg'],
+      ['weng-honn-educating-making-money-online', '2021/12/20210527-Feature-Image-Success-Story-Weng-Honn-min-768x512.jpg'],
+      ['partner-success-story-getplus', '2024/08/Featured-Image-Partner-Success-Story-GetPluss-Affiliate-Marketing-Success-768x512.png'],
+      ['partner-success-story-terence-ooi', '2024/06/Terence-Ooi-Feature-Image-768x512.webp'],
+      ['partner-success-story-jourimanzky', '2024/06/Featured-Image-Jourimanzkys-Success-Story-768x512.png'],
+      ['partner-success-story-flickstree', '2024/01/Featured-Image-Partner-Success-Story-Flickstree-1-768x512.png'],
+      ['media-terkini', '2023/08/Success-Story-MediaTerkini-768x512.jpg'],
+      ['my-weekend-plan-make-everyday-feel-like-saturday', '2023/05/MyWeekendPlan_FI-D03-768x512.png'],
     ] },
-  { id: 'advertiser-stories', label: 'Advertiser Stories', tag: 'For Advertisers', tone: 'adv', title: 'Success stories from our advertisers',
+  { id: 'advertiser-stories', tone: 'adv',
     all: BLOG_BASE + 'category/advertisers/success-stories/', posts: [
-      ['How Involve Social Partners Drove 4.3x in Sales for TIME Internet', 'involve-social-partners-time-internet', '2024/01/TIME-Internet-MY-Case-Study-Feature-Image-768x512.png'],
-      ['How Lotus’s Drove 29x in Sales in 6 Months Through Optimisation', 'lotuss-sales-optimisation', '2024/02/Lotuss-Case-Study-Feature-Image-768x512.png'],
-      ['How Big Bang Sales Drove a 796% Increase in Sales', 'big-bang-sales', '2024/02/Big-Bang-Sales-Feature-Image-768x512.png'],
-      ['How Influencers Drove 6% Engagement Rate with Easybook Instagram Content', 'influencers-engagement-easybook-instagram', '2024/01/Easybook-Case-Study-Feature-Image-V2-768x512.png'],
-      ['How Gaming Brands Boost Revenue With Affiliate Marketing in 2026', 'how-gaming-brands-boost-revenue-with-affiliate-marketing', '2026/07/How-Gaming-Brands-Boost-Revenue-With-Affiliate-Marketing-in-2026-768x512.png'],
-      ['How a Health & Wellness Affiliate Program Generated MYR 723K in Sales and 4,912 Conversions with Involve Asia', 'health-affiliate-program-case-study', '2026/05/Wordpress-blog-post-1-768x512.jpg'],
-      ['Case Study: How Digital Service Affiliate Programs Grow with Flexible Affiliate Marketing Models', 'digital-service-affiliate-programs-case-study', '2026/05/how-digital-service-brands-grow-with-affiliate-marketing-768x512.jpg'],
-      ['How Philippine Finance Brands Grow With Affiliate Marketing on Involve Asia', 'philippine-finance-brands-grow-with-affiliate-marketing', '2025/11/How-Philippine-Finance-Affiliate-Programs-Grow-With-Involve-Asia-768x512.png'],
-      ['How Philippine Fashion Brands Grow With Affiliate Marketing on Involve Asia', 'philippine-fashion-brands-grow-with-affiliate-marketing', '2025/11/How-Philippine-Fashion-Brands-Are-Growing-With-Affiliate-Marketing-on-Involve-Asia-768x512.png'],
-      ['How RinggitPlus Garnered 52% Increase in Sign-Ups for Personal Loans', 'ringgitplus-garnered-increase-signups-personal-loans', '2024/03/RinggitPlus-Personal-Loans-Feature-Image-768x512.png'],
+      ['involve-social-partners-time-internet', '2024/01/TIME-Internet-MY-Case-Study-Feature-Image-768x512.png'],
+      ['lotuss-sales-optimisation', '2024/02/Lotuss-Case-Study-Feature-Image-768x512.png'],
+      ['big-bang-sales', '2024/02/Big-Bang-Sales-Feature-Image-768x512.png'],
+      ['influencers-engagement-easybook-instagram', '2024/01/Easybook-Case-Study-Feature-Image-V2-768x512.png'],
+      ['how-gaming-brands-boost-revenue-with-affiliate-marketing', '2026/07/How-Gaming-Brands-Boost-Revenue-With-Affiliate-Marketing-in-2026-768x512.png'],
+      ['health-affiliate-program-case-study', '2026/05/Wordpress-blog-post-1-768x512.jpg'],
+      ['digital-service-affiliate-programs-case-study', '2026/05/how-digital-service-brands-grow-with-affiliate-marketing-768x512.jpg'],
+      ['philippine-finance-brands-grow-with-affiliate-marketing', '2025/11/How-Philippine-Finance-Affiliate-Programs-Grow-With-Involve-Asia-768x512.png'],
+      ['philippine-fashion-brands-grow-with-affiliate-marketing', '2025/11/How-Philippine-Fashion-Brands-Are-Growing-With-Affiliate-Marketing-on-Involve-Asia-768x512.png'],
+      ['ringgitplus-garnered-increase-signups-personal-loans', '2024/03/RinggitPlus-Personal-Loans-Feature-Image-768x512.png'],
     ] },
 ];
 
@@ -196,7 +201,7 @@ const BlogChevron = ({ dir }) => (
     <path d={dir < 0 ? 'M15 6l-6 6 6 6' : 'M9 6l6 6-6 6'} />
   </svg>
 );
-function BlogRow({ cat, alt }) {
+function BlogRow({ cat, alt, c }) {
   const rowRef = React.useRef(null);
   const [edge, setEdge] = React.useState({ start: true, end: false });
   const sync = React.useCallback(() => {
@@ -218,9 +223,9 @@ function BlogRow({ cat, alt }) {
             <h2 className="br-title">{cat.title}</h2>
           </div>
           <div className="br-ctrl">
-            <a href={cat.all} className="br-all">See All <Arrow s={15} /></a>
-            <button type="button" className="br-nav" aria-label={`Previous ${cat.label.toLowerCase()} posts`} onClick={() => page(-1)} disabled={edge.start}><BlogChevron dir={-1} /></button>
-            <button type="button" className="br-nav" aria-label={`Next ${cat.label.toLowerCase()} posts`} onClick={() => page(1)} disabled={edge.end}><BlogChevron dir={1} /></button>
+            <a href={cat.all} className="br-all">{c.seeAll} <Arrow s={15} /></a>
+            <button type="button" className="br-nav" aria-label={c.prev.replace('{label}', cat.label.toLowerCase())} onClick={() => page(-1)} disabled={edge.start}><BlogChevron dir={-1} /></button>
+            <button type="button" className="br-nav" aria-label={c.next.replace('{label}', cat.label.toLowerCase())} onClick={() => page(1)} disabled={edge.end}><BlogChevron dir={1} /></button>
           </div>
         </div>
         <div className="br-row" ref={rowRef} onScroll={sync}>
@@ -230,7 +235,7 @@ function BlogRow({ cat, alt }) {
               <span className="br-body">
                 <span className="br-cat">{cat.label}</span>
                 <span className="br-t">{t}</span>
-                <span className="br-more">Read more <Arrow s={14} /></span>
+                <span className="br-more">{c.readMore} <Arrow s={14} /></span>
               </span>
             </a>
           ))}
@@ -281,10 +286,10 @@ const BLOG_ROW_CSS = `
           .br-row{ grid-auto-columns:78%; gap:12px; margin-left:-20px; margin-right:-20px; padding:2px 20px 8px; scroll-padding-left:20px; scroll-snap-type:x proximity; }
           .br-t{ font-size:15px; }
         }`;
-function BlogSections() {
+function BlogSections({ cats, c }) {
   return (
     <React.Fragment>
-      {BLOG_CATS.map((c, i) => <BlogRow key={c.id} cat={c} alt={i % 2 === 1} />)}
+      {cats.map((x, i) => <BlogRow key={x.id} cat={x} alt={i % 2 === 1} c={c} />)}
       <style>{BLOG_ROW_CSS}</style>
     </React.Fragment>
   );
@@ -353,34 +358,34 @@ const HF_CSS = `
 /* ---------------- "Pick your side and grow with us." dual-audience CTA ----------------
    Copied verbatim from the homepage (ia-bundle.jsx HexFinaleStatic, via glossary.jsx) — the final section
    before the footer. */
-function HexFinaleStatic() {
+function HexFinaleStatic({ c }) {
   // [column, row] on the .hf-scene grid (publisher photo = col 0 row 0; odd rows shift half a column)
   const HF_HONEY = [[0, -1], [1, -1], [-2, 1], [-1, 1], [0, 1], [2, 1]];
   return (
     <section id="cta" className="hf">
       <div className="hf-cta">
-        <h2 className="hf-head" data-reveal>Pick your side and grow with us.</h2>
+        <h2 className="hf-head" data-reveal>{c.title}</h2>
         <div className="hf-scene">
           <div className="hf-honey" aria-hidden="true">
             {HF_HONEY.map(([c, r], i) => (
               <span key={i} className="hf-combhex" style={{ '--c': c + (r % 2 ? 0.5 : 0), '--r': r, '--i': i + 2 }} />
             ))}
           </div>
-          <span className="hf-kick hf-kick-m" aria-hidden="true">Creators. Affiliates. Technology Partners.</span>
-          <span className="hf-kick adv hf-kick-m" aria-hidden="true">Brands. Retailers. Enterprises.</span>
-          <img className="hf-photohex hf-ph-pub" src="media/figma/s9-hex-pub.webp" alt="A publisher creating content" style={{ '--i': 0 }} />
-          <img className="hf-photohex hf-ph-adv" src="media/figma/s9-hex-adv.webp" alt="An advertiser growing their brand" style={{ '--i': 1 }} />
+          <span className="hf-kick hf-kick-m" aria-hidden="true">{c.pub.kick}</span>
+          <span className="hf-kick adv hf-kick-m" aria-hidden="true">{c.adv.kick}</span>
+          <img className="hf-photohex hf-ph-pub" src="media/figma/s9-hex-pub.webp" alt={c.pubImageAlt} style={{ '--i': 0 }} />
+          <img className="hf-photohex hf-ph-adv" src="media/figma/s9-hex-adv.webp" alt={c.advImageAlt} style={{ '--i': 1 }} />
           <div className="hf-card hf-card-pub">
-            <span className="hf-kick">Creators. Affiliates. Technology Partners.</span>
-            <h3 className="hf-ct">I'm a <br />Publisher</h3>
-            <p className="hf-cd">Promote brands you love. <span className="hf-cd-more">Turn your audience or traffic into income.</span></p>
-            <a href="/partners/" className="btn btn-primary">Start Earning <Arrow /></a>
+            <span className="hf-kick">{c.pub.kick}</span>
+            <h3 className="hf-ct">{c.pub.titleA}<br />{c.pub.titleB}</h3>
+            <p className="hf-cd">{c.pub.d}<span className="hf-cd-more">{c.pub.dMore}</span></p>
+            <a href="/partners/" className="btn btn-primary">{c.pub.cta} <Arrow /></a>
           </div>
           <div className="hf-card hf-card-adv hf-right">
-            <span className="hf-kick adv">Brands. Retailers. Enterprises.</span>
-            <h3 className="hf-ct">I'm an <br />Advertiser</h3>
-            <p className="hf-cd">Grow your sales with the right publishers. <span className="hf-cd-more">Pay only for results.</span></p>
-            <a href="/advertisers/" className="btn btn-advertiser">Grow My Brand <Arrow /></a>
+            <span className="hf-kick adv">{c.adv.kick}</span>
+            <h3 className="hf-ct">{c.adv.titleA}<br />{c.adv.titleB}</h3>
+            <p className="hf-cd">{c.adv.d}<span className="hf-cd-more">{c.adv.dMore}</span></p>
+            <a href="/advertisers/" className="btn btn-advertiser">{c.adv.cta} <Arrow /></a>
           </div>
         </div>
       </div>
@@ -392,18 +397,20 @@ function HexFinaleStatic() {
 function BlogApp() {
   useSmoothScroll();
   useScrollReveal();
+  const c = useCopy('blog');
+  const cats = BLOG_CATS.map((x, i) => ({ ...x, ...c.cats[i], posts: x.posts.map(([slug, img], j) => [c.cats[i].posts[j], slug, img]) }));
   return (
     <React.Fragment>
       <Nav getStartedTone="pub" />
       <main>
-        <BlogHero />
+        <BlogHero c={c.hero} />
         {/* the category bar is sticky only while the four category sections are on screen */}
         <div className="bl-cats">
-          <BlogCatBar />
-          <BlogSections />
+          <BlogCatBar cats={cats} c={c.catBar} />
+          <BlogSections cats={cats} c={c.row} />
         </div>
         {/* "Pick your side and grow with us." is hidden for now (its two hexagons moved into the hero);
-            add <HexFinaleStatic /> back here to bring it back */}
+            add <HexFinaleStatic c={c.finale} /> back here to bring it back */}
       </main>
       <Footer />
       <BackToTop />

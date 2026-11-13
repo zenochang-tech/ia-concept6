@@ -2,7 +2,11 @@
    about.jsx — "About" page. Redesigned from the legacy involve.asia/about page,
    rebuilt with our reusable components + page styles. Loaded AFTER ia-shared.jsx
    (Nav/Footer/Arrow/BackToTop/hooks/prefersReduced live on window / global scope).
+   All copy lives in content/pages/about/<lang>.json and arrives through useCopy —
+   this file only holds the layout, images, flags and animation.
    ============================================================================ */
+
+const { useCopy, rich } = window;
 
 /* ---------- Decorative honeycomb (ember→blue gradient) — reused from glossary/hero --- */
 let __abHexGradN = 0;
@@ -21,17 +25,16 @@ function AboutHexField() {
 }
 
 /* ---------- Section 1 — Hero -------------------------------------------------- */
-const ABOUT_CHIPS = ['Accurate tracking', 'On-time payouts', 'Secure and reliable'];
-function AboutHero() {
+function AboutHero({ c }) {
   return (
     <section id="about-hero" className="ah-sec">
       <div className="ah-honey" aria-hidden="true"><AboutHexField /></div>
       <div className="wrap ah-wrap">
-        <span className="ah-eyebrow" data-reveal>About us</span>
-        <h1 className="ah-title" data-reveal data-reveal-delay="1">Driving growth across Asia.</h1>
-        <p className="ah-sub" data-reveal data-reveal-delay="1">We connect brands and partners through transparent technology, seamless commission payouts, and global opportunities.</p>
+        <span className="ah-eyebrow" data-reveal>{c.eyebrow}</span>
+        <h1 className="ah-title" data-reveal data-reveal-delay="1">{c.title}</h1>
+        <p className="ah-sub" data-reveal data-reveal-delay="1">{c.sub}</p>
         <div className="ah-chips" data-reveal data-reveal-delay="2">
-          {ABOUT_CHIPS.map((c) => <span className="ah-chip" key={c}>{c}</span>)}
+          {c.chips.map((t) => <span className="ah-chip" key={t}>{t}</span>)}
         </div>
       </div>
       <style>{`
@@ -84,22 +87,22 @@ function CountStat({ prefix = '', value, decimals = 0, suffix = '', comma = fals
   return <b ref={ref}>{txt}</b>;
 }
 // Figures reconciled with the homepage STAT_BAND (ia-bundle.jsx): $3.2B+ sales,
-// 1,000,000+ partners, 500+ brands, $270M+ commissions paid.
+// 1,000,000+ partners, 500+ brands, $270M+ commissions paid. Labels come from c.labels (same order).
 const ABOUT_STATS = [
-  { el: <CountStat prefix="$" value={3.2} decimals={1} suffix="B+" />, label: 'Sales Generated' },
-  { el: <CountStat value={1000000} comma suffix="+" />, label: 'Partners' },
-  { el: <CountStat value={500} suffix="+" />, label: 'Brands' },
-  { el: <CountStat prefix="$" value={270} suffix="M+" />, label: 'Commissions Paid' },
+  <CountStat prefix="$" value={3.2} decimals={1} suffix="B+" />,
+  <CountStat value={1000000} comma suffix="+" />,
+  <CountStat value={500} suffix="+" />,
+  <CountStat prefix="$" value={270} suffix="M+" />,
 ];
-function AboutStats() {
+function AboutStats({ c }) {
   return (
     <section id="about-stats" className="abs-sec">
       <div className="wrap">
         <div className="abs-grid">
-          {ABOUT_STATS.map((s, i) => (
-            <div className="abs-stat" key={s.label} data-reveal data-reveal-delay={i + 1}>
-              {s.el}
-              <span>{s.label}</span>
+          {ABOUT_STATS.map((el, i) => (
+            <div className="abs-stat" key={i} data-reveal data-reveal-delay={i + 1}>
+              {el}
+              <span>{c.labels[i]}</span>
             </div>
           ))}
         </div>
@@ -118,27 +121,21 @@ function AboutStats() {
 }
 
 /* ---------- Section 3 — Our Story (2-col) ------------------------------------ */
-const ABOUT_MILESTONES = [
-  ['2014', 'Founded in Kuala Lumpur', 'Involve Asia starts with one goal: connect brands with the partners who can genuinely grow them.'],
-  ['Growth', 'Across Southeast Asia', 'Expands into six markets, building local teams that understand each one.'],
-  ['Partnerships', 'Trusted by leading platforms', 'Becomes a go-to partner for brands like Shopee, Lazada and TikTok Shop.'],
-  ['Recognition', 'Awarded and certified', 'Earns B Corp certification and a place on the Deloitte Technology Fast 500.'],
-];
-function AboutStory() {
+function AboutStory({ c }) {
   return (
     <section id="about-story" className="ast-sec">
       <div className="wrap">
         <div className="ast-wrap">
           <div className="ast-head" data-reveal>
-            <span className="ast-eyebrow">Our story</span>
-            <h2 className="ast-title">Built for Southeast Asia from day one.</h2>
+            <span className="ast-eyebrow">{c.eyebrow}</span>
+            <h2 className="ast-title">{c.title}</h2>
           </div>
           <div className="ast-body" data-reveal data-reveal-delay="1">
-            <p>We started in 2014 with one goal: connect brands with the people who can genuinely grow them, and make the results something both sides can trust. Today, more than 500 brands and over a million partners grow together on Involve Asia, from cashback sites to creators. Every sale is tracked and validated before anyone is paid.</p>
+            <p>{c.body}</p>
           </div>
         </div>
         <ol className="ast-timeline">
-          {ABOUT_MILESTONES.map(([yr, t, d], i) => (
+          {c.milestones.map(([yr, t, d], i) => (
             <li className="ast-ms" key={t} data-reveal data-reveal-delay={i + 1}>
               <span className="ast-ms-dot" aria-hidden="true" />
               <span className="ast-ms-yr">{yr}</span>
@@ -173,11 +170,11 @@ function AboutStory() {
 }
 
 /* ---------- Section 3b — Office sign (container-width photo before "Our expertise") ---------- */
-function AboutSign() {
+function AboutSign({ c }) {
   return (
-    <section id="about-sign" className="asn-sec" aria-label="Involve Asia office">
+    <section id="about-sign" className="asn-sec" aria-label={c.label}>
       <div className="wrap">
-        <img className="asn-img" src="media/figma/IA_company-sign.png" alt="The Involve Asia logo sign on a black wall in our office" loading="lazy" data-reveal />
+        <img className="asn-img" src="media/figma/IA_company-sign.png" alt={c.imageAlt} loading="lazy" data-reveal />
       </div>
       <style>{`
         .asn-sec{ background:var(--warm-50); }
@@ -190,26 +187,23 @@ function AboutSign() {
 }
 
 /* ---------- Section 4 — What we do (3 numbered steps, .hiw-*) ---------------- */
-const ABOUT_EXPERTISE = [
-  ['01', 'Performance partnership', 'We connect brands with publishers, and you pay only for real results, with full tracking and transparency.'],
-  ['02', 'Seamless technology', 'Our platform handles campaign setup, tracking, and payouts, with accurate reporting you can check yourself.'],
-  ['03', 'Cross-market expertise', 'Our local teams know each market, so brands and partners get support that fits where they operate.'],
-];
-function AboutExpertise() {
+// step numbers here; each step's [title, description] comes from c.items (same order)
+const ABOUT_EXPERTISE = ['01', '02', '03'];
+function AboutExpertise({ c }) {
   return (
     <section id="about-expertise" className="hiw-sec">
       <div className="wrap">
-        <span className="hiw-eyebrow" data-reveal>Our expertise</span>
-        <h2 className="hiw-title" data-reveal>What we do.</h2>
-        <p className="hiw-sub" data-reveal>We connect brands with the publishers who can grow them, and give both sides the tracking and payouts to trust the results.</p>
+        <span className="hiw-eyebrow" data-reveal>{c.eyebrow}</span>
+        <h2 className="hiw-title" data-reveal>{c.title}</h2>
+        <p className="hiw-sub" data-reveal>{c.sub}</p>
         <div className="hiw-grid">
-          {ABOUT_EXPERTISE.map(([n, t, d], i) => (
+          {ABOUT_EXPERTISE.map((n, i) => { const [t, d] = c.items[i]; return (
             <div className="hiw-step" key={n} data-reveal data-reveal-delay={i + 1}>
               <span className="hiw-num" aria-hidden="true">{n}</span>
               <h3 className="hiw-ct">{t}</h3>
               <p className="hiw-cd">{d}</p>
             </div>
-          ))}
+          ); })}
         </div>
       </div>
       <style>{`
@@ -229,29 +223,26 @@ function AboutExpertise() {
 }
 
 /* ---------- Section 5 — Mission · Vision · Values ---------------------------- */
-const ABOUT_VALUES = [
-  ['01', 'Partners first', 'We win when our partners grow.'],
-  ['02', 'Clarity and trust', 'You see the real numbers, validated before anyone is paid.'],
-  ['03', 'Always improving', 'We challenge limits and celebrate progress.'],
-];
-function AboutMission() {
+// value numbers here; each value's [title, description] comes from c.values (same order)
+const ABOUT_VALUES = ['01', '02', '03'];
+function AboutMission({ c }) {
   return (
     <section id="about-mission" className="am-sec">
       <div className="wrap">
-        <span className="am-eyebrow" data-reveal>Why we exist</span>
-        <h2 className="am-title" data-reveal>Mission, vision & values.</h2>
+        <span className="am-eyebrow" data-reveal>{c.eyebrow}</span>
+        <h2 className="am-title" data-reveal>{c.title}</h2>
         <div className="am-mv">
           <div className="am-card am-mission" data-reveal data-reveal-delay="1">
-            <span className="am-kick">Mission</span>
-            <p>Empower brands and partners to grow through transparent technology and performance-driven marketing.</p>
+            <span className="am-kick">{c.missionLabel}</span>
+            <p>{c.mission}</p>
           </div>
           <div className="am-card am-vision" data-reveal data-reveal-delay="2">
-            <span className="am-kick">Vision</span>
-            <p>Build the affiliate marketing platform Southeast Asia trusts, where every conversion creates shared success.</p>
+            <span className="am-kick">{c.visionLabel}</span>
+            <p>{c.vision}</p>
           </div>
         </div>
         <div className="am-values">
-          {ABOUT_VALUES.map(([n, t, d], i) => (
+          {ABOUT_VALUES.map((n, i) => { const [t, d] = c.values[i]; return (
             <div className="am-value" key={n} data-reveal data-reveal-delay={i + 1}>
               <span className="am-vnum">{n}</span>
               <div>
@@ -259,7 +250,7 @@ function AboutMission() {
                 <p>{d}</p>
               </div>
             </div>
-          ))}
+          ); })}
         </div>
       </div>
       <style>{`
@@ -282,37 +273,29 @@ function AboutMission() {
 }
 
 /* ---------- Section 6 — Awards & Recognition -------------------------------- */
+// award images per column here; each column's head and [title, description] items come from c.cols (same order)
 const ABOUT_AWARDS = [
-  { head: 'Industry Awards', items: [
-    ["Shopee's Best Partner of the Year", 'Innovation & growth at scale', 'about-award-shopee.png'],
-    ["TikTok Shop's Top Affiliate Link Star", 'Creator-led excellence', 'about-award-tiktokshop.png'],
-    ["Lazada's Affiliate of the Year", 'Outstanding partner results', 'about-award-lazada.png'],
-    ["Malaysia's Affiliate Marketing Pioneer", 'Industry leadership', 'about-award-malaysia-pioneer.png'],
-  ] },
-  { head: 'Technology Recognition', items: [
-    ['Certified B Corporation®', 'Social & environmental standards', 'about-award-bcorp.png'],
-    ['Deloitte Technology Fast 500', 'Asia Pacific tech growth award', 'about-award-deloitte.png'],
-    ['MSC Status', 'National tech & innovation recognition', 'about-award-msc.png'],
-  ] },
+  ['about-award-shopee.png', 'about-award-tiktokshop.png', 'about-award-lazada.png', 'about-award-malaysia-pioneer.png'],
+  ['about-award-bcorp.png', 'about-award-deloitte.png', 'about-award-msc.png'],
 ];
-function AboutAwards() {
+function AboutAwards({ c }) {
   return (
     <section id="about-awards" className="aw-sec">
       <div className="wrap">
-        <span className="aw-eyebrow" data-reveal>Proof of performance</span>
-        <h2 className="aw-title" data-reveal>Awards & recognition.</h2>
-        <p className="aw-sub" data-reveal>From startup recognition to industry awards, we're proud of our journey, and the partners who made it possible.</p>
+        <span className="aw-eyebrow" data-reveal>{c.eyebrow}</span>
+        <h2 className="aw-title" data-reveal>{c.title}</h2>
+        <p className="aw-sub" data-reveal>{c.sub}</p>
         <div className="aw-cols">
-          {ABOUT_AWARDS.map((col, ci) => (
+          {c.cols.map((col, ci) => (
             <div className="aw-col" key={col.head} data-reveal data-reveal-delay={ci + 1}>
               <h3 className="aw-head">{col.head}</h3>
               <div className="aw-grid">
-                {col.items.map(([t, d, img]) => (
+                {col.items.map(([t, d], k) => { const img = ABOUT_AWARDS[ci][k]; return (
                   <div className="aw-item" key={t}>
                     <div className="aw-ph"><img src={`media/figma/${img}`} alt={t} loading="lazy" /></div>
                     <b>{t}</b><em>{d}</em>
                   </div>
-                ))}
+                ); })}
               </div>
             </div>
           ))}
@@ -342,32 +325,32 @@ function AboutAwards() {
 /* ---------- Section 7 — Regional presence -----------------------------------
    HQ (Malaysia) as the large item on the left; the other five markets sit on the
    right in a 3-column grid with flag + name only (their descriptions aren't validated). */
-const ABOUT_HQ = { cc: 'my', name: 'Malaysia', tag: 'Headquarters', desc: 'Kuala Lumpur, where it all began. Our HQ is home to the core marketing, partnerships, and tech teams driving growth across the region.' };
-// [country code (flag file), name]
-const ABOUT_REGIONS = [['id', 'Indonesia'], ['sg', 'Singapore'], ['ph', 'Philippines'], ['th', 'Thailand'], ['vn', 'Vietnam']];
-function AboutRegions() {
+// country codes (flag files) here; the names, HQ tag and description come from c.hq / c.others (same order)
+const ABOUT_HQ_CC = 'my';
+const ABOUT_REGIONS = ['id', 'sg', 'ph', 'th', 'vn'];
+function AboutRegions({ c }) {
   return (
     <section id="about-regions" className="ar-sec">
       <div className="wrap">
-        <span className="ar-eyebrow" data-reveal>Regional presence</span>
-        <h2 className="ar-title" data-reveal>Where you can find us.</h2>
-        <p className="ar-sub" data-reveal>We operate across six Southeast Asian markets, connecting local brands, creators, and communities through affiliate marketing.</p>
+        <span className="ar-eyebrow" data-reveal>{c.eyebrow}</span>
+        <h2 className="ar-title" data-reveal>{c.title}</h2>
+        <p className="ar-sub" data-reveal>{c.sub}</p>
         <div className="ar-grid">
           <div className="ar-hq" data-reveal data-reveal-delay="1">
-            <img className="ar-flag" src={`media/figma/${ABOUT_HQ.cc}-flag-icon.svg`} alt="" width="56" height="56" />
+            <img className="ar-flag" src={`media/figma/${ABOUT_HQ_CC}-flag-icon.svg`} alt="" width="56" height="56" />
             <div className="ar-cardhead">
-              <h3>{ABOUT_HQ.name}</h3>
-              <span className="ar-tag">{ABOUT_HQ.tag}</span>
+              <h3>{c.hq.name}</h3>
+              <span className="ar-tag">{c.hq.tag}</span>
             </div>
-            <p>{ABOUT_HQ.desc}</p>
+            <p>{c.hq.desc}</p>
           </div>
           <div className="ar-others">
-            {ABOUT_REGIONS.map(([cc, name], i) => (
-              <div className="ar-card" key={name} data-reveal data-reveal-delay={(i % 3) + 1}>
+            {ABOUT_REGIONS.map((cc, i) => { const name = c.others[i]; return (
+              <div className="ar-card" key={cc} data-reveal data-reveal-delay={(i % 3) + 1}>
                 <img className="ar-flag" src={`media/figma/${cc}-flag-icon.svg`} alt="" width="40" height="40" />
                 <h3>{name}</h3>
               </div>
-            ))}
+            ); })}
           </div>
         </div>
       </div>
@@ -402,17 +385,17 @@ function AboutRegions() {
 /* ---------- Section 8 — Life at Involve Asia (culture photo gallery) ---------
    Images to be supplied — rendered as placeholders for now. */
 const ABOUT_CULTURE = ['about-culture-1.png', 'about-culture-2.png', 'about-culture-3.png', 'about-culture-4.png', 'about-culture-5.png'];
-function AboutCulture() {
+function AboutCulture({ c }) {
   return (
     <section id="about-culture" className="cul-sec">
       <div className="wrap">
-        <span className="cul-eyebrow" data-reveal>Life at Involve Asia</span>
-        <h2 className="cul-title" data-reveal>Moments that define our culture.</h2>
-        <p className="cul-sub" data-reveal>Our culture is built on collaboration, curiosity, and growth. We celebrate milestones and make space for ideas that move us forward.</p>
+        <span className="cul-eyebrow" data-reveal>{c.eyebrow}</span>
+        <h2 className="cul-title" data-reveal>{c.title}</h2>
+        <p className="cul-sub" data-reveal>{c.sub}</p>
         <div className="cul-grid" data-reveal data-reveal-delay="1">
           {ABOUT_CULTURE.map((f, i) => (
             <div className={'cul-item' + (i === 0 ? ' cul-big' : '')} key={f}>
-              <img src={`media/figma/${f}`} alt="Life at Involve Asia" loading="lazy" />
+              <img src={`media/figma/${f}`} alt={c.imageAlt} loading="lazy" />
             </div>
           ))}
         </div>
@@ -434,22 +417,22 @@ function AboutCulture() {
 
 /* ---------- Section 9 — Join our team (reuses the app-owners "Automated through
    our API." component: white box, 2-col copy + image) -------------------------- */
-function AboutCareers() {
+function AboutCareers({ c }) {
   return (
     <section id="about-careers" className="ac-sec">
       <div className="wrap">
         <div className="ac-box">
           <div className="ac-grid">
             <div className="ac-left" data-reveal>
-              <h2 className="ac-title">Build the future of affiliate marketing with us.</h2>
-              <p className="ac-body">Join a team of creators, marketers, and data experts solving real problems across Southeast Asia. Let's grow brands, and your career, together.</p>
+              <h2 className="ac-title">{c.title}</h2>
+              <p className="ac-body">{c.body}</p>
               <a className="ac-link" href="https://careers.involve.asia/">
-                View Open Roles
+                {c.link}
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5.5l6.5 6.5L9 18.5" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </a>
             </div>
             <div className="ac-photo" data-reveal data-reveal-delay="1">
-              <img src="media/figma/about-team.png" alt="The Involve Asia team" loading="lazy" />
+              <img src="media/figma/about-team.png" alt={c.imageAlt} loading="lazy" />
             </div>
           </div>
         </div>
@@ -475,34 +458,34 @@ function AboutCareers() {
 }
 
 /* ---------- Final section — "Pick your side" dual-audience CTA (reused) ------- */
-function HexFinaleStatic() {
+function HexFinaleStatic({ c: t }) {
   // [column, row] on the .hf-scene grid (publisher photo = col 0 row 0; odd rows shift half a column)
   const HF_HONEY = [[0, -1], [1, -1], [-2, 1], [-1, 1], [0, 1], [2, 1]];
   return (
     <section id="cta" className="hf">
       <div className="hf-cta">
-        <h2 className="hf-head" data-reveal>Pick your side and grow with us.</h2>
+        <h2 className="hf-head" data-reveal>{t.title}</h2>
         <div className="hf-scene">
           <div className="hf-honey" aria-hidden="true">
             {HF_HONEY.map(([c, r], i) => (
               <span key={i} className="hf-combhex" style={{ '--c': c + (r % 2 ? 0.5 : 0), '--r': r, '--i': i + 2 }} />
             ))}
           </div>
-          <span className="hf-kick hf-kick-m" aria-hidden="true">Creators. Affiliates. Technology Partners.</span>
-          <span className="hf-kick adv hf-kick-m" aria-hidden="true">Brands. Retailers. Enterprises.</span>
-          <img className="hf-photohex hf-ph-pub" src="media/figma/s9-hex-pub.webp" alt="A publisher creating content" style={{ '--i': 0 }} />
-          <img className="hf-photohex hf-ph-adv" src="media/figma/s9-hex-adv.webp" alt="An advertiser growing their brand" style={{ '--i': 1 }} />
+          <span className="hf-kick hf-kick-m" aria-hidden="true">{t.pubKick}</span>
+          <span className="hf-kick adv hf-kick-m" aria-hidden="true">{t.advKick}</span>
+          <img className="hf-photohex hf-ph-pub" src="media/figma/s9-hex-pub.webp" alt={t.pubImageAlt} style={{ '--i': 0 }} />
+          <img className="hf-photohex hf-ph-adv" src="media/figma/s9-hex-adv.webp" alt={t.advImageAlt} style={{ '--i': 1 }} />
           <div className="hf-card hf-card-pub">
-            <span className="hf-kick">Creators. Affiliates. Technology Partners.</span>
-            <h3 className="hf-ct">I'm a <br />Publisher</h3>
-            <p className="hf-cd">Promote brands you love. <span className="hf-cd-more">Turn your audience or traffic into income.</span></p>
-            <a href="/partners/" className="btn btn-primary">Start Earning <Arrow /></a>
+            <span className="hf-kick">{t.pubKick}</span>
+            <h3 className="hf-ct">{rich(t.pubTitle)}</h3>
+            <p className="hf-cd">{t.pubDesc}<span className="hf-cd-more">{t.pubMore}</span></p>
+            <a href="/partners/" className="btn btn-primary">{t.pubCta} <Arrow /></a>
           </div>
           <div className="hf-card hf-card-adv hf-right">
-            <span className="hf-kick adv">Brands. Retailers. Enterprises.</span>
-            <h3 className="hf-ct">I'm an <br />Advertiser</h3>
-            <p className="hf-cd">Grow your sales with the right publishers. <span className="hf-cd-more">Pay only for results.</span></p>
-            <a href="/advertisers/" className="btn btn-advertiser">Grow My Brand <Arrow /></a>
+            <span className="hf-kick adv">{t.advKick}</span>
+            <h3 className="hf-ct">{rich(t.advTitle)}</h3>
+            <p className="hf-cd">{t.advDesc}<span className="hf-cd-more">{t.advMore}</span></p>
+            <a href="/advertisers/" className="btn btn-advertiser">{t.advCta} <Arrow /></a>
           </div>
         </div>
       </div>
@@ -570,21 +553,22 @@ function HexFinaleStatic() {
 function AboutApp() {
   useSmoothScroll();
   useScrollReveal();
+  const c = useCopy('about');
   return (
     <React.Fragment>
       <Nav getStartedTone="pub" />
       <main>
-        <AboutHero />
-        <AboutStats />
-        <AboutStory />
-        <AboutSign />
-        <AboutExpertise />
-        <AboutMission />
-        <AboutAwards />
-        <AboutRegions />
-        <AboutCulture />
-        <AboutCareers />
-        <HexFinaleStatic />
+        <AboutHero c={c.hero} />
+        <AboutStats c={c.stats} />
+        <AboutStory c={c.story} />
+        <AboutSign c={c.sign} />
+        <AboutExpertise c={c.expertise} />
+        <AboutMission c={c.mission} />
+        <AboutAwards c={c.awards} />
+        <AboutRegions c={c.regions} />
+        <AboutCulture c={c.culture} />
+        <AboutCareers c={c.careers} />
+        <HexFinaleStatic c={c.finale} />
       </main>
       <Footer />
       <BackToTop />

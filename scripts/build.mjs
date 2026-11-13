@@ -106,7 +106,8 @@ function i18nScript(name) {
   let js = `window.IA_I18N=${inline(I18N)};`;
   const shared = `content/shared/${lang.code}.json`;
   if (lang.code !== I18N.default && fs.existsSync(path.join(ROOT, shared))) js += `window.IA_SHARED=${inline(readJSON(shared))};`;
-  if (I18N.pages[key]) {
+  // Any page whose copy lives in content/pages/<page>/ gets it inlined, translated or not.
+  if (fs.existsSync(path.join(ROOT, `content/pages/${key}/${I18N.default}.json`))) {
     let copy = readJSON(`content/pages/${key}/${I18N.default}.json`);
     if (lang.code !== I18N.default) copy = merge(copy, readJSON(`content/pages/${key}/${lang.code}.json`));
     js += `window.IA_COPY=${inline(copy)};`;

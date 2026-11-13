@@ -1,0 +1,263 @@
+{
+  "meta": {
+    "title": "Pricing | Involve Asia",
+    "description": "Reach 1,000,000+ trusted publishers across Southeast Asia, launch performance campaigns, and pay only for results. Grow your brand with Involve Asia."
+  },
+  "hero": {
+    "eyebrow": "Affiliate Marketing Pricing for Advertisers",
+    "title": "The plan that fits your growth.",
+    "sub": "Whether you are launching your first program or scaling an established one,\npick the plan that matches your stage."
+  },
+  "plans": {
+    "recommended": "Recommended",
+    "terms": "All plans include a one-time $1,000 setup and launch fee and a 3-month minimum term.",
+    "items": [
+      {
+        "name": "Startup",
+        "desc": "For brands launching their first affiliate program.",
+        "price": "$99",
+        "unit": "/mo",
+        "cta": "Get Started",
+        "feats": [
+          "Track up to 100,000 clicks a month",
+          "1 offer setup",
+          "Single-tier commission",
+          "Access to the publisher marketplace",
+          "Dashboard access",
+          "Helpdesk support"
+        ]
+      },
+      {
+        "name": "Growth",
+        "desc": "For brands ready to make affiliates a core growth channel.",
+        "price": "$499",
+        "unit": "/mo",
+        "cta": "Get Started",
+        "plus": "Everything in Startup, plus:",
+        "feats": [
+          "Track up to 1,000,000 clicks a month",
+          "Up to 3 offer setups",
+          "Multi-tier commission",
+          "Up to 3 recruitment campaigns a month",
+          "Publisher introductions",
+          "A dedicated account manager",
+          "Quarterly performance review"
+        ]
+      },
+      {
+        "name": "Enterprise",
+        "desc": "For large brands with high volumes or custom requirements.",
+        "price": "Custom",
+        "priceNote": "Volume-based pricing.",
+        "cta": "Talk to Us",
+        "plus": "Everything in Growth, plus:",
+        "feats": [
+          "A dedicated account manager and priority support",
+          "Custom volumes, offers, and reporting built around your goals."
+        ]
+      }
+    ]
+  },
+  "compare": {
+    "eyebrow": "Pricing Plans",
+    "title": "Compare our partnership levels",
+    "sub": "Simple, transparent pricing engineered to scale your affiliate channel.",
+    "included": "Included",
+    "notIncluded": "Not included",
+    "labelHead": "Platform features",
+    "recommended": "Recommended",
+    "plans": [
+      {
+        "name": "Startup",
+        "price": "$99",
+        "unit": "/mo",
+        "cta": "Get Started"
+      },
+      {
+        "name": "Growth",
+        "price": "$499",
+        "unit": "/mo",
+        "cta": "Get Started"
+      },
+      {
+        "name": "Enterprise",
+        "price": "Custom",
+        "cta": "Talk to Sales"
+      }
+    ],
+    "rows": [
+      [
+        "Monthly price",
+        "$99",
+        "$499",
+        "Custom"
+      ],
+      [
+        "Clicks tracked a month",
+        "Up to 100,000",
+        "Up to 1,000,000",
+        "Custom"
+      ],
+      [
+        "Offer setups",
+        "1",
+        "Up to 3",
+        "Custom"
+      ],
+      [
+        "Commission structure",
+        "Single-tier",
+        "Multi-tier",
+        "Multi-tier"
+      ],
+      [
+        "Recruitment campaigns a month",
+        false,
+        "Up to 3",
+        "Custom"
+      ],
+      [
+        "Publisher introductions",
+        false,
+        true,
+        true
+      ],
+      [
+        "Dedicated account manager",
+        false,
+        true,
+        true
+      ],
+      [
+        "Priority support",
+        false,
+        false,
+        true
+      ],
+      [
+        "Quarterly performance review",
+        false,
+        true,
+        true
+      ],
+      [
+        "Custom offers and reporting",
+        false,
+        false,
+        true
+      ],
+      [
+        "Publisher marketplace access",
+        true,
+        true,
+        true
+      ],
+      [
+        "Verified conversions and fraud protection",
+        true,
+        true,
+        true
+      ],
+      [
+        "Setup and launch fee",
+        "$1,000 one-time",
+        "$1,000 one-time",
+        "$1,000 one-time"
+      ],
+      [
+        "Minimum term",
+        "3 months",
+        "3 months",
+        "3 months"
+      ],
+      [
+        "Support",
+        "Helpdesk",
+        "Dedicated manager",
+        "Dedicated manager and priority"
+      ]
+    ]
+  },
+  "essentials": {
+    "title": "Every plan comes with the essentials.",
+    "items": [
+      {
+        "title": "1,000,000+ publishers",
+        "desc": "Access to over 1,000,000 publishers across retail, travel, beauty, finance, and more."
+      },
+      {
+        "title": "Precision tracking",
+        "desc": "Real tracking, down to every click and conversion, in one dashboard."
+      },
+      {
+        "title": "Conversion verification",
+        "desc": "Every conversion verified before you pay."
+      },
+      {
+        "title": "Dedicated human support",
+        "desc": "Real human support, from day one."
+      }
+    ]
+  },
+  "how": {
+    "title": "How pricing works, in two clear parts.",
+    "plan": {
+      "title": "Your platform plan.",
+      "d": "A monthly fee (Startup $99, Growth $499, or custom for Enterprise), a one-time $1,000 setup and launch fee, and a 3 month minimum term. This is what you pay Involve to run your program.",
+      "notes": [
+        "The setup fee covers our team building and launching your program with you, so it goes live set up the right way, not on your own.",
+        "The 3 month minimum gives a new program enough runway to recruit publishers and gather data before you decide what is next."
+      ]
+    },
+    "pay": {
+      "title": "What you pay publishers.",
+      "d": "A commission you set on each offer, paid only when a publisher drives a real, verified sale. This is the pay-for-results part, so this spend always maps to revenue.",
+      "callout": "Affiliate marketing is pure performance. You are completely in control of the commission rates and only pay after validation."
+    }
+  },
+  "logos": {
+    "caption": "Trusted by brands your customers already know, across retail, travel, beauty, and finance."
+  },
+  "faq": {
+    "title": "Pricing questions, answered.",
+    "items": [
+      [
+        "What do I actually pay publishers?",
+        "You set the commission for each offer. Publishers earn it only when they drive a real sale, so your spend maps to revenue."
+      ],
+      [
+        "What is the $1,000 setup fee for?",
+        "It covers building and launching your program with our team, so it is set up correctly and live quickly."
+      ],
+      [
+        "Why a 3 month minimum?",
+        "Affiliate programs need runway to recruit publishers and gather data. Three months is enough to see real results."
+      ],
+      [
+        "What happens after the three-month minimum?",
+        "Your plan continues on a rolling basis, and you can upgrade, downgrade, or cancel it as your program evolves."
+      ],
+      [
+        "What happens if I exceed my plan's tracking limit?",
+        "If your traffic grows beyond your plan, you can move up to one that fits, and our team will help you make the switch."
+      ],
+      [
+        "Can I change plans later?",
+        "Yes. Move from Startup to Growth, or up to Enterprise, as your program scales."
+      ],
+      [
+        "Which plan should I pick?",
+        "Most brands making affiliates a core channel choose Growth. Start with Startup to launch and test, and talk to us for Enterprise volumes. Or get a free growth audit."
+      ],
+      [
+        "How are results tracked?",
+        "Every click and conversion is tracked to the publisher who drove it, and verified before payout."
+      ]
+    ]
+  },
+  "cta": {
+    "title": "Not sure where to start? We'll help.",
+    "sub": "Book a quick call and our team will map out the fastest way to grow your brand with Involve.",
+    "label": "Talk to Us"
+  }
+}

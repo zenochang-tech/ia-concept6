@@ -1,0 +1,65 @@
+{
+  "meta": {
+    "title": "Monetise your app with affiliate offers | Involve Asia",
+    "description": "Earn inside your app. Show relevant offers and cashback to your users, automated through our API."
+  },
+  "hero": {
+    "eyebrow": "For App Owners",
+    "title": "Turn your app into a new revenue stream.",
+    "sub": "Show relevant offers and cashback to your users, earning that runs inside your app through our API.",
+    "cta": "Start Earning",
+    "free": "Free to join. Start earning today.",
+    "imageAlt": "An app showing recommended products and content that earn its owner a commission",
+    "payLabel": "Commission Earned",
+    "payAmount": "+ $816"
+  },
+  "platform": {
+    "title": "Built for any app with an engaged audience.",
+    "sub": "If your users act on what you show them, you can earn from it. Connect once through our API, and relevant offers and tracking run in the background.",
+    "items": [
+      ["Shopping apps", "Show your users relevant products from brands they already trust, and earn a commission whenever they buy through your app."],
+      ["Cashback and rewards apps", "Reward your users with cashback and points on the brands they already buy, and earn a share of every qualifying purchase."],
+      ["Content and community apps", "Recommend products that fit your content and community, and earn a commission whenever your audience buys through your app."]
+    ]
+  },
+  "how": {
+    "title": "How you earn.",
+    "items": [
+      ["01", "Connect the API", "Integrate once, and pull offers, links, and tracking straight into your app."],
+      ["02", "Surface relevant offers", "Show cashback and deals your users actually want, inside your own UI."],
+      ["03", "Earn on every sale", "When a user buys through your app, the sale is tracked to you."],
+      ["04", "Get paid", "Withdraw in your local currency once sales are validated, or sooner with Express Withdrawal."]
+    ]
+  },
+  "earn": {
+    "title": "Earn from what your users already do.",
+    "items": [
+      ["Earn on every sale", "Recommend products and services your users want, and earn a commission whenever they buy."],
+      ["Give cashback, build loyalty", "Offer cashback and rewards that keep users coming back, set up once and run automatically."],
+      ["Native, not intrusive", "Blend real product recommendations into your app so they feel like part of the experience, not an ad."]
+    ]
+  },
+  "api": {
+    "title": "Automated through \nour API.",
+    "body": "Connect once, and our API keeps your app stocked with the latest offers, generates your links, and tracks every conversion, so earning runs in the background while you focus on your product.",
+    "link": "API Overview",
+    "codeComment": "// Initialize connection with Involve API",
+    "responseComment": "// JSON Response"
+  },
+  "why": {
+    "title": "Why app owners build on Involve.",
+    "items": [
+      ["Your app, your experience.", "Offers live inside your own UI. You control how they look and where they appear."],
+      ["One integration, hundreds of brands.", "Connect once to access 500+ brands and 4,000+ offers."],
+      ["Built for developers.", "Clear API docs, item-level tracking, and reliable payouts."]
+    ]
+  },
+  "faq": [
+    ["What can the API do?", "Generate deeplinks, pull offers and product data, and track sales at item level. Deeplink generation is capped at 1,000 per rolling 30 days."],
+    ["Not sure what to promote in my app?", "Start with the brands your users already shop. See [Content sites](website) for ideas."],
+    ["How technical is the integration?", "You will need a developer to connect the API. The docs cover every endpoint."]
+  ],
+  "cta": {
+    "title": "Start monetizing your app today."
+  }
+}
