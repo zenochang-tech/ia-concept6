@@ -45,85 +45,112 @@
   ],
   "pages": {
     "about": [
-      "id"
+      "id",
+      "vn"
     ],
     "affiliates": [
-      "id"
+      "id",
+      "vn"
     ],
     "api-overview": [
-      "id"
+      "id",
+      "vn"
     ],
     "app-owners": [
-      "id"
+      "id",
+      "vn"
     ],
     "automation": [
-      "id"
+      "id",
+      "vn"
     ],
     "blog": [
-      "id"
+      "id",
+      "vn"
     ],
     "bonus-campaign": [
-      "id"
+      "id",
+      "vn"
     ],
     "content-creators": [
-      "id"
+      "id",
+      "vn"
     ],
     "datafeed": [
-      "id"
+      "id",
+      "vn"
     ],
     "download-app": [
-      "id"
+      "id",
+      "vn"
     ],
     "earnings-estimate": [
-      "id"
+      "id",
+      "vn"
     ],
     "express-withdrawal": [
-      "id"
+      "id",
+      "vn"
     ],
     "for-advertisers": [
-      "id"
+      "id",
+      "vn"
     ],
     "for-agencies": [
-      "id"
+      "id",
+      "vn"
     ],
     "for-publishers": [
-      "id"
+      "id",
+      "vn"
     ],
     "fraud-awareness": [
-      "id"
+      "id",
+      "vn"
     ],
     "get-started": [
-      "id"
+      "id",
+      "vn"
     ],
     "how-we-track": [
-      "id"
+      "id",
+      "vn"
     ],
     "index": [
-      "id"
+      "id",
+      "vn"
     ],
     "media-buyer": [
-      "id"
+      "id",
+      "vn"
     ],
     "membership-program": [
-      "id"
+      "id",
+      "vn"
     ],
     "partner-discovery": [
-      "id"
+      "id",
+      "vn"
     ],
     "pricing": [
-      "id"
+      "id",
+      "vn"
     ],
     "referral-program": [
-      "id"
+      "id",
+      "vn"
     ],
     "stablecoin-payout": [
-      "id"
+      "id",
+      "vn"
     ],
     "technology-partners": [
-      "id"
+      "id",
+      "vn"
     ],
     "website": [
-      "id"
+      "id",
+      "vn"
     ]
   }
 }

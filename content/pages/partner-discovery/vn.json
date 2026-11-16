@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "title": "Partner Discovery | Involve Asia",
+    "description": "Tìm kiếm trong hơn 1.000.000 Publisher, mời đúng đối tác phù hợp với thương hiệu, hoặc để đội ngũ Involve Asia tuyển Publisher giúp doanh nghiệp bạn."
+  },
+  "hero": {
+    "title": "Tìm đúng Publisher, hoặc để chúng tôi tìm giúp bạn.",
+    "sub": "Tìm kiếm trong hơn 1.000.000 Publisher và mời những người phù hợp với thương hiệu của bạn.",
+    "cta": "Xem gói và bảng giá",
+    "imageAlt": "Dashboard liệt kê hơn một triệu Publisher để mời hợp tác với thương hiệu của bạn"
+  },
+  "discover": {
+    "title": "Khám phá Publisher phù hợp.",
+    "points": [
+      [
+        "Lọc ra đối tác phù hợp.",
+        "Thu hẹp theo ngành hàng, kênh và hạng thành viên, hoặc tìm theo tên, ID hay từ khóa."
+      ],
+      [
+        "Xem số liệu trước.",
+        "Kiểm tra quốc gia người theo dõi, lượt nhấp và chuyển đổi của từng Publisher trước khi mời họ."
+      ]
+    ],
+    "imageAlt": "Thẻ hồ sơ Publisher hiển thị hạng thành viên, lượt nhấp, chuyển đổi và nút Mời Publisher"
+  },
+  "recruit": {
+    "title": "Tuyển Publisher",
+    "items": [
+      [
+        "Đưa đối tác lên nền tảng chỉ với một link.",
+        "Chia sẻ link giới thiệu của bạn, mọi Publisher đăng ký qua link này sẽ được tự động duyệt vào offer của bạn, giúp doanh nghiệp bạn đưa các đối tác hiện có lên nền tảng chỉ trong một bước."
+      ],
+      [
+        "Chúng tôi tuyển Publisher cho bạn.",
+        "Từ gói Growth trở lên, đội ngũ của chúng tôi chạy chiến dịch tuyển dụng và giới thiệu những Publisher phù hợp với thương hiệu của bạn, những người thật am hiểu ngành hàng của bạn. **Chỉ những đối tác bạn chọn mới được tham gia, nên bạn luôn nắm quyền kiểm soát.**"
+      ]
+    ]
+  },
+  "cta": {
+    "title": "Để đúng đối tác làm việc cho thương hiệu của bạn.",
+    "label": "Tăng doanh số"
+  }
+}

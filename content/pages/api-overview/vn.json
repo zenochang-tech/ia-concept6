@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "title": "API cho nhà phát triển | Involve Asia",
+    "description": "Xây dựng và tự động hóa với API của Involve Asia: lấy dữ liệu offer, chuyển đổi, tạo link theo dõi và đưa dữ liệu vào hệ thống của doanh nghiệp bạn."
+  },
+  "links": {
+    "docs": "https://api.involve.asia/docs/"
+  },
+  "hero": {
+    "eyebrow": "API cho nhà phát triển",
+    "title": "Xây dựng và tự động hóa với API cho nhà phát triển của Involve Asia.",
+    "sub": "Lấy dữ liệu khuyến mãi, tạo link theo dõi và nhận báo cáo mà không cần đăng nhập dashboard. Đưa thu nhập tiếp thị liên kết vào ứng dụng hoặc quy trình làm việc của doanh nghiệp bạn.",
+    "cta": "Đăng ký API key",
+    "docs": "Đọc tài liệu API",
+    "imageAlt": "Ví dụ mã API của Involve Asia: xác thực, liệt kê offer và tạo deeplink"
+  },
+  "auto": {
+    "title": "Tự động hóa công việc, tăng thu nhập.",
+    "items": [
+      ["Lấy dữ liệu khuyến mãi mới nhất", "Mức hoa hồng và điều khoản thanh toán của mọi offer bạn được truy cập."],
+      ["Tạo link theo dõi", "Chuyển URL sản phẩm thành deeplink có thể theo dõi qua API, tối đa 1.000 link duy nhất mỗi 30 ngày."],
+      ["Lấy báo cáo hiệu quả", "Chuyển đổi và thu nhập, theo định dạng của riêng bạn."],
+      ["Nhận banner và voucher chiến dịch", "Nội dung quảng cáo có sẵn và ưu đãi theo mùa."]
+    ]
+  },
+  "shopee": {
+    "title": "Hoa hồng Shopee tăng thêm, có sẵn trong API.",
+    "desc": "Một số thương hiệu trên Shopee trả mức hoa hồng cao hơn qua Commissions XTRA. Lấy toàn bộ danh sách qua API và tự động cập nhật, để bạn luôn biết shop Shopee nào đang trả cao hơn và ưu tiên quảng bá trước.",
+    "more": "Tìm hiểu thêm",
+    "imageAlt": "Shopee Commissions XTRA"
+  },
+  "teams": {
+    "title": "Ai đang xây dựng với API",
+    "sub": "Dành cho các đội ngũ vận hành dữ liệu và link affiliate ngay trong hệ thống của mình, thông qua tự động hóa.",
+    "items": [
+      ["Đội ngũ sản phẩm & ứng dụng", "Hiển thị offer và cashback ngay trong ứng dụng hoặc nền tảng của bạn, và kiếm hoa hồng từ những gì người dùng mua."],
+      ["Publisher có lưu lượng lớn", "Tạo link theo dõi và đồng bộ chuyển đổi bằng lập trình, không cần mở dashboard."],
+      ["Đội ngũ dựa trên dữ liệu", "Đưa offer, chuyển đổi và nguồn dữ liệu sản phẩm vào hệ thống và báo cáo của doanh nghiệp bạn."]
+    ]
+  },
+  "start": {
+    "title": "Bắt đầu với ba bước",
+    "cta": "Đăng ký tại đây",
+    "items": [
+      ["Yêu cầu API key", "Yêu cầu API key ngay từ dashboard của bạn."],
+      ["Thêm key vào công cụ", "Thêm key vào công cụ API của bạn (Postman, cURL, Insomnia và nhiều công cụ khác)."],
+      ["Làm theo tài liệu", "Làm theo tài liệu hướng dẫn để lấy dữ liệu, tạo link và bắt đầu xây dựng."]
+    ]
+  },
+  "faq": {
+    "items": [
+      ["API giúp tôi làm được gì?", "Xây dựng ứng dụng tiếp thị liên kết hoặc thêm tính năng tiếp thị liên kết vào nền tảng của bạn, tạo báo cáo, tạo link, truy cập banner chiến dịch và landing page có sẵn, cũng như lấy nội dung khuyến mãi."],
+      ["Ai có thể sử dụng API?", "Media buyer, agency KOL, mạng lưới programmatic và tiếp thị liên kết, trang cashback và trang nội dung."],
+      ["Tôi có thể tạo bao nhiêu link?", "Tối đa 1.000 link duy nhất trong mỗi chu kỳ 30 ngày liên tục."],
+      ["Tôi có thể dùng những công cụ nào?", "Postman, cURL, Insomnia, SoapUI, Paw hoặc bất kỳ công cụ nào phù hợp với hệ thống của bạn."],
+      ["Làm sao để tôi theo dõi hiệu quả?", "Lấy báo cáo hiệu quả qua API, bao gồm từng giao dịch và các tham số tùy chỉnh."],
+      ["Tôi cần chuẩn bị những gì?", "Một thành viên trong đội ngũ có kinh nghiệm lập trình để thiết lập."]
+    ]
+  },
+  "cta": {
+    "title": "Bắt đầu xây dựng với API.",
+    "label": "Đăng ký API key"
+  }
+}

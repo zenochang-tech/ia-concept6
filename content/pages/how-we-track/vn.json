@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "title": "Cách chúng tôi theo dõi | Involve Asia",
+    "description": "Theo dõi mọi lượt nhấp và chuyển đổi trên một dashboard, gán từng đơn hàng cho đúng Publisher và chỉ trả phí cho đơn hàng đã xác thực."
+  },
+  "hero": {
+    "title": "Thấy rõ hiệu quả mà từng đối tác mang lại.",
+    "sub": "Theo dõi mọi lượt nhấp và chuyển đổi trên một dashboard, gán từng đơn hàng cho Publisher đã tạo ra nó, và chỉ trả phí cho những đơn hàng thật.",
+    "cta": "Xem gói và bảng giá",
+    "imageAlt": "Dashboard Advertiser của Involve theo dõi lượt nhấp và chuyển đổi của từng đối tác",
+    "added": "Đã tạo 815 deeplink"
+  },
+  "view": {
+    "title": "Một góc nhìn tổng hợp, đã xác thực.",
+    "old": {
+      "imageAlt": "Báo cáo rời rạc trên nhiều dashboard đối tác riêng lẻ",
+      "eyebrow": "Cách cũ",
+      "title": "Báo cáo rời rạc, tối ưu mù quáng",
+      "desc": "Làm việc với đối tác trên khắp internet khiến doanh nghiệp bạn khó thấy điều gì thực sự hiệu quả, và việc quản lý báo cáo, thanh toán riêng cho từng đối tác còn khó hơn.",
+      "points": [
+        "Mỗi đối tác một báo cáo riêng",
+        "Phải dựa vào số liệu của từng đối tác",
+        "ROI không thể so sánh ngang hàng"
+      ]
+    },
+    "new": {
+      "imageAlt": "Mọi hợp tác được tổng hợp trong một dashboard Involve",
+      "eyebrow": "Cùng Involve Asia",
+      "title": "Minh bạch, tổng hợp và đã xác thực",
+      "desc": "Involve đưa mọi hợp tác về một dashboard, để doanh nghiệp bạn so sánh hiệu quả ngang hàng và thấy ROI thực sự.",
+      "points": [
+        "Mọi đối tác trên một dashboard",
+        "Đơn hàng được gán cho đối tác đã tạo ra nó",
+        "ROI có thể so sánh ngang hàng"
+      ]
+    }
+  },
+  "how": {
+    "title": "Cách theo dõi hoạt động.",
+    "items": [
+      [
+        "01",
+        "Publisher chia sẻ link theo dõi của họ",
+        "Mỗi đối tác nhận một link riêng cho offer của bạn."
+      ],
+      [
+        "02",
+        "Mọi lượt nhấp đều được ghi nhận",
+        "Ngay khi có người nhấp, lượt nhấp đó được theo dõi."
+      ],
+      [
+        "03",
+        "Đơn hàng được gán tự động",
+        "Khi một lượt nhấp dẫn đến đơn hàng, đơn hàng đó được gán cho Publisher đã tạo ra nó."
+      ]
+    ]
+  },
+  "verified": {
+    "title": "Đã xác thực, \nkhông chỉ là báo cáo",
+    "body": "Bạn xác thực mọi chuyển đổi trước khi thanh toán. Duyệt những chuyển đổi thật, để ngân sách của doanh nghiệp bạn chỉ dành cho đơn hàng thật, không phải báo cáo bị thổi phồng của đối tác.",
+    "checks": [
+      "Mọi chuyển đổi được xác thực trước khi thanh toán",
+      "Bạn từ chối mọi chuyển đổi không hợp lệ",
+      "Mọi đơn hàng được gán cho Publisher đã tạo ra nó"
+    ],
+    "imageAlt": "Bảng duyệt chuyển đổi cho thấy từng đơn hàng được xác thực hoặc bị từ chối trước khi thanh toán"
+  },
+  "cta": {
+    "title": "Biết rõ hiệu quả thật của từng đối tác và phát triển thương hiệu ngay hôm nay.",
+    "label": "Tăng doanh số"
+  }
+}

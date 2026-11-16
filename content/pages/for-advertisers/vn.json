@@ -1,0 +1,133 @@
+{
+  "numberLocale": "vi-VN",
+  "meta": {
+    "title": "Dành cho Advertiser | Involve Asia",
+    "description": "Tiếp cận 1.000.000+ Publisher uy tín khắp Đông Nam Á, chạy chiến dịch theo hiệu quả và chỉ trả phí cho kết quả thực cùng Involve Asia."
+  },
+  "hero": {
+    "eyebrow": "Tiếp thị liên kết cho Advertiser",
+    "title": "Tăng doanh số cho doanh nghiệp bạn với đúng Publisher.",
+    "sub": "Tiếp cận 1.000.000+ Publisher, chỉ trả phí cho đơn hàng đã xác thực và thấy kết quả sớm hơn. Triển khai trong vài ngày thay vì vài tháng, dù doanh nghiệp bạn bán gì.",
+    "cta": "Xem gói và bảng giá",
+    "free": "Đội ngũ của chúng tôi giúp doanh nghiệp bạn triển khai, và bạn chỉ trả phí khi đơn hàng là thật.",
+    "slideAlts": [
+      "Dashboard Advertiser với tổng doanh số, hoa hồng đã trả và xu hướng hiệu quả",
+      "Tìm thấy 1.428 Publisher đang hoạt động — Clarke, Fernandez, Michelle, Jeanne",
+      "Chiến dịch của tôi: chiến dịch 11.11 và Black Friday 2026 kèm mã giảm giá",
+      "Tìm thấy 918 chuyển đổi cho chiến dịch 11.11"
+    ],
+    "convLabel": "Tỷ lệ chuyển đổi",
+    "convValue": "10%",
+    "convDelta": "↑9%",
+    "catLabel": "Publisher cho",
+    "catValue": "Ngành hàng thời trang",
+    "live": "Chiến dịch 11.11 đã bắt đầu!",
+    "applLabel": "Đăng ký tham gia",
+    "applValue": "428 Publisher",
+    "vcLabel": "Chuyển đổi đã xác thực",
+    "vcValue": "316"
+  },
+  "logos": {
+    "caption": "Được tin dùng bởi những thương hiệu khách hàng của bạn đã quen thuộc, trong bán lẻ, du lịch, làm đẹp và tài chính."
+  },
+  "goals": {
+    "title": "Dù mục tiêu là gì, hãy phát triển tại đây.",
+    "sub": "Luôn có Publisher và chiến lược cho mọi mục tiêu: nhận diện, khách hàng hay doanh thu.",
+    "items": [
+      {
+        "title": "Tăng nhận diện",
+        "desc": "Đưa thương hiệu của bạn đến với người xem mới qua nhà sáng tạo nội dung, trang nội dung và trang so sánh giá."
+      },
+      {
+        "title": "Thu hút khách hàng",
+        "desc": "Biến sự chú ý thành hành động với các chương trình khuyến mãi tiếp cận người mua mới và kéo khách hàng cũ quay lại."
+      },
+      {
+        "title": "Tăng doanh thu",
+        "desc": "Thúc đẩy tăng trưởng đo lường được cho doanh nghiệp bạn với các Publisher được trả phí theo hiệu quả, theo dõi đến từng chuyển đổi."
+      }
+    ]
+  },
+  "platform": {
+    "title": "Một nền tảng, mọi thứ bạn cần để vận hành chương trình",
+    "sub": "Tìm Publisher, triển khai offer, chia sẻ tài liệu sáng tạo và theo dõi từng đơn hàng, tất cả ở một nơi.",
+    "items": [
+      {
+        "t": "Tìm và chọn Publisher",
+        "d": "Tìm Publisher theo người theo dõi, kênh và hạng thành viên, rồi duyệt những ai đại diện cho thương hiệu của bạn. Bạn hoàn toàn kiểm soát ai được quảng bá cho mình."
+      },
+      {
+        "t": "Yêu cầu tuyển Publisher",
+        "d": "Cần hỗ trợ? Đội ngũ của chúng tôi chạy chiến dịch tuyển dụng và giới thiệu những Publisher phù hợp với thương hiệu của bạn, và bạn duyệt ai được tham gia."
+      },
+      {
+        "t": "Triển khai offer và chia sẻ tài liệu sáng tạo",
+        "d": "Đặt mức hoa hồng, triển khai offer và tải lên chiến dịch để Publisher sử dụng, rồi xem ai đang quảng bá."
+      },
+      {
+        "t": "Theo dõi mọi kết quả",
+        "d": "Xem lượt nhấp, chuyển đổi và thanh toán trên một dashboard, với chi tiết đến từng chuyển đổi và xuất dữ liệu bất cứ khi nào bạn cần."
+      }
+    ]
+  },
+  "real": {
+    "title": "Bạn chỉ trả phí cho \nđơn hàng thật",
+    "desc": "Mọi chuyển đổi đều được kiểm tra và xác thực trước khi bạn thanh toán, nên ngân sách của doanh nghiệp bạn chỉ dành cho kết quả thật, không bao giờ lãng phí. Bạn quyết định chuyển đổi nào được tính.",
+    "points": [
+      "Mọi chuyển đổi được xác minh trước khi thanh toán",
+      "Mọi đơn hàng được ghi nhận cho đúng Publisher mang lại"
+    ],
+    "chip": "Đơn hàng đã xác thực"
+  },
+  "stats": {
+    "title": "Đây là kết quả từ \nnhững đơn hàng thật.",
+    "brands": "Thương hiệu",
+    "publishers": "Publisher",
+    "sales": "Doanh số mang lại cho thương hiệu",
+    "brandsSuffix": "+",
+    "publishersSuffix": "+",
+    "salesPrefix": "$",
+    "salesSuffix": " tỷ+"
+  },
+  "results": {
+    "title": "Kết quả đã được chứng minh ở mọi ngành.",
+    "sub": "Những thương hiệu thật đang phát triển trên nền tảng, kể bằng lời của chính họ.",
+    "prev": "Nghiên cứu điển hình trước",
+    "next": "Nghiên cứu điển hình tiếp theo",
+    "cases": [
+      {
+        "head": "Involve giúp Shopee tăng số đối tác từ 2.000 lên 20.000 trong vòng 2 năm",
+        "quote": "“Our growth would not have been possible without Involve’s support. Involve has been one of our biggest affiliate partners from the start, and a benchmark & role model to our other partners.”",
+        "who": "Shopee Malaysia"
+      },
+      {
+        "head": "Involve tiết kiệm thời gian tìm đối tác mới và tối ưu các đối tác hiện có",
+        "quote": "“Involve saves us so much time by not having to reach out to new partners one by one. Involve also optimized our existing partnerships, where we saw a 3.4% growth despite implementing a commission cut.”",
+        "who": "DECATHLON"
+      },
+      {
+        "head": "Số đơn hàng tăng ấn tượng 8% chỉ trong thời gian ngắn.",
+        "quote": "“Through their expansive network of publisher and influencer channels, which have become instrumental marketing avenues for us, we have achieved significant milestones. The growth we have experienced across our diverse range of brands has been nothing short of extraordinary, with a remarkable 8% increase in orders within a short period of time.”",
+        "who": "Limitless Technology"
+      },
+      {
+        "head": "Involve Asia tập trung vào nhiều nguồn traffic đa dạng và sự phát triển.",
+        "quote": "“Involve Asia focuses on a variety of traffic and development, and looks forward to common progress in the future!”",
+        "who": "Alibaba Group"
+      }
+    ]
+  },
+  "awards": {
+    "title": "Được công nhận, và xây dựng trên sự tin tưởng",
+    "alts": [
+      "Certified B Corporation",
+      "Deloitte Technology Fast 500",
+      "MSC Malaysia Status Company",
+      "Forbes Asia 100 To Watch"
+    ]
+  },
+  "cta": {
+    "title": "Bắt đầu phát triển doanh nghiệp bạn với gói phù hợp ngay hôm nay.",
+    "label": "Xem gói và bảng giá"
+  }
+}

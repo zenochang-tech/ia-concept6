@@ -1,0 +1,198 @@
+{
+  "meta": {
+    "title": "Về chúng tôi | Involve Asia",
+    "description": "Involve Asia là nền tảng tiếp thị liên kết giúp thương hiệu và đối tác tăng thu nhập trực tuyến. Đọc câu chuyện của chúng tôi."
+  },
+  "hero": {
+    "eyebrow": "Về chúng tôi",
+    "title": "Thúc đẩy tăng trưởng khắp châu Á.",
+    "sub": "Chúng tôi kết nối thương hiệu và đối tác bằng công nghệ minh bạch, thanh toán hoa hồng suôn sẻ và cơ hội toàn cầu.",
+    "chips": [
+      "Theo dõi chính xác",
+      "Thanh toán đúng hạn",
+      "An toàn và tin cậy"
+    ]
+  },
+  "stats": {
+    "labels": [
+      "Doanh số tạo ra",
+      "Đối tác",
+      "Thương hiệu",
+      "Hoa hồng đã trả"
+    ],
+    "numberLocale": "vi-VN",
+    "prefixes": [
+      "$",
+      "",
+      "",
+      "$"
+    ],
+    "suffixes": [
+      " tỷ+",
+      "+",
+      "+",
+      " triệu+"
+    ]
+  },
+  "story": {
+    "eyebrow": "Câu chuyện của chúng tôi",
+    "title": "Xây dựng cho Đông Nam Á ngay từ ngày đầu.",
+    "body": "Chúng tôi bắt đầu từ năm 2014 với một mục tiêu: kết nối thương hiệu với những người thực sự giúp họ phát triển, và tạo ra kết quả mà cả hai bên đều tin tưởng. Ngày nay, hơn 500 thương hiệu và hơn một triệu đối tác cùng phát triển trên Involve Asia, từ các trang cashback đến nhà sáng tạo nội dung. Mọi đơn hàng đều được theo dõi và xác thực trước khi thanh toán cho bất kỳ ai.",
+    "milestones": [
+      [
+        "2014",
+        "Thành lập tại Kuala Lumpur",
+        "Involve Asia ra đời với một mục tiêu: kết nối thương hiệu với những đối tác thực sự giúp họ phát triển."
+      ],
+      [
+        "Tăng trưởng",
+        "Khắp Đông Nam Á",
+        "Mở rộng ra sáu thị trường, xây dựng đội ngũ địa phương am hiểu từng thị trường."
+      ],
+      [
+        "Hợp tác",
+        "Được các nền tảng hàng đầu tin tưởng",
+        "Trở thành đối tác hàng đầu của các thương hiệu như Shopee, Lazada và TikTok Shop."
+      ],
+      [
+        "Ghi nhận",
+        "Giải thưởng và chứng nhận",
+        "Đạt chứng nhận B Corp và có tên trong Deloitte Technology Fast 500."
+      ]
+    ]
+  },
+  "sign": {
+    "label": "Văn phòng Involve Asia",
+    "imageAlt": "Biển logo Involve Asia trên bức tường đen tại văn phòng của chúng tôi"
+  },
+  "expertise": {
+    "eyebrow": "Chuyên môn của chúng tôi",
+    "title": "Chúng tôi làm gì.",
+    "sub": "Chúng tôi kết nối thương hiệu với những Publisher giúp họ phát triển, và mang đến cho cả hai bên công cụ theo dõi và thanh toán để tin tưởng vào kết quả.",
+    "items": [
+      [
+        "Hợp tác theo hiệu quả",
+        "Chúng tôi kết nối thương hiệu với Publisher, và bạn chỉ trả phí cho kết quả thực, với khả năng theo dõi đầy đủ và minh bạch."
+      ],
+      [
+        "Công nghệ liền mạch",
+        "Nền tảng của chúng tôi lo việc thiết lập chiến dịch, theo dõi và thanh toán, với báo cáo chính xác mà bạn có thể tự kiểm tra."
+      ],
+      [
+        "Am hiểu nhiều thị trường",
+        "Đội ngũ địa phương am hiểu từng thị trường, nên thương hiệu và đối tác nhận được hỗ trợ phù hợp với nơi họ hoạt động."
+      ]
+    ]
+  },
+  "mission": {
+    "eyebrow": "Vì sao chúng tôi tồn tại",
+    "title": "Sứ mệnh, tầm nhìn & giá trị.",
+    "missionLabel": "Sứ mệnh",
+    "mission": "Giúp thương hiệu và đối tác phát triển bằng công nghệ minh bạch và marketing dựa trên hiệu quả.",
+    "visionLabel": "Tầm nhìn",
+    "vision": "Xây dựng nền tảng tiếp thị liên kết được Đông Nam Á tin tưởng, nơi mỗi chuyển đổi tạo nên thành công chung.",
+    "values": [
+      [
+        "Đối tác là trên hết",
+        "Chúng tôi thành công khi đối tác phát triển."
+      ],
+      [
+        "Rõ ràng và tin cậy",
+        "Bạn thấy số liệu thật, được xác thực trước khi thanh toán cho bất kỳ ai."
+      ],
+      [
+        "Không ngừng cải tiến",
+        "Chúng tôi vượt qua giới hạn và trân trọng từng bước tiến."
+      ]
+    ]
+  },
+  "awards": {
+    "eyebrow": "Minh chứng hiệu quả",
+    "title": "Giải thưởng & ghi nhận.",
+    "sub": "Từ ghi nhận dành cho startup đến giải thưởng trong ngành, chúng tôi tự hào về hành trình của mình và những đối tác đã đồng hành.",
+    "cols": [
+      {
+        "head": "Giải thưởng trong ngành",
+        "items": [
+          [
+            "Shopee's Best Partner of the Year",
+            "Đổi mới & tăng trưởng quy mô lớn"
+          ],
+          [
+            "TikTok Shop's Top Affiliate Link Star",
+            "Xuất sắc nhờ nhà sáng tạo nội dung"
+          ],
+          [
+            "Lazada's Affiliate of the Year",
+            "Kết quả đối tác vượt trội"
+          ],
+          [
+            "Malaysia's Affiliate Marketing Pioneer",
+            "Dẫn đầu trong ngành"
+          ]
+        ]
+      },
+      {
+        "head": "Ghi nhận về công nghệ",
+        "items": [
+          [
+            "Certified B Corporation®",
+            "Tiêu chuẩn xã hội & môi trường"
+          ],
+          [
+            "Deloitte Technology Fast 500",
+            "Giải thưởng tăng trưởng công nghệ châu Á – Thái Bình Dương"
+          ],
+          [
+            "MSC Status",
+            "Ghi nhận quốc gia về công nghệ & đổi mới"
+          ]
+        ]
+      }
+    ]
+  },
+  "regions": {
+    "eyebrow": "Hiện diện khu vực",
+    "title": "Bạn có thể tìm thấy chúng tôi ở đâu.",
+    "sub": "Chúng tôi hoạt động tại sáu thị trường Đông Nam Á, kết nối thương hiệu, nhà sáng tạo nội dung và cộng đồng địa phương qua tiếp thị liên kết.",
+    "hq": {
+      "name": "Malaysia",
+      "tag": "Trụ sở chính",
+      "desc": "Kuala Lumpur, nơi mọi thứ bắt đầu. Trụ sở chính là nơi làm việc của các đội ngũ marketing, hợp tác và công nghệ cốt lõi, thúc đẩy tăng trưởng khắp khu vực."
+    },
+    "others": [
+      "Indonesia",
+      "Singapore",
+      "Philippines",
+      "Thái Lan",
+      "Việt Nam"
+    ]
+  },
+  "culture": {
+    "eyebrow": "Cuộc sống tại Involve Asia",
+    "title": "Những khoảnh khắc làm nên văn hóa của chúng tôi.",
+    "sub": "Văn hóa của chúng tôi được xây dựng trên sự hợp tác, tò mò và phát triển. Chúng tôi ăn mừng từng cột mốc và dành không gian cho những ý tưởng giúp chúng tôi tiến lên.",
+    "imageAlt": "Cuộc sống tại Involve Asia"
+  },
+  "careers": {
+    "title": "Cùng chúng tôi xây dựng tương lai của tiếp thị liên kết.",
+    "body": "Gia nhập đội ngũ những nhà sáng tạo, marketer và chuyên gia dữ liệu đang giải quyết các vấn đề thực tế khắp Đông Nam Á. Hãy cùng phát triển thương hiệu, và cả sự nghiệp của bạn.",
+    "link": "Xem vị trí tuyển dụng",
+    "imageAlt": "Đội ngũ Involve Asia"
+  },
+  "finale": {
+    "title": "Chọn vai trò của bạn và cùng phát triển với chúng tôi.",
+    "pubKick": "Nhà sáng tạo. Đối tác tiếp thị liên kết. Đối tác công nghệ.",
+    "advKick": "Thương hiệu. Nhà bán lẻ. Doanh nghiệp.",
+    "pubImageAlt": "Một Publisher đang sáng tạo nội dung",
+    "advImageAlt": "Một Advertiser đang phát triển thương hiệu",
+    "pubTitle": "Tôi là \nPublisher",
+    "pubDesc": "Quảng bá thương hiệu bạn yêu thích. ",
+    "pubMore": "Biến người theo dõi hoặc lượt truy cập thành thu nhập.",
+    "pubCta": "Bắt đầu kiếm tiền",
+    "advTitle": "Tôi là \nAdvertiser",
+    "advDesc": "Tăng doanh số cho doanh nghiệp bạn với đúng Publisher. ",
+    "advMore": "Chỉ trả phí cho kết quả.",
+    "advCta": "Tăng doanh số"
+  }
+}

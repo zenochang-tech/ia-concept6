@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "title": "Tiếp thị liên kết cho blog, trang chuyên đề và trang tin tức | Involve Asia",
+    "description": "Biến lưu lượng sẵn có thành thu nhập. Thêm link theo dõi vào bài viết và kiếm hoa hồng từ mỗi đơn hàng, kể cả rất lâu sau khi đăng."
+  },
+  "hero": {
+    "eyebrow": "Dành cho trang nội dung",
+    "title": "Thêm thu nhập từ nội dung bạn đang đăng.",
+    "sub": "Blog, trang chuyên đề và trang tin tức. Kiếm tiền từ nội dung bạn đã đăng, không cần thay đổi cách viết.",
+    "cta": "Bắt đầu kiếm tiền",
+    "free": "Tham gia miễn phí. Bắt đầu kiếm tiền ngay hôm nay.",
+    "imageAlt": "Một trang nội dung hiển thị trên laptop"
+  },
+  "how": {
+    "title": "Cách bạn kiếm tiền.",
+    "items": [
+      ["01", "Tìm offer", "Xem 500+ thương hiệu và chọn những thương hiệu độc giả của bạn quan tâm."],
+      ["02", "Thêm link vào nội dung", "Chèn link theo dõi vào bài viết và bài đánh giá mới hoặc cũ chỉ với vài cú nhấp."],
+      ["03", "Kiếm tiền sau khi đăng", "Bài viết cũ vẫn tiếp tục mang lại thu nhập mỗi khi độc giả nhấp và mua hàng."],
+      ["04", "Nhận thanh toán", "Rút tiền bằng nội tệ khi đơn hàng được xác thực, hoặc sớm hơn với Express Withdrawal."]
+    ]
+  },
+  "kinds": {
+    "title": "Dành cho nội dung đã có người đọc.",
+    "items": [
+      ["Blog", "Thêm link phù hợp vào những bài bạn vẫn đang viết, và kiếm tiền từ nội dung bạn vốn đã làm."],
+      ["Trang chuyên đề", "Bạn có blog hoặc trang chuyên sâu được cộng đồng trong lĩnh vực theo dõi? Thêm link vào các bài đánh giá và hướng dẫn bạn đã viết, và kiếm hoa hồng từ những gì độc giả mua."],
+      ["Trang tin tức và truyền thông", "Biến bài viết thành nguồn thu nhập tiếp tục sinh lời rất lâu sau khi đăng."]
+    ]
+  },
+  "why": {
+    "title": "Vì sao các trang nội dung kiếm tiền cùng Involve.",
+    "items": [
+      ["Link phù hợp với nội dung của bạn.", "Bạn tự đặt link theo ngữ cảnh. Không có quảng cáo hay banner bắt buộc làm rối trang của bạn."],
+      ["Nội dung hay nhất tiếp tục sinh lời.", "Bài đánh giá bạn viết năm ngoái vẫn mang lại thu nhập hôm nay."],
+      ["Báo cáo định hướng nội dung.", "Xem bài viết và link nào tạo ra đơn hàng, để biết nên đăng gì tiếp theo."]
+    ]
+  },
+  "faq": [
+    ["Link affiliate có làm thay đổi giao diện trang của tôi không?", "Không. Bạn chọn vị trí đặt link. Không có quảng cáo hay banner bắt buộc."],
+    ["Bài viết cũ của tôi có còn kiếm được tiền không?", "Có. Mọi bài viết có link đang hoạt động đều tiếp tục kiếm tiền từ mỗi đơn hàng mà nó mang lại."],
+    ["Những loại trang nào đủ điều kiện?", "Blog, trang chuyên đề, tin tức và truyền thông. Bất kỳ trang nào có nội dung và người đọc."]
+  ],
+  "cta": {
+    "title": "Bắt đầu kiếm tiền từ website của bạn."
+  }
+}

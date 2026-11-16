@@ -1,0 +1,51 @@
+{
+  "meta": {
+    "title": "Dành cho agency | Involve Asia",
+    "description": "Vận hành chương trình tiếp thị liên kết cho nhiều khách hàng trên một nền tảng, với thương hiệu, theo dõi và báo cáo tổng hợp ở cùng một nơi."
+  },
+  "links": {
+    "signup": "https://app.involve.asia/v2/create-account"
+  },
+  "hero": {
+    "eyebrow": "Dành cho agency",
+    "title": "Vận hành tiếp thị liên kết cho mọi khách hàng trên một nền tảng",
+    "sub": "Bạn không cần có người theo dõi riêng. Quản lý chiến dịch cho nhiều khách hàng ở một nơi, với đầy đủ thương hiệu, công cụ theo dõi và báo cáo để vận hành tất cả.",
+    "cta": "Đăng ký miễn phí",
+    "note": "Tham gia miễn phí. Có quyền truy cập API trong khoảng 48 giờ.",
+    "imageAlt": "Dashboard của agency quản lý chiến dịch tiếp thị liên kết cho nhiều khách hàng"
+  },
+  "get": {
+    "title": "Doanh nghiệp bạn nhận được gì.",
+    "items": [
+      ["01", "Truy cập danh mục", "500+ thương hiệu và 4.000+ offer sẵn sàng kích hoạt cho bất kỳ khách hàng nào."],
+      ["02", "Một nơi cho mọi khách hàng", "Vận hành và theo dõi chiến dịch của từng khách hàng mà không phải xoay xở giữa nhiều công cụ."],
+      ["03", "Theo dõi và báo cáo tổng hợp", "Xem hiệu quả của mọi khách hàng trong một tài khoản, tách bạch rõ ràng bằng sub-ID, hoặc đưa toàn bộ dữ liệu vào dashboard riêng của doanh nghiệp bạn qua API."]
+    ]
+  },
+  "api": {
+    "title": "API để tích hợp.",
+    "body": "Lấy offer, tạo deeplink có thể theo dõi và đồng bộ dữ liệu chuyển đổi vào hệ thống của doanh nghiệp bạn và dashboard của khách hàng. Xem trang API để biết endpoint và tài liệu.",
+    "link": "Tổng quan API"
+  },
+  "how": {
+    "title": "Cách hoạt động.",
+    "items": [
+      ["Đăng ký và nhận quyền truy cập API", "Đăng ký miễn phí, yêu cầu API key và bắt đầu kích hoạt offer, tạo link theo dõi cho khách hàng."],
+      ["Tách khách hàng bằng sub-ID", "Gắn thẻ hoạt động theo khách hàng và xem chuyển đổi chi tiết cho từng khách hàng."],
+      ["Liên hệ để mở rộng quy mô", "Đội ngũ của chúng tôi giúp bạn chọn cách thiết lập phù hợp, một tài khoản với sub-ID để xem tổng hợp hoặc mỗi khách hàng một tài khoản riêng, và hỗ trợ bạn bắt đầu vận hành."]
+    ]
+  },
+  "faq": {
+    "items": [
+      ["Tôi có thể quản lý nhiều khách hàng không?", "Có. Vận hành tất cả khách hàng từ một tài khoản và tách từng khách hàng bằng sub-ID, hoặc dùng tài khoản riêng cho mỗi khách hàng để xuất hóa đơn rõ ràng. Dù chọn cách nào, API đều cho phép bạn đưa dữ liệu vào báo cáo của doanh nghiệp bạn."],
+      ["Tôi có cần người theo dõi hoặc lưu lượng truy cập riêng không?", "Không. Hướng này dành cho agency vận hành hoạt động tiếp thị liên kết cho khách hàng, không phải để kiếm tiền từ người theo dõi của chính bạn. Nếu đó là bạn, hãy xem [năm loại Publisher](for-publishers)."],
+      ["Tôi tích hợp kỹ thuật như thế nào?", "Thông qua Publisher API của chúng tôi: lấy offer, tạo deeplink và đồng bộ chuyển đổi (chi tiết theo sub-ID cho từng khách hàng). Xem [trang API](api-overview) để biết endpoint và tài liệu."],
+      ["Làm sao để tôi tách riêng hiệu quả của từng khách hàng?", "Dùng sub-ID để gắn thẻ và báo cáo hoạt động theo từng khách hàng, hoặc dùng tài khoản riêng cho mỗi khách hàng, tùy theo cách bạn xuất hóa đơn."]
+    ],
+    "after": "Cần thông tin kỹ thuật? [Xem trang API](api-overview). Có người theo dõi riêng muốn kiếm tiền? [Xem năm loại Publisher](for-publishers)."
+  },
+  "cta": {
+    "title": "Vận hành tiếp thị liên kết cho mọi khách hàng, trên một nền tảng.",
+    "label": "Đăng ký miễn phí"
+  }
+}

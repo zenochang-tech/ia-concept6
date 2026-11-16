@@ -1,0 +1,52 @@
+{
+  "meta": {
+    "title": "Datafeed | Involve Asia",
+    "description": "Nhận toàn bộ danh mục sản phẩm của Advertiser trong một file với Involve Datafeed. Thêm link theo dõi và giới thiệu bao nhiêu sản phẩm tùy bạn."
+  },
+  "hero": {
+    "title": "Giới thiệu cả danh mục sản phẩm, không cần thu thập thủ công.",
+    "sub": "Datafeed gửi bạn toàn bộ danh sách sản phẩm của Advertiser trong một file, gồm tên, giá, hình ảnh và nhiều thông tin khác, để bạn giới thiệu bao nhiêu sản phẩm tùy thích mà không phải tự thu thập từng cái.",
+    "cta": "Bắt đầu kiếm tiền",
+    "imageAlt": "Danh sách sản phẩm được đồng bộ lên website qua Involve Datafeed",
+    "added": "Đã thêm 2.087 sản phẩm mới"
+  },
+  "what": {
+    "title": "Involve Datafeed là gì?",
+    "sub": "Datafeed là một file có sẵn chứa sản phẩm của Advertiser, kèm các thông tin bạn cần để giới thiệu chúng: tên sản phẩm, giá, URL sản phẩm, hình ảnh, mô tả và danh mục. Thay vì thêm từng sản phẩm, bạn nhận toàn bộ danh mục cùng lúc, rồi thêm mã theo dõi của mình để đơn hàng được ghi nhận cho bạn.",
+    "imageAlt": "Lưới sản phẩm của một Advertiser sẵn sàng giới thiệu qua Involve Datafeed"
+  },
+  "how": {
+    "title": "Cách hoạt động",
+    "items": [
+      ["01", "Tìm Advertiser.", "Duyệt datafeed và chọn Advertiser có sản phẩm bạn muốn giới thiệu."],
+      ["02", "Nhận feed và hướng dẫn.", "Tải về feed sản phẩm và hướng dẫn từng bước của Advertiser đó."],
+      ["03", "Thêm mã theo dõi.", "Làm theo hướng dẫn để thêm mã theo dõi vào link sản phẩm, để lượt nhấp và đơn hàng được ghi nhận cho bạn."],
+      ["04", "Giới thiệu sản phẩm.", "Đăng sản phẩm trên khắp website của bạn."]
+    ]
+  },
+  "ways": {
+    "manual": {
+      "title": "Cách thủ công",
+      "items": [
+        "Tìm từng sản phẩm, sao chép tên và hình ảnh từ website của thương hiệu.",
+        "Tạo link affiliate cho sản phẩm đó.",
+        "Dán mọi thứ lên website của bạn.",
+        "Lặp lại với từng sản phẩm."
+      ]
+    },
+    "involve": {
+      "titleA": "Cách dùng ",
+      "titleEm": "Involve Datafeed",
+      "titleB": "",
+      "sub": "Nhận cả danh mục trong một file. Thêm mã theo dõi một lần, rồi giới thiệu bao nhiêu sản phẩm tùy thích.",
+      "items": [
+        "Tải về feed sản phẩm của thương hiệu, toàn bộ danh mục trong một file.",
+        "Thêm mã theo dõi vào link sản phẩm trong feed theo hướng dẫn của thương hiệu, chỉ một lần cho mỗi thương hiệu.",
+        "Đăng sản phẩm lên website của bạn."
+      ]
+    }
+  },
+  "cta": {
+    "title": "Lấp đầy website của bạn bằng sản phẩm sinh lời ngay hôm nay."
+  }
+}

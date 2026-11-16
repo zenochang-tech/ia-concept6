@@ -1,0 +1,263 @@
+{
+  "meta": {
+    "title": "Bảng giá | Involve Asia",
+    "description": "Tiếp cận 1.000.000+ Publisher uy tín khắp Đông Nam Á, chạy chiến dịch theo hiệu quả và chỉ trả phí cho kết quả thực. Phát triển thương hiệu cùng Involve Asia."
+  },
+  "hero": {
+    "eyebrow": "Bảng giá tiếp thị liên kết cho Advertiser",
+    "title": "Gói phù hợp với đà tăng trưởng của bạn.",
+    "sub": "Dù bạn mới ra mắt chương trình đầu tiên hay đang mở rộng một chương trình sẵn có,\nhãy chọn gói phù hợp với từng giai đoạn phát triển của doanh nghiệp bạn."
+  },
+  "plans": {
+    "recommended": "Khuyên dùng",
+    "terms": "Mọi gói đều bao gồm phí thiết lập và ra mắt một lần $1.000 và thời hạn tối thiểu 3 tháng.",
+    "items": [
+      {
+        "name": "Startup",
+        "desc": "Dành cho thương hiệu ra mắt chương trình tiếp thị liên kết đầu tiên.",
+        "price": "$99",
+        "unit": "/tháng",
+        "cta": "Bắt đầu ngay",
+        "feats": [
+          "Theo dõi đến 100.000 lượt nhấp mỗi tháng",
+          "Thiết lập 1 offer",
+          "Hoa hồng một cấp",
+          "Truy cập chợ Publisher",
+          "Truy cập dashboard",
+          "Hỗ trợ qua helpdesk"
+        ]
+      },
+      {
+        "name": "Growth",
+        "desc": "Dành cho thương hiệu muốn biến tiếp thị liên kết thành kênh tăng trưởng chính.",
+        "price": "$499",
+        "unit": "/tháng",
+        "cta": "Bắt đầu ngay",
+        "plus": "Mọi tính năng của Startup, cùng với:",
+        "feats": [
+          "Theo dõi đến 1.000.000 lượt nhấp mỗi tháng",
+          "Thiết lập đến 3 offer",
+          "Hoa hồng nhiều cấp",
+          "Đến 3 chiến dịch tuyển Publisher mỗi tháng",
+          "Giới thiệu Publisher",
+          "Account Manager riêng",
+          "Đánh giá hiệu quả hằng quý"
+        ]
+      },
+      {
+        "name": "Enterprise",
+        "desc": "Dành cho thương hiệu lớn có quy mô cao hoặc yêu cầu riêng.",
+        "price": "Tùy chỉnh",
+        "priceNote": "Giá theo quy mô.",
+        "cta": "Liên hệ chúng tôi",
+        "plus": "Mọi tính năng của Growth, cùng với:",
+        "feats": [
+          "Account Manager riêng và hỗ trợ ưu tiên",
+          "Quy mô, offer và báo cáo tùy chỉnh theo mục tiêu của doanh nghiệp bạn."
+        ]
+      }
+    ]
+  },
+  "compare": {
+    "eyebrow": "Các gói dịch vụ",
+    "title": "So sánh các cấp độ hợp tác",
+    "sub": "Bảng giá đơn giản, minh bạch, được thiết kế để mở rộng kênh tiếp thị liên kết của doanh nghiệp bạn.",
+    "included": "Có",
+    "notIncluded": "Không có",
+    "labelHead": "Tính năng nền tảng",
+    "recommended": "Khuyên dùng",
+    "plans": [
+      {
+        "name": "Startup",
+        "price": "$99",
+        "unit": "/tháng",
+        "cta": "Bắt đầu ngay"
+      },
+      {
+        "name": "Growth",
+        "price": "$499",
+        "unit": "/tháng",
+        "cta": "Bắt đầu ngay"
+      },
+      {
+        "name": "Enterprise",
+        "price": "Tùy chỉnh",
+        "cta": "Liên hệ tư vấn"
+      }
+    ],
+    "rows": [
+      [
+        "Giá hằng tháng",
+        "$99",
+        "$499",
+        "Tùy chỉnh"
+      ],
+      [
+        "Lượt nhấp được theo dõi mỗi tháng",
+        "Đến 100.000",
+        "Đến 1.000.000",
+        "Tùy chỉnh"
+      ],
+      [
+        "Số offer thiết lập",
+        "1",
+        "Đến 3",
+        "Tùy chỉnh"
+      ],
+      [
+        "Cơ cấu hoa hồng",
+        "Một cấp",
+        "Nhiều cấp",
+        "Nhiều cấp"
+      ],
+      [
+        "Chiến dịch tuyển Publisher mỗi tháng",
+        false,
+        "Đến 3",
+        "Tùy chỉnh"
+      ],
+      [
+        "Giới thiệu Publisher",
+        false,
+        true,
+        true
+      ],
+      [
+        "Account Manager riêng",
+        false,
+        true,
+        true
+      ],
+      [
+        "Hỗ trợ ưu tiên",
+        false,
+        false,
+        true
+      ],
+      [
+        "Đánh giá hiệu quả hằng quý",
+        false,
+        true,
+        true
+      ],
+      [
+        "Offer và báo cáo tùy chỉnh",
+        false,
+        false,
+        true
+      ],
+      [
+        "Truy cập chợ Publisher",
+        true,
+        true,
+        true
+      ],
+      [
+        "Xác thực chuyển đổi và chống gian lận",
+        true,
+        true,
+        true
+      ],
+      [
+        "Phí thiết lập và ra mắt",
+        "$1.000 một lần",
+        "$1.000 một lần",
+        "$1.000 một lần"
+      ],
+      [
+        "Thời hạn tối thiểu",
+        "3 tháng",
+        "3 tháng",
+        "3 tháng"
+      ],
+      [
+        "Hỗ trợ",
+        "Helpdesk",
+        "Quản lý riêng",
+        "Quản lý riêng và ưu tiên"
+      ]
+    ]
+  },
+  "essentials": {
+    "title": "Mọi gói đều có sẵn những điều cốt lõi.",
+    "items": [
+      {
+        "title": "1.000.000+ Publisher",
+        "desc": "Tiếp cận hơn 1.000.000 Publisher trong các lĩnh vực bán lẻ, du lịch, làm đẹp, tài chính và nhiều hơn nữa."
+      },
+      {
+        "title": "Theo dõi chính xác",
+        "desc": "Theo dõi thực tế đến từng lượt nhấp và chuyển đổi, trong một dashboard duy nhất."
+      },
+      {
+        "title": "Xác thực chuyển đổi",
+        "desc": "Mọi chuyển đổi đều được xác thực trước khi bạn thanh toán."
+      },
+      {
+        "title": "Đội ngũ hỗ trợ tận tâm",
+        "desc": "Con người thật hỗ trợ bạn ngay từ ngày đầu tiên."
+      }
+    ]
+  },
+  "how": {
+    "title": "Bảng giá gồm hai phần rõ ràng.",
+    "plan": {
+      "title": "Gói nền tảng của bạn.",
+      "d": "Phí hằng tháng (Startup $99, Growth $499 hoặc tùy chỉnh cho Enterprise), phí thiết lập và ra mắt một lần $1.000, và thời hạn tối thiểu 3 tháng. Đây là khoản doanh nghiệp bạn trả cho Involve để vận hành chương trình.",
+      "notes": [
+        "Phí thiết lập dành cho việc đội ngũ của chúng tôi cùng bạn xây dựng và ra mắt chương trình, để chương trình hoạt động đúng cách ngay từ đầu, thay vì bạn phải tự xoay xở.",
+        "Thời hạn tối thiểu 3 tháng giúp chương trình mới có đủ thời gian tuyển Publisher và thu thập dữ liệu trước khi bạn quyết định bước tiếp theo."
+      ]
+    },
+    "pay": {
+      "title": "Khoản bạn trả cho Publisher.",
+      "d": "Hoa hồng do bạn đặt cho từng offer, chỉ được trả khi Publisher mang về đơn hàng thật, đã xác thực. Đây là phần trả phí theo kết quả, nên khoản chi này luôn gắn với doanh thu.",
+      "callout": "Tiếp thị liên kết hoàn toàn dựa trên hiệu quả. Bạn toàn quyền kiểm soát mức hoa hồng và chỉ thanh toán sau khi xác thực."
+    }
+  },
+  "logos": {
+    "caption": "Được tin dùng bởi những thương hiệu khách hàng của bạn đã quen thuộc, trong các lĩnh vực bán lẻ, du lịch, làm đẹp và tài chính."
+  },
+  "faq": {
+    "title": "Câu hỏi thường gặp về bảng giá.",
+    "items": [
+      [
+        "Thực tế tôi trả cho Publisher những gì?",
+        "Bạn đặt mức hoa hồng cho từng offer. Publisher chỉ nhận hoa hồng khi mang về đơn hàng thật, nên khoản chi của bạn luôn gắn với doanh thu."
+      ],
+      [
+        "Phí thiết lập $1.000 dùng để làm gì?",
+        "Khoản phí này dành cho việc xây dựng và ra mắt chương trình cùng đội ngũ của chúng tôi, để chương trình được thiết lập đúng và hoạt động nhanh chóng."
+      ],
+      [
+        "Vì sao thời hạn tối thiểu là 3 tháng?",
+        "Chương trình tiếp thị liên kết cần thời gian để tuyển Publisher và thu thập dữ liệu. Ba tháng là đủ để thấy kết quả thực."
+      ],
+      [
+        "Sau thời hạn tối thiểu ba tháng thì sao?",
+        "Gói của bạn tiếp tục được gia hạn liên tục, và bạn có thể nâng cấp, hạ cấp hoặc hủy gói khi chương trình thay đổi."
+      ],
+      [
+        "Nếu tôi vượt giới hạn theo dõi của gói thì sao?",
+        "Nếu lưu lượng của bạn vượt quá gói hiện tại, bạn có thể chuyển lên gói phù hợp hơn và đội ngũ của chúng tôi sẽ hỗ trợ bạn chuyển đổi."
+      ],
+      [
+        "Tôi có thể đổi gói sau này không?",
+        "Có. Bạn có thể chuyển từ Startup lên Growth, hoặc lên Enterprise, khi chương trình mở rộng."
+      ],
+      [
+        "Tôi nên chọn gói nào?",
+        "Hầu hết thương hiệu xem tiếp thị liên kết là kênh chính đều chọn Growth. Hãy bắt đầu với Startup để ra mắt và thử nghiệm, và liên hệ chúng tôi nếu cần quy mô Enterprise. Hoặc nhận đánh giá tăng trưởng miễn phí."
+      ],
+      [
+        "Kết quả được theo dõi như thế nào?",
+        "Mọi lượt nhấp và chuyển đổi đều được ghi nhận cho đúng Publisher đã mang về, và được xác thực trước khi thanh toán."
+      ]
+    ]
+  },
+  "cta": {
+    "title": "Chưa biết bắt đầu từ đâu? Chúng tôi sẽ giúp.",
+    "sub": "Đặt lịch gọi nhanh và đội ngũ của chúng tôi sẽ vạch ra cách nhanh nhất để phát triển thương hiệu của bạn cùng Involve.",
+    "label": "Liên hệ chúng tôi"
+  }
+}

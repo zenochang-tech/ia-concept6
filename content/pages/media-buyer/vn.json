@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "title": "Tiếp thị liên kết cho media buyer | Involve Asia",
+    "description": "Biến lưu lượng trả phí thành lợi nhuận. Chạy chiến dịch với 500+ thương hiệu, có theo dõi, phân bổ và báo cáo để bảo vệ biên lợi nhuận của bạn."
+  },
+  "hero": {
+    "eyebrow": "Dành cho media buyer",
+    "title": "Chạy lưu lượng trả phí cho hàng trăm thương hiệu, tích hợp sẵn theo dõi.",
+    "sub": "Biến chi phí quảng cáo thành lợi nhuận, với phân bổ, báo cáo và thanh toán để vận hành ở quy mô lớn.",
+    "cta": "Bắt đầu kiếm tiền",
+    "free": "Tham gia miễn phí. Bắt đầu kiếm tiền ngay hôm nay.",
+    "imageAlt": "Dashboard chiến dịch của một media buyer"
+  },
+  "how": {
+    "title": "Cách bạn kiếm tiền.",
+    "items": [
+      ["01", "Chọn offer chuyển đổi cao", "Xem 4.000+ offer với mức hoa hồng và điều khoản rõ ràng từ đầu, để bạn tính trước biên lợi nhuận."],
+      ["02", "Chạy lưu lượng trả phí", "Đưa lưu lượng từ search, mạng xã hội và native qua link theo dõi của bạn."],
+      ["03", "Theo dõi mọi chuyển đổi", "Xem lượt nhấp, đơn hàng và EPC theo thời gian thực, và gửi postback về tracker của bạn."],
+      ["04", "Nhận thanh toán", "Rút tiền bằng nội tệ khi chuyển đổi được xác thực, hoặc sớm hơn với Express Withdrawal."]
+    ]
+  },
+  "run": {
+    "title": "Phù hợp với cách bạn vận hành.",
+    "items": [
+      ["Biết biên lợi nhuận trước khi chi tiền.", "Xem mức hoa hồng và EPC của mọi offer ngay từ đầu, để bạn tính toán trước khi mua dù chỉ một lượt nhấp. Hoa hồng trừ chi phí lưu lượng là lợi nhuận của bạn. Chúng tôi cho bạn thấy hai con số đầu, bạn kiểm soát con số thứ ba."],
+      ["Kết nối với tracker của bạn.", "Gửi postback S2S (server-to-server) vào Voluum, RedTrack, Binom hoặc hệ thống của riêng bạn. Truyền click ID và sub ID qua link và nhận lại khi có chuyển đổi, để báo cáo của bạn khớp với chúng tôi đến từng xu."],
+      ["Nắm rõ quy định trước khi chạy.", "Mỗi offer đều nêu rõ nguồn lưu lượng được phép và quy định về đặt giá thầu từ khóa thương hiệu, để bạn biết mình được chạy gì trước khi chi tiền, và giữ trọn mọi khoản hoa hồng kiếm được."]
+    ]
+  },
+  "why": {
+    "title": "Vì sao media buyer chọn Involve.",
+    "items": [
+      ["Hoa hồng và điều khoản rõ ràng.", "Xem hoa hồng trước khi chi tiền, để bạn bảo vệ biên lợi nhuận."],
+      ["Phân bổ đáng tin cậy.", "Theo dõi last-click và postback S2S khớp với hệ thống của bạn."],
+      ["Hiệu quả theo thời gian thực.", "Dữ liệu EPC, chuyển đổi và thanh toán ngay khi phát sinh, không phải vài ngày sau."]
+    ]
+  },
+  "faq": [
+    ["Tôi có thể dùng postback S2S không?", "Có. Gửi postback về tracker của bạn để dữ liệu của bạn khớp với dữ liệu của chúng tôi."],
+    ["Tốc độ theo dõi nhanh đến mức nào?", "Theo thời gian thực, trong vòng 10 đến 30 phút với hầu hết chuyển đổi, cùng với theo dõi thủ công khi cần."],
+    ["Những nguồn lưu lượng nào được phép?", "Hãy xem điều khoản của từng offer. Một số thương hiệu hạn chế quảng cáo tìm kiếm trả phí hoặc đặt giá thầu từ khóa thương hiệu."]
+  ],
+  "cta": {
+    "title": "Biến chi phí quảng cáo thành lợi nhuận."
+  }
+}

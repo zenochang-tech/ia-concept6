@@ -1,0 +1,140 @@
+{
+  "meta": {
+    "title": "Dành cho Publisher | Involve Asia",
+    "description": "Quảng bá 4.000+ thương hiệu, biến người theo dõi hoặc lượt truy cập thành thu nhập và nhận thanh toán nhanh bằng nội tệ. Đăng ký miễn phí."
+  },
+  "hero": {
+    "eyebrow": "Tiếp thị liên kết cho Publisher",
+    "title": "Biến người theo dõi thành thu nhập.",
+    "sub": "Quảng bá những gì bạn yêu thích, nhận hoa hồng trên mỗi đơn hàng và nhận tiền nhanh hơn.",
+    "cta": "Bắt đầu kiếm tiền",
+    "free": "Đăng ký miễn phí. Bắt đầu kiếm tiền ngay hôm nay.",
+    "slides": [
+      {
+        "alt": "Một nhà sáng tạo nội dung đang quay video đánh giá sản phẩm để chia sẻ với người theo dõi",
+        "link": "invl.me/yourDeepLink",
+        "product": "Vòng cổ"
+      },
+      {
+        "alt": "Một Publisher đang xem doanh số trên dashboard",
+        "label": "Tổng doanh số",
+        "value": "$136.578",
+        "change": "↑36%"
+      },
+      {
+        "alt": "Một Publisher đang kiểm tra số liệu chuyển đổi",
+        "label": "Tỷ lệ chuyển đổi",
+        "value": "12",
+        "unit": "%",
+        "change": "↑21%"
+      },
+      {
+        "alt": "Một Publisher nhận được thông báo thanh toán",
+        "label": "Đã nhận thanh toán",
+        "payouts": [
+          "+ $48",
+          "+ $61"
+        ]
+      }
+    ]
+  },
+  "logos": {
+    "caption": "Khám phá và quảng bá hàng nghìn offer từ 500+ thương hiệu, sẵn sàng cho các Publisher như bạn ngay hôm nay."
+  },
+  "audience": {
+    "title": "Dù bạn tiếp cận mọi người theo cách nào, luôn có cách để kiếm tiền.",
+    "sub": "Dù bạn làm gì, luôn có lựa chọn phù hợp: chiến dịch, mã khuyến mãi, ưu đãi sản phẩm và nhiều hơn nữa.",
+    "cards": [
+      [
+        "Nhà sáng tạo nội dung",
+        "Mạng xã hội, KOL, video. Chia sẻ những gì bạn yêu thích và nhận hoa hồng mỗi khi người theo dõi mua hàng."
+      ],
+      [
+        "Đối tác tiếp thị liên kết",
+        "Blog, trang đánh giá, cashback, mã giảm giá và so sánh giá. Biến lượt truy cập website thành thu nhập tiếp thị liên kết, ở mọi quy mô."
+      ],
+      [
+        "Đối tác công nghệ",
+        "Ứng dụng, nền tảng web và phần mềm. Tích hợp Involve vào sản phẩm của bạn qua API và kiếm tiền từ người dùng của bạn."
+      ]
+    ]
+  },
+  "platform": {
+    "title": "Thiết kế theo đúng cách bạn kiếm tiền.",
+    "sub": "Tìm offer, chia sẻ link, theo dõi từng đơn hàng và nhận thanh toán, tất cả trên một dashboard.",
+    "items": [
+      [
+        "Tìm offer để quảng bá",
+        "Duyệt 500+ thương hiệu và hàng nghìn offer, rồi chọn những offer phù hợp với người theo dõi của bạn."
+      ],
+      [
+        "Tạo link của bạn",
+        "Tạo link theo dõi, mã giảm giá hoặc banner chỉ với vài cú nhấp, kể cả tạo hàng loạt khi cần."
+      ],
+      [
+        "Theo dõi thu nhập",
+        "Xem lượt nhấp, đơn hàng và hoa hồng cập nhật theo thời gian thực, trên web hoặc ứng dụng."
+      ],
+      [
+        "Nhận thanh toán",
+        "Rút tiền bằng loại tiền tệ bạn chọn khi chuyển đổi đã được xác thực, hoặc sớm hơn với Express Withdrawal."
+      ]
+    ]
+  },
+  "faq": {
+    "items": [
+      [
+        "Tiếp thị liên kết là gì?",
+        "Tiếp thị liên kết là cách kiếm tiền dựa trên hiệu quả: bạn quảng bá sản phẩm của Advertiser bằng link theo dõi của riêng mình và nhận hoa hồng trên mỗi đơn hàng bạn mang lại. Trên nền tảng Involve Asia, bạn có quyền truy cập hàng trăm thương hiệu, link và công cụ theo dõi để quảng bá, cùng với thanh toán, tất cả ở một nơi. [Đọc hướng dẫn cho người mới](/resources/affiliate-marketing-guide/)."
+      ],
+      [
+        "Tiếp thị liên kết hoạt động như thế nào?",
+        "Bạn chia sẻ một link theo dõi. Khi có người nhấp vào và mua hàng, đơn hàng đó được ghi nhận cho bạn và bạn nhận hoa hồng. Kể cả khi họ quay lại sau vài ngày, cookie vẫn giữ đơn hàng được ghi nhận cho bạn. Trên Involve Asia, bạn tìm chiến dịch, theo dõi hiệu quả và nhận thanh toán ngay từ dashboard và ứng dụng."
+      ],
+      [
+        "Chương trình tiếp thị liên kết là gì?",
+        "Chương trình tiếp thị liên kết là tập hợp các offer và mức hoa hồng mà Advertiser dành cho Publisher quảng bá cho họ. Trên nền tảng, bạn tìm thương hiệu mình thích, tạo link và bắt đầu quảng bá. Một số chương trình cần duyệt Publisher trước khi bắt đầu quảng bá."
+      ],
+      [
+        "Tiếp thị liên kết có hợp pháp không?",
+        "Có. Tiếp thị liên kết là mô hình marketing hợp pháp và được sử dụng rộng rãi. Chúng tôi đảm bảo mọi hợp tác và hoạt động quảng bá đều tuân thủ quy định và minh bạch, để cả Publisher lẫn Advertiser đều tin tưởng vào số liệu."
+      ],
+      [
+        "Nền tảng tiếp thị liên kết là gì, và khác gì so với mạng lưới?",
+        "Mạng lưới là lớp kết nối giữa Advertiser và Publisher. Nền tảng là sản phẩm hoàn chỉnh nằm bên trên: offer, công cụ tạo link và theo dõi, báo cáo và thanh toán, tất cả ở một nơi. Involve Asia là nền tảng tiếp thị liên kết mang đến cho cả hai bên mọi thứ cần thiết để phát triển."
+      ],
+      [
+        "Những loại Publisher nào có thể tham gia?",
+        "Gần như mọi loại. Mạng xã hội và KOL, trang nội dung và tin tức, trang mã giảm giá và khuyến mãi, trang cashback và khách hàng thân thiết, trang so sánh giá, chủ sở hữu ứng dụng, cũng như media buyer hoặc agency. Nếu bạn có người theo dõi hoặc lượt truy cập, luôn có cách để kiếm tiền."
+      ],
+      [
+        "Tôi có cần website không?",
+        "Không. Bạn có thể kiếm tiền với blog, kênh YouTube, Instagram, Facebook, TikTok, danh sách email, ứng dụng và nhiều kênh khác. Chỉ cần tạo tài khoản, thêm kênh của bạn và bắt đầu."
+      ],
+      [
+        "Tôi tham gia có mất phí không?",
+        "Không, tham gia hoàn toàn miễn phí và không tốn phí đăng ký. Có hai khoản phí bạn cần biết: phí xử lý khi bạn rút thu nhập, và phí duy trì tài khoản không hoạt động có thể áp dụng nếu tài khoản của bạn không hoạt động trong thời gian dài. Cả hai đều được hiển thị rõ ràng trên dashboard của bạn."
+      ],
+      [
+        "Làm sao để tôi bắt đầu và được duyệt?",
+        "Tạo tài khoản, thêm kênh của bạn và đăng ký các chương trình bạn muốn quảng bá. Một số Advertiser cần duyệt Publisher trước khi bắt đầu quảng bá; khi được duyệt, bạn có thể tạo link và bắt đầu kiếm tiền."
+      ],
+      [
+        "Hoa hồng được tính như thế nào?",
+        "Mỗi thương hiệu tự đặt mức hoa hồng. Ví dụ, một thương hiệu thời trang có thể trả 4,2% trên mỗi đơn hàng đã xác thực. Có hai yếu tố ảnh hưởng đến khoản thanh toán của bạn: thời gian xác thực (Advertiser xác nhận đơn hàng là thật và không bị hủy trước khi thanh toán) và thời hạn cookie (khoảng thời gian sau một lượt nhấp mà đơn hàng vẫn được tính cho bạn). Cả hai đều được hiển thị trên từng ưu đãi."
+      ],
+      [
+        "Tôi được thanh toán khi nào và bằng cách nào?",
+        "Bạn được thanh toán qua PayPal hoặc chuyển khoản ngân hàng, bằng loại tiền tệ bạn chọn, trong vòng 10 ngày làm việc kể từ khi gửi yêu cầu, sau khi chuyển đổi đã được xác thực. Nếu muốn nhận thu nhập sớm hơn, [Express Withdrawal](/express-withdrawal/) cho phép Publisher đủ điều kiện rút trước một phần thu nhập trước khi xác thực, kèm phí xử lý và cần được duyệt."
+      ],
+      [
+        "Làm sao để tôi theo dõi hiệu quả của mình?",
+        "Đăng nhập và mở Reports, sau đó chọn Performance Report. Lọc theo khoảng thời gian, thương hiệu hoặc loại chiến dịch để xem lượt nhấp, đơn hàng và thu nhập theo thời gian thực. Publisher nâng cao cũng có thể lấy dữ liệu hiệu quả qua API."
+      ]
+    ]
+  },
+  "cta": {
+    "title": "Bắt đầu kiếm tiền từ người theo dõi của bạn ngay hôm nay.",
+    "label": "Tạo tài khoản miễn phí"
+  }
+}

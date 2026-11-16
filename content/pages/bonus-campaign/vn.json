@@ -1,0 +1,99 @@
+{
+  "meta": {
+    "title": "Bonus Campaign | Involve Asia",
+    "description": "Nhận thưởng $40 cho mỗi Advertiser tham gia khi bạn tạo được năm chuyển đổi đã xác thực. Chỉ dành cho năm Publisher đầu tiên của mỗi Advertiser."
+  },
+  "links": {
+    "login": "https://invl.me/clmpu6y"
+  },
+  "hero": {
+    "eyebrow": "Bonus Campaign",
+    "title": "Nhận thêm $40 chỉ với năm chuyển đổi",
+    "sub": "Chúng tôi hợp tác với một số Advertiser chọn lọc để giúp bạn tăng thu nhập mà không tốn nhiều công sức.",
+    "chips": [
+      "Hoa hồng cao",
+      "Mục tiêu dễ đạt",
+      "Tiền thưởng thêm"
+    ],
+    "cta": "Xem offer",
+    "login": "Đăng nhập dashboard"
+  },
+  "steps": {
+    "title": "Cách nhận thưởng độc quyền",
+    "sub": "Tiền thưởng chỉ dành cho năm Publisher đầu tiên của mỗi Advertiser.",
+    "items": [
+      [
+        "1",
+        "Chọn Advertiser",
+        "Chọn một hoặc nhiều offer tham gia bên dưới và quyết định nơi bạn muốn tập trung."
+      ],
+      [
+        "2",
+        "Tạo năm chuyển đổi cho mỗi Advertiser",
+        "Quảng bá link của bạn và tạo năm chuyển đổi đã xác thực cho mỗi Advertiser bạn muốn đủ điều kiện."
+      ],
+      [
+        "3",
+        "Nhận thưởng $40",
+        "Nhận thưởng cho mỗi Advertiser khi năm chuyển đổi đã được xác thực."
+      ]
+    ]
+  },
+  "offers": {
+    "title": "Offer Bonus Campaign tháng 5/2026",
+    "sub": "Chọn một offer để bắt đầu nhận thưởng.",
+    "aria": "{brand}, {rate}. Quảng bá offer",
+    "logoAlt": "Logo {brand}",
+    "items": [
+      {
+        "num": "28%",
+        "rem": "hoa hồng",
+        "desc": "Phần mềm phát video và tiện ích"
+      },
+      {
+        "num": "USD 210",
+        "rem": "hoa hồng",
+        "desc": "Nền tảng thanh toán và tài chính doanh nghiệp toàn cầu"
+      },
+      {
+        "up": "Lên đến",
+        "num": "USD 70",
+        "desc": "Sàn học ngoại ngữ trực tuyến"
+      },
+      {
+        "num": "7%",
+        "rem": "hoa hồng",
+        "desc": "Thuê WiFi du lịch cho người dùng quốc tế"
+      },
+      {
+        "up": "Lên đến",
+        "num": "MYR 225",
+        "desc": "Dùng thử trước khi mua thiết bị và đồ điện tử"
+      }
+    ]
+  },
+  "terms": {
+    "title": "Điều khoản và điều kiện",
+    "items": [
+      "Chiến dịch diễn ra từ ngày 1 tháng 5 đến hết ngày 31 tháng 5, 2026. Chỉ những chuyển đổi có Conversion Date Created trong khoảng thời gian này mới đủ điều kiện.",
+      "Publisher phải tạo 5 chuyển đổi đã xác thực cho một thương hiệu tham gia (Preply, GOM Lab, Ninja WiFi, PakaiDulu by DirectD hoặc Airwallex) để đủ điều kiện.",
+      "Mỗi thương hiệu được thưởng một lần khi đạt yêu cầu, ngoài hoa hồng thông thường.",
+      "Mỗi Publisher chỉ được tính đủ điều kiện một lần cho mỗi thương hiệu.",
+      "Publisher có thể đủ điều kiện ở nhiều thương hiệu nếu đạt yêu cầu ở từng thương hiệu.",
+      "Mỗi thương hiệu chỉ có 5 suất dành cho Publisher.",
+      "Suất được xét theo thứ tự ai đến trước được trước, dựa trên thời điểm ghi nhận chuyển đổi đã xác thực thứ 5.",
+      "Khi một thương hiệu đã hết suất, thương hiệu đó sẽ không còn đủ điều kiện.",
+      "Tất cả chuyển đổi phải được xác thực trước khi xác nhận quyền nhận thưởng.",
+      "Tiền thưởng được xử lý sau khi xác thực và có thể mất đến 3 tháng sau khi chiến dịch kết thúc.",
+      "Tiền thưởng sẽ được chuyển vào tài khoản thanh toán của Publisher.",
+      "Publisher có thể theo dõi hiệu quả tại Dashboard > Conversion Report bằng trường Conversion Date Created.",
+      "Chiến dịch này do Involve Asia tổ chức; các thương hiệu tham gia không liên quan đến cơ chế của chiến dịch.",
+      "Các điều khoản này cần được đọc cùng với [Điều khoản & Điều kiện của Involve Asia](terms-conditions)."
+    ],
+    "outro": "Khi tham gia, bạn xác nhận đã đọc và đồng ý với các điều khoản và điều kiện áp dụng. Mọi chuyển đổi không hợp lệ, bị từ chối hoặc gian lận sẽ không được tính vào yêu cầu của chiến dịch."
+  },
+  "cta": {
+    "title": "Sẵn sàng nhận thưởng?",
+    "label": "Xem offer"
+  }
+}
