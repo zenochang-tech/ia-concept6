@@ -1,0 +1,66 @@
+{
+  "meta": {
+    "title": "Chương trình giới thiệu | Involve Asia",
+    "description": "Mời bạn bè trở thành Publisher của Involve Asia và nhận RM5 cho mỗi người được giới thiệu có đơn hàng. Đơn giản, không rắc rối."
+  },
+  "links": {
+    "refer": "https://invl.me/clmpu6y"
+  },
+  "hero": {
+    "eyebrow": "Chương trình giới thiệu",
+    "title": "Chương trình giới thiệu của Involve",
+    "sub": "Mời bạn bè tham gia làm Publisher của Involve và nhận RM5 cho mỗi lượt giới thiệu. Giới thiệu càng nhiều, bạn càng kiếm được nhiều. Đơn giản và không rắc rối.",
+    "cta": "Giới thiệu bạn bè ngay",
+    "more": "Tìm hiểu thêm",
+    "imageAlt": "Hai người bạn cùng xem điện thoại"
+  },
+  "what": {
+    "title": "Chương trình giới thiệu của Involve là gì?",
+    "paras": [
+      "Chương trình giới thiệu của Involve Asia giúp bạn nhận phần thưởng khi mời đối tác mới tham gia nền tảng của chúng tôi. Chia sẻ link riêng của bạn với bạn bè, người thân hoặc bất kỳ ai muốn kiếm hoa hồng từ các thương hiệu hàng đầu.",
+      "Khi họ đăng ký qua link của bạn và có ít nhất 1 đơn hàng trong vòng 14 ngày, bạn sẽ nhận được phần thưởng giới thiệu. Chi tiết phần thưởng được trình bày bên dưới."
+    ],
+    "cardLabel": "Phần thưởng đăng ký của bạn",
+    "currency": "RM",
+    "amount": "5",
+    "cardNote": "Dành cho cả bạn và bạn bè, khi họ có đơn hàng đầu tiên trong vòng 14 ngày."
+  },
+  "earn": {
+    "title": "Bạn có thể kiếm được bao nhiêu",
+    "sub": "Mỗi người đăng ký mới cần có ít nhất 1 chuyển đổi đơn hàng (CPS) trong vòng 14 ngày kể từ khi tài khoản được duyệt. Cả hai bạn đều nhận RM5 Phần thưởng đăng ký.",
+    "caption": "Phần thưởng đăng ký",
+    "cols": ["Lượt đăng ký mới", "Phần thưởng đăng ký", "Thu nhập của bạn"],
+    "rows": [
+      ["10 lượt đăng ký", "RM5 mỗi lượt", "RM50"],
+      ["20 lượt đăng ký", "RM5 mỗi lượt", "RM100"],
+      ["100 lượt đăng ký", "RM5 mỗi lượt", "RM500"]
+    ],
+    "note": "Xem phần [Câu hỏi thường gặp](#pub-faq) bên dưới để có thêm mẹo quảng bá và kiếm tiền từ Chương trình giới thiệu."
+  },
+  "steps": {
+    "title": "Cách thức hoạt động",
+    "items": [
+      ["1", "Lấy link giới thiệu riêng của bạn", "Đăng nhập vào dashboard Publisher và tìm Involve Asia Publisher Referral Program."],
+      ["2", "Quảng bá trên mạng xã hội", "Sao chép link riêng của bạn và chia sẻ trực tuyến."],
+      ["3", "Thư giãn và theo dõi phần thưởng", "Theo dõi phần thưởng giới thiệu trong Conversion Report."]
+    ]
+  },
+  "faq": {
+    "title": "Câu hỏi thường gặp về Chương trình giới thiệu",
+    "items": [
+      ["Ai có thể tham gia Chương trình giới thiệu của Involve?", "Chương trình giới thiệu của Involve dành cho tất cả Publisher đã đăng ký với Involve Asia."],
+      ["Tôi có thể giới thiệu ai tham gia Involve Asia?", "Bất kỳ ai chưa từng đăng ký làm Publisher của Involve Asia."],
+      ["Thời hạn cookie của chương trình này là bao lâu?", "7 ngày."],
+      ["Làm sao để tôi theo dõi hiệu quả giới thiệu?", "Bạn có thể theo dõi hiệu quả giới thiệu trên Publisher Dashboard, tại Reports > Conversion Report."],
+      ["Tôi có thể kiếm được bao nhiêu từ chương trình này?", "Bạn nhận RM5 khi người được giới thiệu có 1 chuyển đổi đơn hàng trong vòng 14 ngày kể từ khi tài khoản được duyệt."],
+      ["Khi nào tôi nhận được thanh toán phần thưởng?", "Phần thưởng giới thiệu được thanh toán hằng tháng."],
+      ["Quy trình duyệt và từ chối của chương trình này như thế nào?", "Phần thưởng giới thiệu của bạn được duyệt khi người được giới thiệu có 1 chuyển đổi đơn hàng trong vòng 14 ngày kể từ khi tài khoản được duyệt.\n\n**Được duyệt:** Phần thưởng được trao khi người được giới thiệu có 1 chuyển đổi đơn hàng trong vòng 14 ngày.\n**Bị từ chối:** Không có phần thưởng nếu không phát sinh đơn hàng trong vòng 14 ngày.\n\nChúng tôi sẽ xem xét từng lượt giới thiệu để đảm bảo đáp ứng yêu cầu của chương trình. Nếu lượt giới thiệu không đủ điều kiện, hoa hồng sẽ không được duyệt."],
+      ["Involve Asia có cung cấp tài liệu hình ảnh cho chương trình này không?", "Có. Bạn có thể tải hình ảnh và banner có sẵn từ Publisher Dashboard của Involve Asia."],
+      ["Bạn còn câu hỏi khác?", "Nếu cần thêm thông tin, hãy liên hệ Account Manager của bạn hoặc gửi email cho chúng tôi tại [wecare@involve.asia](mailto:wecare@involve.asia)."]
+    ]
+  },
+  "cta": {
+    "title": "Bắt đầu kiếm tiền thôi!",
+    "label": "Giới thiệu bạn bè ngay"
+  }
+}

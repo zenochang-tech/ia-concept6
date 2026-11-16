@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "title": "Bắt đầu ngay | Involve Asia",
+    "description": "Giới thiệu về doanh nghiệp của bạn và tiếp cận 1.000.000+ Publisher khắp châu Á: nhà sáng tạo, trang nội dung, đối tác tiếp thị liên kết, trang voucher."
+  },
+  "hero": {
+    "eyebrow": "Dành cho Advertiser",
+    "title": "Bắt đầu cùng Involve Asia.",
+    "titlePlan": "Bắt đầu với gói {plan}.",
+    "sub": "Hãy cho chúng tôi biết về doanh nghiệp của bạn, đội ngũ của chúng tôi sẽ giúp bạn thiết lập chương trình tiếp thị liên kết.",
+    "stats": [
+      ["1.000.000+", "Publisher toàn cầu"],
+      ["$270 triệu+", "Đã trả cho Publisher"],
+      ["$3,2 tỷ+", "Doanh số tạo ra"]
+    ]
+  },
+  "form": {
+    "selected": "Bạn đã chọn: ",
+    "selectedPlan": "Gói {plan}",
+    "change": "Thay đổi",
+    "title": "Chúng tôi có thể giúp gì cho bạn?",
+    "business": "Giới thiệu về doanh nghiệp của bạn",
+    "website": "URL website",
+    "websitePh": "https://thuonghieucuaban.com",
+    "country": "Quốc gia",
+    "countryPh": "Chọn quốc gia",
+    "countries": ["Malaysia", "Singapore", "Indonesia", "Thái Lan", "Philippines", "Việt Nam", "Đài Loan", "Hồng Kông", "Khác"],
+    "industry": "Ngành hàng",
+    "industryPh": "Chọn ngành hàng",
+    "industries": ["Thương mại điện tử & Bán lẻ", "Thời trang & May mặc", "Làm đẹp & Chăm sóc cá nhân", "Điện tử", "Du lịch & Khách sạn", "Dịch vụ tài chính", "Thực phẩm & Đồ uống", "Sức khỏe & Thể chất", "Gaming", "Khác"],
+    "aov": "Giá trị đơn hàng trung bình",
+    "aovCurrency": "USD",
+    "aovPh": "50",
+    "budget": "Ngân sách marketing hằng tháng",
+    "budgetPh": "Chọn ngân sách",
+    "budgets": ["Dưới $1.000", "$1.000 – $5.000", "$5.000 – $20.000", "$20.000 – $50.000", "$50.000+"],
+    "contact": "Chúng tôi có thể liên hệ với bạn bằng cách nào?",
+    "name": "Họ và tên",
+    "namePh": "Họ và tên của bạn",
+    "phone": "Số điện thoại",
+    "phonePh": "+60 12 345 6789",
+    "email": "Email công ty",
+    "emailPh": "ban@congty.com",
+    "submit": "Tôi quan tâm",
+    "note": "Chúng tôi sẽ liên hệ với bạn trong vòng 1–2 ngày làm việc."
+  },
+  "logos": {
+    "caption": "Được tin dùng bởi những thương hiệu khách hàng của bạn đã quen thuộc, trong bán lẻ, du lịch, làm đẹp và tài chính."
+  }
+}

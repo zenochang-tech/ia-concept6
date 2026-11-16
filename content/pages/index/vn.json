@@ -1,0 +1,221 @@
+{
+  "meta": {
+    "title": "Involve Asia | Tăng doanh thu nhờ tiếp thị liên kết",
+    "description": "Nền tảng tiếp thị liên kết kết nối Advertiser với 1.000.000+ nhà sáng tạo và Publisher khắp châu Á: thương hiệu thêm khách hàng, đối tác thêm thu nhập."
+  },
+  "hero": {
+    "title": "Nền tảng tiếp thị liên kết giúp mọi bên tiến nhanh hơn.",
+    "sub": "Thương hiệu phát triển cùng đúng Publisher, còn Publisher kiếm tiền từ những thương hiệu họ yêu thích. Xác thực hằng ngày và thanh toán nhanh hơn nghĩa là ai cũng chờ ít hơn.",
+    "for": "Dành cho ",
+    "publishers": "Publisher",
+    "advertisers": "Advertiser",
+    "pubCta": "Bắt đầu kiếm tiền",
+    "advCta": "Tăng doanh số",
+    "imageAlt": "Một nhà sáng tạo nội dung và một đối tác thương hiệu cùng phát triển trên Involve Asia",
+    "payoutStatus": "Đã thanh toán",
+    "payoutPrefix": "+ $",
+    "salesLabel": "Doanh số mang về",
+    "salesSub": "30 ngày qua",
+    "salesPrefix": "$",
+    "numberLocale": "vi-VN"
+  },
+  "trust": {
+    "title": "Được tin dùng bởi những thương hiệu bạn đã biết",
+    "logoAlt": "Logo {name}"
+  },
+  "live": {
+    "eyebrow": "Danh mục thương hiệu trực tiếp",
+    "title": "Xem ngay những gì đang hoạt động.",
+    "sub": "Thương hiệu thật, sẵn sàng để quảng bá. Xem mức hoa hồng của từng thương hiệu và số Publisher đang tham gia.",
+    "cats": [
+      "Tất cả",
+      "Sàn thương mại điện tử",
+      "Thời trang",
+      "Du lịch",
+      "Dịch vụ số",
+      "Điện tử",
+      "Sức khỏe & làm đẹp"
+    ],
+    "explore": "Khám phá tất cả offer",
+    "badge": "Mới",
+    "logoAlt": "Logo {name}",
+    "upTo": "Lên đến",
+    "commission": "Hoa hồng {rate}%",
+    "publishers": "{count} Publisher đang quảng bá",
+    "numberLocale": "vi-VN"
+  },
+  "start": {
+    "title": "Đủ đơn giản để bắt đầu ngay hôm nay.",
+    "sub": "Dù bạn đến để kiếm tiền hay để phát triển, bạn chỉ cách lần thanh toán đầu tiên bốn bước.",
+    "imageAlt": "Bước {title}",
+    "steps": [
+      {
+        "n": "Bước 1",
+        "title": "Kết nối",
+        "desc": "Chúng tôi kết nối bạn với đúng thương hiệu, hoặc đúng Publisher. Không cần tự liên hệ từng nơi.",
+        "quote": "“Found 40 brands to promote in a day, the filter and category makes the process much easier.”",
+        "name": "John Doe",
+        "role": "Publisher · Blogger ẩm thực"
+      },
+      {
+        "n": "Bước 2",
+        "title": "Bắt đầu chạy",
+        "desc": "Sau đó, bạn bắt đầu theo cách của mình. Chia sẻ link, đăng voucher, thêm banner hoặc ra mắt cả một chiến dịch.",
+        "quote": "“Involve Asia did a great job in guiding us on what info needed and launched our campaign in an afternoon.”",
+        "name": "Brand Name",
+        "role": "Advertiser · Ngành hàng"
+      },
+      {
+        "n": "Bước 3",
+        "title": "Theo dõi",
+        "desc": "Theo dõi mọi lượt nhấp, đơn hàng và khoản thanh toán trong một dashboard.",
+        "quote": "“Found 40 brands to promote in a day, the filter and category makes the process much easier.”",
+        "name": "Jane Doe",
+        "role": "Publisher · Nhà sáng tạo nội dung phong cách sống"
+      },
+      {
+        "n": "Bước 4",
+        "title": "Phát triển và nhận tiền",
+        "desc": "Publisher được trả tiền cho mỗi đơn hàng họ mang về. Thương hiệu tăng trưởng từ những đơn hàng đó và chỉ trả phí khi đơn hàng là thật và đã xác thực.",
+        "quote": "“The data provided is clear which makes the validation process easier, and we only pay when it actually converts.”",
+        "name": "Brand Name",
+        "role": "Advertiser · Ngành hàng"
+      }
+    ],
+    "overlay": {
+      "recommended": "Khuyên dùng",
+      "logoAlt": "Logo {name}",
+      "upTo": "Lên đến",
+      "commission": "Hoa hồng {rate}%",
+      "deepLink": "invl.me/yourDeepLink",
+      "conversionRate": "Tỷ lệ chuyển đổi",
+      "rateValue": "12",
+      "rateUnit": "%",
+      "rateDelta": "↑21%",
+      "payoutReceived": "Đã nhận thanh toán",
+      "payoutAmount": "+ $48",
+      "numberLocale": "vi-VN"
+    }
+  },
+  "support": {
+    "title": "Con người thật hỗ trợ bạn ở mọi bước.",
+    "desc": "Không phải bot, không phải những trang FAQ bế tắc. Những người thật hiểu rõ nền tảng và luôn sẵn sàng hỗ trợ, dù bạn là nhà sáng tạo đang tạo link đầu tiên hay thương hiệu đang ra mắt chiến dịch lớn nhất.",
+    "badge": "95% người dùng đánh giá dịch vụ hỗ trợ của chúng tôi là xuất sắc.",
+    "quote": "“It's easy to reach customer service, and they fix things quickly.”",
+    "verified": "Publisher đã xác minh",
+    "imageAlt": "Một chuyên viên hỗ trợ của Involve Asia",
+    "hello": "Xin chào.",
+    "answer": "Hôm nay chúng tôi có thể giúp gì cho bạn?"
+  },
+  "results": {
+    "title": "Kết quả thật. Tăng trưởng thật.",
+    "sub": "Từ những người và thương hiệu đang phát triển cùng Involve.",
+    "seeAll": "Xem tất cả câu chuyện thành công",
+    "prevStories": "Các câu chuyện trước",
+    "nextStories": "Các câu chuyện tiếp theo",
+    "for": "Dành cho ",
+    "publishers": "Publisher",
+    "advertisers": "Advertiser",
+    "tabsLabel": "Đối tượng của câu chuyện thành công",
+    "tabPub": "Publisher",
+    "tabAdv": "Advertiser",
+    "prevStory": "Câu chuyện trước",
+    "nextStory": "Câu chuyện tiếp theo",
+    "pubStories": [
+      {
+        "big": "3",
+        "unit": " bất động sản",
+        "head": "Mua được từ thu nhập tiếp thị liên kết",
+        "tag": "Nhà sáng tạo trên Facebook, Philippines",
+        "desc": "Câu chuyện người mẹ bốn con xây dựng cuộc sống mới từ nội dung Facebook cùng Involve."
+      },
+      {
+        "big": "$220 nghìn",
+        "unit": "+",
+        "head": "Doanh số mang về cho một thương hiệu du lịch, quý 4/2023",
+        "tag": "Mạng lưới affiliate, nội dung AI",
+        "desc": "Cách Flickstree mở rộng doanh số du lịch qua Involve."
+      },
+      {
+        "big": "$250",
+        "unit": " thu nhập",
+        "head": "Chỉ từ 10,5 nghìn người theo dõi, làm bán thời gian",
+        "tag": "Nhà sáng tạo nội dung du lịch và ẩm thực",
+        "desc": "Minh chứng rằng bạn không cần nổi tiếng mới kiếm được tiền cùng Involve."
+      }
+    ],
+    "advStories": [
+      {
+        "big": "796",
+        "unit": "%",
+        "head": "Tăng trưởng doanh số",
+        "tag": "Thương mại điện tử",
+        "desc": "Cách Big Bang Sales mở rộng nhờ hợp tác tiếp thị liên kết."
+      },
+      {
+        "big": "4,3",
+        "unit": "x",
+        "head": "Tăng trưởng doanh số",
+        "tag": "Viễn thông",
+        "desc": "Cách các đối tác của Involve thúc đẩy tăng trưởng cho TIME Internet."
+      },
+      {
+        "big": "$160 nghìn",
+        "unit": "",
+        "head": "Doanh số · 4.912 chuyển đổi",
+        "tag": "Sức khỏe & thể chất",
+        "desc": "Cách một thương hiệu sức khỏe toàn cầu ra mắt chương trình CPS trên Involve."
+      }
+    ]
+  },
+  "stats": {
+    "caption": "Đây là hành trình cùng nhau phát triển, từ năm 2014.",
+    "labels": [
+      "Publisher",
+      "Hoa hồng đã trả",
+      "Doanh số tạo ra",
+      "Thương hiệu"
+    ],
+    "formats": [
+      "{n}+",
+      "${n} triệu+",
+      "${n} tỷ+",
+      "{n}+"
+    ],
+    "numberLocale": "vi-VN"
+  },
+  "blog": {
+    "title": "Từ blog Involve.",
+    "sub": "Mẹo, cẩm nang và góc nhìn mới, dù bạn ở phía nào.",
+    "readAll": "Đọc blog",
+    "tabsLabel": "Đối tượng của blog",
+    "tabPub": "Publisher",
+    "tabAdv": "Advertiser",
+    "readMore": "Đọc thêm",
+    "pubPosts": [
+      "Cách quảng bá link affiliate trên TikTok",
+      "Giải thích về Express Withdrawal",
+      "EPC trong tiếp thị liên kết là gì?"
+    ],
+    "advPosts": [
+      "Cách ra mắt chương trình tiếp thị liên kết đầu tiên",
+      "Chọn cơ cấu hoa hồng phù hợp",
+      "Đo lường ROI trên mạng lưới Publisher của bạn"
+    ]
+  },
+  "finale": {
+    "title": "Chọn vai trò và phát triển cùng chúng tôi.",
+    "pubKicker": "Nhà sáng tạo. Đối tác tiếp thị liên kết. Đối tác công nghệ.",
+    "advKicker": "Thương hiệu. Nhà bán lẻ. Doanh nghiệp lớn.",
+    "pubImageAlt": "Một Publisher đang sáng tạo nội dung",
+    "advImageAlt": "Một Advertiser đang phát triển thương hiệu",
+    "pubTitle": "Tôi là \nPublisher",
+    "pubDesc": "Quảng bá những thương hiệu bạn yêu thích. ",
+    "pubDescMore": "Biến người theo dõi hoặc lưu lượng truy cập thành thu nhập.",
+    "pubCta": "Bắt đầu kiếm tiền",
+    "advTitle": "Tôi là \nAdvertiser",
+    "advDesc": "Tăng doanh số cho doanh nghiệp bạn cùng đúng Publisher. ",
+    "advDescMore": "Chỉ trả phí cho kết quả.",
+    "advCta": "Tăng doanh số"
+  }
+}

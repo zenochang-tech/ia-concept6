@@ -1,0 +1,142 @@
+{
+  "meta": {
+    "title": "Tiếp thị liên kết cho trang nội dung, cashback, voucher và so sánh | Involve Asia",
+    "description": "Biến lượng truy cập website thành thu nhập affiliate: blog, trang ngách, tin tức, cashback, voucher, so sánh. Ưu đãi, Datafeed, API và banner cho mọi quy mô."
+  },
+  "hero": {
+    "eyebrow": "Dành cho đối tác tiếp thị liên kết",
+    "title": "Biến website bạn đang có thành thu nhập.",
+    "sub": "Từ một blog với vài link đến một trang cashback có lượng truy cập lớn. Kiếm hoa hồng từ những gì độc giả và thành viên của bạn mua, với ưu đãi, feed và công cụ phù hợp.",
+    "cta": "Bắt đầu kiếm tiền",
+    "free": "Tham gia miễn phí. Bắt đầu kiếm tiền ngay hôm nay.",
+    "imageAlt": "Dashboard của một trang affiliate hiển thị trên laptop"
+  },
+  "kinds": {
+    "title": "Dành cho mọi loại trang affiliate.",
+    "sub": "Dù bạn vận hành trang gì và quy mô ra sao, luôn có cách để kiếm tiền.",
+    "points": [
+      [
+        "Dù bạn vận hành loại trang nào.",
+        "Blog, tin tức, cashback, voucher và trang so sánh đều có thể kiếm tiền tại đây. Chỉ cần có nội dung và người đọc, bạn có thể biến nó thành thu nhập."
+      ],
+      [
+        "Nhẹ nhàng hay quy mô lớn.",
+        "Thêm vài link vào bài viết, hoặc chạy Datafeed và API ở quy mô lớn. Công cụ phù hợp với cả hai cách và phát triển cùng bạn."
+      ]
+    ],
+    "flowLabel": "Các loại trang affiliate: blog, cashback, voucher và so sánh",
+    "sites": [
+      {
+        "url": "Trang blog",
+        "alt": "Trang affiliate dạng blog"
+      },
+      {
+        "url": "Trang cashback",
+        "alt": "Trang affiliate dạng cashback"
+      },
+      {
+        "url": "Trang voucher",
+        "alt": "Trang affiliate dạng voucher"
+      },
+      {
+        "url": "Trang so sánh",
+        "alt": "Trang affiliate dạng so sánh"
+      }
+    ]
+  },
+  "how": {
+    "title": "Cách bạn kiếm tiền.",
+    "steps": [
+      [
+        "Tìm offer",
+        "Khám phá 4.000+ offer từ 500+ thương hiệu, với mức hoa hồng và điều khoản rõ ràng ngay từ đầu."
+      ],
+      [
+        "Thêm link hoặc dùng Datafeed",
+        "Chèn link theo dõi vào nội dung chỉ với vài cú nhấp, hoặc đưa dữ liệu sản phẩm trực tiếp vào website để vận hành ở quy mô lớn."
+      ],
+      [
+        "Kiếm tiền từ mọi đơn hàng",
+        "Khi ai đó mua hàng qua link của bạn, đơn hàng được ghi nhận cho bạn."
+      ],
+      [
+        "Nhận thanh toán",
+        "Rút tiền bằng nội tệ khi đơn hàng đã được xác thực, hoặc sớm hơn với Express Withdrawal."
+      ]
+    ]
+  },
+  "tools": {
+    "title": "Sẵn sàng cho mọi quy mô.",
+    "sub": "Những công cụ phát triển cùng website của bạn.",
+    "items": [
+      [
+        "Datafeed Manager",
+        "Đưa dữ liệu sản phẩm trực tiếp như giá, ưu đãi và tồn kho thẳng vào website, và tự động cập nhật liên tục."
+      ],
+      [
+        "API",
+        "Lấy offer và chuyển đổi, tạo link theo dõi bằng lập trình, để dữ liệu và link affiliate nằm ngay trong hệ thống của bạn."
+      ],
+      [
+        "Creative Hub",
+        "Lấy banner có sẵn và mã voucher chiến dịch từ các thương hiệu hàng đầu để quảng bá."
+      ]
+    ]
+  },
+  "why": {
+    "title": "Vì sao các trang affiliate kiếm tiền cùng Involve.",
+    "proof": "Các trang nội dung, cashback, voucher và so sánh khắp khu vực đang vận hành trên Involve Asia.",
+    "items": [
+      [
+        "Link phù hợp với website của bạn.",
+        "Tự đặt link theo ngữ cảnh, không có quảng cáo hay banner bắt buộc làm rối trang."
+      ],
+      [
+        "Nội dung của bạn tiếp tục sinh lời.",
+        "Bài đánh giá bạn viết năm ngoái vẫn mang lại thu nhập hôm nay, mỗi khi tạo ra đơn hàng."
+      ],
+      [
+        "Sẵn sàng cho lượng lớn.",
+        "Datafeed và tạo link qua API để vận hành ở quy mô website của bạn cần."
+      ],
+      [
+        "Theo dõi và thanh toán đáng tin cậy.",
+        "Mọi đơn hàng đều được xác thực, với báo cáo bạn có thể tự kiểm tra, cùng Express Withdrawal khi bạn muốn nhận tiền sớm hơn."
+      ]
+    ]
+  },
+  "voices": {
+    "siakapKeliQuote": "Such a good overall experience with IA, very friendly & professional."
+  },
+  "faq": {
+    "items": [
+      [
+        "Link affiliate có làm thay đổi giao diện website của tôi không?",
+        "Không. Bạn tự chọn vị trí đặt link. Không có quảng cáo hay banner bắt buộc."
+      ],
+      [
+        "Bài viết cũ của tôi có còn kiếm được tiền không?",
+        "Có. Bất kỳ bài viết nào còn link hoạt động sẽ tiếp tục mang lại thu nhập từ mọi đơn hàng mà nó tạo ra."
+      ],
+      [
+        "Website của tôi cần thuộc loại nào?",
+        "Blog, trang ngách, tin tức và truyền thông, cùng các trang cashback, voucher, so sánh, khách hàng thân thiết và săn deal."
+      ],
+      [
+        "Tôi có thể lấy Datafeed sản phẩm không?",
+        "Có. Bạn có thể lấy dữ liệu sản phẩm trực tiếp theo từng Advertiser và thêm mã theo dõi riêng vào link. Nội dung feed khác nhau tùy Advertiser."
+      ],
+      [
+        "Tôi có thể dùng mô hình cashback và voucher không?",
+        "Có. Các trang cashback, voucher, so sánh, khách hàng thân thiết và săn deal đều đang vận hành trên nền tảng."
+      ],
+      [
+        "Tôi có thể dùng API không?",
+        "Có. Bạn có thể tạo deeplink, lấy chuyển đổi và offer bằng lập trình. Xem [API cho nhà phát triển](api-overview)."
+      ]
+    ]
+  },
+  "cta": {
+    "title": "Phát triển website bạn đang có."
+  }
+}

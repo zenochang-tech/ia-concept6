@@ -1,0 +1,122 @@
+{
+  "meta": {
+    "title": "Blog tiếp thị liên kết | Involve Asia",
+    "description": "Mẹo tiếp thị liên kết, câu chuyện thành công và các chương trình đáng tham gia trên Involve Asia. Những góc nhìn giúp bạn phát triển với affiliate."
+  },
+  "hero": {
+    "title": "Blog Involve Asia",
+    "sub": "Khám phá mẹo tiếp thị liên kết, câu chuyện thành công và những chương trình đáng tham gia nhất trên Involve Asia. Nhận những góc nhìn bạn cần để phát triển trong tiếp thị liên kết.",
+    "pubImageAlt": "Một Publisher đang đọc trên điện thoại",
+    "advImageAlt": "Một Advertiser đang đọc trên máy tính bảng",
+    "doors": [
+      {
+        "kick": "Nhà sáng tạo. Đối tác tiếp thị liên kết. Đối tác công nghệ.",
+        "title": "Tôi muốn kiếm tiền với vai trò nhà sáng tạo hoặc đối tác tiếp thị liên kết",
+        "d": "Mẹo, offer và hướng dẫn giúp bạn tăng thu nhập từ tiếp thị liên kết.",
+        "cta": "Xem blog cho Publisher"
+      },
+      {
+        "kick": "Thương hiệu. Nhà bán lẻ. Doanh nghiệp.",
+        "title": "Tôi muốn phát triển thương hiệu cùng đối tác tiếp thị liên kết",
+        "d": "Nghiên cứu điển hình, mẹo chạy chiến dịch và góc nhìn về hiệu quả.",
+        "cta": "Xem blog cho Advertiser"
+      }
+    ]
+  },
+  "catBar": {
+    "ariaLabel": "Danh mục blog"
+  },
+  "row": {
+    "seeAll": "Xem tất cả",
+    "readMore": "Đọc thêm",
+    "prev": "Bài viết {label} trước",
+    "next": "Bài viết {label} tiếp theo"
+  },
+  "cats": [
+    {
+      "label": "Chương trình affiliate",
+      "tag": "Dành cho Publisher",
+      "title": "Những chương trình affiliate tốt nhất để bạn tham gia với vai trò Publisher",
+      "posts": [
+        "Chương trình affiliate CHAGEE trên Involve Asia: Mua mang đi hoặc giao tận nơi",
+        "Chương trình affiliate Coursera trên Involve Asia: Quảng bá khóa học trực tuyến",
+        "Chương trình affiliate Skylum trên Involve Asia: Quảng bá Luminar Neo",
+        "Chương trình affiliate Lancome trên Involve Asia: Kiếm tiền với mỹ phẩm cao cấp",
+        "Chương trình affiliate Miravia trên Involve Asia: Quảng bá sàn mua sắm phong cách sống trực tuyến",
+        "Chương trình affiliate Emergent AI trên Involve Asia: Quảng bá công cụ tạo ứng dụng bằng AI",
+        "Chương trình affiliate TREVO trên Involve Asia: Kiếm tiền với dịch vụ thuê xe",
+        "Chương trình affiliate Shopee Brazil trên Involve Asia: Quảng bá nền tảng chuyển đổi tốt"
+      ]
+    },
+    {
+      "label": "Bắt đầu",
+      "tag": "Dành cho Publisher",
+      "title": "Hướng dẫn giúp bạn bắt đầu với vai trò Publisher",
+      "posts": [
+        "Hoa hồng affiliate là gì? (Hướng dẫn cho người mới cùng Involve Asia)",
+        "Chương trình affiliate là gì? (Hướng dẫn cho người mới cùng Involve Asia)",
+        "Thu nhập affiliate là gì? (Hướng dẫn cho người mới cùng Involve Asia)",
+        "Nhà sáng tạo affiliate là gì? (Hướng dẫn cho người mới cùng Involve Asia)",
+        "Các phương thức thanh toán trong tiếp thị liên kết: Hướng dẫn đầy đủ",
+        "EPC trong tiếp thị liên kết là gì? Hướng dẫn đơn giản cho người mới",
+        "Affiliate marketer là ai? Mọi điều bạn cần biết trước khi bắt đầu",
+        "Mạng lưới affiliate là gì? (Hướng dẫn cho người mới cùng Involve Asia)"
+      ]
+    },
+    {
+      "label": "Câu chuyện Publisher",
+      "tag": "Dành cho Publisher",
+      "title": "Câu chuyện thành công từ các Publisher của chúng tôi",
+      "posts": [
+        "Good Foodie: Kiếm tiền từ nội dung cùng Involve",
+        "Raiz Invest: Kết nối tài chính và sàn thương mại điện tử",
+        "SuperMom, người phụ nữ sự nghiệp và người mẹ: Cô đã thay đổi cuộc sống cùng Involve như thế nào",
+        "Weng Honn: Hướng dẫn mọi người cách kiếm tiền trực tuyến",
+        "Câu chuyện thành công của đối tác: Thành công trong tiếp thị liên kết của GetPlus",
+        "Hành trình affiliate của Terence Ooi cùng Involve Asia",
+        "Jourimanzky: Phong cách truyền cảm hứng",
+        "Flickstree: Con đường đến thành công trong affiliate",
+        "Media Terkini: Đơn giản với gợi ý sản phẩm mỗi ngày",
+        "My Weekend Plan: Biến mỗi ngày thành thứ Bảy"
+      ]
+    },
+    {
+      "label": "Câu chuyện Advertiser",
+      "tag": "Dành cho Advertiser",
+      "title": "Câu chuyện thành công từ các Advertiser của chúng tôi",
+      "posts": [
+        "Cách Involve Social Partners giúp TIME Internet tăng doanh số gấp 4,3 lần",
+        "Cách Lotus’s tăng doanh số gấp 29 lần trong 6 tháng nhờ tối ưu hóa",
+        "Cách Big Bang Sales tăng doanh số 796%",
+        "Cách người có ảnh hưởng đạt tỷ lệ tương tác 6% với nội dung Instagram của Easybook",
+        "Cách các thương hiệu game tăng doanh thu với tiếp thị liên kết năm 2026",
+        "Cách một chương trình affiliate về sức khỏe đạt doanh số MYR 723 nghìn và 4.912 chuyển đổi cùng Involve Asia",
+        "Nghiên cứu điển hình: Chương trình affiliate dịch vụ số phát triển nhờ mô hình tiếp thị liên kết linh hoạt",
+        "Cách các thương hiệu tài chính Philippines phát triển với tiếp thị liên kết trên Involve Asia",
+        "Cách các thương hiệu thời trang Philippines phát triển với tiếp thị liên kết trên Involve Asia",
+        "Cách RinggitPlus tăng 52% lượt đăng ký vay tiêu dùng"
+      ]
+    }
+  ],
+  "finale": {
+    "title": "Chọn vai trò của bạn và cùng phát triển với chúng tôi.",
+    "pubImageAlt": "Một Publisher đang tạo nội dung",
+    "advImageAlt": "Một Advertiser đang phát triển thương hiệu",
+    "pub": {
+      "kick": "Nhà sáng tạo. Đối tác tiếp thị liên kết. Đối tác công nghệ.",
+      "titleA": "Tôi là ",
+      "titleB": "Publisher",
+      "d": "Quảng bá những thương hiệu bạn yêu thích. ",
+      "dMore": "Biến người theo dõi hoặc lượng truy cập của bạn thành thu nhập.",
+      "cta": "Bắt đầu kiếm tiền"
+    },
+    "adv": {
+      "kick": "Thương hiệu. Nhà bán lẻ. Doanh nghiệp.",
+      "titleA": "Tôi là ",
+      "titleB": "Advertiser",
+      "d": "Tăng doanh số cho doanh nghiệp bạn với đúng Publisher. ",
+      "dMore": "Chỉ trả phí cho kết quả.",
+      "cta": "Tăng doanh số"
+    }
+  }
+}

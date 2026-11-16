@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "title": "Tải ứng dụng | Involve Asia",
+    "description": "Tải ứng dụng Involve Asia để theo dõi chuyển đổi, tạo link và quản lý thanh toán mọi lúc mọi nơi."
+  },
+  "hero": {
+    "title": "Thu nhập tiếp thị liên kết, ngay trong túi bạn.",
+    "sub": "Tìm thương hiệu, tạo link theo dõi và theo dõi thu nhập ở bất cứ đâu. Ứng dụng Involve Asia đưa toàn bộ công việc tiếp thị liên kết của bạn lên điện thoại.",
+    "features": [
+      "Tìm thương hiệu người theo dõi của bạn sẽ yêu thích và bắt đầu quảng bá chỉ với một chạm.",
+      "Tạo và chia sẻ link theo dõi mọi lúc mọi nơi, bao nhiêu tùy bạn.",
+      "Theo dõi lượt nhấp, đơn hàng và thu nhập theo thời gian thực, dù bạn ở đâu."
+    ],
+    "more": "Nhiều tính năng hơn trong các phiên bản sắp tới.",
+    "qrAria": "Tải ứng dụng Involve Asia",
+    "qrAlt": "Mã QR để tải ứng dụng Involve Asia",
+    "qrText": "Quét mã để tải ứng dụng Involve Asia",
+    "qrTextMobile": "Quét hoặc nhấn vào mã QR để tải ứng dụng Involve Asia",
+    "googlePlay": {
+      "aria": "Tải về trên Google Play",
+      "small": "TẢI NỘI DUNG TRÊN",
+      "name": "Google Play"
+    },
+    "appStore": {
+      "aria": "Tải về trên App Store",
+      "small": "Tải về trên",
+      "name": "App Store"
+    },
+    "imageAlt": "Ứng dụng Involve Asia hiển thị trên hai chiếc điện thoại"
+  }
+}

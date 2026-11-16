@@ -1,0 +1,52 @@
+{
+  "meta": {
+    "title": "Tự động hóa | Involve Asia",
+    "description": "Quảng bá 4.000+ thương hiệu, biến người theo dõi hoặc lượt truy cập thành thu nhập và nhận thanh toán nhanh bằng nội tệ. Đăng ký miễn phí."
+  },
+  "hero": {
+    "title": "Tự động hóa việc vặt, mở rộng chương trình.",
+    "sub": "Tự động vận hành những phần lặp lại trong chương trình, để bạn dành thời gian phát triển doanh nghiệp thay vì làm việc hành chính.",
+    "cta": "Xem gói và bảng giá",
+    "imageAlt": "Dashboard Advertiser vận hành chương trình tiếp thị liên kết một cách tự động",
+    "pillLabel": "Publisher đang hoạt động",
+    "pillNum": "622",
+    "pillUnit": " Publisher"
+  },
+  "setup": {
+    "title": "Thiết lập một lần, để hệ thống tự chạy.",
+    "steps": [
+      {
+        "t": "Tự động tiếp nhận Publisher.",
+        "d": "Sau khi được duyệt, Publisher được thiết lập sẵn và có thể bắt đầu quảng bá."
+      },
+      {
+        "t": "Đặt quy tắc hoa hồng một lần.",
+        "d": "Đặt mức hoa hồng cho từng offer, với mức hoa hồng nhiều bậc từ gói Growth trở lên, để khoản thanh toán đi theo hiệu quả."
+      },
+      {
+        "t": "Tập trung thanh toán một nơi.",
+        "d": "Thanh toán cho mọi đối tác từ một nơi, các khoản thanh toán biến đổi được xử lý thay bạn."
+      }
+    ]
+  },
+  "platform": {
+    "title": "Một phần của một nền tảng",
+    "sub": "Tự động hóa hoạt động cùng các phần còn lại của nền tảng. Về theo dõi và ghi nhận chuyển đổi, xem Cách chúng tôi theo dõi. Để tìm và tuyển Publisher, xem Partner Discovery.",
+    "cards": [
+      {
+        "t": "Cách chúng tôi theo dõi",
+        "link": "Khám phá hệ thống theo dõi",
+        "d": "Theo dõi và ghi nhận chuyển đổi tin cậy, ghi nhận mỗi đơn hàng cho đúng Publisher mang lại, để báo cáo và thanh toán của bạn luôn chính xác."
+      },
+      {
+        "t": "Partner Discovery",
+        "link": "Tìm đối tác đã xác minh",
+        "d": "Tìm trong hơn 1.000.000 Publisher theo ngành hàng, kênh và người theo dõi, rồi mời những ai phù hợp, hoặc để đội ngũ của chúng tôi tuyển giúp bạn."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Mở rộng chương trình mà không tăng khối lượng công việc.",
+    "label": "Tăng doanh số"
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "meta": {
+    "title": "Kiếm tiền từ người dùng sản phẩm với API affiliate | Involve Asia",
+    "description": "Dành cho đối tác công nghệ có ứng dụng, web app hoặc phần mềm riêng. Tích hợp offer, theo dõi và cashback qua API, postback và Datafeed."
+  },
+  "hero": {
+    "eyebrow": "Dành cho đối tác công nghệ",
+    "title": "Biến sản phẩm bạn xây dựng thành doanh thu.",
+    "sub": "Dù doanh nghiệp bạn vận hành ứng dụng, nền tảng web hay phần mềm riêng, chỉ cần tích hợp một lần để có doanh thu mỗi khi người dùng sử dụng offer và cashback bạn hiển thị, tất cả qua API của chúng tôi.",
+    "cta": "Bắt đầu kiếm tiền",
+    "free": "Tham gia miễn phí. Bắt đầu kiếm tiền ngay hôm nay.",
+    "imageAlt": "Một đối tác công nghệ tích hợp ưu đãi của Involve vào sản phẩm của mình"
+  },
+  "made": {
+    "title": "Dành cho những đội ngũ biết xây dựng.",
+    "sub": "Nếu doanh nghiệp bạn có sản phẩm riêng và có kỹ sư để tích hợp, bạn có thể kết nối thẳng với Involve.",
+    "points": [
+      [
+        "Chạy ngay trong sản phẩm của bạn.",
+        "Một lần tích hợp API đưa ưu đãi, link và theo dõi vào ứng dụng, nền tảng web hoặc phần mềm của bạn, trên chính giao diện của bạn và theo cách bạn muốn."
+      ],
+      [
+        "Theo thời gian thực, không cần thao tác.",
+        "Postback gửi từng chuyển đổi đến máy chủ của bạn ngay khi phát sinh, nên hệ thống luôn đồng bộ mà không ai phải đăng nhập để kiểm tra."
+      ]
+    ],
+    "viz": {
+      "phoneAlt": "Ứng dụng cửa hàng thời trang tích hợp sẵn ưu đãi và theo dõi của Involve",
+      "feedTitle": "Datafeed trực tiếp",
+      "feed": [
+        [
+          "N°04 Silk Satin Shirt",
+          "$780"
+        ],
+        [
+          "N°22 Calfskin Frame Bag",
+          "$2.400"
+        ],
+        [
+          "N°11 Wool Crepe Blazer",
+          "$1.600"
+        ]
+      ],
+      "postTitle": "URL postback",
+      "postStatus": "200 · đã gửi",
+      "convTitle": "Đã ghi nhận chuyển đổi",
+      "convAgo": "0,4 giây trước",
+      "convProduct": "Wool Crepe Blazer",
+      "convCommission": "Hoa hồng (8%) · $128,00"
+    }
+  },
+  "how": {
+    "title": "Cách bạn kiếm tiền.",
+    "items": [
+      [
+        "Kết nối API",
+        "Tích hợp một lần để đưa dữ liệu sản phẩm, link theo dõi và chuyển đổi theo thời gian thực vào sản phẩm của bạn."
+      ],
+      [
+        "Hiển thị ưu đãi phù hợp",
+        "Hiển thị cashback và ưu đãi mà người dùng thực sự muốn, ngay trên giao diện của bạn."
+      ],
+      [
+        "Kiếm tiền từ mọi đơn hàng",
+        "Khi người dùng mua hàng qua sản phẩm của bạn, đơn hàng được ghi nhận cho doanh nghiệp bạn."
+      ],
+      [
+        "Nhận thanh toán",
+        "Rút tiền bằng nội tệ khi đơn hàng đã được xác thực, hoặc sớm hơn với Express Withdrawal."
+      ]
+    ]
+  },
+  "create": {
+    "title": "Sẵn sàng để tích hợp.",
+    "sub": "Ba công cụ mà đội kỹ sư của bạn sẽ dùng.",
+    "items": [
+      [
+        "API",
+        "Xác thực bằng key và secret, lấy offer và chuyển đổi, rồi tạo link theo dõi bằng lập trình, không cần thao tác thủ công trên dashboard."
+      ],
+      [
+        "Postback",
+        "Nhận chuyển đổi được gửi đến máy chủ của bạn theo thời gian thực (server-to-server), nên bạn không bao giờ phải đăng nhập để xem báo cáo. Bạn tự xử lý dữ liệu trên hệ thống của mình."
+      ],
+      [
+        "Datafeed Manager",
+        "Lấy dữ liệu sản phẩm trực tiếp như giá, ưu đãi và tồn kho để hiển thị danh mục ngay trong sản phẩm của bạn."
+      ]
+    ]
+  },
+  "why": {
+    "title": "Vì sao đối tác công nghệ chọn Involve.",
+    "items": [
+      [
+        "Sản phẩm của bạn, trải nghiệm của bạn.",
+        "Ưu đãi nằm ngay trong giao diện của bạn. Bạn quyết định cách hiển thị và vị trí xuất hiện."
+      ],
+      [
+        "Một lần tích hợp, hàng trăm thương hiệu.",
+        "Kết nối một lần để tiếp cận 500+ thương hiệu và 4.000+ offer."
+      ],
+      [
+        "Theo thời gian thực, không cần thao tác.",
+        "Postback và API giúp offer luôn cập nhật và chuyển đổi liên tục được ghi nhận, nên không ai phải canh dashboard."
+      ],
+      [
+        "Dành cho nhà phát triển.",
+        "Tài liệu API rõ ràng, theo dõi đến từng sản phẩm và thanh toán đáng tin cậy."
+      ]
+    ]
+  },
+  "voices": {
+    "siakapQuote": "Such a good overall experience with IA, very friendly & professional."
+  },
+  "faq": [
+    [
+      "API có thể làm được gì cho tôi?",
+      "Tạo deeplink, lấy offer và dữ liệu sản phẩm, và theo dõi đơn hàng đến từng sản phẩm. Giới hạn tạo deeplink là 1.000 link trong mỗi 30 ngày gần nhất."
+    ],
+    [
+      "Postback hoạt động như thế nào?",
+      "Khi một chuyển đổi được tạo hoặc cập nhật, chúng tôi gửi dữ liệu đến URL bạn cấu hình, nên hệ thống của bạn được thông báo theo thời gian thực. Bạn tự xử lý dữ liệu nhận được trên máy chủ của mình."
+    ],
+    [
+      "Tôi có thể lấy Datafeed sản phẩm không?",
+      "Có. Bạn có thể lấy dữ liệu sản phẩm trực tiếp theo từng Advertiser để hiển thị trong sản phẩm của mình. Nội dung feed khác nhau tùy Advertiser."
+    ],
+    [
+      "Việc tích hợp đòi hỏi kỹ thuật đến mức nào?",
+      "Bạn sẽ cần một lập trình viên để thiết lập API và postback, nhưng tài liệu rõ ràng và các endpoint đều đơn giản."
+    ],
+    [
+      "Sản phẩm của tôi cần đáp ứng điều kiện gì?",
+      "Ứng dụng, web app, phần mềm và nền tảng có người dùng riêng."
+    ]
+  ],
+  "cta": {
+    "title": "Biến sản phẩm của bạn thành doanh thu."
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "meta": {
+    "title": "Express Withdrawal | Involve Asia",
+    "description": "Quảng bá 4.000+ thương hiệu, biến người theo dõi hoặc lượng truy cập thành thu nhập và nhận thanh toán nhanh bằng nội tệ. Tham gia miễn phí."
+  },
+  "hero": {
+    "title": "Nhận tiền nhanh hơn với Express Withdrawal.",
+    "sub": "Rút trước một phần thu nhập ngay cả khi chuyển đổi chưa được xác thực, chỉ từ 5 đến 7 ngày làm việc sau khi được duyệt. Tiền của bạn, về sớm hơn.",
+    "cta": "Bắt đầu kiếm tiền",
+    "imageAlt": "Một Publisher kiểm tra khoản thanh toán trên ứng dụng Involve bằng điện thoại",
+    "payLabel": "Đã nhận thanh toán",
+    "payAmount": "+ $48"
+  },
+  "faq": {
+    "items": [
+      [
+        "Bao lâu thì tôi nhận được tiền?",
+        "Chỉ từ 5 đến 7 ngày làm việc sau khi yêu cầu của bạn được duyệt. Rút tiền tiêu chuẩn mất 7 đến 10 ngày làm việc sau khi bạn gửi yêu cầu, cộng thêm thời gian xác thực của từng offer."
+      ],
+      [
+        "Tôi có đủ điều kiện không?",
+        "Bạn cần có ít nhất MYR 200 đang chờ xác thực và có chuyển đổi từ ít nhất một offer đã quá 5 ngày. Sau đó, yêu cầu sẽ được xét duyệt."
+      ],
+      [
+        "Tôi có thể rút trước bao nhiêu?",
+        "Một phần các chuyển đổi đang chờ đủ điều kiện của bạn. Số tiền chính xác được tính sẵn và hiển thị trước khi bạn xác nhận, và có thể thấp hơn số tiền bạn yêu cầu."
+      ],
+      [
+        "Có mất phí không?",
+        "Có, phí xử lý được áp dụng cho số tiền bạn rút trước và hiển thị rõ trước khi bạn xác nhận. Phí được giảm theo hạng thành viên của bạn: Silver 0%, Gold 10%, Platinum 15%, Black 20%."
+      ],
+      [
+        "Nếu sau đó một chuyển đổi bị từ chối thì sao?",
+        "Số tiền đó sẽ được đối trừ vào thu nhập hiện có hoặc thu nhập sau này của bạn, và chúng tôi giải thích rõ điều này trong điều khoản."
+      ]
+    ]
+  },
+  "cta": {
+    "title": "Nhận thu nhập của bạn sớm hơn."
+  },
+  "what": {
+    "title": "Express Withdrawal là gì?",
+    "p": "Express Withdrawal là cách nhanh nhất để nhận tiền trên nền tảng. Thay vì chờ hết thời gian xác thực mới được thanh toán, bạn có thể nhận trước một phần thu nhập đang chờ, để tiền đến tay bạn chỉ từ 5 đến 7 ngày làm việc sau khi yêu cầu được duyệt.",
+    "card": {
+      "label": "Khoản chờ Advertiser thanh toán",
+      "currency": "$",
+      "button": "Yêu cầu Express Withdrawal"
+    },
+    "howLabel": "Cách hoạt động",
+    "steps": [
+      [
+        "Gửi yêu cầu",
+        "Đăng ký Express Withdrawal ngay từ dashboard của bạn."
+      ],
+      [
+        "Xét duyệt",
+        "Chúng tôi xem xét và duyệt yêu cầu, sau đó tính số tiền dựa trên các chuyển đổi đang chờ của bạn."
+      ],
+      [
+        "Nhận tiền",
+        "Bạn nhận tiền nhanh chóng bằng loại tiền tệ bạn chọn, quy đổi theo tỷ giá của nền tảng."
+      ],
+      [
+        "Đối soát",
+        "Khoản tiền được đối soát tự động khi Advertiser xác thực đơn hàng."
+      ]
+    ]
+  },
+  "compare": {
+    "title": "Hai cách nhận tiền",
+    "sub": "Cả hai phương thức rút tiền đều dành cho mọi Publisher. Rút tiền tiêu chuẩn dành cho bất kỳ ai đạt số tiền tối thiểu. Express Withdrawal dành cho Publisher đáp ứng tiêu chí, và mỗi yêu cầu sẽ được xét duyệt nhanh.",
+    "stdTitle": "Rút tiền tiêu chuẩn",
+    "expTitle": "Express Withdrawal",
+    "rows": [
+      [
+        "Khi nào có thể rút",
+        "Sau khi Advertiser xác thực đơn hàng",
+        "Trước khi xác thực, với một phần thu nhập đang chờ"
+      ],
+      [
+        "Thời gian nhận tiền",
+        "7 đến 10 ngày làm việc sau khi gửi yêu cầu, cộng thời gian xác thực của từng offer",
+        "Chỉ từ 5 đến 7 ngày làm việc sau khi được duyệt"
+      ],
+      [
+        "Số tiền",
+        "Toàn bộ thu nhập đã xác thực",
+        "Một phần các chuyển đổi đang chờ đủ điều kiện"
+      ],
+      [
+        "Phí",
+        "Miễn phí trong một hạn mức nhất định mỗi tháng",
+        "Áp dụng phí xử lý cho số tiền rút trước, hiển thị trước khi bạn xác nhận"
+      ],
+      [
+        "Phù hợp với",
+        "Publisher có thể chờ hết chu kỳ",
+        "Publisher muốn nhận tiền sớm hơn"
+      ]
+    ]
+  }
+}

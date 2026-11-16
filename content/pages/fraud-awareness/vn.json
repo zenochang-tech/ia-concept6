@@ -1,0 +1,54 @@
+{
+  "meta": {
+    "title": "Cảnh giác gian lận | Involve Asia",
+    "description": "Cảnh giác với những người mạo danh Involve Asia. Dấu hiệu cần chú ý, cách tự bảo vệ và cách xác minh trực tiếp với chúng tôi."
+  },
+  "hero": {
+    "eyebrow": "Dành cho Publisher và đối tác",
+    "title": "Cảnh giác gian lận"
+  },
+  "intro": [
+    "Chúng tôi muốn cảnh báo tất cả Publisher và đối tác về các báo cáo nghi ngờ hoạt động gian lận liên quan đến cá nhân hoặc tổ chức có thể đang mạo danh đại diện của Involve Asia hoặc tự nhận có quyền hành động thay mặt chúng tôi.",
+    "Dù những thỏa thuận này được thực hiện độc lập với Involve Asia, chúng tôi cho rằng cần nâng cao nhận thức để cộng đồng có thể đưa ra quyết định sáng suốt và tránh các tranh chấp, sự cố thanh toán hoặc tổn thất tài chính có thể xảy ra."
+  ],
+  "sections": [
+    {
+      "title": "Những dấu hiệu cần chú ý",
+      "lead": "Chúng tôi đã nhận được thông tin về các trường hợp cá nhân hoặc tổ chức có thể:",
+      "items": [
+        "Tự nhận là bên cung cấp ngân sách, đại diện hoặc đối tác chiến lược của Involve Asia.",
+        "Giới thiệu nền tảng của Involve Asia như một công cụ theo dõi do họ kiểm soát hoặc quản lý.",
+        "Yêu cầu Publisher chạy chiến dịch hoặc traffic qua những tài khoản không thuộc sở hữu của Publisher.",
+        "Hứa hẹn thanh toán ngoài Involve Asia và tự sắp xếp quyết toán trực tiếp với Publisher.",
+        "Ám chỉ họ có quyền hạn, quyền truy cập hoặc sự chấp thuận đặc biệt từ Involve Asia.",
+        "Sử dụng tên, nền tảng hoặc uy tín của Involve Asia để tạo lòng tin và sự tín nhiệm."
+      ],
+      "after": "Những thỏa thuận như vậy có thể khiến Publisher không thể truy cập trực tiếp báo cáo chiến dịch, lịch sử thanh toán hay khoản thanh toán hoa hồng qua chính tài khoản Involve Asia của mình."
+    },
+    {
+      "title": "Cách tự bảo vệ",
+      "lead": "Chúng tôi đặc biệt khuyến nghị những cách làm sau:",
+      "items": [
+        "Làm việc trực tiếp với Involve Asia cho mọi vấn đề liên quan đến chiến dịch, offer và thanh toán.",
+        "Chỉ chạy chiến dịch qua tài khoản Publisher do bạn sở hữu và có quyền truy cập trực tiếp vào thanh toán.",
+        "Xác minh mọi tuyên bố về quan hệ đối tác, quyền đại diện hoặc thỏa thuận đặc biệt liên quan đến Involve Asia trước khi tiếp tục.",
+        "Mời Involve Asia tham gia trao đổi bất cứ khi nào nền tảng, offer hoặc thương hiệu của chúng tôi được nhắc đến.",
+        "Thận trọng khi có đề xuất thanh toán nằm ngoài quy trình thanh toán tiêu chuẩn của Involve Asia."
+      ]
+    },
+    {
+      "title": "Những điều chúng tôi không cho phép",
+      "lead": "Để tránh hiểu lầm, chúng tôi xin làm rõ những điểm sau:",
+      "items": [
+        "Involve Asia không ủy quyền cho bất kỳ bên thứ ba nào đại diện cho chúng tôi, cam kết ngân sách, đàm phán thỏa thuận hoặc thu tiền thay mặt chúng tôi khi chưa có xác nhận rõ ràng bằng văn bản.",
+        "Mọi quan hệ đối tác, thỏa thuận hoặc sắp xếp thanh toán được thực hiện mà không có sự tham gia trực tiếp của Involve Asia chỉ là việc riêng giữa các bên tham gia.",
+        "Involve Asia không chịu trách nhiệm về bất kỳ tranh chấp, chậm thanh toán, tổn thất tài chính hoặc thiệt hại nào phát sinh từ những thỏa thuận đó.",
+        "Chúng tôi sẽ không hòa giải hay can thiệp vào các tranh chấp mà Involve Asia không tham gia ngay từ đầu."
+      ]
+    }
+  ],
+  "verify": {
+    "title": "Cách xác minh",
+    "text": "Nếu bạn gặp bất kỳ hoạt động đáng ngờ nào hoặc muốn xác minh tính hợp pháp của một cá nhân, tổ chức hay thỏa thuận liên quan đến Involve Asia, vui lòng liên hệ với chúng tôi qua email [wecare@involve.asia](mailto:wecare@involve.asia)."
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "title": "Rút tiền bằng USDT | Involve Asia",
+    "description": "Rút thu nhập tiếp thị liên kết bằng USD dưới dạng USDT thay vì Bank Transfer hay PayPal. Thiết lập trong khoảng 2 phút tại Payment Settings."
+  },
+  "hero": {
+    "eyebrow": "Hình thức thanh toán mới",
+    "title": "Nhận tiền theo cách của bạn với rút tiền bằng USDT",
+    "sub": "Rút thu nhập tiếp thị liên kết bằng USD dưới dạng USDT thay vì Bank Transfer hay PayPal. Đã có trên Involve Asia.",
+    "chips": ["Thiết lập 2 phút", "Đổi bất cứ lúc nào", "Không chờ ngân hàng"],
+    "cta": "Thiết lập rút USDT",
+    "more": "Tìm hiểu thêm",
+    "imageAlt": "Đồng USDT"
+  },
+  "why": {
+    "title": "Chủ động hơn trong cách nhận tiền",
+    "sub": "Ba lý do các Publisher thêm USDT vào hình thức thanh toán của mình.",
+    "items": [
+      ["1", "Không còn chờ ngân hàng", "Giao dịch blockchain được xử lý gần như tức thì khi bạn nhận tiền, không mất nhiều ngày như chuyển khoản ngân hàng."],
+      ["2", "Tiền pháp định hay tiền số, bạn chọn", "Rút tiền bằng USD giờ hỗ trợ cả chuyển khoản truyền thống lẫn USDT, mang lại trải nghiệm thanh toán hiệu quả, liền mạch cho Publisher hoạt động xuyên biên giới."],
+      ["3", "Tùy bạn chọn, bất cứ lúc nào", "Chuyển đổi giữa Bank Transfer, PayPal hoặc USDT bất cứ khi nào bạn muốn, không cần cam kết dài hạn."]
+    ]
+  },
+  "setup": {
+    "title": "Cách thiết lập",
+    "sub": "Năm bước trong Payment Settings. Chỉ mất khoảng 2 phút.",
+    "items": [
+      ["1", "Mở Payment Settings", "Vào Settings > Payment > Payment Details, sau đó chọn Edit."],
+      ["2", "Thêm địa chỉ và hình thức thanh toán", "Nhập địa chỉ của bạn, rồi đặt Payout Type là Stablecoins. Đơn vị tiền tệ thanh toán sẽ tự động cố định là USD."],
+      ["3", "Hoàn tất thông tin tài khoản", "Nhập Name, Account Type, Nationality, Contact Number và Recipient Email Address, nơi bạn sẽ nhận link nhận tiền."],
+      ["4", "Gửi email thử (không bắt buộc)", "Kiểm tra email nhận tiền đã đúng và đang hoạt động trước khi link thanh toán thật đầu tiên được gửi đến."],
+      ["5", "Lưu", "Vậy là xong. Các khoản thanh toán đủ điều kiện sau này sẽ sẵn sàng để nhận bằng USDT."]
+    ]
+  },
+  "know": {
+    "title": "Những điều nên biết",
+    "sub": "Một vài điều bạn nên biết trước khi thiết lập rút tiền bằng USDT.",
+    "items": [
+      ["Chưa cần ví ngay", "Bạn sẽ nhập địa chỉ ví một cách bảo mật mỗi lần nhận thanh toán, không phải lúc thiết lập."],
+      ["Phí xử lý 1%", "Được tự động khấu trừ từ tổng khoản thanh toán và ghi rõ trên hóa đơn rút tiền Involve của bạn."],
+      ["Đối tác được cấp phép", "Thanh toán được xử lý qua Triple A, đơn vị được Monetary Authority of Singapore cấp phép."],
+      ["Xác minh danh tính một lần", "Lần thanh toán đầu tiên trên USD 1.500 có thể cần xác minh danh tính nhanh, theo quy định tiêu chuẩn."],
+      ["Đổi lại bất cứ lúc nào", "Bạn có thể đổi lại Bank Transfer hoặc PayPal bất cứ lúc nào trong Payment Settings."]
+    ]
+  },
+  "warn": {
+    "title": "Kiểm tra kỹ trước khi tiếp tục",
+    "items": [
+      ["Đảm bảo địa chỉ email của bạn chính xác.", "Link nhận thanh toán USDT chỉ được gửi đến email bạn đã đặt khi thiết lập. Địa chỉ sai hoặc không còn sử dụng có thể khiến bạn mất tiền vĩnh viễn, không thể khôi phục."],
+      ["Kiểm tra kỹ địa chỉ ví và mạng lưới mỗi lần nhận thanh toán.", "Giao dịch blockchain không thể hoàn tác sau khi đã gửi, kể cả bạn hay chúng tôi."]
+    ]
+  },
+  "cta": {
+    "title": "Sẵn sàng nhận tiền bằng USDT?",
+    "label": "Thiết lập rút USDT"
+  }
+}

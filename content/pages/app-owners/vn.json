@@ -1,0 +1,117 @@
+{
+  "meta": {
+    "title": "Kiếm tiền từ ứng dụng với offer tiếp thị liên kết | Involve Asia",
+    "description": "Kiếm tiền ngay trong ứng dụng của bạn. Hiển thị ưu đãi và cashback phù hợp cho người dùng, tự động hóa qua API của chúng tôi."
+  },
+  "hero": {
+    "eyebrow": "Dành cho chủ ứng dụng",
+    "title": "Biến ứng dụng thành nguồn doanh thu mới.",
+    "sub": "Hiển thị ưu đãi và cashback phù hợp cho người dùng, với nguồn thu chạy ngay trong ứng dụng qua API của chúng tôi.",
+    "cta": "Bắt đầu kiếm tiền",
+    "free": "Tham gia miễn phí. Bắt đầu kiếm tiền ngay hôm nay.",
+    "imageAlt": "Một ứng dụng hiển thị sản phẩm và nội dung gợi ý, mang lại hoa hồng cho chủ ứng dụng",
+    "payLabel": "Hoa hồng nhận được",
+    "payAmount": "+ $816"
+  },
+  "platform": {
+    "title": "Dành cho mọi ứng dụng có người dùng gắn kết.",
+    "sub": "Nếu người dùng hành động theo những gì bạn hiển thị, bạn có thể kiếm tiền từ đó. Kết nối một lần qua API của chúng tôi, ưu đãi phù hợp và việc theo dõi sẽ tự chạy ngầm.",
+    "items": [
+      [
+        "Ứng dụng mua sắm",
+        "Hiển thị cho người dùng sản phẩm phù hợp từ những thương hiệu họ đã tin dùng, và nhận hoa hồng mỗi khi họ mua hàng qua ứng dụng của bạn."
+      ],
+      [
+        "Ứng dụng cashback và phần thưởng",
+        "Tặng người dùng cashback và điểm thưởng từ những thương hiệu họ vẫn mua, và nhận một phần từ mỗi giao dịch đủ điều kiện."
+      ],
+      [
+        "Ứng dụng nội dung và cộng đồng",
+        "Gợi ý sản phẩm phù hợp với nội dung và cộng đồng của bạn, và nhận hoa hồng mỗi khi người dùng mua hàng qua ứng dụng."
+      ]
+    ]
+  },
+  "how": {
+    "title": "Cách bạn kiếm tiền.",
+    "items": [
+      [
+        "01",
+        "Kết nối API",
+        "Tích hợp một lần, rồi đưa offer, link và dữ liệu theo dõi thẳng vào ứng dụng."
+      ],
+      [
+        "02",
+        "Hiển thị ưu đãi phù hợp",
+        "Hiển thị cashback và ưu đãi người dùng thực sự muốn, ngay trong giao diện của bạn."
+      ],
+      [
+        "03",
+        "Nhận hoa hồng mỗi đơn hàng",
+        "Khi người dùng mua hàng qua ứng dụng, đơn hàng được ghi nhận cho bạn."
+      ],
+      [
+        "04",
+        "Nhận thanh toán",
+        "Rút tiền bằng nội tệ khi đơn hàng đã được xác thực, hoặc sớm hơn với Express Withdrawal."
+      ]
+    ]
+  },
+  "earn": {
+    "title": "Kiếm tiền từ những gì người dùng vẫn làm.",
+    "items": [
+      [
+        "Nhận hoa hồng mỗi đơn hàng",
+        "Gợi ý sản phẩm và dịch vụ người dùng cần, và nhận hoa hồng mỗi khi họ mua."
+      ],
+      [
+        "Tặng cashback, xây dựng lòng trung thành",
+        "Mang đến cashback và phần thưởng giúp người dùng quay lại, thiết lập một lần và chạy tự động."
+      ],
+      [
+        "Tự nhiên, không gây phiền",
+        "Lồng ghép gợi ý sản phẩm thật vào ứng dụng để chúng là một phần trải nghiệm, không phải quảng cáo."
+      ]
+    ]
+  },
+  "api": {
+    "title": "Tự động hóa qua \nAPI của chúng tôi.",
+    "body": "Kết nối một lần, API của chúng tôi sẽ luôn cập nhật offer mới nhất cho ứng dụng, tạo link và theo dõi mọi chuyển đổi, để nguồn thu tự chạy ngầm trong khi bạn tập trung vào sản phẩm.",
+    "link": "Tổng quan API",
+    "codeComment": "// Khởi tạo kết nối với Involve API",
+    "responseComment": "// Phản hồi JSON"
+  },
+  "why": {
+    "title": "Vì sao chủ ứng dụng chọn Involve.",
+    "items": [
+      [
+        "Ứng dụng của bạn, trải nghiệm của bạn.",
+        "Ưu đãi nằm ngay trong giao diện của bạn. Bạn quyết định chúng trông thế nào và xuất hiện ở đâu."
+      ],
+      [
+        "Một lần tích hợp, hàng trăm thương hiệu.",
+        "Kết nối một lần để truy cập 500+ thương hiệu và 4.000+ offer."
+      ],
+      [
+        "Dành cho nhà phát triển.",
+        "Tài liệu API rõ ràng, theo dõi đến từng sản phẩm và thanh toán đáng tin cậy."
+      ]
+    ]
+  },
+  "faq": [
+    [
+      "API có thể làm gì?",
+      "Tạo deeplink, lấy offer và dữ liệu sản phẩm, và theo dõi đơn hàng đến từng sản phẩm. Việc tạo deeplink giới hạn 1.000 lần trong mỗi 30 ngày liên tiếp."
+    ],
+    [
+      "Tôi chưa biết nên quảng bá gì trong ứng dụng?",
+      "Hãy bắt đầu với những thương hiệu người dùng của bạn vẫn mua sắm. Xem [Trang nội dung](website) để có thêm ý tưởng."
+    ],
+    [
+      "Việc tích hợp có phức tạp không?",
+      "Bạn sẽ cần một lập trình viên để kết nối API. Tài liệu hướng dẫn đầy đủ mọi endpoint."
+    ]
+  ],
+  "cta": {
+    "title": "Bắt đầu kiếm tiền từ ứng dụng ngay hôm nay."
+  }
+}

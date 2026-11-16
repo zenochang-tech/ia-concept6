@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "title": "Membership Program | Involve Asia",
+    "description": "Kiếm nhiều hơn với tư cách đối tác Involve: hoa hồng cao hơn, phí Early Withdrawal thấp hơn và thêm lượt rút tiền miễn phí khi lên hạng từ Silver đến Black."
+  },
+  "hero": {
+    "eyebrow": "Membership Program",
+    "title": "Kiếm nhiều hơn với Membership Program của Involve",
+    "sub": "Bạn sẽ nhận thêm nhiều quyền lợi khi là đối tác của Involve. Từ hoa hồng cao hơn đến thanh toán nhanh hơn!",
+    "cta": "Đăng ký ngay",
+    "more": "Tìm hiểu thêm",
+    "imageAlt": "Bàn tay cầm các thẻ thành viên màu bạc, vàng, xám và đen"
+  },
+  "benefits": {
+    "title": "Quyền lợi thành viên Involve của bạn",
+    "items": [
+      [
+        "Hoa hồng cao hơn",
+        "Thưởng đến 10% trên khoản thanh toán bạn kiếm được*"
+      ],
+      [
+        "Nhận tiền nhanh hơn, rẻ hơn",
+        "Giảm phí Early Withdrawal đến 20%"
+      ],
+      [
+        "Rút tiền thường xuyên hơn",
+        "Nhận tiền thường xuyên như bạn muốn"
+      ],
+      [
+        "Thêm quyền lợi sắp ra mắt",
+        "Hãy quay lại để khám phá những quyền lợi mới hấp dẫn!"
+      ]
+    ]
+  },
+  "levels": {
+    "title": "Các hạng thành viên Involve",
+    "sub": "Nâng hạng thành viên để tận hưởng quyền lợi tốt hơn.",
+    "labelHead": "Quyền lợi thành viên",
+    "levelLabel": "Hạng {n}",
+    "notIncluded": "Không bao gồm",
+    "levels": [
+      "Silver",
+      "Gold",
+      "Platinum",
+      "Black"
+    ],
+    "rows": [
+      [
+        "Thưởng trên khoản thanh toán kiếm được*",
+        false,
+        "5%",
+        "8%",
+        "10%"
+      ],
+      [
+        "Giảm phí Early Withdrawal",
+        false,
+        "10%",
+        "15%",
+        "20%"
+      ],
+      [
+        "Lượt rút tiền miễn phí mỗi tháng",
+        "Tối đa 2",
+        "Tối đa 3",
+        "Tối đa 5",
+        "Không giới hạn"
+      ]
+    ],
+    "note": "*Thưởng trên khoản thanh toán kiếm được chỉ áp dụng cho chuyển đổi từ một số offer nhất định."
+  },
+  "how": {
+    "title": "Membership Program của Involve hoạt động như thế nào?",
+    "sub": "Bạn có thể nâng hạng thành viên bằng một trong các cách sau:",
+    "items": [
+      [
+        "Kiếm thêm hoa hồng affiliate",
+        "Kiếm thêm hoa hồng affiliate cùng Involve."
+      ],
+      [
+        "Tích thêm điểm thành viên",
+        "Tích thêm điểm thành viên Involve."
+      ]
+    ]
+  },
+  "cta": {
+    "title": "Đăng ký làm đối tác Involve ngay hôm nay!",
+    "label": "Đăng ký ngay"
+  }
+}
