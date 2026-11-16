@@ -1,0 +1,221 @@
+{
+  "meta": {
+    "title": "Involve Asia | เพิ่มรายได้ด้วยการตลาดแบบ Affiliate",
+    "description": "แพลตฟอร์มการตลาดแบบ Affiliate ที่เชื่อม Advertiser กับครีเอเตอร์และ Publisher กว่า 1,000,000 รายทั่วเอเชีย แบรนด์ได้ลูกค้าใหม่ พาร์ทเนอร์ได้รายได้เพิ่ม"
+  },
+  "hero": {
+    "title": "แพลต⁠ฟอร์ม Affiliate ที่พาทุก⁠ฝ่าย ก้าวไปได้เร็ว⁠ขึ้น",
+    "sub": "แบรนด์เติบโตไปกับ Publisher ที่ใช่ และ Publisher สร้างรายได้จากแบรนด์ที่พวกเขาชื่นชอบ การตรวจสอบรายวันและการจ่ายเงินที่เร็วขึ้น ทำให้ทุกคนรอ⁠น้อย⁠ลง",
+    "for": "สำหรับ ",
+    "publishers": "Publisher",
+    "advertisers": "Advertiser",
+    "pubCta": "เริ่ม⁠สร้าง⁠ราย⁠ได้",
+    "advCta": "เพิ่ม⁠ยอด⁠ขาย",
+    "imageAlt": "ครีเอเตอร์และพาร์ทเนอร์แบรนด์เติบโตไปด้วยกันบน Involve Asia",
+    "payoutStatus": "จ่ายเงินสำเร็จ",
+    "payoutPrefix": "+ $",
+    "salesLabel": "ยอดขายที่สร้างได้",
+    "salesSub": "30 วันที่ผ่านมา",
+    "salesPrefix": "$",
+    "numberLocale": "th-TH"
+  },
+  "trust": {
+    "title": "ได้รับความไว้วางใจจากแบรนด์ที่คุณรู้จัก",
+    "logoAlt": "โลโก้ {name}"
+  },
+  "live": {
+    "eyebrow": "รายชื่อแบรนด์แบบเรียลไทม์",
+    "title": "ดูแบรนด์ที่เปิดรับอยู่ตอนนี้",
+    "sub": "แบรนด์จริง พร้อมให้โปรโมต ดูว่าแต่ละแบรนด์จ่ายเท่าไร และมี Publisher เข้าร่วมแล้วกี่ราย",
+    "cats": [
+      "ทั้งหมด",
+      "มาร์เก็ต⁠เพลส",
+      "แฟชั่น",
+      "ท่องเที่ยว",
+      "บริการ⁠ดิจิทัล",
+      "อิเล็ก⁠ทรอนิกส์",
+      "สุขภาพและความงาม"
+    ],
+    "explore": "ดู offer ทั้งหมด",
+    "badge": "ใหม่",
+    "logoAlt": "โลโก้ {name}",
+    "upTo": "สูงสุด",
+    "commission": "ค่าคอมมิชชัน {rate}%",
+    "publishers": "Publisher {count} รายกำลังโปรโมต",
+    "numberLocale": "th-TH"
+  },
+  "start": {
+    "title": "ง่ายพอที่จะเริ่มได้วันนี้",
+    "sub": "ไม่ว่าคุณมาเพื่อสร้างรายได้หรือเพื่อเติบโต อีกเพียงสี่ขั้นตอนก็ถึงการรับเงินครั้งแรกของคุณ",
+    "imageAlt": "ขั้นตอน{title}",
+    "steps": [
+      {
+        "n": "ขั้นตอนที่ 1",
+        "title": "จับคู่",
+        "desc": "เราจับคู่คุณกับแบรนด์ที่ใช่ หรือ Publisher ที่ใช่ ไม่ต้องตามติดต่อเองทีละราย",
+        "quote": "“Found 40 brands to promote in a day, the filter and category makes the process much easier.”",
+        "name": "John Doe",
+        "role": "Publisher · บล็อกเกอร์สายอาหาร"
+      },
+      {
+        "n": "ขั้นตอนที่ 2",
+        "title": "เริ่มใช้งานจริง",
+        "desc": "จากนั้นคุณก็เริ่มได้ในแบบของคุณ แชร์ลิงก์ ลงคูปอง เพิ่มแบนเนอร์ หรือเปิดแคมเปญเต็มรูปแบบ",
+        "quote": "“Involve Asia did a great job in guiding us on what info needed and launched our campaign in an afternoon.”",
+        "name": "Brand Name",
+        "role": "Advertiser · หมวดหมู่แบรนด์"
+      },
+      {
+        "n": "ขั้นตอนที่ 3",
+        "title": "ติดตามผล",
+        "desc": "ดูทุกคลิก ยอดขาย และการจ่ายเงินได้ใน dashboard เดียว",
+        "quote": "“Found 40 brands to promote in a day, the filter and category makes the process much easier.”",
+        "name": "Jane Doe",
+        "role": "Publisher · ครีเอเตอร์สายไลฟ์สไตล์"
+      },
+      {
+        "n": "ขั้นตอนที่ 4",
+        "title": "เติบโตและรับเงิน",
+        "desc": "Publisher ได้รับเงินจากทุกยอดขายที่สร้างได้ แบรนด์เติบโตจากยอดขายเหล่านั้น และจ่ายเฉพาะยอดขายจริงที่ตรวจสอบแล้วเท่านั้น",
+        "quote": "“The data provided is clear which makes the validation process easier, and we only pay when it actually converts.”",
+        "name": "Brand Name",
+        "role": "Advertiser · หมวดหมู่แบรนด์"
+      }
+    ],
+    "overlay": {
+      "recommended": "แนะนำ",
+      "logoAlt": "โลโก้ {name}",
+      "upTo": "สูงสุด",
+      "commission": "ค่าคอมมิชชัน {rate}%",
+      "deepLink": "invl.me/yourDeepLink",
+      "conversionRate": "อัตราคอนเวอร์ชัน",
+      "rateValue": "12",
+      "rateUnit": "%",
+      "rateDelta": "↑21%",
+      "payoutReceived": "ได้รับเงินแล้ว",
+      "payoutAmount": "+ $48",
+      "numberLocale": "th-TH"
+    }
+  },
+  "support": {
+    "title": "ทีมงานตัวจริง ดูแลคุณทุกขั้นตอน",
+    "desc": "ไม่ใช่บอท ไม่ใช่ FAQ ที่หาคำตอบไม่เจอ แต่เป็นคนจริงที่รู้จักแพลตฟอร์มดีและพร้อมช่วยเหลือ ไม่ว่าคุณจะเป็นครีเอเตอร์ที่กำลังสร้างลิงก์แรก หรือแบรนด์ที่กำลังเปิดตัวแคมเปญใหญ่ที่สุด",
+    "badge": "ผู้ใช้ 95% ให้คะแนนบริการช่วยเหลือของเราว่ายอดเยี่ยม",
+    "quote": "“It's easy to reach customer service, and they fix things quickly.”",
+    "verified": "Publisher ที่ยืนยันแล้ว",
+    "imageAlt": "เจ้าหน้าที่ฝ่ายช่วยเหลือของ Involve Asia",
+    "hello": "สวัสดี",
+    "answer": "วันนี้ให้เราช่วยอะไรดี"
+  },
+  "results": {
+    "title": "ผลลัพธ์จริง การเติบโตจริง",
+    "sub": "จากผู้คนและแบรนด์ที่เติบโตไปกับ Involve",
+    "seeAll": "ดูเรื่องราวความสำเร็จทั้งหมด",
+    "prevStories": "เรื่องราวก่อนหน้า",
+    "nextStories": "เรื่องราวถัดไป",
+    "for": "สำหรับ ",
+    "publishers": "Publisher",
+    "advertisers": "Advertiser",
+    "tabsLabel": "กลุ่มผู้อ่านเรื่องราวความสำเร็จ",
+    "tabPub": "Publisher",
+    "tabAdv": "Advertiser",
+    "prevStory": "เรื่องก่อนหน้า",
+    "nextStory": "เรื่องถัดไป",
+    "pubStories": [
+      {
+        "big": "3",
+        "unit": " แห่ง",
+        "head": "อสังหาริมทรัพย์ที่ซื้อจากรายได้ Affiliate ของเธอ",
+        "tag": "ครีเอเตอร์ Facebook จากฟิลิปปินส์",
+        "desc": "เรื่องราวของคุณแม่ลูกสี่ที่สร้างชีวิตใหม่จากคอนเทนต์ Facebook กับ Involve"
+      },
+      {
+        "big": "$220,000",
+        "unit": "+",
+        "head": "ยอดขายที่สร้างให้แบรนด์ท่องเที่ยวหนึ่งแบรนด์ ไตรมาส 4/2566",
+        "tag": "เครือข่าย Affiliate คอนเทนต์ AI",
+        "desc": "Flickstree ขยายยอดขายด้านท่องเที่ยวผ่าน Involve ได้อย่างไร"
+      },
+      {
+        "big": "$250",
+        "unit": "",
+        "head": "รายได้จากผู้ติดตามเพียง 10,500 คน แบบพาร์ทไทม์",
+        "tag": "ครีเอเตอร์สายท่องเที่ยวและอาหาร",
+        "desc": "เครื่องพิสูจน์ว่าคุณไม่จำเป็นต้องมีผู้ติดตามมากก็สร้างรายได้กับ Involve ได้"
+      }
+    ],
+    "advStories": [
+      {
+        "big": "796",
+        "unit": "%",
+        "head": "ยอดขายเพิ่มขึ้น",
+        "tag": "อีคอมเมิร์ซ",
+        "desc": "Big Bang Sales เติบโตด้วยพาร์ทเนอร์ Affiliate ได้อย่างไร"
+      },
+      {
+        "big": "4.3",
+        "unit": "x",
+        "head": "ยอดขายเพิ่มขึ้น",
+        "tag": "โทรคมนาคม",
+        "desc": "พาร์ทเนอร์ของ Involve ช่วยขับเคลื่อนการเติบโตให้ TIME Internet ได้อย่างไร"
+      },
+      {
+        "big": "$160,000",
+        "unit": "",
+        "head": "ยอดขาย · 4,912 คอนเวอร์ชัน",
+        "tag": "สุขภาพและเวลเนส",
+        "desc": "แบรนด์สุขภาพระดับโลกเปิดตัวโปรแกรม CPS บน Involve ได้อย่างไร"
+      }
+    ]
+  },
+  "stats": {
+    "caption": "นี่คือการเติบโตไปด้วยกัน ตั้งแต่ปี 2557",
+    "labels": [
+      "Publisher",
+      "ค่าคอมมิชชันที่จ่ายแล้ว",
+      "ยอดขายที่สร้างได้",
+      "แบรนด์"
+    ],
+    "formats": [
+      "{n}+",
+      "${n} ล้าน+",
+      "${n} พัน⁠ล้าน+",
+      "{n}+"
+    ],
+    "numberLocale": "th-TH"
+  },
+  "blog": {
+    "title": "จากบล็อก Involve",
+    "sub": "เคล็ดลับ คู่มือ และข้อมูลเชิงลึกใหม่ ๆ ไม่ว่าคุณจะอยู่ฝั่งไหน",
+    "readAll": "อ่านบล็อก",
+    "tabsLabel": "กลุ่มผู้อ่านบล็อก",
+    "tabPub": "Publisher",
+    "tabAdv": "Advertiser",
+    "readMore": "อ่านต่อ",
+    "pubPosts": [
+      "วิธีโปรโมตลิงก์ Affiliate บน TikTok",
+      "อธิบาย Express Withdrawal แบบเข้าใจง่าย",
+      "EPC ในการตลาดแบบ Affiliate คืออะไร"
+    ],
+    "advPosts": [
+      "วิธีเปิดตัวโปรแกรม Affiliate แรกของคุณ",
+      "เลือกโครงสร้างค่าคอมมิชชันที่ใช่",
+      "วัด ROI ทั่วทั้งเครือข่าย Publisher ของคุณ"
+    ]
+  },
+  "finale": {
+    "title": "เลือกฝั่งของคุณ แล้วเติบโตไปกับเรา",
+    "pubKicker": "ครีเอเตอร์ พาร์ทเนอร์ Affiliate พาร์ทเนอร์ด้านเทคโนโลยี",
+    "advKicker": "แบรนด์ ร้านค้าปลีก องค์กรขนาดใหญ่",
+    "pubImageAlt": "Publisher กำลังสร้างคอนเทนต์",
+    "advImageAlt": "Advertiser ที่กำลังขยายแบรนด์",
+    "pubTitle": "ฉันเป็น \nPublisher",
+    "pubDesc": "โปรโมตแบรนด์ที่คุณชื่นชอบ ",
+    "pubDescMore": "เปลี่ยนผู้ติดตามหรือทราฟฟิกของคุณให้เป็นรายได้",
+    "pubCta": "เริ่ม⁠สร้าง⁠ราย⁠ได้",
+    "advTitle": "ฉันเป็น \nAdvertiser",
+    "advDesc": "เพิ่มยอดขายให้ธุรกิจของคุณด้วย Publisher ที่ใช่ ",
+    "advDescMore": "จ่ายเฉพาะผลลัพธ์",
+    "advCta": "เพิ่ม⁠ยอด⁠ขาย"
+  }
+}
