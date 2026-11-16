@@ -1,5 +1,5 @@
 {
-  "_about": "Languages and translated pages. Each language page lives in its own folder (/id/referral-program) and reads its copy from content/pages/<page>/<lang>.json, falling back to en.json for anything missing. The shared menu, footer and app pop-up read content/shared/<lang>.json. To translate a page: add its <lang>.json, then list the language under 'pages' below. build-i18n.py, build-seo.py and scripts/build.mjs all read this file.",
+  "_about": "Languages and translated pages. Each language page lives in its own folder (/id/referral-program) and reads its copy from content/pages/<page>/<lang>.json, falling back to en.json for anything missing. The shared menu, footer and app pop-up read content/shared/<lang>.json. To translate a page: add its <lang>.json, then list the language under 'pages' below. build-i18n.py, build-seo.py and scripts/build.mjs all read this file. A language can name a 'font' (its Google Fonts family) for letters the design-system fonts don't have, e.g. Thai; build-i18n.py adds it to that language's pages only, after Inter / Plus Jakarta Sans in the font stacks. 'css' is a small style block for that language's pages only (Thai needs taller heading lines for its vowel and tone marks, and no letter-spacing).",
   "default": "en",
   "languages": [
     {
@@ -16,7 +16,12 @@
       "menu": "TH",
       "label": "ไทย",
       "htmlLang": "th",
-      "hreflang": "th"
+      "hreflang": "th",
+      "font": {
+        "name": "Noto Sans Thai",
+        "google": "Noto+Sans+Thai:wght@400;500;600;700;800"
+      },
+      "css": "h1,h2,h3,h4,h5,h6{line-height:1.4 !important;}*{letter-spacing:0 !important;}"
     },
     {
       "code": "vn",
@@ -33,122 +38,141 @@
       "label": "Bahasa Indonesia",
       "htmlLang": "id",
       "hreflang": "id"
-    },
-    {
-      "code": "ms",
-      "path": "ms",
-      "menu": "MS",
-      "label": "Bahasa Melayu",
-      "htmlLang": "ms",
-      "hreflang": "ms"
     }
   ],
   "pages": {
     "about": [
+      "th",
       "id",
       "vn"
     ],
     "affiliates": [
+      "th",
       "id",
       "vn"
     ],
     "api-overview": [
+      "th",
       "id",
       "vn"
     ],
     "app-owners": [
+      "th",
       "id",
       "vn"
     ],
     "automation": [
+      "th",
       "id",
       "vn"
     ],
     "blog": [
+      "th",
       "id",
       "vn"
     ],
     "bonus-campaign": [
+      "th",
       "id",
       "vn"
     ],
     "content-creators": [
+      "th",
       "id",
       "vn"
     ],
     "datafeed": [
+      "th",
       "id",
       "vn"
     ],
     "download-app": [
+      "th",
       "id",
       "vn"
     ],
     "earnings-estimate": [
+      "th",
       "id",
       "vn"
     ],
     "express-withdrawal": [
+      "th",
       "id",
       "vn"
     ],
     "for-advertisers": [
+      "th",
       "id",
       "vn"
     ],
     "for-agencies": [
+      "th",
       "id",
       "vn"
     ],
     "for-publishers": [
+      "th",
       "id",
       "vn"
     ],
     "fraud-awareness": [
+      "th",
       "id",
       "vn"
     ],
     "get-started": [
+      "th",
       "id",
       "vn"
     ],
     "how-we-track": [
+      "th",
       "id",
       "vn"
     ],
     "index": [
+      "th",
       "id",
       "vn"
     ],
     "media-buyer": [
+      "th",
       "id",
       "vn"
     ],
     "membership-program": [
+      "th",
       "id",
       "vn"
     ],
     "partner-discovery": [
+      "th",
       "id",
       "vn"
     ],
     "pricing": [
+      "th",
       "id",
       "vn"
     ],
     "referral-program": [
+      "th",
       "id",
       "vn"
     ],
     "stablecoin-payout": [
+      "th",
       "id",
       "vn"
     ],
     "technology-partners": [
+      "th",
       "id",
       "vn"
     ],
     "website": [
+      "th",
       "id",
       "vn"
     ]

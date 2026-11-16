@@ -9,7 +9,11 @@ from the English  <page>.html :
   - <html lang> set to the language,
   - <base href="../">  so the shared scripts, styles and media resolve from the site root,
   - window.IA_LANG, which the page scripts read to pick content/pages/<page>/<lang>.json,
-  - <title> and <meta description> from that file's "meta" block.
+  - <title> and <meta description> from that file's "meta" block,
+  - the language's own "font", if i18n.json names one (Noto Sans Thai for Thai): added to the
+    Google Fonts request and to --font-display / --font-body right after the design-system
+    fonts, so Latin text keeps Plus Jakarta Sans / Inter and only the Thai letters use it,
+  - the language's own "css", if any (Thai: taller heading lines, no letter-spacing).
 The menu, footer and app pop-up read content/shared/<lang>.json (English text -> translation);
 this script warns when a key there no longer matches any English text in the code.
 build-seo.py then adds the SEO block (canonical, hreflang, sitemap) to these copies too.
@@ -42,6 +46,14 @@ def check_shared(cfg):
             as_code = key.replace("'", "\\'").replace("\n", "\\n")   # how the key is written inside a JS string
             if key not in code and as_code not in code:
                 print(f"WARN   {rel}: no English text \"{key}\" in the code — reworded or removed?")
+
+
+def add_font(out, font):
+    """Load the language's font with the others and put it in both stacks, after the design-system fonts."""
+    out = out.replace("&display=swap", f"&family={font['google']}&display=swap")
+    for var in ("--font-display", "--font-body"):
+        out = re.sub(rf"({var}:'[^']+','[^']+',)", lambda m: m.group(1) + f"'{font['name']}',", out, count=1)
+    return out
 
 
 def main():
@@ -78,6 +90,10 @@ def main():
             out = re.sub(r"<title>.*?</title>", lambda m: f"<title>{html.escape(meta['title'], quote=False)}</title>", out, count=1, flags=re.S)
             out = re.sub(r'<meta name="description" content="[^"]*"\s*/>',
                          lambda m: f'<meta name="description" content="{html.escape(meta["description"], quote=True)}" />', out, count=1)
+            if lang.get("font"):
+                out = add_font(out, lang["font"])
+            if lang.get("css"):
+                out = out.replace("</head>", f"<style>{lang['css']}</style>\n</head>", 1)
             os.makedirs(os.path.join(HERE, lang["path"]), exist_ok=True)
             dest = os.path.join(lang["path"], page + ".html")
             open(os.path.join(HERE, dest), "w", encoding="utf-8").write(out)

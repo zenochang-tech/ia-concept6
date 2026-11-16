@@ -1,0 +1,133 @@
+{
+  "numberLocale": "th-TH",
+  "meta": {
+    "title": "สำหรับ Advertiser | Involve Asia",
+    "description": "เข้าถึง Publisher ที่เชื่อถือได้กว่า 1,000,000 รายทั่วเอเชียตะวันออกเฉียงใต้ เปิดแคมเปญแบบวัดผล และจ่ายเฉพาะผลลัพธ์ ให้ธุรกิจของคุณเติบโตไปกับ Involve Asia"
+  },
+  "hero": {
+    "eyebrow": "การตลาดแบบ Affiliate สำหรับ Advertiser",
+    "title": "เพิ่ม⁠ยอด⁠ขายให้ธุร⁠กิจ⁠ของ⁠คุณ ด้วย Publisher ที่ใช่",
+    "sub": "เข้าถึง Publisher กว่า 1,000,000 ราย จ่ายเฉพาะยอดขายที่ตรวจสอบแล้ว และเห็นผลเร็วขึ้น เริ่มได้ในไม่กี่วัน ไม่ใช่หลายเดือน ไม่ว่าธุรกิจของคุณจะขายอะไร",
+    "cta": "ดูแพ็กเกจและราคา",
+    "free": "ทีมของเราช่วยธุรกิจของคุณเริ่มต้น และคุณจ่ายเฉพาะยอดขายที่เกิดขึ้นจริง",
+    "slideAlts": [
+      "dashboard ของ Advertiser แสดงยอดขายรวม ค่าคอมมิชชันที่จ่ายแล้ว และแนวโน้มผลงาน",
+      "พบ Publisher ที่ใช้งานอยู่ 1,428 ราย — Clarke, Fernandez, Michelle, Jeanne",
+      "แคมเปญของฉัน: แคมเปญ 11.11 และ Black Friday 2026 พร้อมโค้ดคูปอง",
+      "พบ 918 คอนเวอร์ชันสำหรับแคมเปญ 11.11"
+    ],
+    "convLabel": "อัตราคอนเวอร์ชัน",
+    "convValue": "10%",
+    "convDelta": "↑9%",
+    "catLabel": "Publisher สำหรับ",
+    "catValue": "หมวดแฟชั่น",
+    "live": "แคมเปญ 11.11 เริ่มแล้ว!",
+    "applLabel": "ผู้สมัคร",
+    "applValue": "Publisher 428 ราย",
+    "vcLabel": "คอนเวอร์ชันที่ตรวจสอบแล้ว",
+    "vcValue": "316"
+  },
+  "logos": {
+    "caption": "ได้รับความไว้วางใจจากแบรนด์ที่ลูกค้าของคุณรู้จัก ทั้งค้าปลีก ท่องเที่ยว ความงาม และการเงิน"
+  },
+  "goals": {
+    "title": "ไม่ว่าธุรกิจของคุณมีเป้าหมายใด ก็เติบโตได้ที่นี่",
+    "sub": "มี Publisher และกลยุทธ์สำหรับทุกเป้าหมาย ไม่ว่าจะเป็นการรับรู้แบรนด์ ลูกค้า หรือรายได้",
+    "items": [
+      {
+        "title": "สร้างการรับรู้",
+        "desc": "ทำให้แบรนด์ของคุณเป็นที่รู้จักในกลุ่มผู้ชมใหม่ ผ่านครีเอเตอร์ เว็บไซต์คอนเทนต์ และเว็บเปรียบเทียบราคา"
+      },
+      {
+        "title": "ได้ลูกค้าใหม่",
+        "desc": "เปลี่ยนความสนใจให้เป็นการซื้อ ด้วยโปรโมชันที่เข้าถึงผู้ซื้อรายใหม่และดึงลูกค้าเดิมให้กลับมา"
+      },
+      {
+        "title": "เพิ่มราย⁠ได้",
+        "desc": "สร้างการเติบโตที่วัดผลได้กับ Publisher ที่ได้รับเงินตามผลงาน พร้อมติดตามผลได้ถึงทุกคอนเวอร์ชัน"
+      }
+    ]
+  },
+  "platform": {
+    "title": "แพลตฟอร์มเดียว ครบทุกสิ่งที่ต้องใช้บริหารโปรแกรมของคุณ",
+    "sub": "ค้นหา Publisher เปิดตัว offer แชร์ครีเอทีฟ และติดตามทุกยอดขาย ทั้งหมดในที่เดียว",
+    "items": [
+      {
+        "t": "ค้นหาและเลือก Publisher ของคุณ",
+        "d": "ค้นหา Publisher ตามผู้ติดตาม ช่องทาง และระดับสมาชิก แล้วอนุมัติผู้ที่จะเป็นตัวแทนแบรนด์ของคุณ คุณควบคุมได้เต็มที่ว่าใครจะโปรโมตแบรนด์ของคุณ"
+      },
+      {
+        "t": "ให้ทีมเราช่วยสรรหา Publisher",
+        "d": "อยากได้ตัวช่วย? ทีมของเราจะจัดแคมเปญสรรหาและแนะนำ Publisher ที่เหมาะกับแบรนด์ของคุณ โดยคุณเป็นผู้อนุมัติว่าใครจะเข้าร่วม"
+      },
+      {
+        "t": "เปิดตัว offer และแชร์ครีเอทีฟ",
+        "d": "กำหนดค่าคอมมิชชัน เปิดตัว offer และอัปโหลดแคมเปญให้ Publisher นำไปใช้ แล้วดูว่าใครกำลังโปรโมตอยู่"
+      },
+      {
+        "t": "ติดตามทุกผลลัพธ์",
+        "d": "ดูคลิก คอนเวอร์ชัน และการจ่ายเงินใน dashboard เดียว พร้อมรายละเอียดระดับคอนเวอร์ชัน และส่งออกข้อมูลได้ทุกเมื่อที่ต้องการ"
+      }
+    ]
+  },
+  "real": {
+    "title": "คุณจ่ายเฉพาะ \nยอด⁠ขายที่เกิดขึ้นจริง",
+    "desc": "ทุกคอนเวอร์ชันได้รับการตรวจสอบก่อนคุณจ่ายเงิน งบประมาณของธุรกิจคุณจึงใช้กับผลลัพธ์ที่แท้จริงเท่านั้น ไม่สูญเปล่า และคุณเป็นผู้อนุมัติว่าอะไรนับเป็นยอดขาย",
+    "points": [
+      "ทุกคอนเวอร์ชันได้รับการตรวจสอบก่อนจ่ายเงิน",
+      "ทุกยอดขายติดตามผลได้ถึง Publisher ที่สร้างยอดขายนั้น"
+    ],
+    "chip": "ยอด⁠ขายตรวจ⁠สอบ⁠แล้ว"
+  },
+  "stats": {
+    "title": "นี่คือผลลัพธ์จาก \nยอด⁠ขายที่เกิดขึ้นจริง",
+    "brands": "แบรนด์",
+    "publishers": "Publisher",
+    "sales": "ยอดขายที่สร้างให้แบรนด์",
+    "brandsSuffix": "+",
+    "publishersSuffix": "+",
+    "salesPrefix": "$",
+    "salesSuffix": " พัน⁠ล้าน+"
+  },
+  "results": {
+    "title": "ผลลัพธ์ที่พิสูจน์แล้วในทุกอุตสาหกรรม",
+    "sub": "แบรนด์จริงที่เติบโตบนแพลตฟอร์ม เล่าด้วยคำพูดของพวกเขาเอง",
+    "prev": "กรณีศึกษาก่อนหน้า",
+    "next": "กรณีศึกษาถัดไป",
+    "cases": [
+      {
+        "head": "Involve เพิ่มพาร์ทเนอร์ของ Shopee จาก 2,000 เป็น 20,000 รายภายใน 2 ปี",
+        "quote": "“Our growth would not have been possible without Involve’s support. Involve has been one of our biggest affiliate partners from the start, and a benchmark & role model to our other partners.”",
+        "who": "Shopee Malaysia"
+      },
+      {
+        "head": "Involve ช่วยประหยัดเวลาในการเริ่มความร่วมมือใหม่ และเพิ่มประสิทธิภาพให้ความร่วมมือเดิมของธุรกิจคุณ",
+        "quote": "“Involve saves us so much time by not having to reach out to new partners one by one. Involve also optimized our existing partnerships, where we saw a 3.4% growth despite implementing a commission cut.”",
+        "who": "DECATHLON"
+      },
+      {
+        "head": "ยอดสั่งซื้อเพิ่มขึ้นถึง 8% ในเวลาอันสั้น",
+        "quote": "“Through their expansive network of publisher and influencer channels, which have become instrumental marketing avenues for us, we have achieved significant milestones. The growth we have experienced across our diverse range of brands has been nothing short of extraordinary, with a remarkable 8% increase in orders within a short period of time.”",
+        "who": "Limitless Technology"
+      },
+      {
+        "head": "Involve Asia มุ่งเน้นทราฟฟิกที่หลากหลายและการพัฒนา",
+        "quote": "“Involve Asia focuses on a variety of traffic and development, and looks forward to common progress in the future!”",
+        "who": "Alibaba Group"
+      }
+    ]
+  },
+  "awards": {
+    "title": "ได้รับการยอมรับ และสร้างขึ้นบนความไว้วางใจ",
+    "alts": [
+      "Certified B Corporation",
+      "Deloitte Technology Fast 500",
+      "MSC Malaysia Status Company",
+      "Forbes Asia 100 To Watch"
+    ]
+  },
+  "cta": {
+    "title": "ให้ธุรกิจของคุณเติบโตด้วยแพ็ก⁠เกจที่ใช่ เริ่ม⁠ได้⁠วัน⁠นี้",
+    "label": "ดูแพ็กเกจและราคา"
+  }
+}
