@@ -3,12 +3,12 @@ title: Prohibited Promotion Methods
 metaTitle: What are prohibited promotion methods? | Involve Asia Glossary
 metaDescription: Prohibited promotion methods are the ways of promoting an offer that an advertiser explicitly disallows, such as brand bidding or cookie stuffing.
 tldr: Prohibited promotion methods are ways of promoting an offer that an advertiser explicitly disallows. Promoting through them can void commissions or lead to account action.
-related: promotion-method, allowed-traffic-sources, terms-conditions-t-cs, compliance
+related: promotion-method, allowed-traffic-sources, terms-conditions-tcs, compliance
 ---
 
 ## What are prohibited promotion methods?
 
-Prohibited promotion methods are the [promotion methods](promotion-method) an [advertiser](advertiser) does not allow for a given offer. They are set out in each offer's [terms and conditions](terms-conditions-t-cs), and they exist to protect the advertiser's brand and paid marketing channels from being undercut or misrepresented.
+Prohibited promotion methods are the [promotion methods](promotion-method) an [advertiser](advertiser) does not allow for a given offer. They are set out in each offer's [terms and conditions](terms-conditions-tcs), and they exist to protect the advertiser's brand and paid marketing channels from being undercut or misrepresented.
 
 ## Common examples
 

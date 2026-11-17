@@ -1,0 +1,772 @@
+{
+  "meta": {
+    "title": "Privacy Notice | Involve Asia",
+    "description": "How Involve Asia collects, uses, discloses and protects your personal data, and the rights you have over it."
+  },
+  "hero": {
+    "eyebrow": "Legal",
+    "title": "Privacy Notice",
+    "sub": "How Involve Asia collects, uses and protects your personal data.",
+    "updated": "Updated: 05 November 2024"
+  },
+  "sections": [
+    {
+      "title": "Introduction",
+      "body": [
+        "Involve Asia (“Involve Asia”, or “IA”, or \"we\" or \"us\" or “our”) respects your concerns about privacy. In compliance with the applicable personal data protection laws, and its guidelines, orders and regulations as amended or re-enacted from time to time (“Laws” hereinafter), this notice (“Privacy Notice” or “Notice”) is issued to all our clients, customers and users, both current and prospective and any other person who accesses or uses our Website (defined below), downloads or uses our Applications, or avails of our Services (defined below), interact with us, or enter(s) into any engagement with us (“you”, “your”, “user”, “users” or “data subject”). This notice will inform you of your rights with regards to your Personal Data (defined below) that has been and/or will be, collected, used, processed and disclosed by us, being the Data User (defined below) as per the Laws. Accordingly, you are advised to read this Privacy Notice carefully."
+      ]
+    },
+    {
+      "title": "General",
+      "body": [],
+      "clauses": [
+        {
+          "t": "Involve Asia shall mean and include its group companies, affiliates and subsidiaries, which are as follows:",
+          "sub": [
+            {
+              "kind": "alpha",
+              "items": [
+                {
+                  "t": "INVOLVE ASIA TECHNOLOGIES SDN BHD, bearing Company Registration Number 201201032669 (1017157-V) and having its principal place of business at 18-01 & 18-03, Level 18 Menara MBMR, Jalan Syed Putra, 58000 Kuala Lumpur, Malaysia;"
+                },
+                {
+                  "t": "VAL MEDIA SDN BHD bearing Company Registration Number 201801039139 (1301170-H) and having its principal place of business at 18-02, Level 18 Menara MBMR, Jalan Syed Putra, 58000 Kuala Lumpur, Malaysia;"
+                },
+                {
+                  "t": "INVOLVE ASIA (THAILAND) CO., LTD. bearing Company Registration Number Registration No. 0105561090991 and having its principal place of business at 111 True Digital Park West, Unicorn Building, 9th Floor, Unit 915, Sukhumvit Road, Bangchak, Phra Khanong, Bangkok - 10260, Thailand;"
+                },
+                {
+                  "t": "INVOLVE ASIA PTE. LTD bearing Company Registration Number 201603369M and having its principal place of business at 150, Orchard Road #08-01, Orchard Plaza - 238841, Singapore; and"
+                },
+                {
+                  "t": "PT INVOLVE ASIA INDONESIA bearing Company Registration Number 9120301431269 and having its principal place of business at 29th Floor, Noble House, Mega Kuningan. 2, Jl. DR. Ide Anak Agung Gde Agung No.Kav., RT.5, RW.2, Kuningan, Kuningan Tim., Kecamatan Setiabudi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta - 12950, Indonesia."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "t": "This Privacy Notice applies to our Website, Applications and Services for users where we collect certain personal information (“Personal Data”). Please read this Privacy Policy carefully as it contains important information to help you understand our practices regarding any personal information that you provide to us or that we collect otherwise in the context of our Website, Applications and Services and the ways in which you can protect your privacy."
+        },
+        {
+          "t": "We respect your privacy, and we are committed to keeping your Personal Data secure and managing it in accordance with our legal responsibilities under applicable data protection laws."
+        },
+        {
+          "t": "“Website” shall mean any world wide web owned by us or our licensor, and/or managed by us or our licensor, whether known now or in the future."
+        },
+        {
+          "t": "“Service(s)” means the online affiliate marketing services offered by Involve Asia, including access to and use of the Applications and Network and any other service provided by Involve Asia."
+        },
+        {
+          "t": "“Applications” shall mean the Application (downloadable from the URL [https://app.involve.asia/advertiser](https://app.involve.asia/advertiser))."
+        },
+        {
+          "t": "Unless required by the Laws, if there is any conflict between an English and any local language versions of this Notice, the English version shall prevail."
+        },
+        {
+          "t": "Unless expressly provided herein or the context so requires, the words used in this Notice shall have the same meaning as assigned to them under the Laws."
+        },
+        {
+          "t": "This policy sets forth Involve Asia's minimum compliance standards, however, where local law and regulations require more stringent controls, then such stricter controls shall apply and must be strictly adhered to. Please do refer to the notices set out below for the applicable jurisdictions:",
+          "sub": [
+            {
+              "kind": "alpha",
+              "items": [
+                {
+                  "t": "Malaysia - [Click Here](https://app.involve.asia/publisher/privacypolicy/en-MY) (English) [Click Here](https://app.involve.asia/publisher/privacypolicy/ms-MY) (Bahasa Malaysia)"
+                },
+                {
+                  "t": "Philippines - [Click Here](https://app.involve.asia/publisher/privacypolicy/en-PH)"
+                },
+                {
+                  "t": "Indonesia - [Click Here](https://app.involve.asia/publisher/privacypolicy/en-ID) (English) [Click Here](https://app.involve.asia/publisher/privacypolicy/id-ID) (Bahasa Indonesia)"
+                }
+              ]
+            },
+            {
+              "after": "**(\"Local Privacy Notices\")**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Collection of Personal Data",
+      "body": [],
+      "clauses": [
+        {
+          "t": "We have collected and will collect your Personal Data to be processed by us and/or on our behalf in the course of your present or future use, access or any dealings with Involve Asia, its subsidiaries, affiliates or associated companies."
+        },
+        {
+          "t": "Your Personal Data enables us to achieve the Purpose (defined below in Clause 5) herein that is in connection with our business and Services. When you visit, use, or interact with our Application or the Website, or avail our Services, we may collect certain information by automated or passive means using a variety of technologies, which technologies may be downloaded to your device and may set or modify settings on your device."
+        }
+      ]
+    },
+    {
+      "title": "Description of Personal Data",
+      "body": [],
+      "clauses": [
+        {
+          "t": "The types of personal information and data we may obtain includes:",
+          "sub": [
+            {
+              "kind": "bullet",
+              "items": [
+                {
+                  "t": "Name;"
+                },
+                {
+                  "t": "Identity Card Number;"
+                },
+                {
+                  "t": "Gender;"
+                },
+                {
+                  "t": "Date of Birth;"
+                },
+                {
+                  "t": "Email address;"
+                },
+                {
+                  "t": "Mobile Phone number;"
+                },
+                {
+                  "t": "Postal Address;"
+                },
+                {
+                  "t": "Nationality;"
+                },
+                {
+                  "t": "Preferred language;"
+                },
+                {
+                  "t": "Marital Status;"
+                },
+                {
+                  "t": "Income and Education level;"
+                },
+                {
+                  "t": "Fax Number;"
+                },
+                {
+                  "t": "Passport Number;"
+                },
+                {
+                  "t": "IP Address;"
+                },
+                {
+                  "t": "Images (still or recording);"
+                },
+                {
+                  "t": "Username, password and login information for any account you may establish on our Website or Application or while using our Services;"
+                },
+                {
+                  "t": "Type of mobile device and its characteristics, including the unique device identifier (UDID) or mobile equipment identifier (MEID) for your mobile device;"
+                },
+                {
+                  "t": "Information as to your social media accounts, sites, products, and services;"
+                },
+                {
+                  "t": "Contact information of friends or other people you would like us to contact;"
+                },
+                {
+                  "t": "Information you provide by interacting with us or accessing the Website or Application or availing our Services;"
+                },
+                {
+                  "t": "Location information, such as the real-time geographic location of the device on which you install and/or use our Applications, access our Website, or avail of the Services;"
+                },
+                {
+                  "t": "Shopping behaviour and preferences, and a record of the purchases you make on our Websites or Application;"
+                },
+                {
+                  "t": "Clickstream data when you visit our Website, use or download our Applications, or avail of our Services;"
+                },
+                {
+                  "t": "Data relating to your surveys, feedback, reviews, and complaints;"
+                },
+                {
+                  "t": "Other details that you may submit to us or that may be included in the information provided to us by third parties;"
+                },
+                {
+                  "t": "Sensitive Personal Data;"
+                },
+                {
+                  "t": "Payment details and payment history (including payment card number, security code, expiration date, cardholder name, billing address, and bank account details);"
+                },
+                {
+                  "t": "Personally Identifiable Information (PII) defined under international privacy laws or standards;"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "t": "The above does not purport to be exhaustive and sets out some common instances of the kind of Personal Data about you that may be collected by us."
+        }
+      ]
+    },
+    {
+      "title": "Purposes for Collection of Personal Data",
+      "body": [],
+      "clauses": [
+        {
+          "t": "Involve Asia may use your Personal Data for the following purposes, without limitation:",
+          "sub": [
+            {
+              "kind": "bullet",
+              "items": [
+                {
+                  "t": "Registering you for membership at our Websites, Applications, and Services and to manage, maintain, and administer your account(s);"
+                },
+                {
+                  "t": "Managing your Offer(s), Programmes, or Campaigns;"
+                },
+                {
+                  "t": "To process, validate, confirm, verify, deliver, track, and maintain a record of your purchases (including by processing payment card transactions, handling refunds, and contacting you about your orders, including by telephone);"
+                },
+                {
+                  "t": "To respond to your questions and comments and provide customer support;"
+                },
+                {
+                  "t": "To communicate with you about our products, Services, offers, events, and promotions, and offer you products and services we believe may be of interest to you;"
+                },
+                {
+                  "t": "To manage your participation in our events, sweepstakes, and other promotions;"
+                },
+                {
+                  "t": "To enable you to communicate with us through our blogs, social networks, and other interactive media;"
+                },
+                {
+                  "t": "To publish your testimonials about Involve Asia, including on our Websites, blogs, and on social networks;"
+                },
+                {
+                  "t": "To tailor our services to suit your personal interests and the manner in which you use our Website, Applications, and Services;"
+                },
+                {
+                  "t": "To operate, evaluate, and improve our business and the Services we offer;"
+                },
+                {
+                  "t": "To manage, operate, administer, and provide you with as well as to facilitate the provision of our Services;"
+                },
+                {
+                  "t": "For enhancing our marketing communications and strategies and for internal analysis;"
+                },
+                {
+                  "t": "To analyze how you use our Website, Applications, and Services;"
+                },
+                {
+                  "t": "To protect against and prevent fraud, unauthorized transactions, claims, and other liabilities, and manage risk exposure, including by identifying potential hackers and other unauthorized users;"
+                },
+                {
+                  "t": "To prevent or investigate any actual or suspected violations, fraud, unlawful activity, omission, or misconduct, whether relating to your use of our Website, Application, or Services or any other matter arising from your relationship with us;"
+                },
+                {
+                  "t": "To store, host, back up (whether for disaster recovery or otherwise) your Personal Data, whether within or outside of your jurisdiction;"
+                },
+                {
+                  "t": "To enforce any of our Terms of Use and Terms and Conditions of our Website and Applications;"
+                },
+                {
+                  "t": "To comply with applicable legal and regulatory requirements, industry standards, and our policies;"
+                },
+                {
+                  "t": "To respond to legal processes or to comply with governmental or regulatory requirements of any relevant jurisdiction;"
+                },
+                {
+                  "t": "For identification, verification, and authentication;"
+                },
+                {
+                  "t": "To allow other users to interact or connect with you on the Website and Applications;"
+                },
+                {
+                  "t": "To protect personal safety and the rights, property, or safety of others;"
+                },
+                {
+                  "t": "To provide you with a more seamless customer experience;"
+                },
+                {
+                  "t": "To support research and innovation of our products and services;"
+                },
+                {
+                  "t": "To store and carry out data analytics processes;"
+                },
+                {
+                  "t": "To manage staff training and quality assurance;"
+                },
+                {
+                  "t": "To maintain and administer any software updates and/or other updates and support that may be required from time to time to ensure the smooth running of our Website, Applications, and Services;"
+                },
+                {
+                  "t": "To comply with Involve Asia's legal and regulatory obligations in the conduct of its business;"
+                },
+                {
+                  "t": "To allow third parties to contact you for advertising, promotional, or marketing campaigns conducted by any third-party entities;"
+                },
+                {
+                  "t": "For internal investigations, audit, or security purposes;"
+                },
+                {
+                  "t": "To help us understand the performance of various Offers, Campaigns, or Programmes;"
+                },
+                {
+                  "t": "To diagnose or fix technology or software problems."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "t": "We also may use the information we obtain about you in other ways for which we provide specific notice at the time of collection, unless processing of such Personal Data without your consent is permitted by law."
+        },
+        {
+          "t": "We may combine the Personal Data we collect with publicly available information and information we receive from our parent, affiliate or subsidiary companies, business partners and other third parties."
+        }
+      ]
+    },
+    {
+      "title": "Sources of Personal Data",
+      "body": [],
+      "clauses": [
+        {
+          "t": "Involve Asia may obtain your Personal Data from the following sources including but not limited to:",
+          "sub": [
+            {
+              "kind": "alpha",
+              "items": [
+                {
+                  "t": "when you visit, access, or use our Website, Applications, or Services;"
+                },
+                {
+                  "t": "when you call or email us or communicate with us through social media or any interactive media;"
+                },
+                {
+                  "t": "interact with us via telephone, letters, fax, face-to-face meetings, social media platforms, and emails;"
+                },
+                {
+                  "t": "when you participate in our events or other promotions;"
+                },
+                {
+                  "t": "when you provide us any Personal Data during the onboarding process, creating an account, filling up any registration forms, etc., on our Website, Applications, or for use of our Services;"
+                },
+                {
+                  "t": "when you enter into any agreement with us or provide other documentation or information in respect of your interactions with us, or when you use our Website, Applications, or Services;"
+                },
+                {
+                  "t": "from our affiliate or subsidiary companies, business partners, and other third parties;"
+                },
+                {
+                  "t": "directly from you or indirectly from your legal representatives, agents, and/or employer;"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "t": "The above does not purport to be exhaustive and sets out some common instances of when Personal Data about you may be collected."
+        }
+      ]
+    },
+    {
+      "title": "Disclosure of Personal Data",
+      "body": [],
+      "clauses": [
+        {
+          "t": "We may disclose your Personal Data to:",
+          "sub": [
+            {
+              "kind": "alpha",
+              "items": [
+                {
+                  "t": "other subsidiaries, affiliates, associates of Involve Asia;"
+                },
+                {
+                  "t": "our employees, agents, authorized representatives or intermediaries;"
+                },
+                {
+                  "t": "other users, persons, organisations, companies, individuals or entities who are part of our network;"
+                },
+                {
+                  "t": "our service providers such as auditors, lawyers, company secretary, printing companies, financial institutions, telecommunications companies, contractors, vendors etc."
+                },
+                {
+                  "t": "relevant government ministries, regulators, statutory boards or authorities or law enforcement agencies to comply with any laws, rules, guidelines and regulations or schemes imposed by any statutory or governmental authority;"
+                },
+                {
+                  "t": "any other party to whom you authorise us to disclose your Personal Data."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "t": "In the event of a potential, proposed or actual sale of business, disposal, acquisition, merger or other reorganisation or restructuring of Involve Asia, your Personal Data may be required to be disclosed or transferred to a third party as a result thereof. You hereby acknowledge and consent to such disclosure and transfer and permit Involve Asia to release your Personal Data to such other third parties."
+        },
+        {
+          "t": "Involve Asia is committed to complying with the Laws, in particular, its policies as well as corresponding regulations, guidelines and orders. We do not sell or otherwise disclose personal information about you, except as described in this Privacy Notice."
+        }
+      ]
+    },
+    {
+      "title": "Security of Personal Data",
+      "body": [],
+      "clauses": [
+        {
+          "t": "Involve Asia uses strict procedures, technical and physical safeguards and security features such as encryption and authentication tools to prevent accidental, unlawful or unauthorized destruction, loss, alteration, access, disclosure or use of your Personal Data as far as possible."
+        },
+        {
+          "t": "Personal data provided to Involve Asia via our Website, Application or Services are protected during transit using appropriate encryption. We use encryption to protect certain of your purchase information while in transit. When personal data is stored by Involve Asia, we use computer systems with limited access housed in facilities using physical security measures."
+        },
+        {
+          "t": "Data stored in cloud services is in encrypted form including when we utilize third party storage. The level of security of Personal Data which is kept in a non-electronic environment is also treated with strict procedures and means."
+        },
+        {
+          "t": "Please note that no electronic transmission of information can be entirely secure. We cannot guarantee that the security measures we have in place to safeguard personal information will never be defeated or fail, or that those measures will always be sufficient or effective."
+        },
+        {
+          "t": "Your Personal Data is contained behind secured networks and is only accessible by a limited number of employees who have special access rights to such systems. While we cannot ensure that loss, misuse or alteration of data will not occur, we will make reasonable commercial efforts to prevent such unfortunate occurrences."
+        },
+        {
+          "t": "You are strictly advised to keep your account user name, password and details strictly confidential and not share that information with anyone. You should also sign off your account and close your browser window when you have finished your visit to our Website and Applications."
+        }
+      ]
+    },
+    {
+      "title": "Use of Cookies",
+      "body": [],
+      "clauses": [
+        {
+          "t": "When you visit our Website, or use our Applications or Services, we may collect certain information by automated means, such as cookies and web beacons. Cookies are small text files (typically made up of letters and numbers) placed in the memory of your browser or device when you visit a website. The information we may collect by automated means includes:",
+          "sub": [
+            {
+              "kind": "alpha",
+              "items": [
+                {
+                  "t": "information about the devices you use to access the Internet (such as the IP address and the device, browser and operating system type);"
+                },
+                {
+                  "t": "URLs that refer you to our Website;"
+                },
+                {
+                  "t": "dates and times you accessed each page on our Website with click stream information and time stamp;"
+                },
+                {
+                  "t": "information on actions taken on our Website or Applications or while availing our Services;"
+                },
+                {
+                  "t": "a general geographic location (such as country and city) from which you access our Website, Applications or Services."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "t": "The cookies used by our Website are solely associated with anonymous users and their computers and do not provide Personal Data on users. Some cookies are used by third parties to provide Involve Asia with data on the efficacy of its engagements functioning business and promotion."
+        },
+        {
+          "t": "We use cookies to understand your usage of our Website, Applications and Services. The cookies used by our Website do not in any way collect Personal Data that could be used to identify a specific user. Furthermore, cookies are of a temporary nature, used solely to improve the efficiency of the last transmission and store your preferences."
+        },
+        {
+          "t": "Please take note that by continuing to use our Website, Applications and/or Services, you are consenting to the use of cookies."
+        },
+        {
+          "t": "You are not obliged to accept cookies. You may configure your browser to notify you of the reception of cookies and to prevent their installation on your device/computer. However, please note that if you do this you may not be able to use the full functionality of our Website, Applications or Services."
+        }
+      ]
+    },
+    {
+      "title": "Transfer of Personal Data",
+      "body": [],
+      "clauses": [
+        {
+          "t": "We are very serious about providing a comparable level of protection for Personal Data should the information be processed or used outside the applicable jurisdiction."
+        },
+        {
+          "t": "Involve Asia will only transfer your information overseas in accordance with the Laws."
+        },
+        {
+          "t": "When we obtain Personal Data about you, we may process the information outside of the country in which you are located, and you hereby consent to the same. The countries in which we process the information may not have the same data protection laws as the country in which you are located. We will protect your information as described in this Privacy Notice."
+        }
+      ]
+    },
+    {
+      "title": "Retention of Personal Data",
+      "body": [],
+      "clauses": [
+        {
+          "t": "Your personal data will be retained in accordance with the provisions in this Notice, the Laws, the relevant laws and regulations, the duration of your relationship with us and/or such period as may be deemed necessary for fulfillment of the purposes as stated in this Privacy Notice."
+        },
+        {
+          "t": "Notwithstanding the foregoing and to the extent permitted by law, we may retain your data for fraud prevention or similar purposes required by laws."
+        }
+      ]
+    },
+    {
+      "title": "Use by Children",
+      "body": [],
+      "clauses": [
+        {
+          "t": "The Website, Application and Services are not intended for children under the age of 18 years."
+        },
+        {
+          "t": "We do not knowingly collect or maintain any Personal Data or non-personally identifiable information from anyone under the age of 18 years nor is any part of our Website, Applications or Services directed to children under the age of 18 years. As a parent or legal guardian, please do not allow such children under your care to submit Personal Data to Involve Asia."
+        },
+        {
+          "t": "In the event that Personal Data of a child under the age of 18 years in your care is disclosed to Involve Asia, you hereby consent to the processing of the child's Personal Data and accept and agree to be bound by this Notice on behalf of such child."
+        },
+        {
+          "t": "We will close any accounts used exclusively by such children and will remove and/or delete any Personal Data we believe was submitted without any parental consent by any child under the age of 18 years."
+        }
+      ]
+    },
+    {
+      "title": "Marketing and Promotional Purposes",
+      "body": [],
+      "clauses": [
+        {
+          "t": "Upon subscribing to our services, you will be receiving marketing and/or promotional emails, notifications or calls from us, which includes information on future events."
+        },
+        {
+          "t": "If you do not wish to receive any promotional news content or calls, you may unsubscribe at any time by notice to us."
+        }
+      ]
+    },
+    {
+      "title": "Third Party Websites",
+      "body": [],
+      "clauses": [
+        {
+          "t": "Please be informed that this Privacy Notice applies solely to the Involve Asia Website, Applications and Services and does not apply to any third party websites you may access from links to other sites present on our Website or Applications."
+        },
+        {
+          "t": "These sites may be operated by companies not affiliated or connected with Involve Asia and may have their own privacy notices and you are advised to read them. We are not responsible for the content of any links or websites not affiliated with Involve Asia."
+        },
+        {
+          "t": "It is also important to exercise caution that these websites operate under their own distinct privacy statements, which are beyond our control. To further protect yourself, we recommend reviewing the privacy policies of these websites before providing any personal information. When you navigate away from our Websites and/or Application (which can be determined by checking the URL in your browser's address bar), any information you provide is subject to the Privacy Notice of the respective website operator. We cannot provide any representation or warranty regarding how your information is stored or used on third-party servers."
+        }
+      ]
+    },
+    {
+      "title": "Data Subject's Obligations",
+      "body": [],
+      "clauses": [
+        {
+          "t": "It is necessary for Involve Asia to collect and to retain your Personal Data. Therefore, it is also obligatory for you to supply Personal Data to us in the most accurate manner. If you do not provide us with true and accurate Personal Data, we are unable to, process Personal Data on your behalf, for the purpose stated in Clause 5 herein, or effectively render our Website, Application and Services to you, and all relationships created or to be created between us may cease or be inoperative."
+        },
+        {
+          "t": "In the event you may need to provide us with Personal Data relating to third parties, you confirm that you have obtained their consent or are otherwise entitled to provide their Personal Data to us and inform them to read this Privacy Notice at our website at [https://involve.asia/](https://involve.asia/)."
+        }
+      ]
+    },
+    {
+      "title": "Rights of Data Subject",
+      "body": [],
+      "clauses": [
+        {
+          "t": "**To request access to Personal Data**\nYou have the right to request for access to your Personal Data processed by us by providing reasonable written notice. We shall be entitled to charge a fee (where permitted under the applicable law) for any data access request. Access requests can be made by way of email to [wals@involve.asia](mailto:wals@involve.asia). Please note that we may decline to comply with your data access request if:",
+          "sub": [
+            {
+              "kind": "alpha",
+              "items": [
+                {
+                  "t": "you do not supply us with sufficient information to verify your identity;"
+                },
+                {
+                  "t": "such access will constitute a violation of an order of court or any laws, regulations or rules;"
+                },
+                {
+                  "t": "such access will disclose confidential commercial information;"
+                },
+                {
+                  "t": "such access is regulated under other laws, regulations or rules."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "t": "**To request correction of Personal Data**\nYou have the right to request for correction and/or update of your Personal Data that is or may be inaccurate, incomplete or outdated. Correction requests can be made by way of email to [wals@involve.asia](mailto:wals@involve.asia). Once we have sufficient information from you to deal with the request, we will correct your Personal Data within a period of 21 (twenty one) days. Where we are unable to do so within the said period, we will notify you of the soonest practicable time within which we can make the correction."
+        },
+        {
+          "t": "**To limit processing of your Personal Data**\nYou are entitled to limit the processing of Personal Data by expressly drawing the consent given previously, in each case, subject to any and all applicable legal restrictions, contractual conditions and within a reasonable time period. Please note that withdrawing consent does not affect our right to continue to collect, use, and disclose Personal Data where such collection, use, and disclosure without consent is permitted or required under applicable laws (e.g., other lawful criteria exist for the processing of Personal Data)."
+        }
+      ]
+    },
+    {
+      "title": "Your Part in Protecting Your Data",
+      "body": [
+        "The security of your data is important to us but remember that no method of transmission over the Internet or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security.",
+        "You agree that you too play a part in ensuring your personal data and the data of others are protected. By accessing our Website and/or Application and/or using our services, you declare, represent, and warrant that:"
+      ],
+      "clauses": [
+        {
+          "t": "you have been notified of the existence of, you have read, understand and agreed to our Privacy Notice, Terms of Use and Terms and Conditions;"
+        },
+        {
+          "t": "you absolutely agree with our Privacy Notice, Terms of Use and Terms and Conditions, and all of its contents such as but not limited to your representations and warranties, your agreement with and related waivers concerning our and our partners' limitation of liabilities, and assumption of certain responsibilities in exercise of your data privacy rights;"
+        },
+        {
+          "t": "subject to the requirements of the applicable law, by accessing, benefitting from, using, and/or giving consent to our varied platforms, directly or indirectly, such as the latest official build of our Website and the latest versions of our Applications and/or through our Services, you agree to be bound to our Privacy Notice, Terms of Use and Terms and Conditions. You agree to have your data collected, corrected, transferred, stored, retrieved, used, retained, shared, deconstructed, and/or destroyed in the manner disclosed in our Privacy Notice, Terms of Use and Terms and Conditions;"
+        },
+        {
+          "t": "you will keep yourself updated with any changes in our Privacy Notice, Terms of Use and Terms and Conditions, and to the extent permitted by the applicable law, your continued use of our Websites and/or Applications and/or Services indicates your agreement with any additions, changes, subtractions, or modifications thereto;"
+        },
+        {
+          "t": "you represent and warrant that all information that you provide to us are accurate, given in good faith, lawful, and true;"
+        },
+        {
+          "t": "(if any) during account creation, information entered therein is true and correct to the best of your personal knowledge, and is not false, fabricated, misleading, for the purpose of any illegal activity, ill-will, nor information of persons, whether natural or juridical, other than yourself;"
+        },
+        {
+          "t": "(if any) during account creation (if any), should you enter information in representation of another person, whether natural or juridical, you warrant that you have obtained his/her/their consent and/or authorization, as the case may be, and such was willingly given, without duress, force, intimidation, or violence, and not through strategy or stealth;"
+        },
+        {
+          "t": "(if any) at the time of account creation and thereafter, all copies of certifications, licenses, permits, and various government and non-government issuances that you submit or upload to our database, whether in print or electronic format, are issued by the pertinent authorities acting within their proper lawful jurisdiction, genuine, unaltered, and valid; and not in any way altered through digital software, not physically tampered with prior to scanning into electronic format, not issued by a government or non-government authority outside of its proper jurisdiction, not fabricated, false, or a spurious copy, and not created, issued, or a product of/pursuant to any illegal activities, schemes, or methods;"
+        },
+        {
+          "t": "should there be any genuinely suspicious activity and/or legitimately objectionable features in our Website and/or Application, instead of continuing the use of our Website and/or Application and/or using our Services, you will alert or report us within twenty-four (24) hours from occurrence of said suspicious activity or encounter of the objectionable feature rather than proceeding with orders or continue use of our Website and/or Application and/or Service. You agree that your failure to alert us and/or continued access and/or use of our Website and/or Application and/or Service within said time period of said suspicious activity and/or objectionable features constitutes as your absolute waiver of any causes of action, claim, damages, and/or liability, of whatever nature, arising from such activity, incident, feature, and/or occurrence, and as against Involve Asia, its Board of Directors, officers and/or employees and/or its partners;"
+        },
+        {
+          "t": "should there be sufficient proof of a breach of your data privacy rights, as required under the Law, you will immediately inform us so that we could attempt to provide you with a proper response and/or reasonable redress within reasonable time from our receipt of our complete correspondence of your concern, compliant, or grievance;"
+        },
+        {
+          "t": "you access and/or use our Website and/or Application and/or Service in accordance with law, public order, public policy, morals, or good customs, and without any ill intent or malice against us, other users, and merchants;"
+        },
+        {
+          "t": "by submitting the required Personal Data to us, you consent to such collection, disclosure and use thereof. You hereby expressly waive and unconditionally release us from any and all liability, claims, causes of action, or damages, of whatever nature, arising from our legitimate use of the submitted Personal Data;"
+        },
+        {
+          "t": "you agree, warrant, and represent that you will absolutely assume all of your liabilities, roles, and responsibilities as a distinct, independent, and separate data controller of Personal Data of your own data subjects, as may be applicable and/or necessary. You therefore irrevocably hold Involve Asia, its Board of Directors, corporate officers, and/or employees and/or its partners harmless from any cause of action, damages, and/or liability arising from, incidental to, or simultaneous with any data privacy law breaches insofar as its own capacity as data controller and/or its own set of data subjects."
+        }
+      ]
+    },
+    {
+      "title": "Delete Your Account",
+      "body": [
+        "We respect your right to privacy and control over your personal data. This \"Delete Your Account\" feature allows you to permanently remove your account and associated data from our platform. Please read this section carefully to understand the process and implications of account deletion."
+      ],
+      "clauses": [
+        {
+          "t": "**Account Deletion Process.** To delete your account, log in to your profile on Involve Asia official mobile app on App Store iOS or Google Play Android and navigate to the Account Settings section. Select ‘Delete Account’ and complete quick steps to delete your account permanently. You will receive an email on your registered email address confirming that your account has been deleted immediately upon completing the foregoing steps to delete the account."
+        },
+        {
+          "t": "**Data Deletion.** Upon initiating the account deletion process, your personal data will be flagged for deletion from our active databases. We will promptly remove or anonymize your personal information, including your name, email address, contact information and any other identifiable information. Please note that some data may be retained for strictly necessary purposes, such as record-keeping, fraud prevention, security and compliance with applicable laws and regulations.",
+          "sub": [
+            {
+              "after": "Please take note of these permanent changes when deleting your account:"
+            },
+            {
+              "kind": "alpha",
+              "items": [
+                {
+                  "t": "You will no longer be able to log into Involve Asia with this account."
+                },
+                {
+                  "t": "You can no longer access or retrieve my performance reports, analytics and/or related data, generated and recorded on this account."
+                },
+                {
+                  "t": "You permanently forfeit your pending, current and future earnings to Involve Asia and will not be able to recover them at any point in the future."
+                },
+                {
+                  "t": "If you have any sub-users under your account, all of them will be automatically deleted from this account."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "t": "**Communication Preferences.** After account deletion, you will no longer receive promotional emails or notifications from us. You may still receive administrative communications, such as account-related notifications or updates."
+        },
+        {
+          "t": "**Data Backup and Retention.** Our regular data backup processes may retain your information for a limited period even after account deletion for strictly necessary purposes, such as record-keeping, fraud prevention, security and compliance with applicable laws and regulations. Backed-up data will be securely stored and inaccessible for any operational purposes."
+        },
+        {
+          "t": "**Third-Party Services.** If you accessed our platform through a third-party service (e.g., Google, Facebook, Apple), please review their privacy policies regarding account deletion and data handling. Read more about our Facebook Deletion Instruction [here](https://app.involve.asia/publisher/facebook-deletion-instruction) and Google Data Deletion Policy [here](https://app.involve.asia/publisher/data-deletion-policy)."
+        },
+        {
+          "t": "**User Responsibility.** It's important to note that once your account is deleted, your data cannot be recovered. Please ensure you have retrieved any important content or information from your account before proceeding with deletion.",
+          "sub": [
+            {
+              "after": "For any questions or concerns about our \"Delete Your Account\" feature or data privacy practices, please contact our Privacy Team at [[hello@involve.asia](mailto:hello@involve.asia)](https://app.involve.asia/cdn-cgi/l/email-protection#d0b8b5bcbcbf90b9bea6bfbca6b5feb1a3b9b1)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Disclaimer",
+      "body": [
+        "In case any Personal Data is shared by you with us, which is not requested by us during registration, (whether mandatorily or optionally), to the extent permitted under the law, we will not be liable for any information security breach or disclosure in relation to such information. If you have any questions regarding this Notice or the protection of your Personal Data, please contact our data protection officer."
+      ]
+    },
+    {
+      "title": "Changes to Privacy Notice",
+      "body": [],
+      "clauses": [
+        {
+          "t": "This Privacy Notice is effective as of the date of its last modification and will remain in effect unless its provisions are changed in the future. Such a modified version will be in effect immediately after posting on this page dedicated to the Privacy Notice."
+        },
+        {
+          "t": "We reserve the right to amend, update or modify this Privacy Notice from time to time without any prior notice to you. We advise that you check our website for the Privacy Notice on a regular basis. Kindly view our privacy notice on the website [https://involve.asia/](https://involve.asia/)."
+        }
+      ]
+    },
+    {
+      "title": "Miscellaneous",
+      "body": [],
+      "clauses": [
+        {
+          "t": "This Notice shall remain effective and shall remain binding upon you until and unless you discontinue any further use of the Applications and/or Websites and or Services provided by Involve Asia."
+        },
+        {
+          "t": "To the extent permitted under the law, you agree to indemnify, defend, and hold Involve Asia, its affiliates, shareholders, directors, employees, agents, service providers, suppliers, subcontractors, successors, and assigns, harmless from and against any and all claims, demands, actions, causes of action, damages, costs, and expenses, including reasonable attorney's fees and other expenses of litigation, penalties, fines, damages, and losses, made by any third party due to or arising out of your breach of the Privacy Notice stated herein and the documents they incorporate by reference, or by your violation of any law or the rights of a third party."
+        },
+        {
+          "t": "Involve Asia may subcontract any part or parts of the Services it provides to you at any time and may assign or novate any part or parts of its rights."
+        },
+        {
+          "t": "Collecting any personally identifiable information from the Websites and/or Applications, including the use of communication systems provided on the Websites and/or Applications for any commercial solicitation purposes is not allowed. Distribution or publication of vouchers or codes, solicitation for any reason whatsoever to any users of the Websites and/or Applications and hacking or scraping the Websites and/or Applications are prohibited acts, which will be dealt with accordingly to the fullest extent available under the law."
+        },
+        {
+          "t": "The Notice (and the respective amendments), and any undertaking you executed in relation thereto, shall constitute the entire agreement between you and Involve Asia. In the event of any conflict between this Notice and any other term or provision on the Websites and/or Applications the terms in this Notice shall prevail."
+        },
+        {
+          "t": "If any of the terms shall be deemed invalid, illegal, or unenforceable, such term or condition shall be deemed not written and the remainder shall continue to be valid and in force."
+        },
+        {
+          "t": "No delay or failure on the part of Involve Asia to enforce its rights or remedies under this Notice shall constitute a waiver on its part of such rights or remedies unless such waiver is set forth and confirmed in writing by its duly authorized representatives."
+        }
+      ]
+    },
+    {
+      "title": "Acknowledgement and Consent",
+      "body": [
+        "By communicating, engaging with Involve Asia or by accessing or using our Website, Services and Applications, you acknowledge that you have read and understood this Privacy Notice and agree and consent to the use, processing, disclosure and transfer of your Personal Data by Involve Asia as described in this Notice. You can withdraw your consent at any time by providing written notice of a reasonable time."
+      ]
+    },
+    {
+      "title": "Inquiries and Complaints",
+      "body": [
+        "Should you require further information about the Personal Data we hold or the way in which your information is being collected, used or disclosed which are not answered by this Privacy Notice, please contact or write to our Data Protection Officer at:",
+        "Contact Number: +6012-6050200",
+        "Email: [wals@involve.asia](mailto:wals@involve.asia)",
+        "Address: 18-01 & 18-03, Level 18 Menara MBMR, Jalan Syed Putra, 58000 Kuala Lumpur, Malaysia",
+        "Or the Data Protection Officer of the applicable jurisdiction as set out in the Local Privacy Notices."
+      ]
+    },
+    {
+      "title": "Reasonable Time for our Response and Lawful Interruption thereof by Force Majeure",
+      "body": [],
+      "clauses": [
+        {
+          "t": "You agree with our terms for a response within a reasonable time, lawful interruption thereof and force majeure in relation to the exercise of your data privacy rights."
+        },
+        {
+          "t": "We shall exert our best efforts to address your concerns, complaints, or grievances, and these shall be examined with care, and professionalism, and within reasonable time from our receipt of your complete correspondence with us."
+        },
+        {
+          "t": "Such reasonable time depends on the circumstances of said concern, complaint, or grievance, and shall be deemed lawfully interrupted by certain events beyond the control of any party herein such as but not limited to: acts of God such as natural calamities, typhoons, tornado, volcanic eruption; acts of political instability such as revolution, civil war, insurrection, civil disobedience, riot, terrorism, economic sabotage; the threat of spread of mandatorily reportable communicable and infectious diseases such as but not limited to COVID-19, government declaration of public health emergency measures such as national and/or local quarantines and/or other management/employee restrictions; acts of authorities whether lawful or unlawful; prolonged suspension or unavailability of public transportation, telecommunication, and electric utilities; and other force majeure events."
+        }
+      ]
+    }
+  ]
+}

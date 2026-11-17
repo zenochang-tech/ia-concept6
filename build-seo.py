@@ -38,10 +38,10 @@ OG_IMAGE = "media/brand/og-default.png"
 OG_IMAGE_ALT = "Involve Asia — the affiliate marketing platform for Asia"
 LOGO = "media/brand/logo-512.png"
 
-# Draft / internal pages: reachable for review, but noindex and kept out of the sitemap.
+# Internal pages: reachable for review, but noindex and kept out of the sitemap.
 def is_draft(name):
     name = os.path.basename(name)
-    return name.endswith("-v2.html") or name == "traffic-validation.html"
+    return name in ("traffic-validation.html", "404.html")
 
 START, END = "<!-- seo:start", "<!-- seo:end -->"
 

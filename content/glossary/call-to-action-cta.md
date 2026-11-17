@@ -3,7 +3,7 @@ title: Call-to-Action (CTA)
 metaTitle: What is a call-to-action (CTA)? | Involve Asia Glossary
 metaDescription: A call-to-action (CTA) is the prompt, such as "shop now" or "sign up", that encourages someone to click or convert.
 tldr: A call-to-action (CTA) is the prompt in a piece of content or an ad, such as "shop now" or "claim offer", that tells someone what to do next. In affiliate marketing, a clear CTA next to a link often improves click-through rate.
-related: landing-page, click-through-rate-ctr, conversion-rate-cvr
+related: landing-page, click-through-rate-ctr, conversion-rate
 ---
 
 ## What is a call-to-action (CTA)?

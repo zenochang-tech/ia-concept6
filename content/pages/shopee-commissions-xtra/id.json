@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "title": "Shopee Commissions XTRA | Involve Asia",
+    "description": "Dapatkan Komisi XTRA di atas komisi dasar Anda dari brand store dan produk terlaris di Shopee dengan Shopee Commissions XTRA."
+  },
+  "hero": {
+    "eyebrow": "Untuk Affiliate Shopee",
+    "title": "Shopee Commissions XTRA: komisi tambahan di atas komisi dasar Anda",
+    "sub": "Dengan Shopee Commissions XTRA, Anda mendapatkan komisi tambahan di atas komisi dasar dari brand store dan produk terlaris di Shopee.",
+    "cta": "Mulai Menghasilkan",
+    "regions": "Berlaku di Malaysia, Singapura, Indonesia, Filipina, Thailand, Vietnam, dan Taiwan.",
+    "imageAlt": "Shopee Commissions XTRA"
+  },
+  "intro": {
+    "title": "Dapatkan Komisi XTRA dari brand store dan produk terlaris.",
+    "body": "Promosikan toko dan produk brand yang termasuk dalam Shopee Commissions XTRA, dan dapatkan komisi tambahan di atas komisi dasar Anda. Daftar lengkap toko yang memenuhi syarat ada di halaman Shopee Commissions XTRA di dashboard Involve Anda."
+  },
+  "links": {
+    "title": "Dua jenis link, satu aturan sederhana.",
+    "items": [
+      {
+        "t": "Direct link",
+        "d": "Pelanggan membeli produk yang sama dari toko yang sama. Anda mendapatkan komisi dasar ditambah Komisi XTRA. Jika toko tersebut bukan brand Commissions XTRA, Anda hanya mendapatkan komisi dasar."
+      },
+      {
+        "t": "Indirect link",
+        "d": "Pelanggan membeli produk lain dari toko lain. Anda hanya mendapatkan komisi dasar."
+      }
+    ],
+    "proof": "Anda tetap mendapatkan komisi dasar ditambah Komisi XTRA saat pelanggan membeli produk lain di toko yang sama."
+  },
+  "attribution": {
+    "title": "Begini cara kerja atribusi Shopee terbaru.",
+    "note": "Ketuk untuk memperbesar",
+    "image": "https://involve.asia/wp-content/uploads/2024/03/Shopee-Commission-XTRA-ID-V2.png",
+    "imageAlt": "Alur atribusi Shopee Commissions XTRA",
+    "example": "Di sini, Nike digunakan sebagai contoh brand Shopee Commissions XTRA.",
+    "dialogLabel": "Alur atribusi Shopee",
+    "close": "Tutup"
+  },
+  "tips": {
+    "title": "Tips menghasilkan lebih banyak dengan Komisi XTRA.",
+    "steps": [
+      [
+        "01",
+        "Promosikan brand store",
+        "Bagikan link affiliate ke brand store yang termasuk dalam Shopee Commissions XTRA."
+      ],
+      [
+        "02",
+        "Promosikan produk XTRA",
+        "Tampilkan produk yang termasuk dalam Shopee Commissions XTRA."
+      ],
+      [
+        "03",
+        "Jika ragu, gunakan link toko atau produk",
+        "Selalu buat link affiliate Anda dari produk atau brand store agar memenuhi syarat."
+      ]
+    ]
+  },
+  "faq": {
+    "items": [
+      [
+        "Apakah atribusi direct dan indirect link berlaku di semua negara?",
+        "Untuk saat ini, hanya berlaku di Malaysia, Singapura, Indonesia, Filipina, Thailand, Vietnam, dan Taiwan."
+      ],
+      [
+        "Sebagai partner, bagaimana saya tahu apakah sebuah konversi termasuk direct atau indirect?",
+        "Lihat Advertiser Sub ID 5 di Laporan Konversi. Direct = ORDERED_IN_SAME_SHOP; indirect = ORDERED_IN_DIFFERENT_SHOP. ORDERED_IN_SAME_SHOP mencakup SKU yang sama maupun SKU berbeda yang dibeli dari toko yang sama."
+      ],
+      [
+        "Apa cara terbaik untuk memaksimalkan penghasilan saya?",
+        "Promosikan brand dan produk Shopee Commissions XTRA secara langsung kepada audiens yang relevan, dan pahami preferensi serta kebutuhan audiens Anda."
+      ],
+      [
+        "Jika ada pembelian tidak langsung dari link saya, apakah saya tetap mendapatkan komisi?",
+        "Ya. Anda akan mendapatkan komisi dasar."
+      ]
+    ]
+  },
+  "cta": {
+    "title": "Dapatkan lebih banyak komisi dengan Shopee Smart URL.",
+    "sub": "Satu link yang membawa audiens Anda ke brand store Shopee Commissions XTRA, berganti di setiap klik.",
+    "label": "Mulai Sekarang"
+  }
+}

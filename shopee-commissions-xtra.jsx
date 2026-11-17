@@ -1,35 +1,36 @@
 /* ============================================================================
-   publishers.jsx — "For Publishers" overview page.
+   shopee-commissions-xtra.jsx — "Shopee Commissions XTRA" page.
    Loaded AFTER ia-shared.jsx (which defines Nav/Footer/etc. and exposes them on
-   window). Sections are built one at a time from the Figma frame (node 1260:46678),
-   same flow as the homepage. Motion/animation is a final pass.
+   window). All copy lives in content/pages/shopee-commissions-xtra/<lang>.json and
+   arrives through useCopy (the attribution diagram's image is per language too);
+   this file only holds the layout, icons and links.
    ============================================================================ */
 
 // Shared UI comes from ia-shared.jsx (pulled off window so this works regardless
 // of how Babel-standalone scopes each script tag).
-const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, FinalCta, Faq, AppDownload, HeroHexGrid, HERO_HEXGRID_CSS, NumberedSteps, IconColumns } = window;
+const { Nav, Footer, Arrow, BackToTop, useSmoothScroll, useScrollReveal, FinalCta, Faq, AppDownload, HeroHexGrid, HERO_HEXGRID_CSS, NumberedSteps, IconColumns, useCopy } = window;
 
 /* ---------- Section 1 — Hero ---------------------------------------------- */
-function PubHero() {
+function PubHero({ c }) {
   return (
     <section id="pub-hero" className="ph-sec">
       <span className="ph-basefade" aria-hidden="true" />
       <div className="wrap ph-wrap">
         <HeroHexGrid />
         <div className="ph-copy">
-          <span className="ph-eyebrow" data-reveal>For Shopee Affiliates</span>
-          <h1 className="ph-title" data-reveal data-reveal-delay="1">Shopee Commissions XTRA: earn extra on top of your base commission</h1>
-          <p className="ph-sub" data-reveal data-reveal-delay="2">With Shopee Commissions XTRA, earn extra commission on top of your base commission from brand stores and top-selling products on Shopee.</p>
+          <span className="ph-eyebrow" data-reveal>{c.eyebrow}</span>
+          <h1 className="ph-title" data-reveal data-reveal-delay="1">{c.title}</h1>
+          <p className="ph-sub" data-reveal data-reveal-delay="2">{c.sub}</p>
           <div className="ph-actions" data-reveal data-reveal-delay="3">
-            <a href="/partners/" className="btn btn-primary btn-lg">Start Earning <Arrow /></a>
+            <a href="/partners/" className="btn btn-primary btn-lg">{c.cta} <Arrow /></a>
           </div>
-          <span className="ph-free" data-reveal data-reveal-delay="3">Live in Malaysia, Singapore, Indonesia, the Philippines, Thailand, Vietnam, and Taiwan.</span>
+          <span className="ph-free" data-reveal data-reveal-delay="3">{c.regions}</span>
         </div>
 
         <div className="ph-visual" data-reveal data-reveal-delay="1">
           <span className="ph-hexglow" aria-hidden="true" />
           <span className="ph-hexplate" aria-hidden="true" />
-          <div className="ph-photo ph-photo-fill"><img src="media/figma/commissions-xtra-hero-img.png" alt="Shopee Commissions XTRA" loading="eager" /></div>
+          <div className="ph-photo ph-photo-fill"><img src="media/figma/commissions-xtra-hero-img.png" alt={c.imageAlt} loading="eager" /></div>
         </div>
       </div>
 
@@ -125,22 +126,9 @@ function PubHero() {
   );
 }
 
-/* ---------- Section 8 — "Questions, answered." (FAQ accordion) ------------
-   Copy supplied by the client. Two answers carry links (beginner guide, Express
-   Withdrawal) — hrefs are placeholders pending the real URLs. Example figures
-   (4.2% commission, 10 working days) are illustrative — confirm before launch. */
-const PUB_FAQ = [
-  ['Do direct and indirect links attribute across all regions?',
-    'For now, it applies only to Malaysia, Singapore, Indonesia, the Philippines, Thailand, Vietnam, and Taiwan.'],
-  ['As a partner, how do I know whether a conversion is direct or indirect?',
-    'Check Advertiser Sub ID 5 in the Conversion Report. Direct = ORDERED_IN_SAME_SHOP; indirect = ORDERED_IN_DIFFERENT_SHOP. ORDERED_IN_SAME_SHOP covers both the same SKU and a different SKU bought from the same shop.'],
-  ['What is the best way to maximise your earnings?',
-    'Promote Shopee Commissions XTRA brands and products directly to a relevant audience, and get to know your audience\'s preferences and needs.'],
-  ['If there is an indirect purchase from my link, will I still get commission?',
-    'Yes. You will earn base commission.'],
-];
-function PubFAQ() {
-  return <Faq items={PUB_FAQ} />;
+/* ---------- Section 8 — "Questions, answered." (FAQ accordion) ------------ */
+function PubFAQ({ c }) {
+  return <Faq items={c.items} />;
 }
 
 /* ---------- Final CTA (shared FinalCta, ia-sections.jsx) ----------------- */
@@ -150,42 +138,36 @@ const PUB_CTA_CSS = `
         .pc-sub{ margin-top:16px; font:400 16px/1.55 var(--font-body); color:var(--warm-600); max-width:580px; }
         @media (max-width:700px){ .pc-sec{ padding:clamp(60px,9vh,84px) 0 clamp(68px,10vh,96px); } }
       `;
-function PubCTA() {
-  return <FinalCta title="Get more commissions with Shopee Smart URL." sub="One link that sends your audience to a Shopee Commissions XTRA brand store, rotating on every click." label="Get Started" css={PUB_CTA_CSS} />;
+function PubCTA({ c }) {
+  return <FinalCta title={c.title} sub={c.sub} label={c.label} css={PUB_CTA_CSS} />;
 }
 
 /* ---------- Affiliates §3 — "Why affiliate sites choose Involve." (4 icon columns) ---------- */
-const AFF_WHY = [
-  { t: 'Direct links', d: 'Your customer buys the same product from the same store. You earn base commission plus Commissions XTRA. If the store is not a Commissions XTRA brand, you earn base commission only.',
-    ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.5 1.5" /><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.5-1.5" /></svg> },
-  { t: 'Indirect links', d: 'Your customer buys a different product from a different store. You earn base commission only.',
-    ic: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M16 3h5v5" /><path d="M21 3l-8 8" /><path d="M16 21h5v-5" /><path d="M21 21l-6-6" /><path d="M3 5l6 6" /></svg> },
+// Icons for the two link types, in the order of c.items (direct, indirect).
+const AFF_WHY_ICONS = [
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.5 1.5" /><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.5-1.5" /></svg>,
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M16 3h5v5" /><path d="M21 3l-8 8" /><path d="M16 21h5v-5" /><path d="M21 21l-6-6" /><path d="M3 5l6 6" /></svg>,
 ];
 const WHY_CSS = `
         .wy-grid{ margin:clamp(34px,5vh,54px) auto 0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(28px,4vw,56px); max-width:840px; }
       `;
-function WhyChoose() {
+function WhyChoose({ c }) {
   return (
-    <IconColumns id="aff-why" title="Two link types, one simple rule." items={AFF_WHY}
-      proof="You still earn base commission plus Commissions XTRA when a customer buys a different product at the same store." css={WHY_CSS} />
+    <IconColumns id="aff-why" title={c.title} items={c.items.map((it, i) => ({ ...it, ic: AFF_WHY_ICONS[i] }))}
+      proof={c.proof} css={WHY_CSS} />
   );
 }
 /* ---------- Affiliates §4b — "How it works" (3 numbered steps) — Figma 2546:45012 ---------- */
-const HIW_STEPS = [
-  ['01', 'Promote brand stores', 'Share affiliate links to brand stores that are under Shopee Commissions XTRA.'],
-  ['02', 'Promote XTRA products', 'Feature products that are part of Shopee Commissions XTRA.'],
-  ['03', 'When unsure, link a store or product', 'Always generate your affiliate link from a product or brand store, so it can qualify.'],
-];
-function HowItWorks() {
-  return <NumberedSteps id="af-how" title="Tips to earn more with Commissions XTRA." steps={HIW_STEPS} cols={3} />;
+function HowItWorks({ c }) {
+  return <NumberedSteps id="af-how" title={c.title} steps={c.steps} cols={3} />;
 }
 /* ---------- Shopee XTRA — "What is Commissions XTRA" intro ---------- */
-function XtraIntro() {
+function XtraIntro({ c }) {
   return (
     <section id="sx-intro" className="sx-intro">
       <div className="wrap">
-        <h2 className="sx-intro-h" data-reveal>Earn Commissions XTRA on brand stores and top products.</h2>
-        <p className="sx-intro-p" data-reveal data-reveal-delay="1">Promote a brand's stores and products that are under Shopee Commissions XTRA, and earn extra commission on top of your base commission. The full list of eligible stores is on the Shopee Commissions XTRA page in your Involve dashboard.</p>
+        <h2 className="sx-intro-h" data-reveal>{c.title}</h2>
+        <p className="sx-intro-p" data-reveal data-reveal-delay="1">{c.body}</p>
       </div>
       <style>{`
         .sx-intro{ background:var(--warm-50); padding:clamp(40px,7vh,80px) 0 0; text-align:center; }
@@ -196,9 +178,9 @@ function XtraIntro() {
   );
 }
 
-/* ---------- Shopee XTRA — old vs new attribution journey (diagram images to be provided) ---------- */
-function XtraAttribution() {
-  const IMG = 'media/figma/Shopee-Commissions-XTRA-NEW-V2.png';
+/* ---------- Shopee XTRA — old vs new attribution journey (one diagram per language) ---------- */
+function XtraAttribution({ c }) {
+  const IMG = c.image;
   const [open, setOpen] = React.useState(false);
   const [zoom, setZoom] = React.useState(false);
   const isMobile = () => typeof window !== 'undefined' && window.matchMedia('(max-width:700px)').matches;
@@ -215,21 +197,21 @@ function XtraAttribution() {
   return (
     <section id="sx-attr" className="sx-attr">
       <div className="wrap">
-        <h2 className="sx-attr-h" data-reveal>Here's how the latest Shopee attribution works.</h2>
-        <p className="sx-attr-note" data-reveal data-reveal-delay="1">Please tap to enlarge</p>
+        <h2 className="sx-attr-h" data-reveal>{c.title}</h2>
+        <p className="sx-attr-note" data-reveal data-reveal-delay="1">{c.note}</p>
         <figure className="sx-attr-figure" data-reveal data-reveal-delay="1">
-          <img src={IMG} alt="The Shopee Commissions XTRA attribution journey" loading="lazy" onClick={openLb} />
+          <img src={IMG} alt={c.imageAlt} loading="lazy" onClick={openLb} />
         </figure>
-        <p className="sx-attr-eg" data-reveal>Here, Nike is used as an example of a Shopee Commissions XTRA brand.</p>
+        <p className="sx-attr-eg" data-reveal>{c.example}</p>
       </div>
       {open && (
-        <div className="sx-lb" role="dialog" aria-modal="true" aria-label="Shopee attribution journey" onClick={close}>
-          <button type="button" className="sx-lb-x" aria-label="Close" onClick={close}>&times;</button>
+        <div className="sx-lb" role="dialog" aria-modal="true" aria-label={c.dialogLabel} onClick={close}>
+          <button type="button" className="sx-lb-x" aria-label={c.close} onClick={close}>&times;</button>
           <div className="sx-lb-scroll" onClick={(e) => e.stopPropagation()}>
             <div className="sx-lb-inner">
               <img
                 src={IMG}
-                alt="The Shopee Commissions XTRA attribution journey"
+                alt={c.imageAlt}
                 className={`sx-lb-img${zoom ? ' zoomed' : ''}`}
                 onClick={() => setZoom((z) => !z)}
               />
@@ -263,17 +245,18 @@ function XtraAttribution() {
 function PublisherApp() {
   useSmoothScroll();
   useScrollReveal();
+  const c = useCopy('shopee-commissions-xtra');
   return (
     <React.Fragment>
       <Nav getStartedTone="pub" />
       <main>
-        <PubHero />
-        <XtraIntro />
-        <WhyChoose />
-        <XtraAttribution />
-        <HowItWorks />
-        <PubFAQ />
-        <PubCTA />
+        <PubHero c={c.hero} />
+        <XtraIntro c={c.intro} />
+        <WhyChoose c={c.links} />
+        <XtraAttribution c={c.attribution} />
+        <HowItWorks c={c.tips} />
+        <PubFAQ c={c.faq} />
+        <PubCTA c={c.cta} />
       </main>
       <Footer />
       <AppDownload />

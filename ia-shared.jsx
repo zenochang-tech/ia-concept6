@@ -176,8 +176,9 @@ const IA_I18N = window.IA_I18N || loadJSON('content/i18n.json')
 const LANGS = IA_I18N.languages;
 const langOf = (code) => LANGS.find((l) => l.code === code) || LANGS[0];
 const currentLang = () => window.IA_LANG || IA_I18N.default;
-// page key from the URL: /ia-concept6/id/referral-program(.html) → "referral-program", folder root → "index"
-const currentPage = () => decodeURIComponent(location.pathname.split('/').pop().replace(/\.html$/, '')) || 'index';
+// page key from the URL: /ia-concept6/id/referral-program(.html) → "referral-program", folder root → "index".
+// window.IA_PAGE overrides it (404.html, which is served at whatever address was missing).
+const currentPage = () => window.IA_PAGE || decodeURIComponent(location.pathname.split('/').pop().replace(/\.html$/, '')) || 'index';
 const hasLang = (page, code) => code === IA_I18N.default || (IA_I18N.pages[page] || []).includes(code);
 
 // Same page in another language. Language pages carry <base href="../">, so every
@@ -546,7 +547,7 @@ function Arrow({ s = 16 }) {
 const FOOT = [
   { h: 'For Publishers', links: [['Overview','for-publishers'],['All Brands Directory','https://app.involve.asia/directory'],['Express Withdrawal','express-withdrawal'],['Developer API','api-overview'],['Data Feed','datafeed']] },
   { h: 'For Advertisers', links: [['Overview','for-advertisers'],['How We Track','how-we-track'],['Partner Discovery','partner-discovery'],['Automation','automation'],['Case Studies','https://involve.asia/blog/category/advertisers/success-stories/']] },
-  { h: 'Involve', links: [['About Us','about'],['Careers','https://careers.involve.asia/'],['Blog','blog'],['Support','https://helpcentre.involve.asia/'],['Terms & Conditions','terms-conditions'],['Privacy Policy','https://app.involve.asia/publisher/privacypolicy']] },
+  { h: 'Involve', links: [['About Us','about'],['Careers','https://careers.involve.asia/'],['Blog','blog'],['Support','https://helpcentre.involve.asia/'],['Terms & Conditions','terms-conditions'],['Privacy Policy','privacy-policy']] },
 ];
 // [name, url, icon] — icons are the white 48×48 "[name]-Social Icon.svg" exports
 const FOOT_LOCAL = FOOT.map((col) => ({ h: tr(col.h), links: trLinks(col.links) }));

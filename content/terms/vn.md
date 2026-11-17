@@ -104,6 +104,12 @@ Wording the translators were least sure of. A fluent reviewer should confirm or 
 - Store badges: GET IT ON → TẢI NỘI DUNG TRÊN · Download on the → Tải về trên (check against the official Vietnamese badge artwork)
 - Blog post titles are translated although the articles are in English.
 
+**Shopee Commissions XTRA (added 17 November 2026),** translated from the live /vn/shopee-commissions-xtra/ page:
+- Commissions XTRA → hoa hồng XTRA (as on the live page); base commission → hoa hồng cơ bản; product name "Shopee Commissions XTRA" stays English
+- Direct / indirect links → Link trực tiếp / Link gián tiếp · Conversion Report stays as the app shows it
+- The live Vietnamese FAQ says direct/indirect attribution applies "in all regions"; the new page follows the English answer (Malaysia, Singapore, Indonesia, Philippines, Thailand, Vietnam and Taiwan only). Confirm which is right.
+- The attribution diagram is the live Vietnamese image (hosted on the CMS).
+
 **Still in English everywhere, pending a decision:** customer testimonials and case-study quotes (question 4 above).
 
 **English source issues spotted:** same as Indonesian — the search descriptions of For Publishers, Express Withdrawal and Automation say "4,000+ brands"; Partner Discovery, How We Track and Datafeed reuse a generic Publisher description, so their Vietnamese descriptions were written for the page instead.

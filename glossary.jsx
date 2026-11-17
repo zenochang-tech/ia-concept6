@@ -15,11 +15,11 @@ const GLOSSARY = {
   E: ['Early Withdrawal', 'Earnings Per Click (EPC)', 'Earnings Per Conversion', 'Email Marketing', 'Email Publisher', 'Estimated Earnings', 'Existing Customer Offer', 'Expected User Journey', 'Express Withdrawal'],
   G: ['Geo-Targeting', 'Gross Merchandise Value (GMV)'],
   H: ['Hybrid Commission Model'],
-  I: ['Impression', 'Indirect Order', 'Influencer', 'Instant Apply', 'Interstitial', 'Involve App'],
+  I: ['Impression', 'Indirect Order', 'Influencer', 'Instant Apply', 'Integration', 'Interstitial', 'Involve App'],
   K: ['KOL (Key Opinion Leader)'],
   L: ['Landing Page', 'Last-Click Attribution', 'Lead Magnet', 'Lifetime Commission', 'Link Cloaking', 'Link Title', 'Loyalty Publisher'],
   M: ['Manual Approval', 'Manual Commission Tracking', 'Marketplace', 'Merchant', 'Minimum Withdrawal Amount', 'Missing Conversions', 'Mobile Deep Linking'],
-  N: ['Negative Keyword'],
+  N: ['Negative Keyword', 'New Customer Offer'],
   O: ['Offer Currency', 'Offer Name', 'Offer Page', 'Offer Region', 'One-Time Commission', 'Onboarding', 'Order ID', 'Organic Search Traffic'],
   P: ['Paid Search Traffic', 'Partner Marketing', 'Payout Currency', 'Performance Marketing', 'Pixel Tracking', 'Postback URL', 'PPC Publisher', 'Price Comparison Publisher', 'Product Catalog', 'Prohibited Promotion Methods', 'Promo Code', 'Promotion Method', 'Property', 'Publisher', 'Publisher Vetting'],
   R: ['Real-Time Commission Tracking', 'Recommended Keyword', 'Recurring Commission', 'Referral Marketing', 'Referral Program', 'Region Lock', 'Reporting Currency', 'Restricted Traffic Sources', 'Return on Ad Spend (ROAS)'],
@@ -30,7 +30,9 @@ const GLOSSARY = {
   W: ['Webhook'],
 };
 const GLOSSARY_MAX = 9; // default terms shown per letter before "Show all"
-const glossarySlug = (t) => t.toLowerCase().replace(/[()]/g, ' ').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+// Terms whose live involve.asia address doesn't follow the pattern below.
+const GLOSSARY_SLUGS = { 'Conversion Rate (CVR)': 'conversion-rate', 'Terms & Conditions (T&Cs)': 'terms-conditions-tcs' };
+const glossarySlug = (t) => GLOSSARY_SLUGS[t] || t.toLowerCase().replace(/[()]/g, ' ').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 // Locally-generated term pages (from build-glossary.py) link to the real static page;
 // terms not yet built fall back to the live involve.asia glossary.
 const glossaryIsLocal = (t) => ((typeof window !== 'undefined' && window.__GLOSSARY_LOCAL) || []).includes(glossarySlug(t));

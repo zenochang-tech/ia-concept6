@@ -7,7 +7,8 @@
 //      (esbuild), and Babel-standalone is dropped;
 //   2. React's development builds are swapped for the production builds (self-hosted);
 //   3. every page is opened in headless Chrome and its rendered #root is baked into
-//      the HTML, so the real headings, copy and links are in the page source.
+//      the HTML, so the real headings, copy and links are in the page source;
+//   4. 404.html gets a fixed <base href> at the site root (SITE_BASE_PATH, default "/").
 // Language copies (id/referral-program.html, written by build-i18n.py) go through the same
 // steps, and the language list, the shared menu/footer text and each translated page's copy
 // are inlined as window.IA_I18N / IA_SHARED / IA_COPY, so the live site never fetches content/*.json.
@@ -150,6 +151,47 @@ for (const name of htmlFiles) {
 }
 console.log(`compiled ${compiled.size} scripts for ${pages.length} pages`);
 
+// Site root as the browser sees it: "/" on involve.asia, "/<repo>/" on a GitHub Pages project
+// site (the workflow passes actions/configure-pages' base_path as SITE_BASE_PATH).
+const SITE_BASE = ('/' + (process.env.SITE_BASE_PATH || '') + '/').replace(/\/+/g, '/');
+
+// Glossary term pages (glossary-term/<slug>/index.html, written by build-glossary.py) are
+// static HTML already; only their menu/footer mount runs in the browser. Point them at the
+// compiled ia-shared.js and compile the inline mount script, and set their <base> to SITE_BASE.
+const termDir = path.join(OUT, 'glossary-term');
+if (fs.existsSync(termDir)) {
+  const INLINE_BABEL = /<script type="text\/babel">([\s\S]*?)<\/script>/;
+  let mount = null;
+  let n = 0;
+  for (const slug of fs.readdirSync(termDir)) {
+    const file = path.join(termDir, slug, 'index.html');
+    if (!fs.existsSync(file)) continue;
+    let html = fs.readFileSync(file, 'utf8');
+    for (const m of html.matchAll(BABEL_TAG)) html = html.replace(m[0], `<script src="${await compile(m[1])}"></script>`);
+    const inl = html.match(INLINE_BABEL);
+    if (inl) {
+      if (mount === null) {
+        // Own scope: `const { Nav } = window` would clash with ia-shared's global `function Nav`.
+        mount = (await esbuild.transform(`(() => {\n${inl[1]}\n})();`, {
+          loader: 'jsx', jsxFactory: 'React.createElement', jsxFragment: 'React.Fragment',
+          target: 'es2019', minify: true, legalComments: 'none',
+        })).code.trim();
+      }
+      html = html.replace(inl[0], () => `<script>${mount}</script>`);
+    }
+    html = html
+      .replace(/<script src="https:\/\/unpkg\.com\/@babel\/standalone@[^"]+"[^>]*><\/script>\n?/, '')
+      .replace(/<script src="https:\/\/unpkg\.com\/react@[^"]+"[^>]*><\/script>/, '<script src="vendor/react.production.min.js"></script>')
+      .replace(/<script src="https:\/\/unpkg\.com\/react-dom@[^"]+"[^>]*><\/script>/, '<script src="vendor/react-dom.production.min.js"></script>')
+      .replace('<base href="/" />', `<base href="${SITE_BASE}" />`)
+      .replace('</head>', `<script>window.IA_I18N=${inline(I18N)};</script>\n</head>`);
+    if (/text\/babel|babel\.min\.js|\.development\.js|src="[^"]+\.jsx"/.test(html)) throw new Error(`glossary-term/${slug}: leftover Babel script`);
+    fs.writeFileSync(file, html);
+    n++;
+  }
+  console.log(`glossary: ${n} term pages wired to the compiled scripts (base ${SITE_BASE})`);
+}
+
 // ---------- 3. Pre-render ----------
 // Hide the baked copy while JS runs (React swaps it for the live, animated version);
 // without JS — or for a crawler reading the source — it is plain visible HTML.
@@ -208,5 +250,19 @@ try {
 if (failures.length) {
   console.error('\nPre-render failed:\n  ' + failures.join('\n  '));
   process.exit(1);
+}
+
+// ---------- 4. 404 page base ----------
+// 404.html is served at whatever address was missing (/a/b/c), so its relative links need a
+// fixed <base> at the site root (SITE_BASE, above). Done after the pre-render, which runs
+// from the local server's root.
+const notFound = path.join(OUT, '404.html');
+if (fs.existsSync(notFound)) {
+  const html = fs.readFileSync(notFound, 'utf8');
+  const out = html.replace(/<!-- base:start -->[\s\S]*?<!-- base:end -->/,
+    `<base href="${SITE_BASE}">\n<script>window.IA_PAGE='index'</script>`);
+  if (out === html) throw new Error('404.html: no <!-- base:start --> block');
+  fs.writeFileSync(notFound, out);
+  console.log(`404.html base: ${SITE_BASE}`);
 }
 console.log(`\ndist/ ready — ${pages.length} pages pre-rendered`);
