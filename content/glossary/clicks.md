@@ -14,7 +14,7 @@ Clicks are the total number of times users click a [tracking link](tracking-link
 
 - **No guarantee of earnings** — a click only earns [commission](commission) if it goes on to become a validated conversion.
 - **Quality matters more than quantity** — a smaller number of well-matched clicks often converts better than a large number of untargeted ones.
-- **Used with other metrics** — clicks are usually read alongside [impressions](impression), [click-through rate (CTR)](click-through-rate-ctr), and [conversion rate (CVR)](conversion-rate-cvr) rather than on their own.
+- **Used with other metrics** — clicks are usually read alongside [impressions](impression), [click-through rate (CTR)](click-through-rate-ctr), and [conversion rate (CVR)](conversion-rate) rather than on their own.
 
 ## On Involve Asia
 

@@ -3,7 +3,7 @@ title: Affiliate Disclosure Statement
 metaTitle: What is an affiliate disclosure statement? | Involve Asia Glossary
 metaDescription: An affiliate disclosure statement is a publisher's notice to readers that a page contains affiliate links and may earn a commission.
 tldr: An affiliate disclosure statement is a short notice telling readers that a page contains affiliate links, and that the publisher may earn a commission from purchases made through them. Many markets legally require it.
-related: publisher, affiliate-link, compliance, terms-conditions-t-cs
+related: publisher, affiliate-link, compliance, terms-conditions-tcs
 ---
 
 ## What is an affiliate disclosure statement?

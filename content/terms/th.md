@@ -104,6 +104,11 @@ Wording the translators were least sure of. A fluent reviewer should confirm or 
 - Store badges: GET IT ON → ดาวน์โหลดได้ที่ · Download on the → ดาวน์โหลดบน (check against the official Thai badge artwork)
 - Get Started form: the phone placeholder is a Thai number (+66 81 234 5678); the Vietnamese form still shows a Malaysian one.
 
+**Shopee Commissions XTRA (added 17 November 2026),** translated from the live /th/shopee-commissions-xtra/ page:
+- "Commissions XTRA" stays English (the live page mixes คอมมิชชั่นพิเศษ and XTRA Commission); base commission → ค่าคอมมิชชันพื้นฐาน (ชัน, per section 3, not the live page's ชั่น)
+- Direct / indirect links → ลิงก์โดยตรง / ลิงก์ทางอ้อม · Conversion Report stays as the app shows it
+- The attribution diagram is the live Thai image (hosted on the CMS).
+
 **Still in English everywhere, pending a decision:** customer testimonials and case-study quotes (question 4 above); English labels drawn inside some mock-up images (For Advertisers, Automation, How We Track).
 
 **English source issues spotted:** same as Indonesian and Vietnamese (generic "4,000+ brands" search descriptions; Partner Discovery, How We Track and Datafeed got page-specific Thai descriptions instead).

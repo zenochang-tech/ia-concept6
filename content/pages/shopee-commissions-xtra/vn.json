@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "title": "Shopee Commissions XTRA | Involve Asia",
+    "description": "Nhận thêm hoa hồng XTRA bên cạnh hoa hồng cơ bản từ các cửa hàng thương hiệu và sản phẩm bán chạy trên Shopee với Shopee Commissions XTRA."
+  },
+  "hero": {
+    "eyebrow": "Dành cho Shopee Affiliate",
+    "title": "Shopee Commissions XTRA: nhận thêm hoa hồng bên cạnh hoa hồng cơ bản",
+    "sub": "Với Shopee Commissions XTRA, bạn nhận thêm hoa hồng XTRA bên cạnh hoa hồng cơ bản từ các cửa hàng thương hiệu và sản phẩm bán chạy trên Shopee.",
+    "cta": "Bắt đầu kiếm tiền",
+    "regions": "Áp dụng tại Malaysia, Singapore, Indonesia, Philippines, Thái Lan, Việt Nam và Đài Loan.",
+    "imageAlt": "Shopee Commissions XTRA"
+  },
+  "intro": {
+    "title": "Nhận hoa hồng XTRA từ cửa hàng thương hiệu và sản phẩm bán chạy.",
+    "body": "Quảng bá cửa hàng và sản phẩm của các thương hiệu thuộc Shopee Commissions XTRA để nhận thêm hoa hồng XTRA bên cạnh hoa hồng cơ bản. Danh sách đầy đủ các cửa hàng đủ điều kiện có trên trang Shopee Commissions XTRA trong dashboard Involve của bạn."
+  },
+  "links": {
+    "title": "Hai loại link, một quy tắc đơn giản.",
+    "items": [
+      {
+        "t": "Link trực tiếp",
+        "d": "Khách hàng mua đúng sản phẩm từ đúng cửa hàng đó. Bạn nhận hoa hồng cơ bản và hoa hồng XTRA. Nếu cửa hàng không thuộc danh sách thương hiệu Commissions XTRA, bạn chỉ nhận hoa hồng cơ bản."
+      },
+      {
+        "t": "Link gián tiếp",
+        "d": "Khách hàng mua một sản phẩm khác từ một cửa hàng khác. Bạn chỉ nhận hoa hồng cơ bản."
+      }
+    ],
+    "proof": "Bạn vẫn nhận hoa hồng cơ bản và hoa hồng XTRA khi khách hàng mua một sản phẩm khác trong cùng cửa hàng."
+  },
+  "attribution": {
+    "title": "Cách Shopee ghi nhận hoa hồng hiện nay.",
+    "note": "Chạm để phóng to",
+    "image": "https://involve.asia/wp-content/uploads/2024/04/New-Shopee-Commission-Xtra-VN.png",
+    "imageAlt": "Hành trình ghi nhận hoa hồng của Shopee Commissions XTRA",
+    "example": "Trong ví dụ này, Nike là một thương hiệu thuộc Shopee Commissions XTRA.",
+    "dialogLabel": "Hành trình ghi nhận hoa hồng của Shopee",
+    "close": "Đóng"
+  },
+  "tips": {
+    "title": "Mẹo để kiếm thêm với hoa hồng XTRA.",
+    "steps": [
+      [
+        "01",
+        "Quảng bá cửa hàng thương hiệu",
+        "Chia sẻ link affiliate tới các cửa hàng thương hiệu thuộc Shopee Commissions XTRA."
+      ],
+      [
+        "02",
+        "Quảng bá sản phẩm XTRA",
+        "Giới thiệu các sản phẩm thuộc Shopee Commissions XTRA."
+      ],
+      [
+        "03",
+        "Khi chưa chắc, hãy dùng link cửa hàng hoặc sản phẩm",
+        "Luôn tạo link affiliate từ một sản phẩm hoặc cửa hàng thương hiệu để đơn hàng đủ điều kiện."
+      ]
+    ]
+  },
+  "faq": {
+    "items": [
+      [
+        "Link trực tiếp và gián tiếp có được ghi nhận ở mọi khu vực không?",
+        "Hiện tại chỉ áp dụng tại Malaysia, Singapore, Indonesia, Philippines, Thái Lan, Việt Nam và Đài Loan."
+      ],
+      [
+        "Là đối tác, làm sao tôi biết một chuyển đổi là trực tiếp hay gián tiếp?",
+        "Xem Advertiser Sub ID 5 trong Conversion Report. Trực tiếp = ORDERED_IN_SAME_SHOP; gián tiếp = ORDERED_IN_DIFFERENT_SHOP. ORDERED_IN_SAME_SHOP bao gồm cả cùng SKU và SKU khác được mua từ cùng một cửa hàng."
+      ],
+      [
+        "Làm sao để tối đa hóa thu nhập của tôi?",
+        "Quảng bá trực tiếp các thương hiệu và sản phẩm thuộc Shopee Commissions XTRA tới đúng đối tượng, và tìm hiểu sở thích cũng như nhu cầu của người theo dõi bạn."
+      ],
+      [
+        "Nếu có đơn hàng gián tiếp từ link của tôi, tôi có nhận được hoa hồng không?",
+        "Có. Bạn sẽ nhận hoa hồng cơ bản."
+      ]
+    ]
+  },
+  "cta": {
+    "title": "Kiếm thêm hoa hồng với Shopee Smart URL.",
+    "sub": "Một link đưa người theo dõi của bạn tới một cửa hàng thương hiệu Shopee Commissions XTRA, thay đổi sau mỗi lượt nhấp.",
+    "label": "Bắt đầu ngay"
+  }
+}

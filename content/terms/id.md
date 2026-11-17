@@ -91,6 +91,10 @@ Wording the translators were least sure of. A fluent reviewer should confirm or 
 - Store badges: GET IT ON → TERSEDIA DI · Download on the → Download di
 - The Involve Datafeed way → Cara Involve Datafeed
 
+**Shopee Commissions XTRA (added 17 November 2026),** translated from the live /id/shopee-commissions-xtra/ page, moved from "kamu" to "Anda":
+- Commissions XTRA → Komisi XTRA (as on the live page); base commission → komisi dasar; Direct link / Indirect link stay English, as on the live page
+- The attribution diagram is the live Indonesian image (hosted on the CMS).
+
 **Still in English everywhere, pending a decision:** customer testimonials and the case-study quotes on For Advertisers, the "Start today" step quotes and the support quote on the homepage (question 4 above).
 
 **English source issues spotted:** the search descriptions of For Publishers, Express Withdrawal and Automation say "Promote 4,000+ brands…" while the site says 500+ brands elsewhere; Automation reuses Express Withdrawal's description. The Indonesian Datafeed, How We Track and Partner Discovery pages got their own descriptions instead of the generic English one.

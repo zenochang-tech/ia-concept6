@@ -3,7 +3,7 @@ title: Earnings Per Conversion
 metaTitle: What is earnings per conversion? | Involve Asia Glossary
 metaDescription: Earnings per conversion is the average commission a publisher earns for each validated conversion, showing how much a single sale is worth.
 tldr: Earnings per conversion is the average commission a publisher earns for each validated conversion, calculated by dividing total commission by the number of conversions.
-related: commission, conversion-rate-cvr, earnings-per-click-epc
+related: commission, conversion-rate, earnings-per-click-epc
 ---
 
 ## What is earnings per conversion?
@@ -17,4 +17,4 @@ Earnings per conversion is the average [commission](commission) a [publisher](pu
 
 ## Earnings per conversion vs earnings per click
 
-[Earnings per click (EPC)](earnings-per-click-epc) looks at value per click sent, while earnings per conversion isolates the value of each completed sale, useful once a publisher already knows their [conversion rate (CVR)](conversion-rate-cvr) is healthy.
+[Earnings per click (EPC)](earnings-per-click-epc) looks at value per click sent, while earnings per conversion isolates the value of each completed sale, useful once a publisher already knows their [conversion rate (CVR)](conversion-rate) is healthy.

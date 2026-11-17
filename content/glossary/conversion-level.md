@@ -3,7 +3,7 @@ title: Conversion Level
 metaTitle: What is conversion level? | Involve Asia Glossary
 metaDescription: Conversion level is how deep in the customer journey a qualifying action sits, from a simple sign-up to a completed purchase.
 tldr: Conversion level describes how much commitment a user must show for a publisher to earn commission, from a shallow action like a sign-up to a deeper one like a completed purchase. It's tied to the offer's commission model.
-related: commission-model, conversion-rate-cvr, cost-per-sale-cps, cost-per-lead-cpl
+related: commission-model, conversion-rate, cost-per-sale-cps, cost-per-lead-cpl
 ---
 
 ## What is conversion level?
@@ -20,4 +20,4 @@ On Involve Asia, conversion level follows the offer's [commission model](commiss
 
 ## Why it matters
 
-Conversion level affects both [conversion rate](conversion-rate-cvr) and commission value: shallow conversions happen more often but usually pay less, while deeper conversions happen less often but usually pay more. Publishers should match an offer's conversion level to their audience's intent, a high-intent, ready-to-buy audience suits a deeper CPS offer, while a broader audience may convert better on a lower-commitment CPL or CPA offer.
+Conversion level affects both [conversion rate](conversion-rate) and commission value: shallow conversions happen more often but usually pay less, while deeper conversions happen less often but usually pay more. Publishers should match an offer's conversion level to their audience's intent, a high-intent, ready-to-buy audience suits a deeper CPS offer, while a broader audience may convert better on a lower-commitment CPL or CPA offer.

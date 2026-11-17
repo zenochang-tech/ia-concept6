@@ -1,0 +1,56 @@
+{
+  "meta": {
+    "title": "Shopee Commissions XTRA | Involve Asia",
+    "description": "Earn extra commission on top of your base commission from Shopee brand stores and top-selling products with Shopee Commissions XTRA."
+  },
+  "hero": {
+    "eyebrow": "For Shopee Affiliates",
+    "title": "Shopee Commissions XTRA: earn extra on top of your base commission",
+    "sub": "With Shopee Commissions XTRA, earn extra commission on top of your base commission from brand stores and top-selling products on Shopee.",
+    "cta": "Start Earning",
+    "regions": "Live in Malaysia, Singapore, Indonesia, the Philippines, Thailand, Vietnam, and Taiwan.",
+    "imageAlt": "Shopee Commissions XTRA"
+  },
+  "intro": {
+    "title": "Earn Commissions XTRA on brand stores and top products.",
+    "body": "Promote a brand's stores and products that are under Shopee Commissions XTRA, and earn extra commission on top of your base commission. The full list of eligible stores is on the Shopee Commissions XTRA page in your Involve dashboard."
+  },
+  "links": {
+    "title": "Two link types, one simple rule.",
+    "items": [
+      { "t": "Direct links", "d": "Your customer buys the same product from the same store. You earn base commission plus Commissions XTRA. If the store is not a Commissions XTRA brand, you earn base commission only." },
+      { "t": "Indirect links", "d": "Your customer buys a different product from a different store. You earn base commission only." }
+    ],
+    "proof": "You still earn base commission plus Commissions XTRA when a customer buys a different product at the same store."
+  },
+  "attribution": {
+    "title": "Here's how the latest Shopee attribution works.",
+    "note": "Please tap to enlarge",
+    "image": "media/figma/Shopee-Commissions-XTRA-NEW-V2.png",
+    "imageAlt": "The Shopee Commissions XTRA attribution journey",
+    "example": "Here, Nike is used as an example of a Shopee Commissions XTRA brand.",
+    "dialogLabel": "Shopee attribution journey",
+    "close": "Close"
+  },
+  "tips": {
+    "title": "Tips to earn more with Commissions XTRA.",
+    "steps": [
+      ["01", "Promote brand stores", "Share affiliate links to brand stores that are under Shopee Commissions XTRA."],
+      ["02", "Promote XTRA products", "Feature products that are part of Shopee Commissions XTRA."],
+      ["03", "When unsure, link a store or product", "Always generate your affiliate link from a product or brand store, so it can qualify."]
+    ]
+  },
+  "faq": {
+    "items": [
+      ["Do direct and indirect links attribute across all regions?", "For now, it applies only to Malaysia, Singapore, Indonesia, the Philippines, Thailand, Vietnam, and Taiwan."],
+      ["As a partner, how do I know whether a conversion is direct or indirect?", "Check Advertiser Sub ID 5 in the Conversion Report. Direct = ORDERED_IN_SAME_SHOP; indirect = ORDERED_IN_DIFFERENT_SHOP. ORDERED_IN_SAME_SHOP covers both the same SKU and a different SKU bought from the same shop."],
+      ["What is the best way to maximise your earnings?", "Promote Shopee Commissions XTRA brands and products directly to a relevant audience, and get to know your audience's preferences and needs."],
+      ["If there is an indirect purchase from my link, will I still get commission?", "Yes. You will earn base commission."]
+    ]
+  },
+  "cta": {
+    "title": "Get more commissions with Shopee Smart URL.",
+    "sub": "One link that sends your audience to a Shopee Commissions XTRA brand store, rotating on every click.",
+    "label": "Get Started"
+  }
+}

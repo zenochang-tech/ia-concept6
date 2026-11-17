@@ -1,0 +1,920 @@
+{
+  "meta": {
+    "title": "Fast Validation Offers | Involve Asia",
+    "description": "Promote brands that validate orders in as fast as 3 to 7 days, and get quicker confirmation and earlier access to your affiliate earnings."
+  },
+  "hero": {
+    "eyebrow": "Fast Validation Offers",
+    "title": "Get paid faster with quicker order validation.",
+    "sub": "We partner with selected brands that validate orders in as fast as 7 days, giving you quicker confirmation, better optimisation signals, and earlier access to your affiliate earnings.",
+    "pills": [
+      "Fast Approval",
+      "Clear Earnings",
+      "Early Payouts"
+    ],
+    "cta": "Browse the brands",
+    "imageAlt": "A publisher checking their earnings on a laptop",
+    "badgeLabel": "Order validated",
+    "badgeValue": "in 3 days"
+  },
+  "why": {
+    "title": "Turn sales into earnings faster.",
+    "sub": "Spend less time waiting and more time scaling what converts.",
+    "items": [
+      {
+        "title": "Earnings that move at your speed",
+        "body": "Faster validation means faster confirmation. See what works and double down while the opportunity is still hot."
+      },
+      {
+        "title": "Cash flow, not cash lock-ups",
+        "body": "Eligible to withdraw earnings in as fast as 7 days, 6× faster than on direct platforms."
+      },
+      {
+        "title": "Built to test, built to win",
+        "body": "Start promoting without long validation delays slowing you down. Ideal for new affiliates and rapid testers."
+      }
+    ],
+    "more": "Read more about fast validation",
+    "moreHref": "https://involve.asia/blog/faster-affiliate-earnings-with-fast-validation/"
+  },
+  "brands": {
+    "title": "Fast-validation brands",
+    "sub": "Filter by country and industry, then open the offer in your dashboard.",
+    "countryLabel": "Country",
+    "industryLabel": "Industry",
+    "countries": [
+      [
+        "all",
+        "All countries"
+      ],
+      [
+        "int",
+        "International"
+      ],
+      [
+        "my",
+        "Malaysia"
+      ],
+      [
+        "th",
+        "Thailand"
+      ],
+      [
+        "id",
+        "Indonesia"
+      ],
+      [
+        "ph",
+        "Philippines"
+      ],
+      [
+        "vn",
+        "Vietnam"
+      ],
+      [
+        "sg",
+        "Singapore"
+      ]
+    ],
+    "industries": [
+      [
+        "all",
+        "All industries"
+      ],
+      [
+        "beauty",
+        "Beauty"
+      ],
+      [
+        "digital",
+        "Digital Services"
+      ],
+      [
+        "edu",
+        "Education"
+      ],
+      [
+        "electronic",
+        "Electronics"
+      ],
+      [
+        "fashion",
+        "Fashion"
+      ],
+      [
+        "finance",
+        "Finance"
+      ],
+      [
+        "gift",
+        "Gifting & Crafts"
+      ],
+      [
+        "home",
+        "Home & Living"
+      ],
+      [
+        "marketplace",
+        "Marketplace"
+      ],
+      [
+        "travel",
+        "Travel"
+      ],
+      [
+        "other",
+        "Others"
+      ]
+    ],
+    "fast": "As fast as {days} days",
+    "view": "View offer",
+    "viewAria": "View the {name} offer (opens in a new tab)",
+    "count": "{n} brands",
+    "showAll": "Show all {n} brands",
+    "empty": "No brands match these filters yet. Try another country or industry.",
+    "logoAlt": "{name} logo",
+    "items": [
+      {
+        "name": "Shopee TH – CPS",
+        "country": "th",
+        "industry": "marketplace",
+        "days": 4,
+        "logo": "2026/02/Shopee.svg.png",
+        "href": "https://app.involve.asia/directory/shopee-thailand-cps-affiliate-program"
+      },
+      {
+        "name": "Shopee TH (KOL) – CPS",
+        "country": "th",
+        "industry": "marketplace",
+        "days": 4,
+        "logo": "2026/02/Shopee.svg.png",
+        "href": "https://app.involve.asia/directory/shopee-kol-thailand-cps-affiliate-program"
+      },
+      {
+        "name": "TUMI MY",
+        "country": "my",
+        "industry": "travel",
+        "days": 3,
+        "logo": "2026/02/Tumi-Logo1.png",
+        "href": "https://app.involve.asia/directory/tumi-malaysia-affiliate-program"
+      },
+      {
+        "name": "Lego MY",
+        "country": "my",
+        "industry": "gift",
+        "days": 3,
+        "logo": "2026/02/LEGO_logo.png",
+        "href": "https://app.involve.asia/directory/lego-malaysia-affiliate-program"
+      },
+      {
+        "name": "Lego SG",
+        "country": "sg",
+        "industry": "gift",
+        "days": 3,
+        "logo": "2026/02/LEGO_logo.png",
+        "href": "https://app.involve.asia/directory/lego-singapore-affiliate-program"
+      },
+      {
+        "name": "Alibaba CPS",
+        "country": "int",
+        "industry": "marketplace",
+        "days": 7,
+        "logo": "2026/02/alibaba-com-logo-png_seeklogo-6545-1.png",
+        "href": "https://app.involve.asia/directory/alibaba-affiliate-program"
+      },
+      {
+        "name": "ASOS (Asia)",
+        "country": "int",
+        "industry": "fashion",
+        "days": 3,
+        "logo": "2026/02/ASOS_retailer-Logo.wine_.png",
+        "href": "https://app.involve.asia/directory/asos-asia-cps-affiliate-program"
+      },
+      {
+        "name": "Adidas (HK)",
+        "country": "int",
+        "industry": "fashion",
+        "days": 3,
+        "logo": "2026/02/adidas-new-logo-on-transparent-background-free-vector.jpg",
+        "href": "https://app.involve.asia/directory/adidas-hk-cps-affiliate-program"
+      },
+      {
+        "name": "Bernadelli Store Global",
+        "country": "int",
+        "industry": "fashion",
+        "days": 3,
+        "logo": "2026/02/Bernardelli-Logo.jpg",
+        "href": "https://app.involve.asia/directory/bernardelli-store-affiliate-program"
+      },
+      {
+        "name": "Stylevana CPS",
+        "country": "int",
+        "industry": "beauty",
+        "days": 3,
+        "logo": "2026/02/e5c4b6c0-8d92-11ee-b61b-bd7e96d168c9.png",
+        "href": "https://app.involve.asia/directory/stylevana-affiliate-program"
+      },
+      {
+        "name": "Chow Sang Sang (Global)",
+        "country": "int",
+        "industry": "fashion",
+        "days": 3,
+        "logo": "2026/02/ScreenShot2019-05-30at12.59.31PM.jpg",
+        "href": "https://app.involve.asia/directory/chow-sang-sang-global-cps-affiliate-program"
+      },
+      {
+        "name": "Cotton On",
+        "country": "int",
+        "industry": "fashion",
+        "days": 3,
+        "logo": "2026/02/cotton-on2914.jpg",
+        "href": "https://app.involve.asia/directory/cotton-on-australia-affiliate-program"
+      },
+      {
+        "name": "H&M",
+        "country": "int",
+        "industry": "fashion",
+        "days": 3,
+        "logo": "2026/02/H-and-M-Logo.jpg",
+        "href": "https://app.involve.asia/directory/hm-asia-pacific-affiliate-program"
+      },
+      {
+        "name": "JD Sports (MY)",
+        "country": "my",
+        "industry": "fashion",
+        "days": 3,
+        "logo": "2026/02/JD_Sports-Logo.wine_.png",
+        "href": "https://app.involve.asia/directory/jd-sports-malaysia-affiliate-program"
+      },
+      {
+        "name": "JD Sports (TH)",
+        "country": "th",
+        "industry": "fashion",
+        "days": 3,
+        "logo": "2026/02/JD_Sports-Logo.wine_.png",
+        "href": "https://app.involve.asia/directory/jd-sports-thailand-affiliate-program"
+      },
+      {
+        "name": "JD Sports (SG)",
+        "country": "sg",
+        "industry": "fashion",
+        "days": 3,
+        "logo": "2026/02/JD_Sports-Logo.wine_.png",
+        "href": "https://app.involve.asia/directory/jd-sports-singapore-affiliate-program"
+      },
+      {
+        "name": "Juice Store",
+        "country": "th",
+        "industry": "fashion",
+        "days": 3,
+        "logo": "2026/02/Juice-logo.jpg",
+        "href": "https://app.involve.asia/directory/juice-store-affiliate-program"
+      },
+      {
+        "name": "Nike APAC",
+        "country": "int",
+        "industry": "fashion",
+        "days": 3,
+        "logo": "2026/02/nike-logo-png_seeklogo-99478.png",
+        "href": "https://app.involve.asia/directory/nike-india-affiliate-program"
+      },
+      {
+        "name": "Olive Young Global CPS",
+        "country": "int",
+        "industry": "beauty",
+        "days": 3,
+        "logo": "2026/02/92-DP04109-2024BC.1.jpg",
+        "href": "https://app.involve.asia/directory/olive-young-global-affiliate-program"
+      },
+      {
+        "name": "Simply Wholesale Global CPS",
+        "country": "int",
+        "industry": "other",
+        "days": 3,
+        "logo": "2026/02/Simply-Wholesale-logo.jpg",
+        "href": "https://app.involve.asia/directory/simply-wholesale-global-affiliate-program"
+      },
+      {
+        "name": "Singapore Airlines",
+        "country": "int",
+        "industry": "travel",
+        "days": 3,
+        "logo": "2026/02/Singapore-Airlines-Logo-1.png",
+        "href": "https://app.involve.asia/directory/singapore-airlines-affiliate-program"
+      },
+      {
+        "name": "Dyson SG",
+        "country": "sg",
+        "industry": "electronic",
+        "days": 3,
+        "logo": "2026/02/Dyson_logo_logotype.png",
+        "href": "https://app.involve.asia/directory/dyson-singapore-affiliate-program"
+      },
+      {
+        "name": "LG TH",
+        "country": "th",
+        "industry": "electronic",
+        "days": 3,
+        "logo": "2026/02/LG_logo_2014.svg.png",
+        "href": "https://app.involve.asia/directory/lg-th-affiliate-program"
+      },
+      {
+        "name": "Bangkok Airways",
+        "country": "int",
+        "industry": "travel",
+        "days": 3,
+        "logo": "2026/02/Bangkok-Airways-Logo-Vector.jpg",
+        "href": "https://app.involve.asia/directory/bangkok-airways-affiliate-program"
+      },
+      {
+        "name": "Lululemon (APAC)",
+        "country": "int",
+        "industry": "fashion",
+        "days": 3,
+        "logo": "2026/02/Lululemon-Emblem.png",
+        "href": "https://app.involve.asia/directory/lululemon-affiliate-program"
+      },
+      {
+        "name": "Net-a-Porter APAC",
+        "country": "int",
+        "industry": "fashion",
+        "days": 3,
+        "logo": "2026/02/Net-a-porter-logo-vector.webp",
+        "href": "https://app.involve.asia/directory/net-a-porter-affiliate-program"
+      },
+      {
+        "name": "Malaysia Airlines",
+        "country": "int",
+        "industry": "travel",
+        "days": 7,
+        "logo": "2026/03/9061-malaysia-airlines.jpg",
+        "href": "https://app.involve.asia/directory/malaysia-airlines-cps-affiliate-program"
+      },
+      {
+        "name": "Udemy US – CPS",
+        "country": "int",
+        "industry": "edu",
+        "days": 7,
+        "logo": "2026/03/udemy-logo-share-1.png",
+        "href": "https://app.involve.asia/directory/udemy-us-affiliate-program"
+      },
+      {
+        "name": "Roamless eSIM – CPS",
+        "country": "int",
+        "industry": "digital",
+        "days": 7,
+        "logo": "2026/03/images-4.png",
+        "href": "https://app.involve.asia/directory/roamless-esim-affiliate-program"
+      },
+      {
+        "name": "British Council – CPS",
+        "country": "int",
+        "industry": "edu",
+        "days": 7,
+        "logo": "2026/03/BritishCouncil_Logo.png",
+        "href": "https://app.involve.asia/directory/british-council-affiliate-program"
+      },
+      {
+        "name": "Express VPN – CPS (NEW)",
+        "country": "int",
+        "industry": "digital",
+        "days": 7,
+        "logo": "2026/03/ExpressVPN_Vertical_Logo_White_on_Red-preview-5f03720ce9981f96cfddf01f940d99ea-1.png",
+        "href": "https://app.involve.asia/directory/express-vpn-cps-affiliate-program"
+      },
+      {
+        "name": "New Balance SG – CPS",
+        "country": "sg",
+        "industry": "fashion",
+        "days": 7,
+        "logo": "2026/03/new-balance-logo-png_seeklogo-98723.png",
+        "href": "https://app.involve.asia/directory/new-balance-singapore-affiliate-program"
+      },
+      {
+        "name": "Appsumo (Global) – CPS",
+        "country": "int",
+        "industry": "digital",
+        "days": 7,
+        "logo": "2026/03/appsumo-logo.png",
+        "href": "https://app.involve.asia/directory/app-sumo-affiliate-program"
+      },
+      {
+        "name": "Papique – CPS",
+        "country": "int",
+        "industry": "beauty",
+        "days": 7,
+        "logo": "2026/03/aHR0cHM6Ly9pbWFnZXMuYmFubmVyYmVhci5jb20vZGlyZWN0L0VHQnFwQVo1T2U5MTg5VkROSi9yZXF1ZXN0cy8wMDAvMDk1LzMyMS80MjQvRHFSMnYxa05hWU1PSkdFRzY4ZXBack9XUC8yZGYyYjc1Mzc3YzllZDg4MTBlZjNmMGQzYzIxMWJhN2M3MWE4NmIwLnBuZw.jpg",
+        "href": "https://app.involve.asia/directory/papique-cps-affiliate-program"
+      },
+      {
+        "name": "Apple Products SG – CPS",
+        "country": "sg",
+        "industry": "electronic",
+        "days": 7,
+        "logo": "2026/03/images.png",
+        "href": "https://app.involve.asia/directory/apple-products-singapore-affiliate-program"
+      },
+      {
+        "name": "Apple Products TH – CPS",
+        "country": "th",
+        "industry": "electronic",
+        "days": 7,
+        "logo": "2026/03/images.png",
+        "href": "https://app.involve.asia/directory/apple-products-thailand-affiliate-program"
+      },
+      {
+        "name": "Charles & Keith (MY) CPS",
+        "country": "my",
+        "industry": "fashion",
+        "days": 7,
+        "logo": "2026/03/charles-keith.png",
+        "href": "https://app.involve.asia/directory/charles-keith-malaysia-affiliate-program"
+      },
+      {
+        "name": "Charles & Keith (TW) CPS",
+        "country": "int",
+        "industry": "fashion",
+        "days": 7,
+        "logo": "2026/03/charles-keith.png",
+        "href": "https://app.involve.asia/directory/charles-and-keith-taiwan-affiliate-program"
+      },
+      {
+        "name": "Charles & Keith (PH) CPS",
+        "country": "ph",
+        "industry": "fashion",
+        "days": 7,
+        "logo": "2026/03/charles-keith.png",
+        "href": "https://app.involve.asia/directory/charles-and-keith-philippines-affiliate-program"
+      },
+      {
+        "name": "Charles & Keith (TH) CPS",
+        "country": "th",
+        "industry": "fashion",
+        "days": 7,
+        "logo": "2026/03/charles-keith.png",
+        "href": "https://app.involve.asia/directory/charles-keith-thailand-affiliate-program"
+      },
+      {
+        "name": "CheapOair",
+        "country": "int",
+        "industry": "travel",
+        "days": 7,
+        "logo": "2026/03/coa-logo-aug20.png",
+        "href": "https://app.involve.asia/directory/cheapoair-affiliate-program"
+      },
+      {
+        "name": "Codashop – CPS",
+        "country": "int",
+        "industry": "digital",
+        "days": 7,
+        "logo": "2026/03/codashop-logo-png_seeklogo-454840-1.png",
+        "href": "https://app.involve.asia/directory/codashop-affiliate-program"
+      },
+      {
+        "name": "Lightinthebox Global CPS",
+        "country": "int",
+        "industry": "marketplace",
+        "days": 7,
+        "logo": "2026/03/Lightinthebox-Logo.jpg",
+        "href": "https://app.involve.asia/directory/lightinthebox-global-affiliate-program"
+      },
+      {
+        "name": "Love Bonito (ID) – CPS",
+        "country": "id",
+        "industry": "fashion",
+        "days": 7,
+        "logo": "2026/03/Love_Bonito_logo.jpg",
+        "href": "https://app.involve.asia/directory/love-bonito-indonesia-affiliate-program"
+      },
+      {
+        "name": "Love Bonito (PH) – CPS",
+        "country": "ph",
+        "industry": "fashion",
+        "days": 7,
+        "logo": "2026/03/Love_Bonito_logo.jpg",
+        "href": "https://app.involve.asia/directory/love-bonito-ph-affiliate-program"
+      },
+      {
+        "name": "Omio (GoEuro)",
+        "country": "int",
+        "industry": "travel",
+        "days": 7,
+        "logo": "2026/03/omio_thumbnail.webp",
+        "href": "https://app.involve.asia/directory/omio-affiliate-program"
+      },
+      {
+        "name": "Pelago – CPS",
+        "country": "int",
+        "industry": "travel",
+        "days": 7,
+        "logo": "2026/03/ebeaa522-1852-49cc-a41d-72d6dfbd84d4-1634801571430-1.png",
+        "href": "https://app.involve.asia/directory/pelago-affiliate-program"
+      },
+      {
+        "name": "PUMA ID – CPS",
+        "country": "id",
+        "industry": "fashion",
+        "days": 7,
+        "logo": "2026/03/Puma_brand-Logo.wine_.png",
+        "href": "https://app.involve.asia/directory/puma-id-affiliate-program"
+      },
+      {
+        "name": "PUMA SG – CPS",
+        "country": "sg",
+        "industry": "fashion",
+        "days": 7,
+        "logo": "2026/03/Puma_brand-Logo.wine_.png",
+        "href": "https://app.involve.asia/directory/puma-singapore-affiliate-program"
+      },
+      {
+        "name": "PUMA TH – CPS",
+        "country": "th",
+        "industry": "fashion",
+        "days": 7,
+        "logo": "2026/03/Puma_brand-Logo.wine_.png",
+        "href": "https://app.involve.asia/directory/puma-thailand-affiliate-program"
+      },
+      {
+        "name": "Razer (CPS)",
+        "country": "int",
+        "industry": "electronic",
+        "days": 7,
+        "logo": "2026/03/Razer_snake_logo.svg",
+        "href": "https://app.involve.asia/directory/razer-affiliate-program"
+      },
+      {
+        "name": "Sephora (HK)",
+        "country": "int",
+        "industry": "beauty",
+        "days": 7,
+        "logo": "2026/03/Sephora-Logo.png",
+        "href": "https://app.involve.asia/directory/sephora-hong-kong-affiliate-program"
+      },
+      {
+        "name": "Sephora (MY)",
+        "country": "my",
+        "industry": "beauty",
+        "days": 7,
+        "logo": "2026/03/Sephora-Logo.png",
+        "href": "https://app.involve.asia/directory/sephora-malaysia-affiliate-program"
+      },
+      {
+        "name": "Sephora (PH)",
+        "country": "ph",
+        "industry": "beauty",
+        "days": 7,
+        "logo": "2026/03/Sephora-Logo.png",
+        "href": "https://app.involve.asia/directory/sephora-philippines-affiliate-program"
+      },
+      {
+        "name": "Sephora (SG)",
+        "country": "sg",
+        "industry": "beauty",
+        "days": 7,
+        "logo": "2026/03/Sephora-Logo.png",
+        "href": "https://app.involve.asia/directory/sephora-singapore-affiliate-program"
+      },
+      {
+        "name": "Sephora (TH)",
+        "country": "th",
+        "industry": "beauty",
+        "days": 7,
+        "logo": "2026/03/Sephora-Logo.png",
+        "href": "https://app.involve.asia/directory/sephora-thailand-affiliate-program"
+      },
+      {
+        "name": "LightPDF – CPS",
+        "country": "int",
+        "industry": "digital",
+        "days": 7,
+        "logo": "2026/03/unnamed-1.png",
+        "href": "https://app.involve.asia/directory/lightpdf-affiliate-program"
+      },
+      {
+        "name": "Loaded (Formerly CDKeys) – CPS",
+        "country": "int",
+        "industry": "digital",
+        "days": 7,
+        "logo": "2026/03/CDKeys-rebrand.jpg",
+        "href": "https://app.involve.asia/directory/loaded-affiliate-program"
+      },
+      {
+        "name": "Preply – CPS",
+        "country": "int",
+        "industry": "edu",
+        "days": 7,
+        "logo": "2026/03/images-1.png",
+        "href": "https://app.involve.asia/directory/preply-affiliate-program"
+      },
+      {
+        "name": "Plaud SEA – CPS",
+        "country": "int",
+        "industry": "electronic",
+        "days": 7,
+        "logo": "2026/03/images-5.png",
+        "href": "https://app.involve.asia/directory/plaud-affiliate-program"
+      },
+      {
+        "name": "Trapo (SG) – CPS",
+        "country": "sg",
+        "industry": "other",
+        "days": 7,
+        "logo": "2026/03/trapo-social_1200x.webp",
+        "href": "https://app.involve.asia/directory/trapo-singapore-cps-affiliate-program"
+      },
+      {
+        "name": "Direct Asia Insurance SG – CPS",
+        "country": "sg",
+        "industry": "finance",
+        "days": 7,
+        "logo": "2026/03/logo_directasia_ahc_white_background_office_v01.webp",
+        "href": "https://app.involve.asia/directory/direct-asia-insurance-singapore-affiliate-program"
+      },
+      {
+        "name": "Unipin Global – CPS",
+        "country": "int",
+        "industry": "other",
+        "days": 7,
+        "logo": "2026/03/UniPin_Logo.svg.png",
+        "href": "https://app.involve.asia/directory/unipin-affiliate-program"
+      },
+      {
+        "name": "MyRepublic SG – CPS",
+        "country": "sg",
+        "industry": "digital",
+        "days": 7,
+        "logo": "2026/03/New_MyRepublic_Logo_Horizontal_™.png",
+        "href": "https://app.involve.asia/directory/myrepublic-affiliate-program"
+      },
+      {
+        "name": "Homestyler Global – CPS",
+        "country": "int",
+        "industry": "home",
+        "days": 7,
+        "logo": "2026/03/unnamed-2.png",
+        "href": "https://app.involve.asia/directory/homestyler-affiliate-program"
+      },
+      {
+        "name": "HopeGoo – CPS",
+        "country": "int",
+        "industry": "travel",
+        "days": 7,
+        "logo": "2026/03/1763113280178.logo_.jpg",
+        "href": "https://app.involve.asia/directory/hopegoo-affiliate-program"
+      },
+      {
+        "name": "TrainPal – CPS",
+        "country": "int",
+        "industry": "travel",
+        "days": 7,
+        "logo": "2026/03/1200_630-1.png",
+        "href": "https://app.involve.asia/directory/trainpal-affiliate-program"
+      },
+      {
+        "name": "SimOptions Global – CPS",
+        "country": "int",
+        "industry": "digital",
+        "days": 7,
+        "logo": "2026/03/images-2.png",
+        "href": "https://app.involve.asia/directory/simoptions-esim-affiliate-program"
+      },
+      {
+        "name": "UGREEN Global – CPS",
+        "country": "int",
+        "industry": "electronic",
+        "days": 7,
+        "logo": "2026/03/ugreen.jpg",
+        "href": "https://app.involve.asia/directory/ugreen-global-affiliate-program"
+      },
+      {
+        "name": "Gameseal Global – CPS",
+        "country": "int",
+        "industry": "other",
+        "days": 7,
+        "logo": "2026/03/1200x630-black.webp",
+        "href": "https://app.involve.asia/directory/gameseal-affiliate-program"
+      },
+      {
+        "name": "WPS SOFTWARE – CPI + CPS",
+        "country": "int",
+        "industry": "digital",
+        "days": 7,
+        "logo": "2026/03/free-wps-office-logo-icon-svg-download-png-8630411.webp",
+        "href": "https://app.involve.asia/directory/wps-office-affiliate-program"
+      },
+      {
+        "name": "Adidas SG – CPS",
+        "country": "sg",
+        "industry": "fashion",
+        "days": 7,
+        "logo": "2026/02/adidas-new-logo-on-transparent-background-free-vector.jpg",
+        "href": "https://app.involve.asia/directory/adidas-sg-affiliate-program"
+      },
+      {
+        "name": "Adidas VN – CPS",
+        "country": "vn",
+        "industry": "fashion",
+        "days": 7,
+        "logo": "2026/02/adidas-new-logo-on-transparent-background-free-vector.jpg",
+        "href": "https://app.involve.asia/directory/adidas-vn-affiliate-program"
+      },
+      {
+        "name": "Adidas TH – CPS",
+        "country": "th",
+        "industry": "fashion",
+        "days": 7,
+        "logo": "2026/02/adidas-new-logo-on-transparent-background-free-vector.jpg",
+        "href": "https://app.involve.asia/directory/adidas-th-affiliate-program"
+      },
+      {
+        "name": "Adidas MY – CPS",
+        "country": "my",
+        "industry": "fashion",
+        "days": 7,
+        "logo": "2026/02/adidas-new-logo-on-transparent-background-free-vector.jpg",
+        "href": "https://app.involve.asia/directory/adidas-my-affiliate-program"
+      },
+      {
+        "name": "Adidas ID – CPS",
+        "country": "id",
+        "industry": "fashion",
+        "days": 7,
+        "logo": "2026/02/adidas-new-logo-on-transparent-background-free-vector.jpg",
+        "href": "https://app.involve.asia/directory/adidas-id-affiliate-program"
+      },
+      {
+        "name": "CapCut – CPI + CPS",
+        "country": "int",
+        "industry": "digital",
+        "days": 7,
+        "logo": "2026/03/CapCut-Logo.png",
+        "href": "https://app.involve.asia/directory/capcut-affiliate-program"
+      },
+      {
+        "name": "Wegic AI – CPS",
+        "country": "int",
+        "industry": "digital",
+        "days": 7,
+        "logo": "2026/03/Wegic-Logo.png",
+        "href": "https://app.involve.asia/directory/wegic-ai-affiliate-program"
+      },
+      {
+        "name": "iMobie – CPS",
+        "country": "int",
+        "industry": "digital",
+        "days": 7,
+        "logo": "2026/03/imobie-inc-logo-vector.png",
+        "href": "https://app.involve.asia/directory/imobie-affiliate-program"
+      },
+      {
+        "name": "StackSocial – CPS",
+        "country": "int",
+        "industry": "digital",
+        "days": 7,
+        "logo": "2026/03/0x0.png",
+        "href": "https://app.involve.asia/directory/stacksocial-affiliate-program"
+      },
+      {
+        "name": "PUMA MY – CPS",
+        "country": "my",
+        "industry": "fashion",
+        "days": 7,
+        "logo": "2026/03/Puma_brand-Logo.wine_.png",
+        "href": "https://app.involve.asia/directory/puma-malaysia-affiliate-program"
+      },
+      {
+        "name": "Disney+",
+        "country": "int",
+        "industry": "other",
+        "days": 7,
+        "logo": "2026/03/Disney_2024.svg",
+        "href": "https://app.involve.asia/directory/disney-plus-affiliate-program"
+      },
+      {
+        "name": "Adidas PH – CPS",
+        "country": "ph",
+        "industry": "fashion",
+        "days": 7,
+        "logo": "2026/02/adidas-new-logo-on-transparent-background-free-vector.jpg",
+        "href": "https://app.involve.asia/directory/adidas-ph-affiliate-program"
+      },
+      {
+        "name": "TikTok Shop TH (Deeplinkable) – CPS",
+        "country": "th",
+        "industry": "marketplace",
+        "days": 7,
+        "logo": "2024/11/TikTok-Shop-Logo-V3.png",
+        "href": "https://app.involve.asia/directory/tiktok-shop-thailand-cps-affiliate-program"
+      },
+      {
+        "name": "TikTok Shop TH (ClickID) – CPS",
+        "country": "th",
+        "industry": "marketplace",
+        "days": 7,
+        "logo": "2024/11/TikTok-Shop-Logo-V3.png",
+        "href": "https://app.involve.asia/directory/tiktok-shop-thailand-cps-clickid-affiliate-program"
+      },
+      {
+        "name": "TikTok Shop ID (Deeplinkable) – CPS",
+        "country": "id",
+        "industry": "marketplace",
+        "days": 7,
+        "logo": "2024/11/TikTok-Shop-Logo-V3.png",
+        "href": "https://app.involve.asia/directory/tiktok-shop-indonesia-cps-affiliate-program"
+      },
+      {
+        "name": "TikTok Shop ID (ClickID) – CPS",
+        "country": "id",
+        "industry": "marketplace",
+        "days": 7,
+        "logo": "2024/11/TikTok-Shop-Logo-V3.png",
+        "href": "https://app.involve.asia/directory/tiktok-shop-id-cps-affiliate-program"
+      },
+      {
+        "name": "TikTok Shop MY (ClickID) – CPS",
+        "country": "my",
+        "industry": "marketplace",
+        "days": 7,
+        "logo": "2024/11/TikTok-Shop-Logo-V3.png",
+        "href": "https://app.involve.asia/directory/tiktok-shop-my-cps-affiliate-program"
+      },
+      {
+        "name": "TikTok Shop MY (Deeplinkable) – CPS",
+        "country": "my",
+        "industry": "marketplace",
+        "days": 7,
+        "logo": "2024/11/TikTok-Shop-Logo-V3.png",
+        "href": "https://app.involve.asia/directory/tiktok-shop-malaysia-cps-affiliate-program"
+      },
+      {
+        "name": "TikTok Shop PH (Deeplinkable) – CPS",
+        "country": "ph",
+        "industry": "marketplace",
+        "days": 7,
+        "logo": "2024/11/TikTok-Shop-Logo-V3.png",
+        "href": "https://app.involve.asia/directory/tiktok-shop-philippines-cps-affiliate-program"
+      },
+      {
+        "name": "TikTok Shop PH (ClickID) – CPS",
+        "country": "ph",
+        "industry": "marketplace",
+        "days": 7,
+        "logo": "2024/11/TikTok-Shop-Logo-V3.png",
+        "href": "https://app.involve.asia/directory/tiktok-shop-philippines-click-id-affiliate-program"
+      },
+      {
+        "name": "TikTok Shop VN (ClickID) – CPS",
+        "country": "vn",
+        "industry": "marketplace",
+        "days": 7,
+        "logo": "2024/11/TikTok-Shop-Logo-V3.png",
+        "href": "https://app.involve.asia/directory/tiktok-shop-vn-clickid-affiliate-program"
+      },
+      {
+        "name": "TikTok Shop VN (Deeplinkable) – CPS",
+        "country": "vn",
+        "industry": "marketplace",
+        "days": 7,
+        "logo": "2024/11/TikTok-Shop-Logo-V3.png",
+        "href": "https://app.involve.asia/directory/tiktok-shop-vn-affiliate-program"
+      },
+      {
+        "name": "TikTok Shop SG (Deeplinkable) – CPS",
+        "country": "sg",
+        "industry": "marketplace",
+        "days": 7,
+        "logo": "2024/11/TikTok-Shop-Logo-V3.png",
+        "href": "https://app.involve.asia/directory/tiktok-shop-singapore-affiliate-program"
+      },
+      {
+        "name": "TikTok Shop SG (ClickID) – CPS",
+        "country": "sg",
+        "industry": "marketplace",
+        "days": 7,
+        "logo": "2024/11/TikTok-Shop-Logo-V3.png",
+        "href": "https://app.involve.asia/directory/tiktok-shop-sg-affiliate-program"
+      },
+      {
+        "name": "Tokopedia ID – CPS",
+        "country": "id",
+        "industry": "marketplace",
+        "days": 7,
+        "logo": "2026/08/Tokopedia-logo.png",
+        "href": "https://app.involve.asia/directory/tokopedia-id-cps-affiliate-program"
+      },
+      {
+        "name": "Tokopedia (ClickID) – CPS",
+        "country": "id",
+        "industry": "marketplace",
+        "days": 7,
+        "logo": "2026/08/Tokopedia-logo.png",
+        "href": "https://app.involve.asia/directory/tokopedia-cps-affiliate-program"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to earn with faster validation?",
+    "label": "Login to Your Dashboard",
+    "href": "https://invl.me/clmpu6y"
+  }
+}

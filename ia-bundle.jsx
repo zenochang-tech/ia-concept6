@@ -3708,7 +3708,7 @@ function NetworkMorphCTA({ emphasis = 'equal', hex = 3 }) {
 const FOOT = [
   { h: 'For Publishers', links: [['Overview','for-publishers'],['All Brands Directory','https://app.involve.asia/directory'],['Express Withdrawal','express-withdrawal'],['Developer API','api-overview'],['Data Feed','datafeed']] },
   { h: 'For Advertisers', links: [['Overview','for-advertisers'],['How We Track','how-we-track'],['Partner Discovery','partner-discovery'],['Automation','automation'],['Case Studies','https://involve.asia/blog/category/advertisers/success-stories/']] },
-  { h: 'Involve', links: [['About Us','about'],['Careers','https://careers.involve.asia/'],['Blog','blog'],['Support','https://helpcentre.involve.asia/'],['Terms & Conditions','terms-conditions'],['Privacy Policy','https://app.involve.asia/publisher/privacypolicy']] },
+  { h: 'Involve', links: [['About Us','about'],['Careers','https://careers.involve.asia/'],['Blog','blog'],['Support','https://helpcentre.involve.asia/'],['Terms & Conditions','terms-conditions'],['Privacy Policy','privacy-policy']] },
 ];
 // [name, url, icon] — icons are the white 48×48 "[name]-Social Icon.svg" exports
 const SOCIAL = [['Facebook','https://www.facebook.com/involveasia','facebook'],['Twitter','https://twitter.com/InvolveAsia','twitter'],['Instagram','https://www.instagram.com/involveasia/','instagram'],['LinkedIn','https://www.linkedin.com/company/involve-asia/','linkedin']];

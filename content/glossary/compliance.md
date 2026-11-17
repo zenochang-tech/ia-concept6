@@ -3,12 +3,12 @@ title: Compliance
 metaTitle: What is compliance? | Involve Asia Glossary
 metaDescription: Compliance means a publisher's promotional methods and content follow an offer's rules, advertising law, and platform policies.
 tldr: Compliance means a publisher's promotion of an offer follows the advertiser's rules, applicable advertising law, and the platform's own policies.
-related: prohibited-promotion-methods, promotion-method, terms-conditions-t-cs, affiliate-disclosure-statement
+related: prohibited-promotion-methods, promotion-method, terms-conditions-tcs, affiliate-disclosure-statement
 ---
 
 ## What is compliance?
 
-Compliance is whether a [publisher](publisher)'s promotion of an offer sticks to the rules set by the [advertiser](advertiser), the [terms & conditions](terms-conditions-t-cs) of the program, and relevant advertising law.
+Compliance is whether a [publisher](publisher)'s promotion of an offer sticks to the rules set by the [advertiser](advertiser), the [terms & conditions](terms-conditions-tcs) of the program, and relevant advertising law.
 
 ## What it typically covers
 

@@ -15,7 +15,7 @@ GSAP and Lenis load from a CDN (needs internet). All images/videos are bundled i
 
 ## SEO
 `build-seo.py` writes each page's canonical URL, favicon, share tags (Open Graph /
-Twitter), JSON-LD and — for the `-v2` and test pages — `noindex`, plus `sitemap.xml`
+Twitter), JSON-LD and — for the test page and the 404 page — `noindex`, plus `sitemap.xml`
 and `robots.txt`. It reads the page's own `<title>` and meta description, so to change
 those, edit them in the page and rerun `python3 build-seo.py`.
 
