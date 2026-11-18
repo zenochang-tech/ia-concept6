@@ -214,13 +214,13 @@ function HexFinaleStatic() {
             <span className="hf-kick">Creators. Affiliates. Technology Partners.</span>
             <h3 className="hf-ct">I'm a <br />Publisher</h3>
             <p className="hf-cd">Promote brands you love. <span className="hf-cd-more">Turn your audience or traffic into income.</span></p>
-            <a href="/partners/" className="btn btn-primary">Start Earning <Arrow /></a>
+            <a href="https://app.involve.asia/v2/login" className="btn btn-primary">Start Earning <Arrow /></a>
           </div>
           <div className="hf-card hf-card-adv hf-right">
             <span className="hf-kick adv">Brands. Retailers. Enterprises.</span>
             <h3 className="hf-ct">I'm an <br />Advertiser</h3>
             <p className="hf-cd">Grow your sales with the right publishers. <span className="hf-cd-more">Pay only for results.</span></p>
-            <a href="/advertisers/" className="btn btn-advertiser">Grow My Brand <Arrow /></a>
+            <a href="for-advertisers" className="btn btn-advertiser">Grow My Brand <Arrow /></a>
           </div>
         </div>
       </div>

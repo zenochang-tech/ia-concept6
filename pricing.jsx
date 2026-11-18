@@ -57,9 +57,9 @@ function PubHero({ c }) {
 // text (name/desc/price/unit/priceNote/plus/feats/cta) comes from c.items, zipped by index;
 // `plan` is the English plan name sent to get-started
 const PRICING_PLANS = [
-  { key: 'startup', plan: 'Startup', href: '/advertisers/' },
-  { key: 'growth', plan: 'Growth', href: '/advertisers/', recommended: true },
-  { key: 'enterprise', plan: 'Enterprise', href: '/advertisers/' },
+  { key: 'startup', plan: 'Startup', href: 'get-started' },
+  { key: 'growth', plan: 'Growth', href: 'get-started', recommended: true },
+  { key: 'enterprise', plan: 'Enterprise', href: 'get-started' },
 ];
 function PlanCheck() {
   return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>);
@@ -144,18 +144,18 @@ function PricingCompare({ c }) {
               <div className="cmp-c cmp-plan">
                 <span className="cmp-plan-name">{st.name}</span>
                 <span className="cmp-plan-price">{st.price}<small>{st.unit}</small></span>
-                <a href="/advertisers/" className="btn btn-secondary cmp-cta">{st.cta}</a>
+                <a href="get-started?plan=Startup" className="btn btn-secondary cmp-cta">{st.cta}</a>
               </div>
               <div className="cmp-c cmp-plan cmp-rec">
                 <span className="cmp-recbadge">{c.recommended}</span>
                 <span className="cmp-plan-name">{gr.name}</span>
                 <span className="cmp-plan-price">{gr.price}<small>{gr.unit}</small></span>
-                <a href="/advertisers/" className="btn btn-advertiser cmp-cta">{gr.cta}</a>
+                <a href="get-started?plan=Growth" className="btn btn-advertiser cmp-cta">{gr.cta}</a>
               </div>
               <div className="cmp-c cmp-plan">
                 <span className="cmp-plan-name">{en.name}</span>
                 <span className="cmp-plan-price cmp-custom">{en.price}</span>
-                <a href="/advertisers/" className="btn btn-secondary cmp-cta">{en.cta}</a>
+                <a href="get-started?plan=Enterprise" className="btn btn-secondary cmp-cta">{en.cta}</a>
               </div>
             </div>
             {c.rows.map((r, i) => (
@@ -337,7 +337,7 @@ const PUB_CTA_CSS = `
         @media (max-width:700px){ .pc-sec{ padding:clamp(60px,9vh,84px) 0 clamp(68px,10vh,96px); } }
       `;
 function PubCTA({ c }) {
-  return <FinalCta title={c.title} sub={c.sub} href="/advertisers/" tone="advertiser" label={c.label} css={PUB_CTA_CSS} />;
+  return <FinalCta title={c.title} sub={c.sub} href="get-started" tone="advertiser" label={c.label} css={PUB_CTA_CSS} />;
 }
 
 function PricingApp() {

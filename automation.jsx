@@ -22,7 +22,7 @@ function PubHero({ c }) {
           <h1 className="ph-title" data-reveal data-reveal-delay="1">{c.title}</h1>
           <p className="ph-sub" data-reveal data-reveal-delay="1">{c.sub}</p>
           <div className="ph-actions" data-reveal data-reveal-delay="2">
-            <a href="/advertisers/" className="btn btn-advertiser btn-lg">{c.cta} <Arrow /></a>
+            <a href="pricing" className="btn btn-advertiser btn-lg">{c.cta} <Arrow /></a>
           </div>
         </div>
 
@@ -145,7 +145,7 @@ function PubHero({ c }) {
 
 /* ---------- Final CTA (shared FinalCta, ia-sections.jsx) ----------------- */
 function PubCTA({ c }) {
-  return <FinalCta title={c.title} href="/advertisers/" tone="advertiser" label={c.label} />;
+  return <FinalCta title={c.title} href="for-advertisers" tone="advertiser" label={c.label} />;
 }
 
 /* ---------- Automation §2 — "Set it up once, let it run." (3 image columns) ---------- */
