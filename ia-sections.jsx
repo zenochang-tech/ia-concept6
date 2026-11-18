@@ -206,7 +206,7 @@ const PC_CSS_COMPACT = `
         .pc-title{ font-size:clamp(24px,3vw,34px); line-height:1.15; letter-spacing:-.03em; color:var(--warm-900); max-width:900px; }
         @media (max-width:700px){ .pc-sec{ padding:clamp(60px,9vh,84px) 0 clamp(68px,10vh,96px); } }
       `;
-function FinalCta({ title, sub, href = 'https://app.involve.asia/v2/create-account', tone = 'primary', label = tr('Start Earning'), css = PC_CSS_COMPACT }) {
+function FinalCta({ title, sub, href = 'https://app.involve.asia/v2/login', tone = 'primary', label = tr('Start Earning'), css = PC_CSS_COMPACT }) {
   return (
     <section id="pub-cta" className="pc-sec">
       <CtaHexField />

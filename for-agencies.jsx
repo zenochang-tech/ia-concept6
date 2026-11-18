@@ -154,7 +154,7 @@ function PubFAQ({ c }) {
 
 /* ---------- Final CTA (shared FinalCta, ia-sections.jsx) ----------------- */
 function PubCTA({ c }) {
-  return <FinalCta title={c.title} label={c.label} />;
+  return <FinalCta title={c.title} href="https://app.involve.asia/v2/create-account" label={c.label} />;
 }
 
 /* ---------- Affiliates §3 — "Why affiliate sites choose Involve." (4 icon columns) ---------- */

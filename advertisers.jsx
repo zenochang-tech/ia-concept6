@@ -33,7 +33,7 @@ function PubHero({ c }) {
           <h1 className="ph-title" data-reveal data-reveal-delay="1">{c.title}</h1>
           <p className="ph-sub" data-reveal data-reveal-delay="2">{c.sub}</p>
           <div className="ph-actions" data-reveal data-reveal-delay="3">
-            <a href="/advertisers/" className="btn btn-advertiser btn-lg">{c.cta} <Arrow /></a>
+            <a href="pricing" className="btn btn-advertiser btn-lg">{c.cta} <Arrow /></a>
           </div>
           <span className="ph-free" data-reveal data-reveal-delay="3">{c.free}</span>
         </div>
@@ -223,7 +223,7 @@ function PubLogos({ c }) {
 
 /* ---------- Final CTA (shared FinalCta, ia-sections.jsx) ----------------- */
 function PubCTA({ c }) {
-  return <FinalCta title={c.title} href="/advertisers/" tone="advertiser" label={c.label} />;
+  return <FinalCta title={c.title} href="pricing" tone="advertiser" label={c.label} />;
 }
 
 /* ---------- Advertiser Section 3 — "Whatever your goal, grow it here." ------

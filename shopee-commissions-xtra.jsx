@@ -22,7 +22,7 @@ function PubHero({ c }) {
           <h1 className="ph-title" data-reveal data-reveal-delay="1">{c.title}</h1>
           <p className="ph-sub" data-reveal data-reveal-delay="2">{c.sub}</p>
           <div className="ph-actions" data-reveal data-reveal-delay="3">
-            <a href="/partners/" className="btn btn-primary btn-lg">{c.cta} <Arrow /></a>
+            <a href="https://app.involve.asia/v2/login" className="btn btn-primary btn-lg">{c.cta} <Arrow /></a>
           </div>
           <span className="ph-free" data-reveal data-reveal-delay="3">{c.regions}</span>
         </div>
@@ -139,7 +139,7 @@ const PUB_CTA_CSS = `
         @media (max-width:700px){ .pc-sec{ padding:clamp(60px,9vh,84px) 0 clamp(68px,10vh,96px); } }
       `;
 function PubCTA({ c }) {
-  return <FinalCta title={c.title} sub={c.sub} label={c.label} css={PUB_CTA_CSS} />;
+  return <FinalCta title={c.title} sub={c.sub} href="https://app.involve.asia/v2/create-account" label={c.label} css={PUB_CTA_CSS} />;
 }
 
 /* ---------- Affiliates §3 — "Why affiliate sites choose Involve." (4 icon columns) ---------- */

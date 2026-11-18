@@ -41,7 +41,7 @@ function PubHero({ c }) {
           <h1 className="ph-title" data-reveal data-reveal-delay="1">{c.title}</h1>
           <p className="ph-sub" data-reveal data-reveal-delay="2">{c.sub}</p>
           <div className="ph-actions" data-reveal data-reveal-delay="3">
-            <a href="/partners/" className="btn btn-primary btn-lg">{c.cta} <Arrow /></a>
+            <a href="https://app.involve.asia/v2/login" className="btn btn-primary btn-lg">{c.cta} <Arrow /></a>
           </div>
           <span className="ph-free" data-reveal data-reveal-delay="3">{c.free}</span>
         </div>
@@ -307,7 +307,7 @@ function PubFAQ({ c }) {
 
 /* ---------- Final CTA (shared FinalCta, ia-sections.jsx) ----------------- */
 function PubCTA({ c }) {
-  return <FinalCta title={c.title} label={c.label} />;
+  return <FinalCta title={c.title} href="https://app.involve.asia/v2/create-account" label={c.label} />;
 }
 
 function PublisherApp() {

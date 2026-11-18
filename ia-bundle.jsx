@@ -813,8 +813,8 @@ function TwoDoor({ emphasis = 'equal', onDark = false, size = 'lg', center = fal
   );
   return (
     <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', justifyContent: center ? 'center' : 'flex-start' }}>
-      <Door kicker="I'm an Advertiser" href="/advertisers/" cls={advFilled ? 'btn-advertiser' : 'btn-outline-adv'}>List Your Brand</Door>
-      <Door kicker="I'm a Creator or Publisher" href="/partners/" cls={pubFilled ? 'btn-primary' : 'btn-outline-ember'}>Start Earning</Door>
+      <Door kicker="I'm an Advertiser" href="for-advertisers" cls={advFilled ? 'btn-advertiser' : 'btn-outline-adv'}>List Your Brand</Door>
+      <Door kicker="I'm a Creator or Publisher" href="https://app.involve.asia/v2/login" cls={pubFilled ? 'btn-primary' : 'btn-outline-ember'}>Start Earning</Door>
     </div>
   );
 }
@@ -1051,11 +1051,11 @@ function Hero({ c, dark = false, hex = 3, emphasis = 'equal' }) {
             <div className="hero2-ctas" data-reveal data-reveal-delay="2">
               <div className="hero2-cta">
                 <span className="hero2-kicker">{c.for}<i>{c.publishers}</i></span>
-                <a href="/partners/" className="btn btn-primary btn-lg">{c.pubCta} <Arrow /></a>
+                <a href="https://app.involve.asia/v2/login" className="btn btn-primary btn-lg">{c.pubCta} <Arrow /></a>
               </div>
               <div className="hero2-cta">
                 <span className="hero2-kicker adv">{c.for}<i>{c.advertisers}</i></span>
-                <a href="/advertisers/" className="btn btn-advertiser btn-lg">{c.advCta} <Arrow /></a>
+                <a href="for-advertisers" className="btn btn-advertiser btn-lg">{c.advCta} <Arrow /></a>
               </div>
             </div>
           </div>
@@ -1474,11 +1474,11 @@ function LiveDirectory({ c }) {
                 <button key={label} type="button" className={'lb-cat' + (i === cat ? ' on' : '')} aria-pressed={i === cat} onClick={() => setCat(i)}>{label}</button>
               ))}
             </div>
-            <a href="/advertisers/" className="lb-explore">{c.explore} <Arrow /></a>
+            <a href="https://app.involve.asia/v2/publisher/browse" className="lb-explore">{c.explore} <Arrow /></a>
           </div>
           <div className="lb-grid" key={cat}>
             {displayed.map((b, i) => (
-              <a key={b.name} href="/advertisers/" className="lb-card">
+              <a key={b.name} href="https://app.involve.asia/v2/publisher/browse" className="lb-card">
                 <img className="lb-bg" src={`media/figma/s4-bg-${slug(b.name)}.png`} alt="" loading="lazy" />
                 <span className="lb-scrim" aria-hidden="true" />
                 {i < 3 && <span className="lb-badge">{c.badge}</span>}
@@ -2149,7 +2149,7 @@ function SuccessSlider({ c }) {
   const mPrev = () => (mtab === 0 ? setPi((v) => v - 1) : setAi((v) => v - 1));            // mobile: advance the active tab's deck
   const mNext = () => (mtab === 0 ? setPi((v) => v + 1) : setAi((v) => v + 1));
   const pickCard = (d, N, st) => {
-    if (d === 0) { window.location.href = st.href || '/success-stories/'; return; }
+    if (d === 0) { window.location.href = st.href || 'https://involve.asia/blog/#success-stories'; return; }
     if (d <= N - d) advanceBoth(d); else advanceBoth(-(N - d));   // shorter single ±1 step to the front
   };
 
@@ -2208,7 +2208,7 @@ function SuccessSlider({ c }) {
             <p className="rr-sub">{c.sub}</p>
           </div>
           <div className="rr-controls">
-            <a href="/success-stories/" className="rr-seeall">{c.seeAll} <Arrow /></a>
+            <a href="https://involve.asia/blog/#success-stories" className="rr-seeall">{c.seeAll} <Arrow /></a>
             <div className="rr-arrows">
               <button type="button" className="rr-arrow" onClick={() => advanceBoth(-1)} aria-label={c.prevStories}><RRChevron dir="l" /></button>
               <button type="button" className="rr-arrow rr-next" onClick={() => advanceBoth(1)} aria-label={c.nextStories}><RRChevron dir="r" /></button>
@@ -2247,7 +2247,7 @@ function SuccessSlider({ c }) {
             </div>
           </div>
           <MobileDeck stories={mtab === 0 ? PUB_STORIES : ADV_STORIES} idx={mtab === 0 ? pi : ai} onPrev={mPrev} onNext={mNext} tabKey={mtab} />
-          <a href="/success-stories/" className="rr-seeall rr-seeall-m">{c.seeAll} <Arrow /></a>
+          <a href="https://involve.asia/blog/#success-stories" className="rr-seeall rr-seeall-m">{c.seeAll} <Arrow /></a>
         </div>
       </div>
       <style>{`
@@ -2595,13 +2595,13 @@ function HexFinaleAnimated({ emphasis = 'equal', hex = 3 }) {
           <span className="hfa-kick">Creators. Affiliates. Technology Partners.</span>
           <h3 className="hfa-ct">I'm a<br />Publisher</h3>
           <p className="hfa-cd">Promote brands you love. Turn your audience or traffic into income.</p>
-          <a href="/partners/" className="btn btn-primary">Start Earning <Arrow /></a>
+          <a href="https://app.involve.asia/v2/login" className="btn btn-primary">Start Earning <Arrow /></a>
         </div>
         <div ref={cRRef} className="hfa-card hfa-card-r">
           <span className="hfa-kick adv">Brands. Retailers. Enterprises.</span>
           <h3 className="hfa-ct">I'm an<br />Advertiser</h3>
           <p className="hfa-cd">Grow your sales with the right publishers. Pay only for results.</p>
-          <a href="/advertisers/" className="btn btn-advertiser">Grow My Brand <Arrow /></a>
+          <a href="for-advertisers" className="btn btn-advertiser">Grow My Brand <Arrow /></a>
         </div>
         </div>
       </div>
@@ -2694,13 +2694,13 @@ function HexFinaleStatic({ c, emphasis = 'equal', hex = 3 }) {
             <span className="hf-kick">{c.pubKicker}</span>
             <h3 className="hf-ct">{rich(c.pubTitle)}</h3>
             <p className="hf-cd">{c.pubDesc}<span className="hf-cd-more">{c.pubDescMore}</span></p>
-            <a href="/partners/" className="btn btn-primary">{c.pubCta} <Arrow /></a>
+            <a href="https://app.involve.asia/v2/login" className="btn btn-primary">{c.pubCta} <Arrow /></a>
           </div>
           <div className="hf-card hf-card-adv hf-right">
             <span className="hf-kick adv">{c.advKicker}</span>
             <h3 className="hf-ct">{rich(c.advTitle)}</h3>
             <p className="hf-cd">{c.advDesc}<span className="hf-cd-more">{c.advDescMore}</span></p>
-            <a href="/advertisers/" className="btn btn-advertiser">{c.advCta} <Arrow /></a>
+            <a href="for-advertisers" className="btn btn-advertiser">{c.advCta} <Arrow /></a>
           </div>
         </div>
       </div>
@@ -3681,7 +3681,7 @@ function NetworkMorphCTA({ emphasis = 'equal', hex = 3 }) {
         </div>
         <span ref={labA} className="nm-label" style={{ '--x': '-112px' }}>I'm an Advertiser</span>
         <span ref={labB} className="nm-label" style={{ '--x': '112px' }}>I'm a Creator or Publisher</span>
-        <a ref={aRef} className="nm-door nm-adv" href="/advertisers/" aria-label="List Your Brand — for advertisers">
+        <a ref={aRef} className="nm-door nm-adv" href="for-advertisers" aria-label="List Your Brand — for advertisers">
           <span className="nm-rim" aria-hidden="true"></span>
           <span ref={aGrad} className="nm-grad nm-grad-adv" aria-hidden="true"></span>
           <span ref={aImg} className="nm-img" aria-hidden="true"
@@ -3690,7 +3690,7 @@ function NetworkMorphCTA({ emphasis = 'equal', hex = 3 }) {
           <span ref={aH} className="nm-htext" aria-hidden="true">Advertiser</span>
           <span ref={aTxt} className="nm-dt">List Your Brand <Arrow /></span>
         </a>
-        <a ref={bRef} className="nm-door nm-pub" href="/partners/" aria-label="Start Earning — for creators and publishers">
+        <a ref={bRef} className="nm-door nm-pub" href="https://app.involve.asia/v2/login" aria-label="Start Earning — for creators and publishers">
           <span className="nm-rim" aria-hidden="true"></span>
           <span ref={bGrad} className="nm-grad nm-grad-pub" aria-hidden="true"></span>
           <span ref={bImg} className="nm-img" aria-hidden="true"

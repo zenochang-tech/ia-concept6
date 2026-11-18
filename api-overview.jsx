@@ -23,7 +23,7 @@ function PubHero({ c, docs }) {
           <h1 className="ph-title" data-reveal data-reveal-delay="1">{c.title}</h1>
           <p className="ph-sub" data-reveal data-reveal-delay="1">{c.sub}</p>
           <div className="ph-actions" data-reveal data-reveal-delay="2">
-            <a href="/partners/" className="btn btn-primary btn-lg">{c.cta} <Arrow /></a>
+            <a href="https://app.involve.asia/v2/publisher/api-keys" className="btn btn-primary btn-lg">{c.cta} <Arrow /></a>
             <a href={docs} className="btn btn-secondary btn-lg">{c.docs} <Arrow /></a>
           </div>
         </div>
@@ -139,7 +139,7 @@ function PubFAQ({ c }) {
 
 /* ---------- Final CTA (shared FinalCta, ia-sections.jsx) ----------------- */
 function PubCTA({ c }) {
-  return <FinalCta title={c.title} label={c.label} />;
+  return <FinalCta title={c.title} href="https://app.involve.asia/v2/publisher/api-keys" label={c.label} />;
 }
 
 /* ---------- API §2 — "Automate the work, scale your earnings." (4 cards) ---------- */
@@ -259,7 +259,7 @@ function GetStarted({ c }) {
               <span className="gs-ic" aria-hidden="true">{s.ic}</span>
               <h3 className="gs-st">{s.t}</h3>
               <p className="gs-sd">{s.d}</p>
-              {s.cta && <a href="/partners/" className="btn btn-primary gs-cta">{c.cta} <Arrow /></a>}
+              {s.cta && <a href="https://app.involve.asia/v2/publisher/api-keys" className="btn btn-primary gs-cta">{c.cta} <Arrow /></a>}
             </div>
           ))}
         </div>

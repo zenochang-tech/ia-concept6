@@ -379,13 +379,13 @@ function HexFinaleStatic({ c }) {
             <span className="hf-kick">{c.pub.kick}</span>
             <h3 className="hf-ct">{c.pub.titleA}<br />{c.pub.titleB}</h3>
             <p className="hf-cd">{c.pub.d}<span className="hf-cd-more">{c.pub.dMore}</span></p>
-            <a href="/partners/" className="btn btn-primary">{c.pub.cta} <Arrow /></a>
+            <a href="https://app.involve.asia/v2/login" className="btn btn-primary">{c.pub.cta} <Arrow /></a>
           </div>
           <div className="hf-card hf-card-adv hf-right">
             <span className="hf-kick adv">{c.adv.kick}</span>
             <h3 className="hf-ct">{c.adv.titleA}<br />{c.adv.titleB}</h3>
             <p className="hf-cd">{c.adv.d}<span className="hf-cd-more">{c.adv.dMore}</span></p>
-            <a href="/advertisers/" className="btn btn-advertiser">{c.adv.cta} <Arrow /></a>
+            <a href="for-advertisers" className="btn btn-advertiser">{c.adv.cta} <Arrow /></a>
           </div>
         </div>
       </div>
