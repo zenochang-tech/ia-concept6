@@ -123,6 +123,7 @@ function RfEarn({ c }) {
           </table>
         </div>
         <p className="rfe-note" data-reveal>{rich(c.note)}</p>
+        <p className="rfe-note rfe-terms" data-reveal>{rich(c.terms)}</p>
       </div>
       <style>{`
         .rfe-sec{ background:var(--warm-50); padding:clamp(28px,4vh,48px) 0 clamp(40px,7vh,88px); }
@@ -139,6 +140,7 @@ function RfEarn({ c }) {
         .rfe-note{ margin-top:18px; font:400 14px/1.5 var(--font-body); color:var(--warm-600); }
         .rfe-note a{ font-weight:600; color:var(--warm-900); text-decoration:underline; text-underline-offset:3px; }
         .rfe-note a:hover{ color:var(--ember-dark); }
+        .rfe-terms{ margin-top:6px; }
         /* cells may wrap on phones: translated labels ("Rp15.000 per orang") run longer than the English */
         @media (max-width:560px){ .rfe-table th, .rfe-table td{ padding-left:14px; padding-right:12px; } .rfe-table{ font-size:14px; } .rfe-table td{ white-space:normal; } }
       `}</style>

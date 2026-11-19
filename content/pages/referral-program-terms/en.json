@@ -1,0 +1,53 @@
+{
+  "_note": "Legal copy, verbatim from involve.asia/terms-conditions/referral-my/ (\"Programme\" spelled \"Program\" to match the site). An item is a string, or {\"t\", \"sub\"} for a lettered sub-list. Country links: './referral-program' always means the English (Malaysia) page; 'id/…', 'th/…', 'vn/…' are that language's page.",
+  "meta": {
+    "title": "Referral Program Terms and Conditions | Involve Asia",
+    "description": "The terms and conditions of the Involve Referral Program: who can take part, how the sign-up reward works, and when bonuses are paid."
+  },
+  "hero": {
+    "eyebrow": "For Publishers",
+    "title": "Referral Program terms and conditions"
+  },
+  "items": [
+    "The Referral Program (**“Offer”**) is open to all Partners on Involve Asia’s Network.",
+    "This Offer allows the **Referrer** (person who refers) to get bonus(es) when the **Referee**(s) (person who is referred to) signs up on Involve Asia (“**The Company**”) with the Referrer’s unique link and starts receiving conversion with The Company thereafter.",
+    "Once the Referrer’s unique link is used by the Referee to sign up, the Referrer and Referee both are eligible to earn **MYR5 each** upon Referee’s first successful sale conversion **(CPS offers, excluding Involve Asia’s internal Offers, only) within 14 days** of their account approval.",
+    {
+      "t": "This Offer is only valid once the Referee(s):",
+      "sub": [
+        "Verifies their email address;",
+        "Have an approved Involve Asia account;",
+        "Have at least one (1) approved Property;",
+        "Have at least one (1) sale conversion **(CPS offers, excluding Involve Asia’s internal Offers, only)** within 14 days of account approval"
+      ]
+    },
+    "Only CPS conversions (**excluding Involve Asia’s internal Offers**) by the Referee will be counted towards this Offer.",
+    {
+      "t": "The **full list of bonus** you may get from this Offer is listed in the website landing pages below:",
+      "sub": [
+        "[Malaysia](./referral-program)",
+        "[Indonesia](id/referral-program)",
+        "[Thailand](th/referral-program)",
+        "[Philippines](https://involve.asia/partners/referral-program-ph/)",
+        "[Vietnam](vn/referral-program)"
+      ]
+    },
+    "Any countries that are not included in Term No. 6 will follow Malaysian Ringgit (RM/MYR) payout rates.",
+    {
+      "t": "This Offer’s general information",
+      "sub": [
+        "Cookies period: 7 days",
+        "Validation period: 15 days",
+        "Payment term: 30 days"
+      ]
+    },
+    "Bonuses that are eligible to receive upon approved conversions by the Referee(s) will be paid out and uploaded by the 20th week of every month.",
+    "The bonuses received from this Offer are not applicable for Express Withdrawal.",
+    "Any other referral links or promotions generated outside of this Offer will not be applicable for this Offer.",
+    "The Company has the right to clawback any conversions which are found to be invalid or rejected.",
+    "The Company can, at its own discretion, disqualify conversions as they see fit.",
+    "The Company shall be entitled to withhold any benefits under the services rendered, with notice to the users if the user is found to have breached any of The Company’s Terms and Conditions."
+  ],
+  "updated": "T&Cs are updated as of 4th September 2023",
+  "cta": "Promote Now"
+}

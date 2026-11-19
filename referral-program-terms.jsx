@@ -1,9 +1,10 @@
 /* ============================================================================
    Referral Program Terms & Conditions (Malaysia). Hero and body reuse the Terms &
    Conditions page components (Glossary-style hex hero + the plain legal text block),
-   like the Fraud Awareness page. Legal copy is verbatim from the live
-   involve.asia/terms-conditions/referral-my/ page, with "Programme" spelled
-   "Program" to match the rest of the site.
+   like the Fraud Awareness page. The legal copy lives in
+   content/pages/referral-program-terms/<lang>.json: English is verbatim from the live
+   involve.asia/terms-conditions/referral-my/ page (also used by the Thai and
+   Indonesian Referral pages), Vietnamese from …/referral-program-vn/.
    Loads AFTER ia-shared.jsx (Nav/Footer/BackToTop/hooks).
    ============================================================================ */
 
@@ -22,13 +23,13 @@ function RftHexField() {
     </svg>
   );
 }
-function RftHero() {
+function RftHero({ c }) {
   return (
     <section id="rft-hero" className="gh-sec">
       <div className="gh-honey" aria-hidden="true"><RftHexField /></div>
       <div className="wrap gh-wrap">
-        <span className="gh-eyebrow" data-reveal>For Publishers</span>
-        <h1 className="gh-title" data-reveal data-reveal-delay="1">Referral Program terms and conditions</h1>
+        <span className="gh-eyebrow" data-reveal>{c.eyebrow}</span>
+        <h1 className="gh-title" data-reveal data-reveal-delay="1">{c.title}</h1>
       </div>
       <style>{`
         .gh-sec{ position:relative; overflow:hidden; background:var(--warm-50); padding:clamp(44px,8vh,92px) 0 clamp(16px,2.4vh,30px); text-align:center; }
@@ -46,53 +47,20 @@ function RftHero() {
   );
 }
 
-/* ---------- Content (verbatim from the live page) ---------- */
-// item = text, or [text, sub-items] for the lettered sub-lists (a., b., …)
-const RFT_LINK = (href, label) => <a className="lt-link" href={href}>{label}</a>;
-const RFT_TERMS = [
-  <React.Fragment>The Referral Program (<b>“Offer”</b>) is open to all Partners on Involve Asia’s Network.</React.Fragment>,
-  <React.Fragment>This Offer allows the <b>Referrer</b> (person who refers) to get bonus(es) when the <b>Referee</b>(s) (person who is referred to) signs up on Involve Asia (“<b>The Company</b>”) with the Referrer’s unique link and starts receiving conversion with The Company thereafter.</React.Fragment>,
-  <React.Fragment>Once the Referrer’s unique link is used by the Referee to sign up, the Referrer and Referee both are eligible to earn <b>MYR5 each</b> upon Referee’s first successful sale conversion <b>(CPS offers, excluding Involve Asia’s internal Offers, only) within 14 days</b> of their account approval.</React.Fragment>,
-  ['This Offer is only valid once the Referee(s):', [
-    'Verifies their email address;',
-    'Have an approved Involve Asia account;',
-    'Have at least one (1) approved Property;',
-    <React.Fragment>Have at least one (1) sale conversion <b>(CPS offers, excluding Involve Asia’s internal Offers, only)</b> within 14 days of account approval</React.Fragment>,
-  ]],
-  <React.Fragment>Only CPS conversions (<b>excluding Involve Asia’s internal Offers</b>) by the Referee will be counted towards this Offer.</React.Fragment>,
-  [<React.Fragment>The <b>full list of bonus</b> you may get from this Offer is listed in the website landing pages below:</React.Fragment>, [
-    RFT_LINK('referral-program', 'Malaysia'),
-    RFT_LINK('https://involve.asia/id/partners/referral-programme-id/', 'Indonesia'),
-    RFT_LINK('https://involve.asia/th/partners/referral-programme-th/', 'Thailand'),
-    RFT_LINK('https://involve.asia/partners/referral-program-ph/', 'Philippines'),
-    RFT_LINK('https://involve.asia/vn/partners/referral-programme-vn/', 'Vietnam'),
-  ]],
-  'Any countries that are not included in Term No. 6 will follow Malaysian Ringgit (RM/MYR) payout rates.',
-  ['This Offer’s general information', [
-    'Cookies period: 7 days',
-    'Validation period: 15 days',
-    'Payment term: 30 days',
-  ]],
-  'Bonuses that are eligible to receive upon approved conversions by the Referee(s) will be paid out and uploaded by the 20th week of every month.',
-  'The bonuses received from this Offer are not applicable for Express Withdrawal.',
-  'Any other referral links or promotions generated outside of this Offer will not be applicable for this Offer.',
-  'The Company has the right to clawback any conversions which are found to be invalid or rejected.',
-  'The Company can, at its own discretion, disqualify conversions as they see fit.',
-  'The Company shall be entitled to withhold any benefits under the services rendered, with notice to the users if the user is found to have breached any of The Company’s Terms and Conditions.',
-];
-
-function RftContent() {
+/* ---------- Content ---------- */
+// item = text, or { t, sub } for the lettered sub-lists (a., b., …); text may use **bold** and [label](link)
+function RftContent({ c }) {
   return (
     <section id="rft-content" className="tc-sec">
       <div className="wrap tc-wrap">
         <div className="tc-block" data-reveal>
           <ol className="lt-list">
-            {RFT_TERMS.map((t, i) => Array.isArray(t)
-              ? <li key={i}>{t[0]}<ol className="lt-sub">{t[1].map((s, j) => <li key={j}>{s}</li>)}</ol></li>
-              : <li key={i}>{t}</li>)}
+            {c.items.map((t, i) => typeof t === 'object'
+              ? <li key={i}>{rich(t.t, 'lt-link')}<ol className="lt-sub">{t.sub.map((s, j) => <li key={j}>{rich(s, 'lt-link')}</li>)}</ol></li>
+              : <li key={i}>{rich(t, 'lt-link')}</li>)}
           </ol>
-          <p className="lt-updated">T&amp;Cs are updated as of 4th September 2023</p>
-          <a href={RFT_PROMOTE} className="btn btn-primary btn-lg lt-cta">Promote Now <Arrow /></a>
+          {c.updated && <p className="lt-updated">{c.updated}</p>}
+          <a href={RFT_PROMOTE} className="btn btn-primary btn-lg lt-cta">{c.cta} <Arrow /></a>
         </div>
       </div>
       <style>{`
@@ -116,12 +84,13 @@ function RftContent() {
 function ReferralTermsApp() {
   useSmoothScroll();
   useScrollReveal();
+  const c = useCopy('referral-program-terms');
   return (
     <React.Fragment>
       <Nav getStartedTone="pub" />
       <main>
-        <RftHero />
-        <RftContent />
+        <RftHero c={c.hero} />
+        <RftContent c={c} />
       </main>
       <Footer />
       <BackToTop />

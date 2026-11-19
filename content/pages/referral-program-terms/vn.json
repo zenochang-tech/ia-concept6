@@ -1,0 +1,53 @@
+{
+  "_note": "Verbatim from involve.asia/terms-conditions/referral-program-vn/ (the live page has no update date). Differs from the English terms: RM5 instead of MYR5, and a 15-day payment term instead of 30 days; flagged for review in content/terms/vn.md.",
+  "meta": {
+    "title": "Điều khoản & Điều kiện Chương trình giới thiệu | Involve Asia",
+    "description": "Điều khoản và điều kiện của Chương trình giới thiệu Involve: ai có thể tham gia, cách nhận thưởng đăng ký và thời gian thanh toán thưởng."
+  },
+  "hero": {
+    "eyebrow": "Dành cho Publisher",
+    "title": "Điều khoản & Điều kiện Chương trình giới thiệu"
+  },
+  "items": [
+    "Chương trình giới thiệu (**“Offer”**) dành cho tất cả các đối tác của Involve Asia.",
+    "Chương trình cho phép **Referrer** (Người giới thiệu) nhận được thưởng khi **Referee**(s) (Người được giới thiệu) đăng ký tài khoản Involve Asia (“**The Company**”) thông qua đường link giới thiệu của Người giới thiệu và bắt đầu có chuyển đổi tại Involve Asia (“**The Company**”).",
+    "Sau khi đường link của Người giới thiệu được sử dụng để Người được giới thiệu đăng ký, cả hai sẽ nhận được **RM5 mỗi người** khi Người được giới thiệu có chuyển đổi đầu tiên **(Chỉ chương trình CPS, ngoại trừ những chương trình nội bộ của Involve Asia)** **trong vòng 14 ngày** kể từ khi tài khoản được duyệt.",
+    {
+      "t": "Chương trình này chỉ có hiệu lực khi Người được giới thiệu:",
+      "sub": [
+        "Xác thực tài khoản email;",
+        "Tài khoản Involve Asia được duyệt;",
+        "Có ít nhất một (1) trang quảng bá được duyệt trong tài khoản;",
+        "Có ít nhất một (1) chuyển đổi đầu tiên **(Chỉ chương trình CPS, ngoại trừ những chương trình nội bộ của Involve Asia)** **trong vòng 14 ngày** kể từ khi tài khoản được duyệt"
+      ]
+    },
+    "Chỉ những chuyển đổi CPS được ghi nhận từ người được giới thiệu mới được tính cho chương trình này (**ngoại trừ những chương trình nội bộ của Involve Asia**)",
+    {
+      "t": "**Danh sách thưởng** của chương trình có thể được tìm thấy tại trang chính",
+      "sub": [
+        "[Malaysia](./referral-program)",
+        "[Indonesia](id/referral-program)",
+        "[Thailand](th/referral-program)",
+        "[Philippines](https://involve.asia/partners/referral-program-ph/)",
+        "[Vietnam](vn/referral-program)"
+      ]
+    },
+    "Bất cứ quốc gia nằm ngoài trong điều khoản 6 sẽ được tính dựa trên Malaysian Ringgit (RM/MYR).",
+    {
+      "t": "Thông tin chung của chương trình:",
+      "sub": [
+        "Thời gian Cookie: 7 ngày",
+        "Thời gian Xác nhận: 15 ngày",
+        "Thời gian Thanh toán: 15 ngày"
+      ]
+    },
+    "Thu nhập hợp lệ dựa trên chuyển đổi được phê duyệt đến từ Người được giới thiệu sẽ được thanh toán và tải lên hệ thống vào ngày 20 mỗi tháng.",
+    "Thu nhập đến từ chương trình này sẽ không thuộc danh sách các chương trình có thể áp dụng Rút tiền Nhanh.",
+    "Bất cứ đường link hay chương trình quảng bá nào được tạo ngoài chương trình này sẽ không được áp dụng chung điều khoản và điều kiện.",
+    "Công ty có quyền thu hồi bất cứ chuyển đổi được xác định không hợp lệ và bị từ chối.",
+    "Công ty có thể, theo quyết định của họ, loại trừ các chuyển đổi không phù hợp.",
+    "Công ty được quyền giữ lại quyền lợi trong dịch vụ cung cấp, thông báo tới người dùng nếu phát hiện người dùng vi phạm bất kỳ Điều khoản và Điều kiện của công ty."
+  ],
+  "updated": null,
+  "cta": "Quảng bá ngay"
+}
