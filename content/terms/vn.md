@@ -63,7 +63,7 @@ Headings, buttons and labels use **sentence case** (only the first word and prop
 | Grow My Brand (button) | Tăng doanh số | one label everywhere; "Phát triển thương hiệu" doesn't fit the homepage button on phones |
 | social media | mạng xã hội | |
 | Help Centre | Trung tâm trợ giúp | |
-| Terms & Conditions | Điều khoản & Điều kiện | legal pages themselves stay English for now |
+| Terms & Conditions | Điều khoản & Điều kiện | legal pages stay English, except the Referral Program terms (Vietnamese from the live page) |
 | Privacy Policy | Chính sách bảo mật | |
 
 ## 4. Numbers, money and dates
@@ -113,3 +113,5 @@ Wording the translators were least sure of. A fluent reviewer should confirm or 
 **Still in English everywhere, pending a decision:** customer testimonials and case-study quotes (question 4 above).
 
 **English source issues spotted:** same as Indonesian — the search descriptions of For Publishers, Express Withdrawal and Automation say "4,000+ brands"; Partner Discovery, How We Track and Datafeed reuse a generic Publisher description, so their Vietnamese descriptions were written for the page instead.
+
+**Referral Program terms (/vn/referral-program-terms, 18 November 2026):** copied word for word from the live involve.asia/terms-conditions/referral-program-vn/ page; only the heading ("Điều khoản & Điều kiện Chương trình giới thiệu"), the eyebrow and the "Quảng bá ngay" button are new. To confirm with the business: the Vietnamese terms say **RM5** and a **15-day payment term**, while the English (Malaysia) terms say MYR5 and 30 days. The Thai and Indonesian Referral pages link to the English terms.
